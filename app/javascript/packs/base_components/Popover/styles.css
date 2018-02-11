@@ -1,0 +1,32 @@
+.Popover__content {
+  font-size: 13px;
+}
+.Popover__content p {
+  margin-bottom: 0px;
+}
+
+.Popover__button {
+  border: none;
+  background: none;
+  transition: all 300ms ease-in;
+  color: #9fa6ad;
+  font-size: 1.2rem;
+  padding: 0;
+}
+.Popover__button:focus {
+  outline: 0;
+  color: #0e90e0;
+}
+.Popover__button .Popover__button__badge {
+  background: #f44336;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  font-size: 8px;
+  padding: 4px 3px 3px 2.6px;
+  font-family: 'Avenir Next', sans-serif;
+  font-weight: 500;
+  position: relative;
+  top: -7px;
+  left: -8px;
+}

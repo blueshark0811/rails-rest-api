@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="31px" viewBox="0 0 24 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>exam (1)</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Courses" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Courses-Detail" transform="translate(-265.000000, -676.000000)" fill-rule="nonzero" fill="#000000">
+            <g id="exam-(1)" transform="translate(265.000000, 676.000000)">
+                <path d="M0,0 L0,31 L24,31 L24,0 L0,0 Z M21.2307372,5.63636914 L15.6922711,5.63636914 L15.6922711,8.45452344 L21.2307372,8.45452344 L21.2307372,28.1817852 L2.76926281,28.1817852 L2.76926281,8.45452344 L12.9231273,8.45452344 L12.9231273,5.63636914 L2.76926281,5.63636914 L2.76926281,2.8181543 L21.2307967,2.8181543 L21.2307967,5.63636914 L21.2307372,5.63636914 Z" id="Shape"></path>
+                <rect id="Rectangle-path" x="5" y="23" width="8" height="3"></rect>
+                <rect id="Rectangle-path" x="5" y="17" width="8" height="3"></rect>
+                <rect id="Rectangle-path" x="5" y="11" width="8" height="3"></rect>
+                <rect id="Rectangle-path" x="16" y="17" width="3" height="3"></rect>
+                <rect id="Rectangle-path" x="16" y="23" width="3" height="3"></rect>
+                <rect id="Rectangle-path" x="16" y="11" width="3" height="3"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

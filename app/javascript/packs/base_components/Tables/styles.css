@@ -1,0 +1,25 @@
+.table-responsive {
+  border: 0;
+}
+
+.Tables .Tables__row {
+  border-bottom: 1px solid #dadada;
+}
+.Tables .Tables__row th,
+.Tables .Tables__row td {
+  border: 0;
+}
+.Tables .Tables__row td:last-child {
+  text-align: right;
+}
+.Tables .Tables__row th {
+  font-size: 12px;
+  font-weight: 400;
+  color: #636363;
+  text-transform: uppercase;
+  padding-bottom: 3px;
+}
+.Tables .Tables__row td {
+  font-size: 16px;
+  color: #111;
+}

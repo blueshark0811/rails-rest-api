@@ -1,0 +1,30 @@
+.LinkButton{
+    background-color: #338FFC;
+    width: 70px;
+    display: inline-block;
+    text-align: center;
+    border: 0;
+    padding: 9px 0;
+    font-family: "karla";
+    color: #fff;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    border-radius: 3px;
+    transition: background-color 300ms ease-in;
+    width: 104px;
+    margin-top: 0.6em;
+
+    &:hover{
+        background-color: #125eb7;
+        color: #fff;
+    }
+
+}
+
+
+@media screen and (min-width: 768px){
+    .LinkButton{
+        width: 145px;
+    }
+}

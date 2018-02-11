@@ -1,0 +1,17 @@
+.TutorialsCompleted{
+    display: flex;
+    align-items: center;
+
+    div{
+        width: 34px;
+        height: 34px;
+        border: 4px solid #979797;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    span{
+        font-size: 10px;
+        color: #9FA6AD;
+    }
+}

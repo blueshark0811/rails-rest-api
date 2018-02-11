@@ -1,0 +1,13 @@
+.PopoverRow {
+  padding: 12px 12px 0px 12px;
+}
+.PopoverRow:last-child {
+  padding-bottom: 12px;
+}
+.PopoverRow a {
+  color: #2d2d2d;
+  font-size: 13px;
+}
+.PopoverRow a:hover {
+  color: #338ffc;
+}

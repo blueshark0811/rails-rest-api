@@ -1,0 +1,32 @@
+.List__row {
+  border-bottom: 1px solid #dadada;
+  display: block;
+  padding: 15px 0 20px 0;
+}
+.List__row__left p {
+  margin-bottom: 0.5em;
+}
+.List__row__left p:first-child {
+  font-size: 16px;
+  color: #111111;
+}
+.List__row__left p:last-child {
+  color: #9fa6ad;
+}
+.List__row__right {
+  margin-top: 1em;
+}
+.List__row:first-child {
+  padding-top: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .List__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .List__row__right {
+    margin-top: 0;
+  }
+}

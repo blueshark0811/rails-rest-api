@@ -1,0 +1,26 @@
+.Loader{
+    &, &--isTimedOut, &--isError{
+        font-size: 1.2rem;
+        text-align: center;
+        font-family: "Avenir Next";
+        font-weight: 500;
+    }
+
+    &--isTimedOut{
+        color: #505050;
+    }
+
+    &--isError{
+        color: #F44336;
+    }
+}
+
+
+@media screen and (min-width: 768px){
+    .Loader{
+        &, &--isTimedOut, &--isError{
+            margin-top: 147px;
+            font-size: 1.5rem;
+        }
+    }
+}

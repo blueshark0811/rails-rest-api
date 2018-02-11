@@ -1,0 +1,38 @@
+.RowData{
+    display: flex;
+    border-bottom: 1px solid #DBDBDB;
+    padding: 12px 15px 0 15px;
+    font-size: 13px;
+
+    .RowData__avatar img{
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .RowData__info{
+        margin-left: 14px;
+
+        .RowData__info__header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 5px;
+
+            p{
+                margin-bottom: 0px;
+            }
+
+            span{
+                font-size: 10px;
+                color: #7E7E7E;
+            }
+        }
+
+        .RowData__info__body p{
+            margin-bottom: 12px;
+        }
+    }
+}
+
+

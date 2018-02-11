@@ -1,0 +1,17 @@
+.ItemListTutorials .List__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ItemListTutorials .List__row__left {
+  display: flex;
+}
+.ItemListTutorials .List__row__left img {
+  margin-right: 1em;
+}
+.ItemListTutorials .List__row__left p {
+  margin-bottom: 0;
+}
+.ItemListTutorials .List__row__right {
+  margin-top: 0;
+}

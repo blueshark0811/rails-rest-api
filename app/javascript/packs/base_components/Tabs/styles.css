@@ -1,0 +1,35 @@
+.nav-tabs {
+  border-bottom: 1px solid #dadada;
+}
+.nav-tabs > li > a {
+  color: #000;
+}
+.nav-tabs > li.active > a {
+  color: #000;
+  cursor: default;
+  background-color: #fff;
+  border: 0;
+  border-bottom: 2px solid #4d4d4d;
+}
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  color: #000;
+  cursor: default;
+  background-color: #fff;
+  border: 0;
+  border-bottom: 2px solid #4d4d4d;
+}
+
+.tab-content {
+  margin-top: 18px;
+}
+
+.Tabs {
+  margin-top: 1em;
+}
+
+@media screen and (min-width: 768px) {
+  .tab-content {
+    margin-top: 20px;
+  }
+}

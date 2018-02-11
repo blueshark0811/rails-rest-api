@@ -1,0 +1,14 @@
+.dropdown {
+  width: 100%;
+}
+.btn-toolbar > .btn-group {
+  margin-left: 0;
+}
+
+.SearchbarDropdown span {
+  border-top: 5px dashed;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  float: right;
+  margin-top: 0.5em;
+}

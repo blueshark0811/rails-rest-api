@@ -1,0 +1,26 @@
+.NoCourses {
+  text-align: center;
+}
+.NoCourses h3 {
+  font-size: 1.2rem;
+  text-align: centr;
+  font-family: 'Avenir Next';
+  font-weight: 500;
+  color: #505050;
+}
+.NoCourses .NoCourses__info img {
+  margin-right: 10px;
+}
+.NoCourses .NoCourses__info a {
+  color: #0e90e0;
+}
+
+@media screen and (min-width: 768px) {
+  .NoCourses h3 {
+    margin-top: 2em;
+    font-size: 1.5rem;
+  }
+  .NoCourses .NoCourses__info {
+    margin-top: 13px;
+  }
+}

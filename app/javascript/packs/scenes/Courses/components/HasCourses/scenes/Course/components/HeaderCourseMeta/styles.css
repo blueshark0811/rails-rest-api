@@ -1,0 +1,65 @@
+.HeaderCourseMeta {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.HeaderCourseMeta header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-top: 78px;
+  color: #fff;
+}
+.HeaderCourseMeta header h3 {
+  width: 40px;
+  margin-top: 0px;
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 0.2em;
+}
+.HeaderCourseMeta__toggleLink {
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+}
+.HeaderCourseMeta__toggleLink:hover {
+  color: #338ffc;
+}
+.HeaderCourseMeta__toggleLink .HeaderCourseMeta__button {
+  margin-left: 4px;
+  font-size: 1rem;
+}
+.HeaderCourseMeta header .HeaderCourseMeta__completed {
+  width: 75px;
+  height: 75px;
+  border: 4px solid #1b93ec;
+  border-radius: 50%;
+}
+.HeaderCourseMeta header .HeaderCourseMeta__completed div {
+  text-align: center;
+  padding: 19px 13px 13px 10px;
+}
+.HeaderCourseMeta header .HeaderCourseMeta__completed span {
+  font-size: 10px;
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .HeaderCourseMeta {
+    height: 245px;
+  }
+  .HeaderCourseMeta header {
+    padding-top: 139px;
+  }
+  .HeaderCourseMeta header h3 {
+    width: 714px;
+  }
+  .HeaderCourseMeta header .HeaderCourseMeta__completed {
+    width: 80px;
+    height: 80px;
+  }
+  .HeaderCourseMeta header .HeaderCourseMeta__completed div {
+    padding: 22px 15px 13px 13px;
+  }
+}

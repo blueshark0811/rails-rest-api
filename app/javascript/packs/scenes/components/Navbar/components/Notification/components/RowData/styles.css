@@ -1,0 +1,30 @@
+.RowData {
+  display: flex;
+  border-bottom: 1px solid #dbdbdb;
+  padding: 12px 15px 0 15px;
+  font-size: 13px;
+}
+.RowData__avatar {
+  margin-right: 14px;
+}
+.RowData .RowData__avatar img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+.RowData .RowData__info .RowData__info__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.RowData .RowData__info .RowData__info__header p {
+  margin-bottom: 0px;
+}
+.RowData .RowData__info .RowData__info__header span {
+  font-size: 10px;
+  color: #7e7e7e;
+}
+.RowData .RowData__info .RowData__info__body p {
+  margin-bottom: 12px;
+}

@@ -1,0 +1,17 @@
+.Navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 2%;
+    border-bottom: 1px solid #DADADA;
+    z-index: 1;
+}
+
+@media screen and (min-width: 768px){
+    .Navbar{
+        padding: 14px 35px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: #fff;
+    }
+}

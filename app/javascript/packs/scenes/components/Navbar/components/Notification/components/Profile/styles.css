@@ -1,0 +1,17 @@
+.Profile {
+  display: flex;
+  align-items: center;
+}
+.Profile p {
+  margin: 0 10px 0 0;
+  font-size: 12px;
+  font-weight: 800;
+  color: #9fa6ad;
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .Notification p {
+    display: block;
+  }
+}

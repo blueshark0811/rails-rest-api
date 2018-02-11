@@ -1,0 +1,20 @@
+.ListCourses{
+    margin-top: 27px;
+
+    .ListCourses__right{
+        display: flex;
+        align-items: center;
+        justify-content: space-between
+    }
+}
+
+
+@media screen and (min-width: 768px){
+    .ListCourses{
+        margin-top: 150px;
+
+        .ListCourses__right{
+            display: block;
+        }
+    }
+}
