@@ -1,0 +1,27 @@
+# encoding: utf-8
+default: &settings 
+  title: equipengine
+  host: loc.my
+  protocol: http
+  error_email: 'info@equipengine.com'
+  admin_email: 'info@equipengine.com'
+  from_email: 'noreply@equipengine.com'
+
+  api:
+    jwt:
+      token_days_live: 365
+      secret: '9!}$69!}$692|:ME8,(v<;.cr]T/Ms+8m<njDb|:ME8,yW2693W'
+      algorithm: HS256 
+
+test:
+  <<: *settings
+
+development:
+  <<: *settings
+
+staging:
+  <<: *settings
+
+production:
+  <<: *settings
+  host: equipengine.com

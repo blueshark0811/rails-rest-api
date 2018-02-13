@@ -1,0 +1,12 @@
+user:
+  genders:
+    male: male
+    female: female
+
+  roles:
+    student: Student
+    teacher: Teacher
+    admin: Admin
+
+  admin_roles:
+    super_admin: Super Admin

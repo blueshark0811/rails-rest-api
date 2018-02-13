@@ -16,3 +16,7 @@ module EquipEngine
     # -- all .rb files in that directory are automatically loaded.
   end
 end
+
+RSpec.configure do |config|
+  config.swagger_dry_run = false
+end

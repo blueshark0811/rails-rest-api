@@ -1,0 +1,296 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API V1",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/v1/registrations": {
+      "post": {
+        "summary": "Sign up",
+        "tags": [
+          "Sign up"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "user created",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "type": "object"
+                },
+                "token": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "user",
+                "token"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "token": null,
+                "user": {
+                  "address": null,
+                  "country_id": null,
+                  "created_at": "2018-02-13T09:16:59.094-05:00",
+                  "date_of_birth": null,
+                  "email": "kayden.streich@schmeler.net",
+                  "first_name": null,
+                  "id": 2,
+                  "last_name": null,
+                  "phone_number": null,
+                  "role": null,
+                  "state_id": null,
+                  "status": null,
+                  "updated_at": "2018-02-13T09:16:59.094-05:00",
+                  "zip_code": null,
+                  "country": null,
+                  "state": null
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "registration is fail with existing email",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "items": {
+                      "email": "array"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": "wrong_data",
+                "errors": [
+                  {
+                    "email": [
+                      "has already been taken"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/sessions": {
+      "delete": {
+        "summary": "Destroy a session",
+        "tags": [
+          "Session"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "session destroyed",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "value": true
+                }
+              },
+              "required": [
+                "success"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "success": true
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a session",
+        "tags": [
+          "Session"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "session created",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "type": "object"
+                },
+                "token": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "user",
+                "token"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "user": {
+                  "address": null,
+                  "country_id": 7,
+                  "created_at": "2018-02-13T09:16:59.627-05:00",
+                  "date_of_birth": null,
+                  "email": "grant@thielhahn.org",
+                  "first_name": "Adelbert Romaguera",
+                  "id": 5,
+                  "last_name": "Jeffery Quitzon DVM",
+                  "phone_number": null,
+                  "role": null,
+                  "state_id": 4,
+                  "status": null,
+                  "updated_at": "2018-02-13T09:16:59.639-05:00",
+                  "zip_code": null,
+                  "country": {
+                    "id": 7,
+                    "code": null,
+                    "name": "Canada",
+                    "phonecode": null,
+                    "created_at": "2018-02-13T09:16:59.618-05:00",
+                    "updated_at": "2018-02-13T09:16:59.618-05:00"
+                  },
+                  "state": {
+                    "id": 4,
+                    "name": "Toronto",
+                    "country_id": 8,
+                    "code": null,
+                    "created_at": "2018-02-13T09:16:59.624-05:00",
+                    "updated_at": "2018-02-13T09:16:59.624-05:00"
+                  }
+                },
+                "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6NSwiZXhwIjoxNTUwMDY3NDE5LCJ0eXBlIjoidXNlciIsImVtYWlsIjoiZ3JhbnRAdGhpZWxoYWhuLm9yZyJ9.FCeOmT8IN06Igx4dKVCTLLzrV1J6QlkpY2ol7odnHaY"
+              }
+            }
+          },
+          "401": {
+            "description": "session is fail with wrong email",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": "wrong_credentials",
+                "errors": [
+                  "Error with your login or password"
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "session is fail if user is not confirmed",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "items": {
+                      "email": "array"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": 400,
+                "errors": [
+                  {
+                    "email": "email is not confirmed"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
