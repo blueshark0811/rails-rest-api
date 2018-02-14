@@ -24,4 +24,8 @@ class ApplicationRecord < ActiveRecord::Base
       enumiration_labels(field).to_a[index.to_i].last
     end
   end
+
+  def error_keys field
+    errors.details[field]&.map{|w| w[:error]}
+  end
 end

@@ -9,4 +9,8 @@ FactoryBot.define do
     country
     state
   end
+
+  factory :admin_user do
+    user role: 'admin_user'
+  end
 end

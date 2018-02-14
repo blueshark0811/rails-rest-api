@@ -1,12 +1,23 @@
 user:
-  genders:
-    male: male
-    female: female
+  statuses:
+    active: Active
+    suspended: Suspended
+    deleted: Deleted
 
+  admin_roles:
+    super_admin: Super Admin
+
+organization_user:
   roles:
     student: Student
     teacher: Teacher
     admin: Admin
 
-  admin_roles:
-    super_admin: Super Admin
+group:
+  statuses:
+    active: Active
+    pause: Pause
+  
+    visibilities:
+    private: Private
+    public: Public

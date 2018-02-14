@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180213100742) do
+ActiveRecord::Schema.define(version: 20180214193600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,45 @@ ActiveRecord::Schema.define(version: 20180213100742) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "group_users", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_group_users_on_group_id"
+    t.index ["user_id"], name: "index_group_users_on_user_id"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.bigint "organization_id"
+    t.string "title"
+    t.text "description"
+    t.string "status"
+    t.integer "user_limit"
+    t.string "visibility"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_groups_on_organization_id"
+  end
+
+  create_table "organization_users", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "organization_id"
+    t.string "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_organization_users_on_organization_id"
+    t.index ["user_id"], name: "index_organization_users_on_user_id"
+  end
+
+  create_table "organizations", force: :cascade do |t|
+    t.string "title"
+    t.string "subdomain"
+    t.string "domain"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "states", force: :cascade do |t|
     t.string "name"
     t.bigint "country_id"
@@ -57,7 +96,6 @@ ActiveRecord::Schema.define(version: 20180213100742) do
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.string "role"
     t.string "admin_role"
     t.string "phone_number"
     t.date "date_of_birth"
@@ -90,5 +128,10 @@ ActiveRecord::Schema.define(version: 20180213100742) do
   end
 
   add_foreign_key "cities", "states"
+  add_foreign_key "group_users", "groups"
+  add_foreign_key "group_users", "users"
+  add_foreign_key "groups", "organizations"
+  add_foreign_key "organization_users", "organizations"
+  add_foreign_key "organization_users", "users"
   add_foreign_key "states", "countries"
 end
