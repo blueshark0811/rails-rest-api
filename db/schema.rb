@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180214193600) do
+ActiveRecord::Schema.define(version: 20180215200346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,18 @@ ActiveRecord::Schema.define(version: 20180214193600) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
 
+  create_table "attachments", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "file"
+    t.bigint "user_id"
+    t.bigint "organization_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_attachments_on_organization_id"
+    t.index ["user_id"], name: "index_attachments_on_user_id"
+  end
+
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.bigint "state_id"
@@ -43,6 +55,18 @@ ActiveRecord::Schema.define(version: 20180214193600) do
     t.integer "phonecode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "image"
+    t.bigint "user_id"
+    t.bigint "organization_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_courses_on_organization_id"
+    t.index ["user_id"], name: "index_courses_on_user_id"
   end
 
   create_table "group_users", force: :cascade do |t|
@@ -63,7 +87,10 @@ ActiveRecord::Schema.define(version: 20180214193600) do
     t.string "visibility"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "count_participants"
+    t.bigint "user_id"
     t.index ["organization_id"], name: "index_groups_on_organization_id"
+    t.index ["user_id"], name: "index_groups_on_user_id"
   end
 
   create_table "organization_users", force: :cascade do |t|
@@ -120,6 +147,7 @@ ActiveRecord::Schema.define(version: 20180214193600) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+    t.string "avatar"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["country_id"], name: "index_users_on_country_id"
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -127,10 +155,15 @@ ActiveRecord::Schema.define(version: 20180214193600) do
     t.index ["state_id"], name: "index_users_on_state_id"
   end
 
+  add_foreign_key "attachments", "organizations"
+  add_foreign_key "attachments", "users"
   add_foreign_key "cities", "states"
+  add_foreign_key "courses", "organizations"
+  add_foreign_key "courses", "users"
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"
   add_foreign_key "groups", "organizations"
+  add_foreign_key "groups", "users"
   add_foreign_key "organization_users", "organizations"
   add_foreign_key "organization_users", "users"
   add_foreign_key "states", "countries"

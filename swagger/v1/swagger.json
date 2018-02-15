@@ -5,6 +5,176 @@
     "version": "v1"
   },
   "paths": {
+    "/api/v1/groups": {
+      "get": {
+        "summary": "list of groups",
+        "tags": [
+          "Groups"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "groups": {
+                  "type": "array",
+                  "items": {
+                    "created_at": "string",
+                    "description": "text",
+                    "id": "integer",
+                    "organization_id": "integer",
+                    "status": "string",
+                    "title": "string",
+                    "updated_at": "string",
+                    "user_limit": "integer",
+                    "visibility": "string",
+                    "required": [
+                      "id"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "groups"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "groups": [
+                  {
+                    "created_at": "2018-02-15T05:53:02.652-05:00",
+                    "description": "e-enable real-time ROI",
+                    "id": 1,
+                    "organization_id": 1,
+                    "status": "active",
+                    "title": "Nitzsche Inc",
+                    "updated_at": "2018-02-15T05:53:02.652-05:00",
+                    "user_limit": 10,
+                    "visibility": "public",
+                    "organization": {
+                      "id": 1,
+                      "title": "Rempel, Mohr and Jaskolski",
+                      "subdomain": "nicolasshields",
+                      "domain": "feeney.co",
+                      "created_at": "2018-02-15T05:53:02.595-05:00",
+                      "updated_at": "2018-02-15T05:53:02.595-05:00"
+                    }
+                  }
+                ],
+                "meta": {
+                  "total_pages": 1,
+                  "size": 1,
+                  "limit_value": 20,
+                  "current_page": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/groups/{id}": {
+      "get": {
+        "summary": "Details",
+        "tags": [
+          "Groups"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "scholarship": {
+                  "type": "object",
+                  "properties": {
+                    "created_at": "string",
+                    "description": "text",
+                    "id": "integer",
+                    "organization_id": "integer",
+                    "status": "string",
+                    "title": "string",
+                    "updated_at": "string",
+                    "user_limit": "integer",
+                    "visibility": "string",
+                    "required": [
+                      "id"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "group"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "group": {
+                  "created_at": "2018-02-15T05:53:02.771-05:00",
+                  "description": "e-enable real-time ROI",
+                  "id": 2,
+                  "organization_id": 2,
+                  "status": "active",
+                  "title": "Nitzsche Inc",
+                  "updated_at": "2018-02-15T05:53:02.771-05:00",
+                  "user_limit": 10,
+                  "visibility": "public",
+                  "organization": {
+                    "id": 2,
+                    "title": "Rempel, Mohr and Jaskolski",
+                    "subdomain": "nicolasshields",
+                    "domain": "feeney.co",
+                    "created_at": "2018-02-15T05:53:02.766-05:00",
+                    "updated_at": "2018-02-15T05:53:02.766-05:00"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/registrations": {
       "post": {
         "summary": "Sign up",
@@ -60,17 +230,16 @@
                 "user": {
                   "address": null,
                   "country_id": null,
-                  "created_at": "2018-02-13T09:16:59.094-05:00",
+                  "created_at": "2018-02-15T05:53:02.822-05:00",
                   "date_of_birth": null,
-                  "email": "kayden.streich@schmeler.net",
+                  "email": "estefania@walker.net",
                   "first_name": null,
-                  "id": 2,
+                  "id": 4,
                   "last_name": null,
                   "phone_number": null,
-                  "role": null,
                   "state_id": null,
-                  "status": null,
-                  "updated_at": "2018-02-13T09:16:59.094-05:00",
+                  "status": "active",
+                  "updated_at": "2018-02-15T05:53:02.822-05:00",
                   "zip_code": null,
                   "country": null,
                   "state": null
@@ -200,37 +369,36 @@
               "application/json": {
                 "user": {
                   "address": null,
-                  "country_id": 7,
-                  "created_at": "2018-02-13T09:16:59.627-05:00",
+                  "country_id": 11,
+                  "created_at": "2018-02-15T05:53:03.278-05:00",
                   "date_of_birth": null,
-                  "email": "grant@thielhahn.org",
-                  "first_name": "Adelbert Romaguera",
-                  "id": 5,
-                  "last_name": "Jeffery Quitzon DVM",
+                  "email": "sylvan_lesch@morarhuels.info",
+                  "first_name": "Mrs. Donald Gutkowski",
+                  "id": 7,
+                  "last_name": "Juston Feest DVM",
                   "phone_number": null,
-                  "role": null,
-                  "state_id": 4,
-                  "status": null,
-                  "updated_at": "2018-02-13T09:16:59.639-05:00",
+                  "state_id": 6,
+                  "status": "active",
+                  "updated_at": "2018-02-15T05:53:03.291-05:00",
                   "zip_code": null,
                   "country": {
-                    "id": 7,
+                    "id": 11,
                     "code": null,
                     "name": "Canada",
                     "phonecode": null,
-                    "created_at": "2018-02-13T09:16:59.618-05:00",
-                    "updated_at": "2018-02-13T09:16:59.618-05:00"
+                    "created_at": "2018-02-15T05:53:03.271-05:00",
+                    "updated_at": "2018-02-15T05:53:03.271-05:00"
                   },
                   "state": {
-                    "id": 4,
+                    "id": 6,
                     "name": "Toronto",
-                    "country_id": 8,
+                    "country_id": 12,
                     "code": null,
-                    "created_at": "2018-02-13T09:16:59.624-05:00",
-                    "updated_at": "2018-02-13T09:16:59.624-05:00"
+                    "created_at": "2018-02-15T05:53:03.274-05:00",
+                    "updated_at": "2018-02-15T05:53:03.274-05:00"
                   }
                 },
-                "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6NSwiZXhwIjoxNTUwMDY3NDE5LCJ0eXBlIjoidXNlciIsImVtYWlsIjoiZ3JhbnRAdGhpZWxoYWhuLm9yZyJ9.FCeOmT8IN06Igx4dKVCTLLzrV1J6QlkpY2ol7odnHaY"
+                "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6NywiZXhwIjoxNTUwMjI3OTgzLCJ0eXBlIjoidXNlciIsImVtYWlsIjoic3lsdmFuX2xlc2NoQG1vcmFyaHVlbHMuaW5mbyJ9.1gY1vSvE3Xdq9V7mYgYtwJEQrjZdZ8VcMyY1hYQinYU"
               }
             }
           },

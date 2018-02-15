@@ -18,6 +18,6 @@ group:
     active: Active
     pause: Pause
   
-    visibilities:
+  visibilities:
     private: Private
     public: Public

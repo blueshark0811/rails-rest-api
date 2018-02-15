@@ -32,13 +32,17 @@ class Api::V1::ApiController <  ActionController::API
     render_result({ success: false }, 404)
   end
 
-  def render_error(message = nil, error_code = "", status = 400, send_report = true, attrs = {})
+  def render_error(message = nil, error_code = "", status = 400, send_report = false, attrs = {})
     
     if send_report && message && !message.is_a?(String)
      # Mailer.error_occurred(message, false, params.merge(current_user_id: current_user.try(:id), current_user_name: current_user.try(:name), request_host: request.host, request_path: request.path).to_json).deliver
     end
 
-    render_result(attrs.merge(error_code: error_code, errors: [message]), status)
+    if message.is_a?(ApplicationRecord)
+      render_result message, status, {errors: message.errors.details}
+    else
+      render_result(attrs.merge(error_code: error_code, errors: [message]), status)
+    end
   end
 
   def debug result
@@ -56,7 +60,7 @@ class Api::V1::ApiController <  ActionController::API
     end
   end
 
-  def render_result(json, status = 200)
+  def render_result(json, status = 200, meta = nil)
 
     json.merge!(@additional_attrs_for_render) if @additional_attrs_for_render && json.respond_to?(:merge)
 
@@ -64,17 +68,44 @@ class Api::V1::ApiController <  ActionController::API
 
     root = root.pluralize if root.respond_to?(:size)
 
-    res = {json: json, root: root, status: status}
+    res = {json: json, root: root, status: status, meta: meta || result_meta(json)}
     
     debug res
 
     render res
   end
 
+  def result_meta obj
+    meta = {}
+    meta[:total_pages] = obj.total_pages if obj.respond_to?(:total_pages)
+    meta[:size] = obj.size if obj.respond_to?(:size)
+    meta[:limit_value] = obj.limit_value if obj.respond_to?(:limit_value)
+    meta[:current_page] = obj.current_page if obj.respond_to?(:current_page)
+    meta
+  end
+
   def set_locale
     return unless I18n.config.available_locales.include?(params[:locale]&.to_sym)
 
     I18n.locale = params[:locale]
+  end
+
+  def current_page
+    params[:page] || 1
+  end
+
+  def current_page_limit
+    params[:count] || 20
+  end
+
+  def current_organization #todo
+    return @current_organization if @current_organization
+
+    @current_organization = nil
+
+    @current_organization = Organization.find(params[:organization_id]) if params[:organization_id]
+
+    @current_organization ||= current_user&.organizations.first
   end
 
   protected

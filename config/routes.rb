@@ -22,6 +22,8 @@ Rails.application.routes.draw do
           post :update
         end
       end
+
+      resources :groups
     end
   end
 

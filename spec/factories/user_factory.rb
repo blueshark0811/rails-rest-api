@@ -8,6 +8,11 @@ FactoryBot.define do
 
     country
     state
+
+    after(:create) do |object|
+      organization = create :organization
+      create :organization_user, organization: organization, user: object
+    end
   end
 
   factory :admin_user do
