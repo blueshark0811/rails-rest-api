@@ -35,11 +35,16 @@ describe 'Registration API' do
         schema type: :object,
           properties: {
             user: { type: :object },
-            token: { type: :string }
+            meta: { 
+              type: :object, 
+              properties: { token: {type: :string, 'x-nullable': true } } 
+            }
           },
-          required: [ 'user', 'token' ]
+          required: [ 'user', 'meta' ]
 
-        run_test!
+        run_test! do |response|
+          p response.body
+        end
       end
 
       response '400', 'registration is fail with existing email' do
@@ -58,7 +63,7 @@ describe 'Registration API' do
               type: :array,
               items: { 
                 type: :object,
-                items: { email: :array } 
+                items: { email: :array }
               } 
             }
           },

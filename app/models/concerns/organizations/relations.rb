@@ -7,6 +7,8 @@ module Organizations
       has_many :users, through: :organization_users
       has_many :groups
       has_many :courses
+      has_many :videos
+      has_many :attachments
     end
 
     module ClassMethods

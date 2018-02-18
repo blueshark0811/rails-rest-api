@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180215200346) do
+ActiveRecord::Schema.define(version: 20180216163002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "actions", force: :cascade do |t|
+    t.string "action_type"
+    t.text "description"
+    t.bigint "lesson_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lesson_id"], name: "index_actions_on_lesson_id"
+    t.index ["user_id"], name: "index_actions_on_user_id"
+  end
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -37,6 +48,9 @@ ActiveRecord::Schema.define(version: 20180215200346) do
     t.bigint "organization_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "attachmentable_type"
+    t.bigint "attachmentable_id"
+    t.index ["attachmentable_type", "attachmentable_id"], name: "index_attachments_on_attachmentable_type_and_attachmentable_id"
     t.index ["organization_id"], name: "index_attachments_on_organization_id"
     t.index ["user_id"], name: "index_attachments_on_user_id"
   end
@@ -91,6 +105,18 @@ ActiveRecord::Schema.define(version: 20180215200346) do
     t.bigint "user_id"
     t.index ["organization_id"], name: "index_groups_on_organization_id"
     t.index ["user_id"], name: "index_groups_on_user_id"
+  end
+
+  create_table "lessons", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "status"
+    t.bigint "user_id"
+    t.bigint "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_lessons_on_course_id"
+    t.index ["user_id"], name: "index_lessons_on_user_id"
   end
 
   create_table "organization_users", force: :cascade do |t|
@@ -155,6 +181,23 @@ ActiveRecord::Schema.define(version: 20180215200346) do
     t.index ["state_id"], name: "index_users_on_state_id"
   end
 
+  create_table "videos", force: :cascade do |t|
+    t.string "title"
+    t.integer "length"
+    t.string "video"
+    t.bigint "organization_id"
+    t.bigint "user_id"
+    t.string "videoable_type"
+    t.bigint "videoable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_videos_on_organization_id"
+    t.index ["user_id"], name: "index_videos_on_user_id"
+    t.index ["videoable_type", "videoable_id"], name: "index_videos_on_videoable_type_and_videoable_id"
+  end
+
+  add_foreign_key "actions", "lessons"
+  add_foreign_key "actions", "users"
   add_foreign_key "attachments", "organizations"
   add_foreign_key "attachments", "users"
   add_foreign_key "cities", "states"
@@ -164,7 +207,10 @@ ActiveRecord::Schema.define(version: 20180215200346) do
   add_foreign_key "group_users", "users"
   add_foreign_key "groups", "organizations"
   add_foreign_key "groups", "users"
+  add_foreign_key "lessons", "users"
   add_foreign_key "organization_users", "organizations"
   add_foreign_key "organization_users", "users"
   add_foreign_key "states", "countries"
+  add_foreign_key "videos", "organizations"
+  add_foreign_key "videos", "users"
 end

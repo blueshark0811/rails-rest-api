@@ -1,4 +1,5 @@
 require "swagger_helper"
+include ApiSpecHelper
 
 describe Api::V1::SessionsController do
   let(:email) { Faker::Internet.email }
@@ -10,10 +11,10 @@ describe Api::V1::SessionsController do
       tags "Session"
       consumes "application/json"
 
-      parameter name: :Authorization, in: :header, type: :string, required: true
+      parameter name: :authorization, in: :header, type: :string, required: true
 
       response "200", "session destroyed" do
-        let(:Authorization){ "Bearer #{token}"}
+        let(:authorization){ "Bearer #{token}"}
 
         schema type: :object,
                properties: {
@@ -44,11 +45,14 @@ describe Api::V1::SessionsController do
         let(:body) { { email: email, password: email } }
 
         schema type: :object,
-               properties: {
-                 user: { type: :object },
-                 token: { type: :string }
-               },
-               required: %w[user token]
+          properties: {
+            user: { type: :object },
+            meta: { 
+              type: :object, 
+              properties: { token: {type: :string, 'x-nullable': true } } 
+            }
+          },
+          required: [ 'user', 'meta' ]
 
         run_test!
       end

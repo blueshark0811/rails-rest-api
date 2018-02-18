@@ -21,3 +21,9 @@ group:
   visibilities:
     private: Private
     public: Public
+
+actions:
+  action_types:
+    reading: Reading
+    question: Question
+    watch: Watch

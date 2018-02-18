@@ -16,7 +16,7 @@
         ],
         "parameters": [
           {
-            "name": "Authorization",
+            "name": "authorization",
             "in": "header",
             "type": "string",
             "required": true
@@ -43,18 +43,120 @@
                 "groups": {
                   "type": "array",
                   "items": {
-                    "created_at": "string",
-                    "description": "text",
-                    "id": "integer",
-                    "organization_id": "integer",
-                    "status": "string",
-                    "title": "string",
-                    "updated_at": "string",
-                    "user_limit": "integer",
-                    "visibility": "string",
-                    "required": [
-                      "id"
-                    ]
+                    "address": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "admin_role": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "super_admin"
+                      ]
+                    },
+                    "avatar": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "confirmation_sent_at": {
+                      "type": "datetime",
+                      "x-nullable": true
+                    },
+                    "confirmation_token": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "confirmed_at": {
+                      "type": "datetime",
+                      "x-nullable": true
+                    },
+                    "country_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "created_at": {
+                      "type": "datetime"
+                    },
+                    "current_sign_in_at": {
+                      "type": "datetime",
+                      "x-nullable": true
+                    },
+                    "current_sign_in_ip": {
+                      "type": "inet",
+                      "x-nullable": true
+                    },
+                    "date_of_birth": {
+                      "type": "date",
+                      "x-nullable": true
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "encrypted_password": {
+                      "type": "string"
+                    },
+                    "first_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "id": {
+                      "type": "integer"
+                    },
+                    "last_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "last_sign_in_at": {
+                      "type": "datetime",
+                      "x-nullable": true
+                    },
+                    "last_sign_in_ip": {
+                      "type": "inet",
+                      "x-nullable": true
+                    },
+                    "phone_number": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "remember_created_at": {
+                      "type": "datetime",
+                      "x-nullable": true
+                    },
+                    "reset_password_sent_at": {
+                      "type": "datetime",
+                      "x-nullable": true
+                    },
+                    "reset_password_token": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "sign_in_count": {
+                      "type": "integer"
+                    },
+                    "state_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "status": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "active",
+                        "suspended",
+                        "deleted"
+                      ]
+                    },
+                    "unconfirmed_email": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "updated_at": {
+                      "type": "datetime"
+                    },
+                    "zip_code": {
+                      "type": "string",
+                      "x-nullable": true
+                    }
                   }
                 }
               },
@@ -66,22 +168,18 @@
               "application/json": {
                 "groups": [
                   {
-                    "created_at": "2018-02-15T05:53:02.652-05:00",
-                    "description": "e-enable real-time ROI",
+                    "count_participants": null,
+                    "created_at": "2018-02-18T12:59:18.524-05:00",
+                    "description": "aggregate clicks-and-mortar interfaces",
                     "id": 1,
                     "organization_id": 1,
                     "status": "active",
-                    "title": "Nitzsche Inc",
-                    "updated_at": "2018-02-15T05:53:02.652-05:00",
+                    "title": "Huel LLC",
+                    "updated_at": "2018-02-18T12:59:18.524-05:00",
+                    "user_id": null,
                     "user_limit": 10,
                     "visibility": "public",
                     "organization": {
-                      "id": 1,
-                      "title": "Rempel, Mohr and Jaskolski",
-                      "subdomain": "nicolasshields",
-                      "domain": "feeney.co",
-                      "created_at": "2018-02-15T05:53:02.595-05:00",
-                      "updated_at": "2018-02-15T05:53:02.595-05:00"
                     }
                   }
                 ],
@@ -114,7 +212,7 @@
             "required": true
           },
           {
-            "name": "Authorization",
+            "name": "authorization",
             "in": "header",
             "type": "string",
             "required": true
@@ -126,21 +224,120 @@
             "schema": {
               "type": "object",
               "properties": {
-                "scholarship": {
-                  "type": "object",
-                  "properties": {
-                    "created_at": "string",
-                    "description": "text",
-                    "id": "integer",
-                    "organization_id": "integer",
-                    "status": "string",
-                    "title": "string",
-                    "updated_at": "string",
-                    "user_limit": "integer",
-                    "visibility": "string",
-                    "required": [
-                      "id"
+                "group": {
+                  "address": {
+                    "type": "string",
+                    "x-nullable": true
+                  },
+                  "admin_role": {
+                    "type": "string",
+                    "x-nullable": true,
+                    "enum": [
+                      "super_admin"
                     ]
+                  },
+                  "avatar": {
+                    "type": "string",
+                    "x-nullable": true
+                  },
+                  "confirmation_sent_at": {
+                    "type": "datetime",
+                    "x-nullable": true
+                  },
+                  "confirmation_token": {
+                    "type": "string",
+                    "x-nullable": true
+                  },
+                  "confirmed_at": {
+                    "type": "datetime",
+                    "x-nullable": true
+                  },
+                  "country_id": {
+                    "type": "integer",
+                    "x-nullable": true
+                  },
+                  "created_at": {
+                    "type": "datetime"
+                  },
+                  "current_sign_in_at": {
+                    "type": "datetime",
+                    "x-nullable": true
+                  },
+                  "current_sign_in_ip": {
+                    "type": "inet",
+                    "x-nullable": true
+                  },
+                  "date_of_birth": {
+                    "type": "date",
+                    "x-nullable": true
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "encrypted_password": {
+                    "type": "string"
+                  },
+                  "first_name": {
+                    "type": "string",
+                    "x-nullable": true
+                  },
+                  "id": {
+                    "type": "integer"
+                  },
+                  "last_name": {
+                    "type": "string",
+                    "x-nullable": true
+                  },
+                  "last_sign_in_at": {
+                    "type": "datetime",
+                    "x-nullable": true
+                  },
+                  "last_sign_in_ip": {
+                    "type": "inet",
+                    "x-nullable": true
+                  },
+                  "phone_number": {
+                    "type": "string",
+                    "x-nullable": true
+                  },
+                  "remember_created_at": {
+                    "type": "datetime",
+                    "x-nullable": true
+                  },
+                  "reset_password_sent_at": {
+                    "type": "datetime",
+                    "x-nullable": true
+                  },
+                  "reset_password_token": {
+                    "type": "string",
+                    "x-nullable": true
+                  },
+                  "sign_in_count": {
+                    "type": "integer"
+                  },
+                  "state_id": {
+                    "type": "integer",
+                    "x-nullable": true
+                  },
+                  "status": {
+                    "type": "string",
+                    "x-nullable": true,
+                    "enum": [
+                      "active",
+                      "suspended",
+                      "deleted"
+                    ]
+                  },
+                  "unconfirmed_email": {
+                    "type": "string",
+                    "x-nullable": true
+                  },
+                  "updated_at": {
+                    "type": "datetime"
+                  },
+                  "zip_code": {
+                    "type": "string",
+                    "x-nullable": true
                   }
                 }
               },
@@ -151,23 +348,22 @@
             "examples": {
               "application/json": {
                 "group": {
-                  "created_at": "2018-02-15T05:53:02.771-05:00",
-                  "description": "e-enable real-time ROI",
+                  "count_participants": null,
+                  "created_at": "2018-02-18T12:59:18.711-05:00",
+                  "description": "aggregate clicks-and-mortar interfaces",
                   "id": 2,
                   "organization_id": 2,
                   "status": "active",
-                  "title": "Nitzsche Inc",
-                  "updated_at": "2018-02-15T05:53:02.771-05:00",
+                  "title": "Huel LLC",
+                  "updated_at": "2018-02-18T12:59:18.711-05:00",
+                  "user_id": null,
                   "user_limit": 10,
                   "visibility": "public",
                   "organization": {
-                    "id": 2,
-                    "title": "Rempel, Mohr and Jaskolski",
-                    "subdomain": "nicolasshields",
-                    "domain": "feeney.co",
-                    "created_at": "2018-02-15T05:53:02.766-05:00",
-                    "updated_at": "2018-02-15T05:53:02.766-05:00"
                   }
+                },
+                "meta": {
+                  "current_page": 1
                 }
               }
             }
@@ -215,34 +411,32 @@
                 "user": {
                   "type": "object"
                 },
-                "token": {
-                  "type": "string"
+                "meta": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string",
+                      "x-nullable": true
+                    }
+                  }
                 }
               },
               "required": [
                 "user",
-                "token"
+                "meta"
               ]
             },
             "examples": {
               "application/json": {
-                "token": null,
                 "user": {
-                  "address": null,
-                  "country_id": null,
-                  "created_at": "2018-02-15T05:53:02.822-05:00",
-                  "date_of_birth": null,
-                  "email": "estefania@walker.net",
+                  "email": "sarina.rice@green.name",
                   "first_name": null,
-                  "id": 4,
                   "last_name": null,
-                  "phone_number": null,
-                  "state_id": null,
-                  "status": "active",
-                  "updated_at": "2018-02-15T05:53:02.822-05:00",
-                  "zip_code": null,
                   "country": null,
                   "state": null
+                },
+                "meta": {
+                  "token": null
                 }
               }
             }
@@ -293,7 +487,7 @@
         ],
         "parameters": [
           {
-            "name": "Authorization",
+            "name": "authorization",
             "in": "header",
             "type": "string",
             "required": true
@@ -356,49 +550,39 @@
                 "user": {
                   "type": "object"
                 },
-                "token": {
-                  "type": "string"
+                "meta": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string",
+                      "x-nullable": true
+                    }
+                  }
                 }
               },
               "required": [
                 "user",
-                "token"
+                "meta"
               ]
             },
             "examples": {
               "application/json": {
                 "user": {
-                  "address": null,
-                  "country_id": 11,
-                  "created_at": "2018-02-15T05:53:03.278-05:00",
-                  "date_of_birth": null,
-                  "email": "sylvan_lesch@morarhuels.info",
-                  "first_name": "Mrs. Donald Gutkowski",
-                  "id": 7,
-                  "last_name": "Juston Feest DVM",
-                  "phone_number": null,
-                  "state_id": 6,
-                  "status": "active",
-                  "updated_at": "2018-02-15T05:53:03.291-05:00",
-                  "zip_code": null,
+                  "email": "ryley@parisian.org",
+                  "first_name": "Nicole Connelly",
+                  "last_name": "Adela Gottlieb",
                   "country": {
-                    "id": 11,
                     "code": null,
+                    "id": 11,
                     "name": "Canada",
-                    "phonecode": null,
-                    "created_at": "2018-02-15T05:53:03.271-05:00",
-                    "updated_at": "2018-02-15T05:53:03.271-05:00"
+                    "phonecode": null
                   },
                   "state": {
-                    "id": 6,
-                    "name": "Toronto",
-                    "country_id": 12,
-                    "code": null,
-                    "created_at": "2018-02-15T05:53:03.274-05:00",
-                    "updated_at": "2018-02-15T05:53:03.274-05:00"
                   }
                 },
-                "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6NywiZXhwIjoxNTUwMjI3OTgzLCJ0eXBlIjoidXNlciIsImVtYWlsIjoic3lsdmFuX2xlc2NoQG1vcmFyaHVlbHMuaW5mbyJ9.1gY1vSvE3Xdq9V7mYgYtwJEQrjZdZ8VcMyY1hYQinYU"
+                "meta": {
+                  "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6NywiZXhwIjoxNTUwNTEyNzU5LCJ0eXBlIjoidXNlciIsImVtYWlsIjoicnlsZXlAcGFyaXNpYW4ub3JnIn0.p2IcyojXlsN7blWHdViU0hnpWUNmOGyxqPKyzNgzCnY"
+                }
               }
             }
           },
@@ -454,6 +638,665 @@
                     "email": "email is not confirmed"
                   }
                 ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users": {
+      "get": {
+        "summary": "Users list inside school",
+        "tags": [
+          "Users"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "current_page",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "current_count",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "return data",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "users": {
+                  "type": "array",
+                  "items": {
+                    "address": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "admin_role": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "super_admin"
+                      ]
+                    },
+                    "avatar": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "confirmation_sent_at": {
+                      "type": "datetime",
+                      "x-nullable": true
+                    },
+                    "confirmation_token": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "confirmed_at": {
+                      "type": "datetime",
+                      "x-nullable": true
+                    },
+                    "country_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "created_at": {
+                      "type": "datetime"
+                    },
+                    "current_sign_in_at": {
+                      "type": "datetime",
+                      "x-nullable": true
+                    },
+                    "current_sign_in_ip": {
+                      "type": "inet",
+                      "x-nullable": true
+                    },
+                    "date_of_birth": {
+                      "type": "date",
+                      "x-nullable": true
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "encrypted_password": {
+                      "type": "string"
+                    },
+                    "first_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "id": {
+                      "type": "integer"
+                    },
+                    "last_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "last_sign_in_at": {
+                      "type": "datetime",
+                      "x-nullable": true
+                    },
+                    "last_sign_in_ip": {
+                      "type": "inet",
+                      "x-nullable": true
+                    },
+                    "phone_number": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "remember_created_at": {
+                      "type": "datetime",
+                      "x-nullable": true
+                    },
+                    "reset_password_sent_at": {
+                      "type": "datetime",
+                      "x-nullable": true
+                    },
+                    "reset_password_token": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "sign_in_count": {
+                      "type": "integer"
+                    },
+                    "state_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "status": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "active",
+                        "suspended",
+                        "deleted"
+                      ]
+                    },
+                    "unconfirmed_email": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "updated_at": {
+                      "type": "datetime"
+                    },
+                    "zip_code": {
+                      "type": "string",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "users"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "users": [
+                  {
+                    "address": null,
+                    "admin_role": "super_admin",
+                    "avatar": {
+                      "url": null,
+                      "small": {
+                        "url": null
+                      },
+                      "middle": {
+                        "url": null
+                      }
+                    },
+                    "confirmation_sent_at": null,
+                    "confirmation_token": null,
+                    "confirmed_at": "2018-02-18T12:59:18.312-05:00",
+                    "country_id": 23,
+                    "created_at": "2018-02-18T12:59:19.509-05:00",
+                    "current_sign_in_at": "2018-02-18T12:59:19.539-05:00",
+                    "current_sign_in_ip": {
+                      "family": 2,
+                      "addr": 2130706433,
+                      "mask_addr": 4294967295
+                    },
+                    "date_of_birth": null,
+                    "email": "layla_bogan@gutkowski.biz",
+                    "encrypted_password": "$2a$04$rLX3gK7DKOGmKCTgoFVR0uxQm63NHNyLTN0GzO2Ne3/ig.mqAyvlu",
+                    "first_name": "Nicole Connelly",
+                    "id": 13,
+                    "last_name": "Adela Gottlieb",
+                    "last_sign_in_at": "2018-02-18T12:59:19.539-05:00",
+                    "last_sign_in_ip": {
+                      "family": 2,
+                      "addr": 2130706433,
+                      "mask_addr": 4294967295
+                    },
+                    "phone_number": null,
+                    "remember_created_at": "2018-02-18T12:59:19.529-05:00",
+                    "reset_password_sent_at": null,
+                    "reset_password_token": null,
+                    "sign_in_count": 1,
+                    "state_id": 12,
+                    "status": "active",
+                    "unconfirmed_email": null,
+                    "updated_at": "2018-02-18T12:59:19.540-05:00",
+                    "zip_code": null,
+                    "country": {
+                      "code": null,
+                      "id": 23,
+                      "name": "Canada",
+                      "phonecode": null
+                    },
+                    "state": {
+                    }
+                  }
+                ],
+                "meta": {
+                  "total_pages": 1,
+                  "size": 1,
+                  "limit_value": 20,
+                  "current_page": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/{id}": {
+      "get": {
+        "summary": "Users info",
+        "tags": [
+          "Users"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "information about User",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "address": {
+                    "type": "string",
+                    "x-nullable": true
+                  },
+                  "admin_role": {
+                    "type": "string",
+                    "x-nullable": true,
+                    "enum": [
+                      "super_admin"
+                    ]
+                  },
+                  "avatar": {
+                    "type": "string",
+                    "x-nullable": true
+                  },
+                  "confirmation_sent_at": {
+                    "type": "datetime",
+                    "x-nullable": true
+                  },
+                  "confirmation_token": {
+                    "type": "string",
+                    "x-nullable": true
+                  },
+                  "confirmed_at": {
+                    "type": "datetime",
+                    "x-nullable": true
+                  },
+                  "country_id": {
+                    "type": "integer",
+                    "x-nullable": true
+                  },
+                  "created_at": {
+                    "type": "datetime"
+                  },
+                  "current_sign_in_at": {
+                    "type": "datetime",
+                    "x-nullable": true
+                  },
+                  "current_sign_in_ip": {
+                    "type": "inet",
+                    "x-nullable": true
+                  },
+                  "date_of_birth": {
+                    "type": "date",
+                    "x-nullable": true
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "encrypted_password": {
+                    "type": "string"
+                  },
+                  "first_name": {
+                    "type": "string",
+                    "x-nullable": true
+                  },
+                  "id": {
+                    "type": "integer"
+                  },
+                  "last_name": {
+                    "type": "string",
+                    "x-nullable": true
+                  },
+                  "last_sign_in_at": {
+                    "type": "datetime",
+                    "x-nullable": true
+                  },
+                  "last_sign_in_ip": {
+                    "type": "inet",
+                    "x-nullable": true
+                  },
+                  "phone_number": {
+                    "type": "string",
+                    "x-nullable": true
+                  },
+                  "remember_created_at": {
+                    "type": "datetime",
+                    "x-nullable": true
+                  },
+                  "reset_password_sent_at": {
+                    "type": "datetime",
+                    "x-nullable": true
+                  },
+                  "reset_password_token": {
+                    "type": "string",
+                    "x-nullable": true
+                  },
+                  "sign_in_count": {
+                    "type": "integer"
+                  },
+                  "state_id": {
+                    "type": "integer",
+                    "x-nullable": true
+                  },
+                  "status": {
+                    "type": "string",
+                    "x-nullable": true,
+                    "enum": [
+                      "active",
+                      "suspended",
+                      "deleted"
+                    ]
+                  },
+                  "unconfirmed_email": {
+                    "type": "string",
+                    "x-nullable": true
+                  },
+                  "updated_at": {
+                    "type": "datetime"
+                  },
+                  "zip_code": {
+                    "type": "string",
+                    "x-nullable": true
+                  }
+                }
+              },
+              "required": [
+                "user"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "user": {
+                  "address": null,
+                  "admin_role": "super_admin",
+                  "avatar": {
+                    "url": null,
+                    "small": {
+                      "url": null
+                    },
+                    "middle": {
+                      "url": null
+                    }
+                  },
+                  "confirmation_sent_at": null,
+                  "confirmation_token": null,
+                  "confirmed_at": "2018-02-18T12:59:18.312-05:00",
+                  "country_id": 25,
+                  "created_at": "2018-02-18T12:59:19.594-05:00",
+                  "current_sign_in_at": null,
+                  "current_sign_in_ip": null,
+                  "date_of_birth": null,
+                  "email": "paris@brown.io",
+                  "encrypted_password": "$2a$04$YHpe4T1PniKj5IfE2wRGouNdKyN7oly3VmEAkfLc1LsVy0Z/l4mcu",
+                  "first_name": "Nicole Connelly",
+                  "id": 14,
+                  "last_name": "Adela Gottlieb",
+                  "last_sign_in_at": null,
+                  "last_sign_in_ip": null,
+                  "phone_number": null,
+                  "remember_created_at": null,
+                  "reset_password_sent_at": null,
+                  "reset_password_token": null,
+                  "sign_in_count": 0,
+                  "state_id": 13,
+                  "status": "active",
+                  "unconfirmed_email": null,
+                  "updated_at": "2018-02-18T12:59:19.594-05:00",
+                  "zip_code": null,
+                  "country": {
+                    "code": null,
+                    "id": 25,
+                    "name": "Canada",
+                    "phonecode": null
+                  },
+                  "state": {
+                  }
+                },
+                "meta": {
+                  "current_page": 1
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update User Details",
+        "tags": [
+          "Users"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": null
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "return data",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "address": {
+                    "type": "string",
+                    "x-nullable": true
+                  },
+                  "admin_role": {
+                    "type": "string",
+                    "x-nullable": true,
+                    "enum": [
+                      "super_admin"
+                    ]
+                  },
+                  "avatar": {
+                    "type": "string",
+                    "x-nullable": true
+                  },
+                  "confirmation_sent_at": {
+                    "type": "datetime",
+                    "x-nullable": true
+                  },
+                  "confirmation_token": {
+                    "type": "string",
+                    "x-nullable": true
+                  },
+                  "confirmed_at": {
+                    "type": "datetime",
+                    "x-nullable": true
+                  },
+                  "country_id": {
+                    "type": "integer",
+                    "x-nullable": true
+                  },
+                  "created_at": {
+                    "type": "datetime"
+                  },
+                  "current_sign_in_at": {
+                    "type": "datetime",
+                    "x-nullable": true
+                  },
+                  "current_sign_in_ip": {
+                    "type": "inet",
+                    "x-nullable": true
+                  },
+                  "date_of_birth": {
+                    "type": "date",
+                    "x-nullable": true
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "encrypted_password": {
+                    "type": "string"
+                  },
+                  "first_name": {
+                    "type": "string",
+                    "x-nullable": true
+                  },
+                  "id": {
+                    "type": "integer"
+                  },
+                  "last_name": {
+                    "type": "string",
+                    "x-nullable": true
+                  },
+                  "last_sign_in_at": {
+                    "type": "datetime",
+                    "x-nullable": true
+                  },
+                  "last_sign_in_ip": {
+                    "type": "inet",
+                    "x-nullable": true
+                  },
+                  "phone_number": {
+                    "type": "string",
+                    "x-nullable": true
+                  },
+                  "remember_created_at": {
+                    "type": "datetime",
+                    "x-nullable": true
+                  },
+                  "reset_password_sent_at": {
+                    "type": "datetime",
+                    "x-nullable": true
+                  },
+                  "reset_password_token": {
+                    "type": "string",
+                    "x-nullable": true
+                  },
+                  "sign_in_count": {
+                    "type": "integer"
+                  },
+                  "state_id": {
+                    "type": "integer",
+                    "x-nullable": true
+                  },
+                  "status": {
+                    "type": "string",
+                    "x-nullable": true,
+                    "enum": [
+                      "active",
+                      "suspended",
+                      "deleted"
+                    ]
+                  },
+                  "unconfirmed_email": {
+                    "type": "string",
+                    "x-nullable": true
+                  },
+                  "updated_at": {
+                    "type": "datetime"
+                  },
+                  "zip_code": {
+                    "type": "string",
+                    "x-nullable": true
+                  }
+                }
+              },
+              "required": [
+                "user"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "user": {
+                  "address": null,
+                  "admin_role": "super_admin",
+                  "avatar": {
+                    "url": null,
+                    "small": {
+                      "url": null
+                    },
+                    "middle": {
+                      "url": null
+                    }
+                  },
+                  "confirmation_sent_at": "2018-02-18T12:59:19.766-05:00",
+                  "confirmation_token": "Af7zcK-tga8sLq9NJtBp",
+                  "confirmed_at": "2018-02-18T12:59:18.312-05:00",
+                  "country_id": 31,
+                  "created_at": "2018-02-18T12:59:19.715-05:00",
+                  "current_sign_in_at": "2018-02-18T12:59:19.754-05:00",
+                  "current_sign_in_ip": {
+                    "family": 2,
+                    "addr": 2130706433,
+                    "mask_addr": 4294967295
+                  },
+                  "date_of_birth": null,
+                  "email": "keshaun_vandervort@collintoltenberg.name",
+                  "encrypted_password": "$2a$04$QTsT1zjZWfEGKL2T3Seyw.WqND56VQOMzIDYzuGR.ZTShrjY/0riy",
+                  "first_name": "Nicole Connelly",
+                  "id": 17,
+                  "last_name": "Adela Gottlieb",
+                  "last_sign_in_at": "2018-02-18T12:59:19.754-05:00",
+                  "last_sign_in_ip": {
+                    "family": 2,
+                    "addr": 2130706433,
+                    "mask_addr": 4294967295
+                  },
+                  "phone_number": null,
+                  "remember_created_at": "2018-02-18T12:59:19.738-05:00",
+                  "reset_password_sent_at": null,
+                  "reset_password_token": null,
+                  "sign_in_count": 1,
+                  "state_id": 16,
+                  "status": "active",
+                  "unconfirmed_email": "angeline@robel.co",
+                  "updated_at": "2018-02-18T12:59:19.766-05:00",
+                  "zip_code": null,
+                  "country": {
+                    "code": null,
+                    "id": 31,
+                    "name": "Canada",
+                    "phonecode": null
+                  },
+                  "state": {
+                  }
+                },
+                "meta": {
+                  "current_page": 1
+                }
               }
             }
           }

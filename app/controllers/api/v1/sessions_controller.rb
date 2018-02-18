@@ -2,17 +2,15 @@ class Api::V1::SessionsController < Api::V1::ApiController
   skip_before_action :authenticate_user!, only: [:create]
 
   def create
-    user = nil
+    @user = User.where(email: params[:email]).first if params[:email].present?
 
-    user = User.where(email: params[:email]).first if params[:email].present?
+    return invalid_login_attempt unless @user
 
-    return invalid_login_attempt unless user
+    if @user.valid_password?(params[:password])
+      if @user.confirmed?
+        sign_in(@user)
 
-    if user.valid_password?(params[:password])
-      if user.confirmed?
-        sign_in(user)
-
-        render_result({user: Api::V1::UserSerializer.new(user), :token => jwt(user)}, 201)
+        render_result(@user, 201, {token: jwt(@user)})
       else
         render_error({email: 'email is not confirmed'}, 400)
       end

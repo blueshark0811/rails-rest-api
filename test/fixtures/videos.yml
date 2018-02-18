@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  length: 1
+  video: MyString
+  organization: one
+  user: one
+  videoable: one
+  videoable_type: Videoable
+
+two:
+  title: MyString
+  length: 1
+  video: MyString
+  organization: two
+  user: two
+  videoable: two
+  videoable_type: Videoable

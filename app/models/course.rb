@@ -1,4 +1,3 @@
 class Course < ApplicationRecord
-  belongs_to :user
-  belongs_to :organization
+  include Courses::Relations
 end

@@ -1,5 +1,8 @@
 class ApplicationRecord < ActiveRecord::Base
+  include ApiAttributes
+  
   self.abstract_class = true
+  mattr_accessor :enumerate_fields
 
   class << self
     def attributes
@@ -7,25 +10,40 @@ class ApplicationRecord < ActiveRecord::Base
     end
 
     def enumerate *fields
-      prefix = nil
-      suffix = nil
+      @@enumerate_fields ||= {}.with_indifferent_access
+      @@enumerate_fields[name.underscore] = {}
 
       fields.each do |field|
         if field.is_a?(Hash)
           prefix = field[:prefix] || suffix = field[:suffix]
+          set_default = field[:set_default]
           field = field[:field]
+        else
+          prefix = nil
+          suffix = nil
+          set_default = nil
         end
 
-        enum(
-            field => enumeration_labels(field).inject({}) { |h, (k, _v)| h[k] = k; h }, 
-            _prefix: prefix, 
-            _suffix: suffix
-            )
+        @@enumerate_fields[name.underscore][field] = {
+          field => enumeration_labels(field).inject({}) { |h, (k, _v)| h[k] = k; h },
+          _prefix: prefix,
+          _suffix: suffix
+        }
+
+        enum @@enumerate_fields[name.underscore][field]
+
+        @@enumerate_fields[name.underscore][field][:set_default] = set_default
       end
+
+      before_validation :set_default_enum_fields
     end
 
     def enumeration_labels field
-      MODELS[name.underscore][field.to_s.pluralize]
+      if res = MODELS[name.underscore][field.to_s.pluralize]
+        return res
+      end
+
+      raise("Please set list of values in config/model.yml for model '#{name.underscore}' with key '#{field.to_s.pluralize}'")
     end
 
     def enumeration_key_by_index field, index
@@ -37,7 +55,13 @@ class ApplicationRecord < ActiveRecord::Base
     end
   end
 
-  def error_keys field
-    errors.details[field]&.map{|w| w[:error]}
+  protected
+
+  def set_default_enum_fields
+    defined_enums.each do |field, values|
+      next if self.class.enumerate_fields[self.class.name.underscore][field][:set_default] === false
+
+      self.send("#{field}=", values.to_a.first.first) if self.send(field).blank?
+    end
   end
 end

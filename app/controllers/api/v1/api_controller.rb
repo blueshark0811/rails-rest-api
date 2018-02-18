@@ -4,13 +4,15 @@ class Api::V1::ApiController <  ActionController::API
   before_action :set_current_time_zone
   before_action :set_locale
   
+  serialization_scope :view_context
+
   before_action do
     self.namespace_for_serializer = Api::V1
   end
 
   # respond_to :json
 
-  unless ["development"].include?(Rails.env)
+  unless ['development','test'].include?(Rails.env)
     unless config.consider_all_requests_local
       rescue_from Exception, with: :render_error
     end
@@ -68,7 +70,13 @@ class Api::V1::ApiController <  ActionController::API
 
     root = root.pluralize if root.respond_to?(:size)
 
-    res = {json: json, root: root, status: status, meta: meta || result_meta(json)}
+    res = {
+      json: json, 
+      root: root, 
+      status: status, 
+      meta: meta || result_meta(json),
+      serializer_params: {currnet_user: current_user}
+    }
     
     debug res
 
@@ -91,11 +99,11 @@ class Api::V1::ApiController <  ActionController::API
   end
 
   def current_page
-    params[:page] || 1
+    params[:current_page] || 1
   end
 
-  def current_page_limit
-    params[:count] || 20
+  def current_count
+    params[:current_count] || 20
   end
 
   def current_organization #todo

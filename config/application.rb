@@ -17,6 +17,9 @@ module EquipEngine
   end
 end
 
+# Dir["./lib/gem_patches/*.rb"].each { |file| p file; require file }
+
+
 RSpec.configure do |config|
   config.swagger_dry_run = false
 end

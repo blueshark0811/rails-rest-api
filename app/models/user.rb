@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   include Users::Relations
+  include Users::Api
   #  :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable

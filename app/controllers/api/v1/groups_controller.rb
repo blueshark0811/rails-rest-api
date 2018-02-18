@@ -15,7 +15,7 @@ class Api::V1::GroupsController < Api::V1::ApiController
       @groups = @groups.where(status: params[:status])
     end
 
-    render_result @groups.page(current_page).per(current_page_limit)
+    render_result @groups.page(current_page).per(current_count)
   end
 
   def show
@@ -35,6 +35,9 @@ class Api::V1::GroupsController < Api::V1::ApiController
   private
 
   def set_group
+    p current_organization
+    p Group.find params[:id]
+    p current_user.organizations
     @group = current_organization.groups.find params[:id]
   end
 end

@@ -29,7 +29,7 @@ gem "whenever"
 gem "daemons"
 gem 'delayed_job_active_record'
 
-gem 'active_model_serializers', '~> 0.10'
+gem 'active_model_serializers', path: './lib/active_model_serializers'
 gem 'carrierwave', '~> 1.0'
 gem 'rmagick'
 
@@ -40,7 +40,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
 
-  gem 'rswag'
+  gem 'rswag'#, path: './tmp/rswag'
   gem 'faker'
 end
 

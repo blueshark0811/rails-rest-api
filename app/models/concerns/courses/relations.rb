@@ -1,14 +1,12 @@
-module Groups
+module Courses
   module Relations
     extend ActiveSupport::Concern
 
     included do
+      belongs_to :user #author
       belongs_to :organization
-      has_many :group_users
-      has_many :users, through: :group_users
-      has_many :courses
-      has_many :lessons, through: :courses
       has_many :attachments, as: :attachmentable
+      has_many :lessons
     end
 
     module ClassMethods
