@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'models_helper'
 
 RSpec.describe Group, type: :model do
   describe "validate" do

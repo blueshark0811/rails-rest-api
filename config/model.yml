@@ -27,3 +27,13 @@ actions:
     reading: Reading
     question: Question
     watch: Watch
+
+course_group:
+  complete_lesson_cans:
+    teacher: Teacher
+    student: Student
+    all: All
+
+  statuses:
+    active: Active
+    pause: Pause

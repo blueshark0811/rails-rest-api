@@ -35,7 +35,32 @@ module ApiSpecHelper
   end
 
   def rswag_set_schema example, action, type = :object
-    p example.metadata[:response][:schema] = rswag_get_schema(action, type)
+    example.metadata[:response][:schema] = rswag_get_schema(action, type)
+  end
+
+  def rswag_parameter example, attributes
+    if attributes[:in] && attributes[:in].to_sym == :path
+      attributes[:required] = true
+    end
+
+    if example.metadata.has_key?(:operation)
+      example.metadata[:operation][:parameters] ||= []
+      example.metadata[:operation][:parameters] << attributes
+    else
+      example.metadata[:path_item][:parameters] ||= []
+      example.metadata[:path_item][:parameters] << attributes
+    end
+  end
+
+  def rswag_set_parameter example, options
+    rswag_parameter example, {
+      name: options.fetch(:name, :body), 
+      in: options.fetch(:in, :body), 
+      schema: {
+        type: :object,
+        properties: { rswag_root => rswag_get_schema(options.fetch(:action, :update)) }
+      }
+    }
   end
 
   def rswag_get_schema action, type = :object

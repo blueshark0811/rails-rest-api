@@ -1,7 +1,7 @@
 module ApiAttributes
   def api_properties_for_swagger object, options = {}
     attrs = api_object_attriubtes(object, options)
-  
+
     res = {}.with_indifferent_access
 
     return res unless attrs
@@ -37,7 +37,7 @@ module ApiAttributes
     col = column_for_attribute(field)
 
     res = { type: col.type }
-    res["x-nullable"] = true if col.null
+    res['x-nullable'] = true if col.null
 
     if enum_values = defined_enums[field.to_s]
       res.merge!(enum: enum_values.keys)

@@ -10,8 +10,5 @@ module Organizations
       has_many :videos
       has_many :attachments
     end
-
-    module ClassMethods
-    end
   end
 end

@@ -169,13 +169,13 @@
                 "groups": [
                   {
                     "count_participants": null,
-                    "created_at": "2018-02-18T12:59:18.524-05:00",
-                    "description": "aggregate clicks-and-mortar interfaces",
+                    "created_at": "2018-02-19T10:25:35.408-05:00",
+                    "description": "syndicate open-source niches",
                     "id": 1,
                     "organization_id": 1,
                     "status": "active",
-                    "title": "Huel LLC",
-                    "updated_at": "2018-02-18T12:59:18.524-05:00",
+                    "title": "Schmitt and Sons",
+                    "updated_at": "2018-02-19T10:25:35.408-05:00",
                     "user_id": null,
                     "user_limit": 10,
                     "visibility": "public",
@@ -349,13 +349,13 @@
               "application/json": {
                 "group": {
                   "count_participants": null,
-                  "created_at": "2018-02-18T12:59:18.711-05:00",
-                  "description": "aggregate clicks-and-mortar interfaces",
+                  "created_at": "2018-02-19T10:25:35.533-05:00",
+                  "description": "syndicate open-source niches",
                   "id": 2,
                   "organization_id": 2,
                   "status": "active",
-                  "title": "Huel LLC",
-                  "updated_at": "2018-02-18T12:59:18.711-05:00",
+                  "title": "Schmitt and Sons",
+                  "updated_at": "2018-02-19T10:25:35.533-05:00",
                   "user_id": null,
                   "user_limit": 10,
                   "visibility": "public",
@@ -429,7 +429,7 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "email": "sarina.rice@green.name",
+                  "email": "mozell_bins@townepouros.org",
                   "first_name": null,
                   "last_name": null,
                   "country": null,
@@ -568,9 +568,9 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "email": "ryley@parisian.org",
-                  "first_name": "Nicole Connelly",
-                  "last_name": "Adela Gottlieb",
+                  "email": "della@bartoletti.org",
+                  "first_name": "Roma Gutkowski",
+                  "last_name": "Dr. Ernest Wolff",
                   "country": {
                     "code": null,
                     "id": 11,
@@ -581,7 +581,7 @@
                   }
                 },
                 "meta": {
-                  "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6NywiZXhwIjoxNTUwNTEyNzU5LCJ0eXBlIjoidXNlciIsImVtYWlsIjoicnlsZXlAcGFyaXNpYW4ub3JnIn0.p2IcyojXlsN7blWHdViU0hnpWUNmOGyxqPKyzNgzCnY"
+                  "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6NywiZXhwIjoxNTUwNTg5OTM2LCJ0eXBlIjoidXNlciIsImVtYWlsIjoiZGVsbGFAYmFydG9sZXR0aS5vcmcifQ.XgoBDVGHh5qf5J6RoGU7xFcfVU0X56QA1uH17piQXU0"
                 }
               }
             }
@@ -646,7 +646,7 @@
     },
     "/api/v1/users": {
       "get": {
-        "summary": "Users list inside school",
+        "summary": "Users list inside organization",
         "tags": [
           "Users"
         ],
@@ -820,36 +820,36 @@
                     },
                     "confirmation_sent_at": null,
                     "confirmation_token": null,
-                    "confirmed_at": "2018-02-18T12:59:18.312-05:00",
+                    "confirmed_at": "2018-02-19T10:25:35.229-05:00",
                     "country_id": 23,
-                    "created_at": "2018-02-18T12:59:19.509-05:00",
-                    "current_sign_in_at": "2018-02-18T12:59:19.539-05:00",
+                    "created_at": "2018-02-19T10:25:36.377-05:00",
+                    "current_sign_in_at": "2018-02-19T10:25:36.406-05:00",
                     "current_sign_in_ip": {
                       "family": 2,
                       "addr": 2130706433,
                       "mask_addr": 4294967295
                     },
                     "date_of_birth": null,
-                    "email": "layla_bogan@gutkowski.biz",
-                    "encrypted_password": "$2a$04$rLX3gK7DKOGmKCTgoFVR0uxQm63NHNyLTN0GzO2Ne3/ig.mqAyvlu",
-                    "first_name": "Nicole Connelly",
+                    "email": "bertrand_hane@schmitt.com",
+                    "encrypted_password": "$2a$04$7Vf9EJBkcX7W54NH75jaeeCW1Y6I7pVRpnT2t1CajkEbk4IvBBQma",
+                    "first_name": "Roma Gutkowski",
                     "id": 13,
-                    "last_name": "Adela Gottlieb",
-                    "last_sign_in_at": "2018-02-18T12:59:19.539-05:00",
+                    "last_name": "Dr. Ernest Wolff",
+                    "last_sign_in_at": "2018-02-19T10:25:36.406-05:00",
                     "last_sign_in_ip": {
                       "family": 2,
                       "addr": 2130706433,
                       "mask_addr": 4294967295
                     },
                     "phone_number": null,
-                    "remember_created_at": "2018-02-18T12:59:19.529-05:00",
+                    "remember_created_at": "2018-02-19T10:25:36.397-05:00",
                     "reset_password_sent_at": null,
                     "reset_password_token": null,
                     "sign_in_count": 1,
                     "state_id": 12,
                     "status": "active",
                     "unconfirmed_email": null,
-                    "updated_at": "2018-02-18T12:59:19.540-05:00",
+                    "updated_at": "2018-02-19T10:25:36.407-05:00",
                     "zip_code": null,
                     "country": {
                       "code": null,
@@ -1039,17 +1039,17 @@
                   },
                   "confirmation_sent_at": null,
                   "confirmation_token": null,
-                  "confirmed_at": "2018-02-18T12:59:18.312-05:00",
+                  "confirmed_at": "2018-02-19T10:25:35.229-05:00",
                   "country_id": 25,
-                  "created_at": "2018-02-18T12:59:19.594-05:00",
+                  "created_at": "2018-02-19T10:25:36.459-05:00",
                   "current_sign_in_at": null,
                   "current_sign_in_ip": null,
                   "date_of_birth": null,
-                  "email": "paris@brown.io",
-                  "encrypted_password": "$2a$04$YHpe4T1PniKj5IfE2wRGouNdKyN7oly3VmEAkfLc1LsVy0Z/l4mcu",
-                  "first_name": "Nicole Connelly",
+                  "email": "glenda_roberts@feilmorar.info",
+                  "encrypted_password": "$2a$04$PN6LHktKBX1vHJmMN2B2ce3v3mbSsytXBBJEVSmLHxt5yUtEGZo6m",
+                  "first_name": "Roma Gutkowski",
                   "id": 14,
-                  "last_name": "Adela Gottlieb",
+                  "last_name": "Dr. Ernest Wolff",
                   "last_sign_in_at": null,
                   "last_sign_in_ip": null,
                   "phone_number": null,
@@ -1060,7 +1060,7 @@
                   "state_id": 13,
                   "status": "active",
                   "unconfirmed_email": null,
-                  "updated_at": "2018-02-18T12:59:19.594-05:00",
+                  "updated_at": "2018-02-19T10:25:36.459-05:00",
                   "zip_code": null,
                   "country": {
                     "code": null,
@@ -1106,7 +1106,130 @@
             "schema": {
               "type": "object",
               "properties": {
-                "user": null
+                "user": {
+                  "type": "object",
+                  "properties": {
+                    "user": {
+                      "address": {
+                        "type": "string",
+                        "x-nullable": true
+                      },
+                      "admin_role": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "enum": [
+                          "super_admin"
+                        ]
+                      },
+                      "avatar": {
+                        "type": "string",
+                        "x-nullable": true
+                      },
+                      "confirmation_sent_at": {
+                        "type": "datetime",
+                        "x-nullable": true
+                      },
+                      "confirmation_token": {
+                        "type": "string",
+                        "x-nullable": true
+                      },
+                      "confirmed_at": {
+                        "type": "datetime",
+                        "x-nullable": true
+                      },
+                      "country_id": {
+                        "type": "integer",
+                        "x-nullable": true
+                      },
+                      "created_at": {
+                        "type": "datetime"
+                      },
+                      "current_sign_in_at": {
+                        "type": "datetime",
+                        "x-nullable": true
+                      },
+                      "current_sign_in_ip": {
+                        "type": "inet",
+                        "x-nullable": true
+                      },
+                      "date_of_birth": {
+                        "type": "date",
+                        "x-nullable": true
+                      },
+                      "email": {
+                        "type": "string"
+                      },
+                      "encrypted_password": {
+                        "type": "string"
+                      },
+                      "first_name": {
+                        "type": "string",
+                        "x-nullable": true
+                      },
+                      "id": {
+                        "type": "integer"
+                      },
+                      "last_name": {
+                        "type": "string",
+                        "x-nullable": true
+                      },
+                      "last_sign_in_at": {
+                        "type": "datetime",
+                        "x-nullable": true
+                      },
+                      "last_sign_in_ip": {
+                        "type": "inet",
+                        "x-nullable": true
+                      },
+                      "phone_number": {
+                        "type": "string",
+                        "x-nullable": true
+                      },
+                      "remember_created_at": {
+                        "type": "datetime",
+                        "x-nullable": true
+                      },
+                      "reset_password_sent_at": {
+                        "type": "datetime",
+                        "x-nullable": true
+                      },
+                      "reset_password_token": {
+                        "type": "string",
+                        "x-nullable": true
+                      },
+                      "sign_in_count": {
+                        "type": "integer"
+                      },
+                      "state_id": {
+                        "type": "integer",
+                        "x-nullable": true
+                      },
+                      "status": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "enum": [
+                          "active",
+                          "suspended",
+                          "deleted"
+                        ]
+                      },
+                      "unconfirmed_email": {
+                        "type": "string",
+                        "x-nullable": true
+                      },
+                      "updated_at": {
+                        "type": "datetime"
+                      },
+                      "zip_code": {
+                        "type": "string",
+                        "x-nullable": true
+                      }
+                    }
+                  },
+                  "required": [
+                    "user"
+                  ]
+                }
               }
             }
           }
@@ -1252,38 +1375,38 @@
                       "url": null
                     }
                   },
-                  "confirmation_sent_at": "2018-02-18T12:59:19.766-05:00",
-                  "confirmation_token": "Af7zcK-tga8sLq9NJtBp",
-                  "confirmed_at": "2018-02-18T12:59:18.312-05:00",
+                  "confirmation_sent_at": "2018-02-19T10:25:36.590-05:00",
+                  "confirmation_token": "gmTiosg__aXyuXJq8eJx",
+                  "confirmed_at": "2018-02-19T10:25:35.229-05:00",
                   "country_id": 31,
-                  "created_at": "2018-02-18T12:59:19.715-05:00",
-                  "current_sign_in_at": "2018-02-18T12:59:19.754-05:00",
+                  "created_at": "2018-02-19T10:25:36.547-05:00",
+                  "current_sign_in_at": "2018-02-19T10:25:36.585-05:00",
                   "current_sign_in_ip": {
                     "family": 2,
                     "addr": 2130706433,
                     "mask_addr": 4294967295
                   },
                   "date_of_birth": null,
-                  "email": "keshaun_vandervort@collintoltenberg.name",
-                  "encrypted_password": "$2a$04$QTsT1zjZWfEGKL2T3Seyw.WqND56VQOMzIDYzuGR.ZTShrjY/0riy",
-                  "first_name": "Nicole Connelly",
+                  "email": "hailee.altenwerth@kovacek.org",
+                  "encrypted_password": "$2a$04$UnUusqW75zoznObD0xoHiu0.VDyU.BN9WGl8n/OMkmt09mx3nbuTK",
+                  "first_name": "Roma Gutkowski",
                   "id": 17,
-                  "last_name": "Adela Gottlieb",
-                  "last_sign_in_at": "2018-02-18T12:59:19.754-05:00",
+                  "last_name": "Dr. Ernest Wolff",
+                  "last_sign_in_at": "2018-02-19T10:25:36.585-05:00",
                   "last_sign_in_ip": {
                     "family": 2,
                     "addr": 2130706433,
                     "mask_addr": 4294967295
                   },
                   "phone_number": null,
-                  "remember_created_at": "2018-02-18T12:59:19.738-05:00",
+                  "remember_created_at": "2018-02-19T10:25:36.573-05:00",
                   "reset_password_sent_at": null,
                   "reset_password_token": null,
                   "sign_in_count": 1,
                   "state_id": 16,
                   "status": "active",
-                  "unconfirmed_email": "angeline@robel.co",
-                  "updated_at": "2018-02-18T12:59:19.766-05:00",
+                  "unconfirmed_email": "winnifred@hellerschaefer.biz",
+                  "updated_at": "2018-02-19T10:25:36.590-05:00",
                   "zip_code": null,
                   "country": {
                     "code": null,

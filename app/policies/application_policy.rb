@@ -1,11 +1,12 @@
 class ApplicationPolicy
   include ApiPolicy
 
-  attr_reader :user, :record
+  attr_reader :user, :organization, :record
 
-  def initialize(user, record)
+  def initialize(user, organization, record)
     @user = user
     @record = record
+    @organization = organization
   end
 
   def index?
@@ -37,14 +38,15 @@ class ApplicationPolicy
   end
 
   def scope
-    Pundit.policy_scope!(user, record.class)
+    Pundit.policy_scope!(user, organization, record.class)
   end
 
   class Scope
-    attr_reader :user, :scope
+    attr_reader :user, :organization, :scope
 
-    def initialize(user, scope)
+    def initialize(user, organization, scope)
       @user = user
+      @organization = organization
       @scope = scope
     end
 

@@ -7,9 +7,10 @@ module Courses
       belongs_to :organization
       has_many :attachments, as: :attachmentable
       has_many :lessons
-    end
 
-    module ClassMethods
+      has_many :course_groups
+      has_many :groups, through: :course_groups
+      has_many :precourses, through: :course_groups
     end
   end
 end

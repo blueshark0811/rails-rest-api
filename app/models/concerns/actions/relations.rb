@@ -11,8 +11,5 @@ module Actions
       has_many :attachments, as: :attachmentable
       has_many :videos, as: :videoable
     end
-
-    module ClassMethods
-    end
   end
 end

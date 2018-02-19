@@ -4,12 +4,12 @@ include ApiSpecHelper
 describe Api::V1::UsersController do
   let!(:user) { create :user }
 
-  let( :rswag_properties ) { { current_user: current_user, object: user } }
+  let(:rswag_properties) { { current_user: current_user, object: user } }
 
   path "/api/v1/users" do
     before { |example| rswag_set_schema example, :index, :array }
 
-    get "Users list inside school" do
+    get "Users list inside organization" do
       tags "Users"
       consumes "application/json"
 
@@ -35,27 +35,25 @@ describe Api::V1::UsersController do
       parameter name: :id, in: :path, type: :integer
       parameter name: :authorization, in: :header, type: :string, required: true
 
-      response "200", "information about User" do       
+      response "200", "information about User" do
         run_test!
       end
     end
 
     put "Update User Details" do
-      before { |example| rswag_set_schema example, :update }
+      before do |example| 
+        rswag_set_schema example, :update
+        rswag_set_parameter example, action: :update
+      end
 
       tags "Users"
       consumes "application/json"
 
       parameter name: :id, in: :path, type: :integer
       parameter name: :authorization, in: :header, type: :string, required: true
-  
-      parameter name: :body, in: :body, schema: {
-        type: :object,
-        properties: { user: @item }
-      }
 
       response "200", "return data" do
-        let(:body) { { user: build(:user).attributes } }
+        let(:body) { { user: build(:user).attributes.select{|k,v| !v.nil?} } }
 
         run_test!
       end

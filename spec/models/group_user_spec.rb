@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'models_helper'
 
 RSpec.describe GroupUser, type: :model do
   describe "validate" do

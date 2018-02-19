@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'models_helper'
 
 RSpec.describe Organization, type: :model do
   describe "should validate" do

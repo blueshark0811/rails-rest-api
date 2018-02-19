@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   include Users::Relations
-  include Users::Api
   #  :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -11,8 +10,14 @@ class User < ApplicationRecord
 
   before_validation :set_default_data
 
-  def remember_expired?
-    remember_expires_at < Time.zone.now
+def remember_expired?
+    !remember_created_at || remember_expire_at < Time.zone.now
+  end
+
+  def remember_expire_at
+    return unless remember_created_at
+
+    remember_created_at+self.class.remember_for
   end
 
   private

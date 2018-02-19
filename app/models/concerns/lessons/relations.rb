@@ -8,8 +8,5 @@ module Lessons
       has_one :course, through: :course
       has_many :attachments, as: :attachmentable
     end
-
-    module ClassMethods
-    end
   end
 end

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  course: one
+  group: one
+  precourse: one
+  complete_lesson_can: MyString
+  reports_enabled: false
+  files_enabled: false
+  discussing_enabled: false
+  student_content_enabled: false
+  status: MyString
+
+two:
+  course: two
+  group: two
+  precourse: two
+  complete_lesson_can: MyString
+  reports_enabled: false
+  files_enabled: false
+  discussing_enabled: false
+  student_content_enabled: false
+  status: MyString

@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'models_helper'
 
 RSpec.describe City, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"

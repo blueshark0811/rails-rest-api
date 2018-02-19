@@ -38,6 +38,6 @@ class Api::V1::SessionsController < Api::V1::ApiController
 
   def invalid_login_attempt
     warden.custom_failure!
-    render_error "Error with your login or password", "wrong_credentials", 401
+    render_error 'Error with your login or password', 'wrong_credentials', 401
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180216163002) do
+ActiveRecord::Schema.define(version: 20180219154029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,23 @@ ActiveRecord::Schema.define(version: 20180216163002) do
     t.integer "phonecode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "course_groups", force: :cascade do |t|
+    t.bigint "course_id"
+    t.bigint "group_id"
+    t.bigint "precourse_id"
+    t.string "complete_lesson_can"
+    t.boolean "reports_enabled"
+    t.boolean "files_enabled"
+    t.boolean "discussing_enabled"
+    t.boolean "student_content_enabled"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_course_groups_on_course_id"
+    t.index ["group_id"], name: "index_course_groups_on_group_id"
+    t.index ["precourse_id"], name: "index_course_groups_on_precourse_id"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -201,6 +218,9 @@ ActiveRecord::Schema.define(version: 20180216163002) do
   add_foreign_key "attachments", "organizations"
   add_foreign_key "attachments", "users"
   add_foreign_key "cities", "states"
+  add_foreign_key "course_groups", "courses"
+  add_foreign_key "course_groups", "courses", column: "precourse_id"
+  add_foreign_key "course_groups", "groups"
   add_foreign_key "courses", "organizations"
   add_foreign_key "courses", "users"
   add_foreign_key "group_users", "groups"
