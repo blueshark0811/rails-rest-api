@@ -22,7 +22,7 @@ group:
     private: Private
     public: Public
 
-actions:
+action:
   action_types:
     reading: Reading
     question: Question
@@ -34,6 +34,11 @@ course_group:
     student: Student
     all: All
 
+  statuses:
+    active: Active
+    pause: Pause
+
+lesson:
   statuses:
     active: Active
     pause: Pause

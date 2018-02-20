@@ -3,5 +3,5 @@ class CourseGroup < ApplicationRecord
   belongs_to :group
   belongs_to :precourse, class_name: 'Course'
 
-  enumerate :complete_lesson_can, :status
+  enumerate :status, {field: :complete_lesson_can, prefix: true}
 end

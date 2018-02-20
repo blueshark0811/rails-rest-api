@@ -1,6 +1,11 @@
 require 'models_helper'
 
 RSpec.describe Group, type: :model do
+
+  it_behaves_like 'enumerable' do
+    let(:fields) { [{ field: :visibility, prefix: true }, :status] }
+  end
+
   describe "validate" do
     let(:group) { build :group }
 
@@ -12,18 +17,6 @@ RSpec.describe Group, type: :model do
       group.organization_id = nil
       group.valid?
       expect(group.errors[:organization_id]).to_not be_blank
-    end
-
-    it "presence of status" do
-      group.status = nil
-      group.valid?
-      expect(group.errors[:status]).to_not be_blank
-    end
-
-    it "presence of visibility" do
-      group.visibility = nil
-      group.valid?
-      expect(group.errors[:visibility]).to_not be_blank
     end
   end
 end

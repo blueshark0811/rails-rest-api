@@ -13,4 +13,8 @@ class ApplicationRecord < ActiveRecord::Base
       new.attributes.symbolize_keys.keys.sort
     end
   end
+
+  def error_keys field
+    errors.details[field]&.map{|w| w[:error]}
+  end
 end

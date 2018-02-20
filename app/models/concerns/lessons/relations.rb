@@ -5,7 +5,7 @@ module Lessons
     included do
       belongs_to :user #author
       belongs_to :course
-      has_one :course, through: :course
+      
       has_many :attachments, as: :attachmentable
     end
   end

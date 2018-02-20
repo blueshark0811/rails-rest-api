@@ -1,6 +1,10 @@
-require "rails_helper"
+require "models_helper"
 
 RSpec.describe OrganizationUser, type: :model do
+  it_behaves_like 'enumerable' do
+    let(:fields) { %i[role] }
+  end
+
   describe "validate" do
     let(:organization_user) { build :organization_user }
     
@@ -18,12 +22,6 @@ RSpec.describe OrganizationUser, type: :model do
       organization_user.organization_id = nil
       organization_user.valid?
       expect(organization_user.errors[:organization_id]).to_not be_blank
-    end
-
-    it "presence of role" do
-      organization_user.role = nil
-      organization_user.valid?
-      expect(organization_user.errors[:role]).to_not be_blank
     end
   end
 end

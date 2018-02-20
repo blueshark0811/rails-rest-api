@@ -6,11 +6,11 @@ module Enumerable
       enumerate_fields = class_variable_get(:@@enumerate_fields) rescue nil
       enumerate_fields ||= {}.with_indifferent_access
 
-      enumerate_fields[name.underscore] = {}
+      enumerate_fields[name.underscore] ||= {}
 
       fields.each do |field|
         if field.is_a?(Hash)
-          prefix = field[:prefix] || suffix = field[:suffix]
+          (prefix = field[:prefix]) || (suffix = field[:suffix])
           set_default = field[:set_default]
           field = field[:field]
         else
@@ -37,7 +37,7 @@ module Enumerable
 
 
     def enumeration_labels field
-      if res = MODELS[name.underscore][field.to_s.pluralize]
+      if res = MODELS[name.underscore] && MODELS[name.underscore][field.to_s.pluralize]
         return res
       end
 
@@ -56,12 +56,12 @@ module Enumerable
   protected
 
   def set_default_enum_fields
-    return unless (enumerate_fields = class_variable_get(:@@enumerate_fields) rescue nil)
+    return unless (enumerate_fields = self.class.class_variable_get(:@@enumerate_fields) rescue nil)
 
     defined_enums.each do |field, values|
-      next if enumerate_fields[self.class.name.underscore][field][:set_default] === false
+      next if enumerate_fields[self.class.name.underscore][field][:set_default] == false
 
-      self.send("#{field}=", values.to_a.first.first) if self.send(field).blank?
+      send("#{field}=", values.to_a.first.first) if send(field).blank?
     end
-  end  
+  end
 end

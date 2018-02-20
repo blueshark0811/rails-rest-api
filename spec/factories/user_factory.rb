@@ -4,7 +4,7 @@ FactoryBot.define do
     last_name Faker::Name.name
     email { Faker::Internet.email }
     password Faker::Internet.password
-    confirmed_at Time.now
+    confirmed_at Time.zone.now
 
     country
     state

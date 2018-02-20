@@ -27,7 +27,7 @@ RSpec.describe GroupUser, type: :model do
     end
 
     it "size limitation of group's participants" do
-      group_user.group.update_attribute :user_limit, 1
+      group_user.group.update_attributes user_limit: 1
       create :group_user, group: group_user.group
       group_user.valid?
       expect(group_user.errors[:group_id]).to include 'size limit of group is reached'
