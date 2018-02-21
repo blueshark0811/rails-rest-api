@@ -1,11 +1,10 @@
 class Api::V1::GroupsController < Api::V1::ApiController
   before_action :set_group, only: %i[show update destroy]
+  
   def index
     @groups = current_organization.groups
 
-    if params[:participated]
-      @groups = @groups.participated_by(current_user)
-    end
+    @groups = @groups.participated_by(current_user) if params[:my]
 
     if Group.visibilities.include?(params[:visibility])
       @groups = @groups.where(visibility: params[:visibility])
@@ -35,9 +34,6 @@ class Api::V1::GroupsController < Api::V1::ApiController
   private
 
   def set_group
-    p current_organization
-    p Group.find params[:id]
-    p current_user.organizations
     @group = current_organization.groups.find params[:id]
   end
 end

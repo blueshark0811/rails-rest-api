@@ -32,6 +32,27 @@
             "in": "query",
             "type": "integer",
             "required": false
+          },
+          {
+            "name": "visibility",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "description": "Filter groups, possible values: private, public"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "description": "Filter groups, possible values: private, publicactive, pause"
+          },
+          {
+            "name": "my",
+            "in": "query",
+            "type": "any",
+            "required": false,
+            "description": "return user's groups"
           }
         ],
         "responses": {
@@ -43,6 +64,259 @@
                 "groups": {
                   "type": "array",
                   "items": {
+                    "type": "object",
+                    "properties": {
+                      "count_participants": {
+                        "type": "integer",
+                        "x-nullable": true
+                      },
+                      "created_at": {
+                        "type": "datetime"
+                      },
+                      "description": {
+                        "type": "text",
+                        "x-nullable": true
+                      },
+                      "id": {
+                        "type": "integer"
+                      },
+                      "organization_id": {
+                        "type": "integer",
+                        "x-nullable": true
+                      },
+                      "status": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "enum": [
+                          "active",
+                          "pause"
+                        ]
+                      },
+                      "title": {
+                        "type": "string",
+                        "x-nullable": true
+                      },
+                      "updated_at": {
+                        "type": "datetime"
+                      },
+                      "user_id": {
+                        "type": "integer",
+                        "x-nullable": true
+                      },
+                      "user_limit": {
+                        "type": "integer",
+                        "x-nullable": true
+                      },
+                      "visibility": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "enum": [
+                          "private",
+                          "public"
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              "required": [
+                "groups"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "groups": [
+                  {
+                    "count_participants": null,
+                    "created_at": "2018-02-21T19:02:11.610Z",
+                    "description": "extend clicks-and-mortar action-items",
+                    "id": 1,
+                    "organization_id": 1,
+                    "status": "active",
+                    "title": "Lebsack Inc",
+                    "updated_at": "2018-02-21T19:02:11.610Z",
+                    "user_id": null,
+                    "user_limit": 10,
+                    "visibility": "public",
+                    "organization": {
+                    }
+                  }
+                ],
+                "meta": {
+                  "total_pages": 1,
+                  "size": 1,
+                  "limit_value": 20,
+                  "current_page": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/groups/{id}": {
+      "get": {
+        "summary": "Details",
+        "tags": [
+          "Groups"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "group": {
+                  "type": "object",
+                  "properties": {
+                    "count_participants": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "created_at": {
+                      "type": "datetime"
+                    },
+                    "description": {
+                      "type": "text",
+                      "x-nullable": true
+                    },
+                    "id": {
+                      "type": "integer"
+                    },
+                    "organization_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "status": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "active",
+                        "pause"
+                      ]
+                    },
+                    "title": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "updated_at": {
+                      "type": "datetime"
+                    },
+                    "user_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "user_limit": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "visibility": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "private",
+                        "public"
+                      ]
+                    }
+                  }
+                }
+              },
+              "required": [
+                "group"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "group": {
+                  "count_participants": null,
+                  "created_at": "2018-02-21T19:02:11.722Z",
+                  "description": "extend clicks-and-mortar action-items",
+                  "id": 2,
+                  "organization_id": 2,
+                  "status": "active",
+                  "title": "Lebsack Inc",
+                  "updated_at": "2018-02-21T19:02:11.722Z",
+                  "user_id": null,
+                  "user_limit": 10,
+                  "visibility": "public",
+                  "organization": {
+                  }
+                },
+                "meta": {
+                  "current_page": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/registrations": {
+      "post": {
+        "summary": "Sign up",
+        "tags": [
+          "Sign up"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "user created",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "meta": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string",
+                      "x-nullable": true
+                    }
+                  }
+                },
+                "user": {
+                  "type": "object",
+                  "properties": {
                     "address": {
                       "type": "string",
                       "x-nullable": true
@@ -55,8 +329,7 @@
                       ]
                     },
                     "avatar": {
-                      "type": "string",
-                      "x-nullable": true
+                      "type": "object"
                     },
                     "confirmation_sent_at": {
                       "type": "datetime",
@@ -161,275 +434,13 @@
                 }
               },
               "required": [
-                "groups"
-              ]
-            },
-            "examples": {
-              "application/json": {
-                "groups": [
-                  {
-                    "count_participants": null,
-                    "created_at": "2018-02-19T10:25:35.408-05:00",
-                    "description": "syndicate open-source niches",
-                    "id": 1,
-                    "organization_id": 1,
-                    "status": "active",
-                    "title": "Schmitt and Sons",
-                    "updated_at": "2018-02-19T10:25:35.408-05:00",
-                    "user_id": null,
-                    "user_limit": 10,
-                    "visibility": "public",
-                    "organization": {
-                    }
-                  }
-                ],
-                "meta": {
-                  "total_pages": 1,
-                  "size": 1,
-                  "limit_value": 20,
-                  "current_page": 1
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/groups/{id}": {
-      "get": {
-        "summary": "Details",
-        "tags": [
-          "Groups"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "type": "integer",
-            "required": true
-          },
-          {
-            "name": "authorization",
-            "in": "header",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "returns",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "group": {
-                  "address": {
-                    "type": "string",
-                    "x-nullable": true
-                  },
-                  "admin_role": {
-                    "type": "string",
-                    "x-nullable": true,
-                    "enum": [
-                      "super_admin"
-                    ]
-                  },
-                  "avatar": {
-                    "type": "string",
-                    "x-nullable": true
-                  },
-                  "confirmation_sent_at": {
-                    "type": "datetime",
-                    "x-nullable": true
-                  },
-                  "confirmation_token": {
-                    "type": "string",
-                    "x-nullable": true
-                  },
-                  "confirmed_at": {
-                    "type": "datetime",
-                    "x-nullable": true
-                  },
-                  "country_id": {
-                    "type": "integer",
-                    "x-nullable": true
-                  },
-                  "created_at": {
-                    "type": "datetime"
-                  },
-                  "current_sign_in_at": {
-                    "type": "datetime",
-                    "x-nullable": true
-                  },
-                  "current_sign_in_ip": {
-                    "type": "inet",
-                    "x-nullable": true
-                  },
-                  "date_of_birth": {
-                    "type": "date",
-                    "x-nullable": true
-                  },
-                  "email": {
-                    "type": "string"
-                  },
-                  "encrypted_password": {
-                    "type": "string"
-                  },
-                  "first_name": {
-                    "type": "string",
-                    "x-nullable": true
-                  },
-                  "id": {
-                    "type": "integer"
-                  },
-                  "last_name": {
-                    "type": "string",
-                    "x-nullable": true
-                  },
-                  "last_sign_in_at": {
-                    "type": "datetime",
-                    "x-nullable": true
-                  },
-                  "last_sign_in_ip": {
-                    "type": "inet",
-                    "x-nullable": true
-                  },
-                  "phone_number": {
-                    "type": "string",
-                    "x-nullable": true
-                  },
-                  "remember_created_at": {
-                    "type": "datetime",
-                    "x-nullable": true
-                  },
-                  "reset_password_sent_at": {
-                    "type": "datetime",
-                    "x-nullable": true
-                  },
-                  "reset_password_token": {
-                    "type": "string",
-                    "x-nullable": true
-                  },
-                  "sign_in_count": {
-                    "type": "integer"
-                  },
-                  "state_id": {
-                    "type": "integer",
-                    "x-nullable": true
-                  },
-                  "status": {
-                    "type": "string",
-                    "x-nullable": true,
-                    "enum": [
-                      "active",
-                      "suspended",
-                      "deleted"
-                    ]
-                  },
-                  "unconfirmed_email": {
-                    "type": "string",
-                    "x-nullable": true
-                  },
-                  "updated_at": {
-                    "type": "datetime"
-                  },
-                  "zip_code": {
-                    "type": "string",
-                    "x-nullable": true
-                  }
-                }
-              },
-              "required": [
-                "group"
-              ]
-            },
-            "examples": {
-              "application/json": {
-                "group": {
-                  "count_participants": null,
-                  "created_at": "2018-02-19T10:25:35.533-05:00",
-                  "description": "syndicate open-source niches",
-                  "id": 2,
-                  "organization_id": 2,
-                  "status": "active",
-                  "title": "Schmitt and Sons",
-                  "updated_at": "2018-02-19T10:25:35.533-05:00",
-                  "user_id": null,
-                  "user_limit": 10,
-                  "visibility": "public",
-                  "organization": {
-                  }
-                },
-                "meta": {
-                  "current_page": 1
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/registrations": {
-      "post": {
-        "summary": "Sign up",
-        "tags": [
-          "Sign up"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "user": {
-                  "type": "object",
-                  "properties": {
-                    "email": {
-                      "type": "string"
-                    },
-                    "password": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "user created",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "user": {
-                  "type": "object"
-                },
-                "meta": {
-                  "type": "object",
-                  "properties": {
-                    "token": {
-                      "type": "string",
-                      "x-nullable": true
-                    }
-                  }
-                }
-              },
-              "required": [
-                "user",
-                "meta"
+                "user"
               ]
             },
             "examples": {
               "application/json": {
                 "user": {
-                  "email": "mozell_bins@townepouros.org",
+                  "email": "bettye.kemmer@kshlerin.com",
                   "first_name": null,
                   "last_name": null,
                   "country": null,
@@ -547,9 +558,6 @@
             "schema": {
               "type": "object",
               "properties": {
-                "user": {
-                  "type": "object"
-                },
                 "meta": {
                   "type": "object",
                   "properties": {
@@ -558,130 +566,10 @@
                       "x-nullable": true
                     }
                   }
-                }
-              },
-              "required": [
-                "user",
-                "meta"
-              ]
-            },
-            "examples": {
-              "application/json": {
-                "user": {
-                  "email": "della@bartoletti.org",
-                  "first_name": "Roma Gutkowski",
-                  "last_name": "Dr. Ernest Wolff",
-                  "country": {
-                    "code": null,
-                    "id": 11,
-                    "name": "Canada",
-                    "phonecode": null
-                  },
-                  "state": {
-                  }
                 },
-                "meta": {
-                  "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6NywiZXhwIjoxNTUwNTg5OTM2LCJ0eXBlIjoidXNlciIsImVtYWlsIjoiZGVsbGFAYmFydG9sZXR0aS5vcmcifQ.XgoBDVGHh5qf5J6RoGU7xFcfVU0X56QA1uH17piQXU0"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "session is fail with wrong email",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "errors": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              },
-              "required": [
-                "errors"
-              ]
-            },
-            "examples": {
-              "application/json": {
-                "error_code": "wrong_credentials",
-                "errors": [
-                  "Error with your login or password"
-                ]
-              }
-            }
-          },
-          "400": {
-            "description": "session is fail if user is not confirmed",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "errors": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "items": {
-                      "email": "array"
-                    }
-                  }
-                }
-              },
-              "required": [
-                "errors"
-              ]
-            },
-            "examples": {
-              "application/json": {
-                "error_code": 400,
-                "errors": [
-                  {
-                    "email": "email is not confirmed"
-                  }
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/users": {
-      "get": {
-        "summary": "Users list inside organization",
-        "tags": [
-          "Users"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "authorization",
-            "in": "header",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": "current_page",
-            "in": "query",
-            "type": "integer",
-            "required": false
-          },
-          {
-            "name": "current_count",
-            "in": "query",
-            "type": "integer",
-            "required": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "return data",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "users": {
-                  "type": "array",
-                  "items": {
+                "user": {
+                  "type": "object",
+                  "properties": {
                     "address": {
                       "type": "string",
                       "x-nullable": true
@@ -694,8 +582,7 @@
                       ]
                     },
                     "avatar": {
-                      "type": "string",
-                      "x-nullable": true
+                      "type": "object"
                     },
                     "confirmation_sent_at": {
                       "type": "datetime",
@@ -800,271 +687,18 @@
                 }
               },
               "required": [
-                "users"
-              ]
-            },
-            "examples": {
-              "application/json": {
-                "users": [
-                  {
-                    "address": null,
-                    "admin_role": "super_admin",
-                    "avatar": {
-                      "url": null,
-                      "small": {
-                        "url": null
-                      },
-                      "middle": {
-                        "url": null
-                      }
-                    },
-                    "confirmation_sent_at": null,
-                    "confirmation_token": null,
-                    "confirmed_at": "2018-02-19T10:25:35.229-05:00",
-                    "country_id": 23,
-                    "created_at": "2018-02-19T10:25:36.377-05:00",
-                    "current_sign_in_at": "2018-02-19T10:25:36.406-05:00",
-                    "current_sign_in_ip": {
-                      "family": 2,
-                      "addr": 2130706433,
-                      "mask_addr": 4294967295
-                    },
-                    "date_of_birth": null,
-                    "email": "bertrand_hane@schmitt.com",
-                    "encrypted_password": "$2a$04$7Vf9EJBkcX7W54NH75jaeeCW1Y6I7pVRpnT2t1CajkEbk4IvBBQma",
-                    "first_name": "Roma Gutkowski",
-                    "id": 13,
-                    "last_name": "Dr. Ernest Wolff",
-                    "last_sign_in_at": "2018-02-19T10:25:36.406-05:00",
-                    "last_sign_in_ip": {
-                      "family": 2,
-                      "addr": 2130706433,
-                      "mask_addr": 4294967295
-                    },
-                    "phone_number": null,
-                    "remember_created_at": "2018-02-19T10:25:36.397-05:00",
-                    "reset_password_sent_at": null,
-                    "reset_password_token": null,
-                    "sign_in_count": 1,
-                    "state_id": 12,
-                    "status": "active",
-                    "unconfirmed_email": null,
-                    "updated_at": "2018-02-19T10:25:36.407-05:00",
-                    "zip_code": null,
-                    "country": {
-                      "code": null,
-                      "id": 23,
-                      "name": "Canada",
-                      "phonecode": null
-                    },
-                    "state": {
-                    }
-                  }
-                ],
-                "meta": {
-                  "total_pages": 1,
-                  "size": 1,
-                  "limit_value": 20,
-                  "current_page": 1
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/users/{id}": {
-      "get": {
-        "summary": "Users info",
-        "tags": [
-          "Users"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "type": "integer",
-            "required": true
-          },
-          {
-            "name": "authorization",
-            "in": "header",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "information about User",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "user": {
-                  "address": {
-                    "type": "string",
-                    "x-nullable": true
-                  },
-                  "admin_role": {
-                    "type": "string",
-                    "x-nullable": true,
-                    "enum": [
-                      "super_admin"
-                    ]
-                  },
-                  "avatar": {
-                    "type": "string",
-                    "x-nullable": true
-                  },
-                  "confirmation_sent_at": {
-                    "type": "datetime",
-                    "x-nullable": true
-                  },
-                  "confirmation_token": {
-                    "type": "string",
-                    "x-nullable": true
-                  },
-                  "confirmed_at": {
-                    "type": "datetime",
-                    "x-nullable": true
-                  },
-                  "country_id": {
-                    "type": "integer",
-                    "x-nullable": true
-                  },
-                  "created_at": {
-                    "type": "datetime"
-                  },
-                  "current_sign_in_at": {
-                    "type": "datetime",
-                    "x-nullable": true
-                  },
-                  "current_sign_in_ip": {
-                    "type": "inet",
-                    "x-nullable": true
-                  },
-                  "date_of_birth": {
-                    "type": "date",
-                    "x-nullable": true
-                  },
-                  "email": {
-                    "type": "string"
-                  },
-                  "encrypted_password": {
-                    "type": "string"
-                  },
-                  "first_name": {
-                    "type": "string",
-                    "x-nullable": true
-                  },
-                  "id": {
-                    "type": "integer"
-                  },
-                  "last_name": {
-                    "type": "string",
-                    "x-nullable": true
-                  },
-                  "last_sign_in_at": {
-                    "type": "datetime",
-                    "x-nullable": true
-                  },
-                  "last_sign_in_ip": {
-                    "type": "inet",
-                    "x-nullable": true
-                  },
-                  "phone_number": {
-                    "type": "string",
-                    "x-nullable": true
-                  },
-                  "remember_created_at": {
-                    "type": "datetime",
-                    "x-nullable": true
-                  },
-                  "reset_password_sent_at": {
-                    "type": "datetime",
-                    "x-nullable": true
-                  },
-                  "reset_password_token": {
-                    "type": "string",
-                    "x-nullable": true
-                  },
-                  "sign_in_count": {
-                    "type": "integer"
-                  },
-                  "state_id": {
-                    "type": "integer",
-                    "x-nullable": true
-                  },
-                  "status": {
-                    "type": "string",
-                    "x-nullable": true,
-                    "enum": [
-                      "active",
-                      "suspended",
-                      "deleted"
-                    ]
-                  },
-                  "unconfirmed_email": {
-                    "type": "string",
-                    "x-nullable": true
-                  },
-                  "updated_at": {
-                    "type": "datetime"
-                  },
-                  "zip_code": {
-                    "type": "string",
-                    "x-nullable": true
-                  }
-                }
-              },
-              "required": [
                 "user"
               ]
             },
             "examples": {
               "application/json": {
                 "user": {
-                  "address": null,
-                  "admin_role": "super_admin",
-                  "avatar": {
-                    "url": null,
-                    "small": {
-                      "url": null
-                    },
-                    "middle": {
-                      "url": null
-                    }
-                  },
-                  "confirmation_sent_at": null,
-                  "confirmation_token": null,
-                  "confirmed_at": "2018-02-19T10:25:35.229-05:00",
-                  "country_id": 25,
-                  "created_at": "2018-02-19T10:25:36.459-05:00",
-                  "current_sign_in_at": null,
-                  "current_sign_in_ip": null,
-                  "date_of_birth": null,
-                  "email": "glenda_roberts@feilmorar.info",
-                  "encrypted_password": "$2a$04$PN6LHktKBX1vHJmMN2B2ce3v3mbSsytXBBJEVSmLHxt5yUtEGZo6m",
-                  "first_name": "Roma Gutkowski",
-                  "id": 14,
-                  "last_name": "Dr. Ernest Wolff",
-                  "last_sign_in_at": null,
-                  "last_sign_in_ip": null,
-                  "phone_number": null,
-                  "remember_created_at": null,
-                  "reset_password_sent_at": null,
-                  "reset_password_token": null,
-                  "sign_in_count": 0,
-                  "state_id": 13,
-                  "status": "active",
-                  "unconfirmed_email": null,
-                  "updated_at": "2018-02-19T10:25:36.459-05:00",
-                  "zip_code": null,
+                  "email": "camylle.bogan@crist.info",
+                  "first_name": "Schuyler Walker V",
+                  "last_name": "Jada Haley",
                   "country": {
                     "code": null,
-                    "id": 25,
+                    "id": 27,
                     "name": "Canada",
                     "phonecode": null
                   },
@@ -1072,15 +706,72 @@
                   }
                 },
                 "meta": {
-                  "current_page": 1
+                  "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTUsImV4cCI6MTU1MDc3NTczMiwidHlwZSI6InVzZXIiLCJlbWFpbCI6ImNhbXlsbGUuYm9nYW5AY3Jpc3QuaW5mbyJ9.GfRotWbeUzrczbDUCTDdPj7B1uQAUlf4kqoPAFuZyoE"
                 }
+              }
+            }
+          },
+          "401": {
+            "description": "session is fail with wrong email",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": "wrong_credentials",
+                "errors": [
+                  "Error with your login or password"
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "session is fail if user is not confirmed",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "items": {
+                      "email": "array"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": 400,
+                "errors": [
+                  {
+                    "email": "email is not confirmed"
+                  }
+                ]
               }
             }
           }
         }
-      },
-      "put": {
-        "summary": "Update User Details",
+      }
+    },
+    "/api/v1/users": {
+      "get": {
+        "summary": "Users list inside organization",
         "tags": [
           "Users"
         ],
@@ -1089,27 +780,35 @@
         ],
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "type": "integer",
-            "required": true
-          },
-          {
             "name": "authorization",
             "in": "header",
             "type": "string",
             "required": true
           },
           {
-            "name": "body",
-            "in": "body",
+            "name": "current_page",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "current_count",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "return data",
             "schema": {
               "type": "object",
               "properties": {
-                "user": {
-                  "type": "object",
-                  "properties": {
-                    "user": {
+                "users": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
                       "address": {
                         "type": "string",
                         "x-nullable": true
@@ -1122,8 +821,7 @@
                         ]
                       },
                       "avatar": {
-                        "type": "string",
-                        "x-nullable": true
+                        "type": "object"
                       },
                       "confirmation_sent_at": {
                         "type": "datetime",
@@ -1225,135 +923,228 @@
                         "x-nullable": true
                       }
                     }
-                  },
-                  "required": [
-                    "user"
-                  ]
+                  }
+                }
+              },
+              "required": [
+                "users"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "users": [
+                  {
+                    "address": null,
+                    "admin_role": "super_admin",
+                    "avatar": {
+                      "url": null,
+                      "small": {
+                        "url": null
+                      },
+                      "middle": {
+                        "url": null
+                      }
+                    },
+                    "confirmation_sent_at": null,
+                    "confirmation_token": null,
+                    "confirmed_at": "2018-02-21T19:02:11.408Z",
+                    "country_id": 55,
+                    "created_at": "2018-02-21T19:02:12.906Z",
+                    "current_sign_in_at": "2018-02-21T19:02:12.929Z",
+                    "current_sign_in_ip": {
+                      "family": 2,
+                      "addr": 2130706433,
+                      "mask_addr": 4294967295
+                    },
+                    "date_of_birth": null,
+                    "email": "jackie_purdy@runolfsdottir.net",
+                    "encrypted_password": "$2a$04$c64VMf.IZDApvnBxQqRpUOu/EG/wE1WfNk0Y.xClFxbK5AxH4odSK",
+                    "first_name": "Schuyler Walker V",
+                    "id": 29,
+                    "last_name": "Jada Haley",
+                    "last_sign_in_at": "2018-02-21T19:02:12.929Z",
+                    "last_sign_in_ip": {
+                      "family": 2,
+                      "addr": 2130706433,
+                      "mask_addr": 4294967295
+                    },
+                    "phone_number": null,
+                    "remember_created_at": "2018-02-21T19:02:12.920Z",
+                    "reset_password_sent_at": null,
+                    "reset_password_token": null,
+                    "sign_in_count": 1,
+                    "state_id": 28,
+                    "status": "active",
+                    "unconfirmed_email": null,
+                    "updated_at": "2018-02-21T19:02:12.930Z",
+                    "zip_code": null,
+                    "country": {
+                      "code": null,
+                      "id": 55,
+                      "name": "Canada",
+                      "phonecode": null
+                    },
+                    "state": {
+                    }
+                  }
+                ],
+                "meta": {
+                  "total_pages": 1,
+                  "size": 1,
+                  "limit_value": 20,
+                  "current_page": 1
                 }
               }
             }
           }
+        }
+      }
+    },
+    "/api/v1/users/{id}": {
+      "get": {
+        "summary": "Users info",
+        "tags": [
+          "Users"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
         ],
         "responses": {
           "200": {
-            "description": "return data",
+            "description": "information about User",
             "schema": {
               "type": "object",
               "properties": {
                 "user": {
-                  "address": {
-                    "type": "string",
-                    "x-nullable": true
-                  },
-                  "admin_role": {
-                    "type": "string",
-                    "x-nullable": true,
-                    "enum": [
-                      "super_admin"
-                    ]
-                  },
-                  "avatar": {
-                    "type": "string",
-                    "x-nullable": true
-                  },
-                  "confirmation_sent_at": {
-                    "type": "datetime",
-                    "x-nullable": true
-                  },
-                  "confirmation_token": {
-                    "type": "string",
-                    "x-nullable": true
-                  },
-                  "confirmed_at": {
-                    "type": "datetime",
-                    "x-nullable": true
-                  },
-                  "country_id": {
-                    "type": "integer",
-                    "x-nullable": true
-                  },
-                  "created_at": {
-                    "type": "datetime"
-                  },
-                  "current_sign_in_at": {
-                    "type": "datetime",
-                    "x-nullable": true
-                  },
-                  "current_sign_in_ip": {
-                    "type": "inet",
-                    "x-nullable": true
-                  },
-                  "date_of_birth": {
-                    "type": "date",
-                    "x-nullable": true
-                  },
-                  "email": {
-                    "type": "string"
-                  },
-                  "encrypted_password": {
-                    "type": "string"
-                  },
-                  "first_name": {
-                    "type": "string",
-                    "x-nullable": true
-                  },
-                  "id": {
-                    "type": "integer"
-                  },
-                  "last_name": {
-                    "type": "string",
-                    "x-nullable": true
-                  },
-                  "last_sign_in_at": {
-                    "type": "datetime",
-                    "x-nullable": true
-                  },
-                  "last_sign_in_ip": {
-                    "type": "inet",
-                    "x-nullable": true
-                  },
-                  "phone_number": {
-                    "type": "string",
-                    "x-nullable": true
-                  },
-                  "remember_created_at": {
-                    "type": "datetime",
-                    "x-nullable": true
-                  },
-                  "reset_password_sent_at": {
-                    "type": "datetime",
-                    "x-nullable": true
-                  },
-                  "reset_password_token": {
-                    "type": "string",
-                    "x-nullable": true
-                  },
-                  "sign_in_count": {
-                    "type": "integer"
-                  },
-                  "state_id": {
-                    "type": "integer",
-                    "x-nullable": true
-                  },
-                  "status": {
-                    "type": "string",
-                    "x-nullable": true,
-                    "enum": [
-                      "active",
-                      "suspended",
-                      "deleted"
-                    ]
-                  },
-                  "unconfirmed_email": {
-                    "type": "string",
-                    "x-nullable": true
-                  },
-                  "updated_at": {
-                    "type": "datetime"
-                  },
-                  "zip_code": {
-                    "type": "string",
-                    "x-nullable": true
+                  "type": "object",
+                  "properties": {
+                    "address": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "admin_role": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "super_admin"
+                      ]
+                    },
+                    "avatar": {
+                      "type": "object"
+                    },
+                    "confirmation_sent_at": {
+                      "type": "datetime",
+                      "x-nullable": true
+                    },
+                    "confirmation_token": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "confirmed_at": {
+                      "type": "datetime",
+                      "x-nullable": true
+                    },
+                    "country_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "created_at": {
+                      "type": "datetime"
+                    },
+                    "current_sign_in_at": {
+                      "type": "datetime",
+                      "x-nullable": true
+                    },
+                    "current_sign_in_ip": {
+                      "type": "inet",
+                      "x-nullable": true
+                    },
+                    "date_of_birth": {
+                      "type": "date",
+                      "x-nullable": true
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "encrypted_password": {
+                      "type": "string"
+                    },
+                    "first_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "id": {
+                      "type": "integer"
+                    },
+                    "last_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "last_sign_in_at": {
+                      "type": "datetime",
+                      "x-nullable": true
+                    },
+                    "last_sign_in_ip": {
+                      "type": "inet",
+                      "x-nullable": true
+                    },
+                    "phone_number": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "remember_created_at": {
+                      "type": "datetime",
+                      "x-nullable": true
+                    },
+                    "reset_password_sent_at": {
+                      "type": "datetime",
+                      "x-nullable": true
+                    },
+                    "reset_password_token": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "sign_in_count": {
+                      "type": "integer"
+                    },
+                    "state_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "status": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "active",
+                        "suspended",
+                        "deleted"
+                      ]
+                    },
+                    "unconfirmed_email": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "updated_at": {
+                      "type": "datetime"
+                    },
+                    "zip_code": {
+                      "type": "string",
+                      "x-nullable": true
+                    }
                   }
                 }
               },
@@ -1375,42 +1166,134 @@
                       "url": null
                     }
                   },
-                  "confirmation_sent_at": "2018-02-19T10:25:36.590-05:00",
-                  "confirmation_token": "gmTiosg__aXyuXJq8eJx",
-                  "confirmed_at": "2018-02-19T10:25:35.229-05:00",
-                  "country_id": 31,
-                  "created_at": "2018-02-19T10:25:36.547-05:00",
-                  "current_sign_in_at": "2018-02-19T10:25:36.585-05:00",
-                  "current_sign_in_ip": {
-                    "family": 2,
-                    "addr": 2130706433,
-                    "mask_addr": 4294967295
-                  },
+                  "confirmation_sent_at": null,
+                  "confirmation_token": null,
+                  "confirmed_at": "2018-02-21T19:02:11.408Z",
+                  "country_id": 57,
+                  "created_at": "2018-02-21T19:02:12.973Z",
+                  "current_sign_in_at": null,
+                  "current_sign_in_ip": null,
                   "date_of_birth": null,
-                  "email": "hailee.altenwerth@kovacek.org",
-                  "encrypted_password": "$2a$04$UnUusqW75zoznObD0xoHiu0.VDyU.BN9WGl8n/OMkmt09mx3nbuTK",
-                  "first_name": "Roma Gutkowski",
-                  "id": 17,
-                  "last_name": "Dr. Ernest Wolff",
-                  "last_sign_in_at": "2018-02-19T10:25:36.585-05:00",
-                  "last_sign_in_ip": {
-                    "family": 2,
-                    "addr": 2130706433,
-                    "mask_addr": 4294967295
-                  },
+                  "email": "edison_ward@ratke.net",
+                  "encrypted_password": "$2a$04$cAc9uDAh3G/gpNuU1qKD2eJj.j9cja4LjxLy7Rt2tkLVEOpNahZdq",
+                  "first_name": "Schuyler Walker V",
+                  "id": 30,
+                  "last_name": "Jada Haley",
+                  "last_sign_in_at": null,
+                  "last_sign_in_ip": null,
                   "phone_number": null,
-                  "remember_created_at": "2018-02-19T10:25:36.573-05:00",
+                  "remember_created_at": null,
                   "reset_password_sent_at": null,
                   "reset_password_token": null,
-                  "sign_in_count": 1,
-                  "state_id": 16,
+                  "sign_in_count": 0,
+                  "state_id": 29,
                   "status": "active",
-                  "unconfirmed_email": "winnifred@hellerschaefer.biz",
-                  "updated_at": "2018-02-19T10:25:36.590-05:00",
+                  "unconfirmed_email": null,
+                  "updated_at": "2018-02-21T19:02:12.973Z",
                   "zip_code": null,
                   "country": {
                     "code": null,
-                    "id": 31,
+                    "id": 57,
+                    "name": "Canada",
+                    "phonecode": null
+                  },
+                  "state": {
+                  }
+                },
+                "meta": {
+                  "current_page": 1
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update User Details",
+        "tags": [
+          "Users"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string"
+                    },
+                    "first_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "last_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "user"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "return data",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string"
+                    },
+                    "first_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "last_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "user"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "user": {
+                  "email": "jules@stamm.io",
+                  "first_name": "Schuyler Walker V",
+                  "last_name": "Jada Haley",
+                  "country": {
+                    "code": null,
+                    "id": 63,
                     "name": "Canada",
                     "phonecode": null
                   },

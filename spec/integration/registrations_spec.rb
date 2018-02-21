@@ -32,15 +32,14 @@ describe 'Registration API' do
           }
         }
 
-        schema type: :object,
-          properties: {
-            user: { type: :object },
-            meta: { 
-              type: :object, 
-              properties: { token: {type: :string, 'x-nullable': true } } 
-            }
-          },
-          required: [ 'user', 'meta' ]
+        before do |example|
+          rswag_set_schema(example, {
+            action: :show, 
+            type: :object,
+            required: ['user', 'meta'],
+            properties: { meta: { type: :object, properties: { token: {type: :string, 'x-nullable': true } } } }
+          })
+        end
 
         run_test! do |response|
           p response.body
@@ -48,14 +47,7 @@ describe 'Registration API' do
       end
 
       response '400', 'registration is fail with existing email' do
-        let(:body) {
-          {
-            user: {
-              email: email,
-              password: Faker::Internet.password
-            }
-          }
-        }
+        let(:body) { { user: { email: email, password: Faker::Internet.password } } }
 
         schema type: :object,
           properties: {

@@ -1,48 +1,64 @@
 module ApiAttributes
-  def api_properties_for_swagger object, options = {}
-    attrs = api_object_attriubtes(object, options)
+  extend ActiveSupport::Concern
+
+  def api_properties_for_swagger(options = {})
+    attrs = api_available_attriubtes(options)
 
     res = {}.with_indifferent_access
 
     return res unless attrs
 
-    attrs.each do |field|
-      next unless attributes.include?(field)
+    attrs_of_instance = attributes.keys.map(&:to_sym)
 
-      res[field] = api_prepare_property field
+    attrs.each do |field|
+      next unless attrs_of_instance.include?(field)
+
+      res[field] = self.class.api_prepare_property field
     end
 
     res
+  end
+
+  module ClassMethods
+    def serializer_file
+      Rails.root.join("app/serializers/api/v#{API_VERSION}/#{name.underscore}_serializer.rb")
+    end
+
+    def serializer_class_name
+      "Api::V#{API_VERSION}::#{name}Serializer"
+    end
+
+    def serializer
+      return unless File.exist?(serializer_file)
+
+      require serializer_file
+
+      return unless Object.const_defined?(serializer_class_name)
+
+      Object.const_get serializer_class_name
+    end
+
+    def api_prepare_property(field)
+      if uploaders.keys.include?(field)
+        return { type: :object }
+      end
+
+      col = column_for_attribute(field)
+
+      res = { type: col.type }
+      res['x-nullable'] = true if col.null
+
+      if enum_values = defined_enums[field.to_s]
+        res[:enum] = enum_values.values
+      end
+
+      res
+    end
   end
 
   protected
 
-  def api_object_attriubtes object, options = {}
-    serializer_file = Rails.root.join("app/serializers/api/v#{API_VERSION}/#{name.underscore}_serializer.rb")
-
-    return unless File.exist?(serializer_file)
-
-    require serializer_file
-
-    klass = "Api::V#{API_VERSION}::#{name}Serializer"
-
-    return unless Object.const_defined?(klass)
-
-    klass = Object.const_get klass
-
-    klass.new(object, options).attributes.keys
-  end
-
-  def api_prepare_property field
-    col = column_for_attribute(field)
-
-    res = { type: col.type }
-    res['x-nullable'] = true if col.null
-
-    if enum_values = defined_enums[field.to_s]
-      res.merge!(enum: enum_values.keys)
-    end
-
-    res
+  def api_available_attriubtes(options = {})
+    self.class.serializer&.new(self, options)&.attributes&.keys&.map(&:to_sym)
   end
 end

@@ -1,4 +1,4 @@
-require "swagger_helper"
+require 'swagger_helper'
 include ApiSpecHelper
 
 describe Api::V1::SessionsController do
@@ -6,21 +6,21 @@ describe Api::V1::SessionsController do
   let!(:user) { create :user, email: email, password: email }
   let(:token) { Api::V1::ApiController.new.send :jwt, user }
 
-  path "/api/v1/sessions" do
-    delete "Destroy a session" do
-      tags "Session"
-      consumes "application/json"
+  path '/api/v1/sessions' do
+    delete 'Destroy a session' do
+      tags 'Session'
+      consumes 'application/json'
 
       parameter name: :authorization, in: :header, type: :string, required: true
 
-      response "200", "session destroyed" do
+      response '200', 'session destroyed' do
         let(:authorization){ "Bearer #{token}"}
 
         schema type: :object,
                properties: {
                  success: { type: :boolean, value: true }
                },
-               required: ["success"]
+               required: ['success']
 
         run_test! do |response|
           data = JSON.parse(response.body)
@@ -29,9 +29,9 @@ describe Api::V1::SessionsController do
       end
     end
 
-    post "Create a session" do
-      tags "Session"
-      consumes "application/json"
+    post 'Create a session' do
+      tags 'Session'
+      consumes 'application/json'
 
       parameter name: :body, in: :body, schema: {
         type: :object,
@@ -41,28 +41,27 @@ describe Api::V1::SessionsController do
         }
       }
 
-      response "201", "session created" do
+      response '201', 'session created' do
         let(:body) { { email: email, password: email } }
 
-        schema type: :object,
-          properties: {
-            user: { type: :object },
-            meta: { 
-              type: :object, 
-              properties: { token: {type: :string, 'x-nullable': true } } 
-            }
-          },
-          required: [ 'user', 'meta' ]
+        before do |example|
+          rswag_set_schema(example, {
+            action: :show, 
+            type: :object,
+            required: ['user', 'meta'],
+            properties: { meta: { type: :object, properties: { token: {type: :string, 'x-nullable': true } } } }
+          })
+        end
 
         run_test!
       end
 
-      response "401", "session is fail with wrong password" do
-        let(:body) { { email: email, password: "wrong" } }
+      response '401', 'session is fail with wrong password' do
+        let(:body) { { email: email, password: 'wrong' } }
 
         schema type: :object,
           properties: {
-            errors: { 
+            errors: {
               type: :array,
               items: { 
                 type: :string
@@ -74,12 +73,12 @@ describe Api::V1::SessionsController do
         run_test!
       end
 
-      response "401", "session is fail with wrong email" do
-        let(:body) { { email: "wrong", password: email } }
+      response '401', 'session is fail with wrong email' do
+        let(:body) { { email: 'wrong', password: email } }
 
         schema type: :object,
           properties: {
-            errors: { 
+            errors: {
               type: :array,
               items: { 
                 type: :string
@@ -91,7 +90,7 @@ describe Api::V1::SessionsController do
         run_test!
       end
 
-      response "400", "session is fail if user is not confirmed" do
+      response '400', 'session is fail if user is not confirmed' do
         let(:new_email) { Faker::Internet.email } 
         let!(:user_not_confrimed) { create :user, email: new_email, password: new_email, confirmed_at: nil }
         
@@ -108,7 +107,7 @@ describe Api::V1::SessionsController do
             }
           },
           required: [ 'errors' ]
-        
+
         run_test!
       end
     end

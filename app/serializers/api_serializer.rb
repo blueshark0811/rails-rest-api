@@ -16,7 +16,7 @@ module ApiSerializer
 
   module ClassMethods
     def serializable_class_name
-      @serializable_class_name ||= name.split('::').last.gsub(/Serializer/,'')
+      @serializable_class_name ||= name.split('::').last.gsub(/Serializer/, '')
     end
 
     def serializable_class
@@ -46,13 +46,13 @@ module ApiSerializer
     def base_attributes
       return [] if !serializable_class || !serializable_policy_class
 
-      serializable_policy_class.new(nil, serializable_class.new).api_attributes
+      serializable_policy_class.new(UserContext.new, serializable_class.new).api_attributes
     end
   end
 
   def available_fields
     return unless self.class.serializable_policy_class
 
-    self.class.serializable_policy_class.new(current_user, object).api_attributes params[:action]
+    self.class.serializable_policy_class.new(user_context, object).api_attributes params[:action]
   end
 end

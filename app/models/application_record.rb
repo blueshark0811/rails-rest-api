@@ -3,8 +3,6 @@ require 'enumerable'
 class ApplicationRecord < ActiveRecord::Base
   include ApiAttributes
   include Enumerable
-  # include Enumerable::Instance
-  # extend Enumerable::Klass
 
   self.abstract_class = true
 
@@ -15,6 +13,6 @@ class ApplicationRecord < ActiveRecord::Base
   end
 
   def error_keys field
-    errors.details[field]&.map{|w| w[:error]}
+    errors.details[field]&.map{ |w| w[:error] }
   end
 end

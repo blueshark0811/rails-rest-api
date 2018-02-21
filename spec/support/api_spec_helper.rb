@@ -6,9 +6,9 @@ module ApiSpecHelper
   def current_user
     @current_user ||= create :user
   end
-  
+
   def authorization
-    "Bearer #{Api::V1::ApiController.new.send :jwt, current_user}" 
+    "Bearer #{Api::V1::ApiController.new.send :jwt, current_user}"
   end
 
   def current_page
@@ -25,7 +25,7 @@ module ApiSpecHelper
       object: create(:user)
     }
   end
-  
+
   def rswag_class
     rswag_properties[:object].class
   end
@@ -34,8 +34,8 @@ module ApiSpecHelper
     rswag_class.name.split('::').last.underscore
   end
 
-  def rswag_set_schema example, action, type = :object
-    example.metadata[:response][:schema] = rswag_get_schema(action, type)
+  def rswag_set_schema example, options = {}
+    example.metadata[:response][:schema] = rswag_get_schema(options)
   end
 
   def rswag_parameter example, attributes
@@ -43,7 +43,7 @@ module ApiSpecHelper
       attributes[:required] = true
     end
 
-    if example.metadata.has_key?(:operation)
+    if example.metadata.key?(:operation)
       example.metadata[:operation][:parameters] ||= []
       example.metadata[:operation][:parameters] << attributes
     else
@@ -52,46 +52,54 @@ module ApiSpecHelper
     end
   end
 
-  def rswag_set_parameter example, options
-    rswag_parameter example, {
-      name: options.fetch(:name, :body), 
-      in: options.fetch(:in, :body), 
-      schema: {
-        type: :object,
-        properties: { rswag_root => rswag_get_schema(options.fetch(:action, :update)) }
+  def rswag_set_parameter(example, options)
+    options[:action] ||= :update
+
+    rswag_parameter(
+      example, 
+      {
+        name: options.fetch(:name, :body),
+        in: options.fetch(:in, :body),
+        schema: rswag_get_schema(options)
       }
-    }
-  end
-
-  def rswag_get_schema action, type = :object
-    type == :array ? 
-    {
-      type: :object,
-      properties: {
-        rswag_root.pluralize => {
-          type: :array,
-          items: rswag_item_properties(action)
-        }
-      },
-      required: [rswag_root.pluralize]
-    }
-    :
-    {
-      type: :object,
-      properties: {
-        rswag_root => rswag_item_properties(action)
-      },
-      required: [rswag_root]
-    }
-  end
-
-  def rswag_item_properties action
-    res = User.api_properties_for_swagger(
-      rswag_properties[:current_user], 
-      current_user: rswag_properties[:current_user], 
-      params: {action: action}
     )
+  end
 
-    res
+  def rswag_get_schema(options = {})
+    if options[:type] == :array
+      {
+        type: :object,
+        properties: 
+          options.fetch(:properties, {}).merge({
+            rswag_root.pluralize => {
+              type: :array,
+              items: {
+                type: :object,
+                properties: rswag_item_properties(options.fetch(:action))
+              }
+            }
+          }),
+        required: [rswag_root.pluralize]
+      }
+    else
+      {
+        type: :object,
+        properties:
+          options.fetch(:properties, {}).merge({
+            rswag_root => { 
+              type: :object,
+              properties: rswag_item_properties(options.fetch(:action))
+            }
+          }),
+        required: [rswag_root]
+      }
+    end
+  end
+
+  def rswag_item_properties(action)
+    rswag_properties[:object].api_properties_for_swagger(
+      current_user: rswag_properties[:current_user],
+      params: { action: action }
+    )
   end
 end

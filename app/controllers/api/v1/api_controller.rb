@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Api::V1::ApiController < ActionController::API
-  include Pundit
+  include SharedController
 
   before_action :authenticate_user!
   before_action :set_current_time_zone
@@ -13,24 +13,16 @@ class Api::V1::ApiController < ActionController::API
     self.namespace_for_serializer = Api::V1
   end
 
-  # respond_to :json
-
-  unless %w[development test].include?(Rails.env)
-    unless config.consider_all_requests_local
-      rescue_from Exception, with: :render_error
-    end
-  end
-
   rescue_from JWT::DecodeError do |exception|
     render_error exception.message, '', 401
   end
 
   def set_current_time_zone
-    old_time_zone = Time.zone
-    Time.zone = 'Eastern Time (US & Canada)' # todo
-  # yield
-  rescue
-    Time.zone = old_time_zone
+  #   old_time_zone = Time.zone
+  #   Time.zone = 'Eastern Time (US & Canada)' # todo
+  # # yield
+  # rescue
+  #   Time.zone = old_time_zone
   end
 
   def render_not_found
@@ -49,29 +41,10 @@ class Api::V1::ApiController < ActionController::API
     end
   end
 
-  def debug(result)
-    if Rails.env.test?
-      p '-' * 100
-      p 'params ->', params
-      p 'Authorization ->', request.headers['Authorization']
-      p '-' * 100
-    end
-
-    unless Rails.env.production?
-      p '*' * 100
-      p 'result ->', result
-      p '*' * 100
-    end
-  end
-
   def render_result(json, status = 200, meta = nil)
     json.merge!(@additional_attrs_for_render) if @additional_attrs_for_render && json.respond_to?(:merge)
 
-    root = begin
-             json.base_class.to_s.underscore
-           rescue
-             nil
-           end
+    root = json.base_class.to_s.underscore rescue nil
 
     root = root.pluralize if root.respond_to?(:size)
 
@@ -101,38 +74,6 @@ class Api::V1::ApiController < ActionController::API
     return unless I18n.config.available_locales.include?(params[:locale]&.to_sym)
 
     I18n.locale = params[:locale]
-  end
-
-  def current_page
-    params[:current_page] || 1
-  end
-
-  def current_count
-    params[:current_count] || 20
-  end
-
-  def current_organization # todo
-    return @current_organization if @current_organization
-
-    @current_organization = Organization.find_by(subdomain: organization_subdomain) if organization_subdomain
-
-    @current_organization ||= Organization.find_by(domain: organization_domain) if organization_domain
-
-    @current_organization ||= Organization.find(params[:organization_id]) if params[:organization_id]
-
-    @current_organization ||= current_user&.organizations&.first
-  end
-
-  def organization_subdomain
-    return unless request.domain == APP_CONFIG['host']
-
-    request.subdomain
-  end
-
-  def organization_domain
-    return if request.domain == APP_CONFIG['host']
-
-    request.domain 10
   end
 
   protected
@@ -173,6 +114,6 @@ class Api::V1::ApiController < ActionController::API
 
   def invalid_login_attempt(status = 401)
     warden.custom_failure!
-    render json: { success: false, message: 'Error with your login', status: status }, status: status
+    render_error 'Error with your login', nil, status
   end
 end

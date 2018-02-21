@@ -1,12 +1,12 @@
 class ApplicationPolicy
   include ApiPolicy
 
-  attr_reader :user, :organization, :record
+  attr_reader :user_context, :record
 
-  def initialize(user, organization, record)
-    @user = user
+  def initialize(user_context, record)
+    @user = user_context.user
+    @organization = user_context.organization
     @record = record
-    @organization = organization
   end
 
   def index?
@@ -14,7 +14,7 @@ class ApplicationPolicy
   end
 
   def show?
-    scope.where(:id => record.id).exists?
+    scope.where(id: record.id).exists?
   end
 
   def create?
@@ -38,16 +38,16 @@ class ApplicationPolicy
   end
 
   def scope
-    Pundit.policy_scope!(user, organization, record.class)
+    Pundit.policy_scope!(user_context, record.class)
   end
 
   class Scope
-    attr_reader :user, :organization, :scope
+    attr_reader :user_context, :scope
 
-    def initialize(user, organization, scope)
-      @user = user
-      @organization = organization
-      @scope = scope
+    def initialize(user_context, record)
+      @user = user_context.user
+      @organization = user_context.organization
+      @record = record
     end
 
     def resolve

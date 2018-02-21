@@ -6,7 +6,7 @@ shared_examples_for 'enumerable' do
   let(:model) { described_class } # the class that includes the concern
   let(:model_key) { described_class.name.underscore }
   let(:object) { create model_key.to_sym }
-  let(:fields) { [:status] }
+  # let(:fields) { [:status] }
 
   describe '@@enumerate_fields' do
     subject { model.class_variable_get :@@enumerate_fields }
