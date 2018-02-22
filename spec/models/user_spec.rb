@@ -45,6 +45,70 @@ describe User, type: :model do
         end
       end
     end
+
+    it 'has many organization_users' do
+      expect(described_class.reflect_on_association(:organization_users).macro).to eq(:has_many)
+    end
+
+    it 'has many group_users' do
+      expect(described_class.reflect_on_association(:group_users).macro).to eq(:has_many)
+    end
+
+    it 'has many actions' do
+      expect(described_class.reflect_on_association(:actions).macro).to eq(:has_many)
+    end
+
+    it 'has many attachments' do
+      expect(described_class.reflect_on_association(:attachments).macro).to eq(:has_many)
+    end
+
+    it 'has many courses' do
+      expect(described_class.reflect_on_association(:courses).macro).to eq(:has_many)
+    end
+
+    it 'has many groups' do
+      expect(described_class.reflect_on_association(:groups).macro).to eq(:has_many)
+    end
+
+    it 'has many files' do
+      expect(described_class.reflect_on_association(:files).macro).to eq(:has_many)
+    end
+
+    it 'has many lessons' do
+      expect(described_class.reflect_on_association(:lessons).macro).to eq(:has_many)
+    end
+
+    it 'has many videos' do
+      expect(described_class.reflect_on_association(:videos).macro).to eq(:has_many)
+    end
+
+    context '#organizations' do
+      subject { described_class.reflect_on_association(:organizations) }
+
+      it 'has many organizations' do
+        expect(subject.macro).to eq(:has_many)
+      end
+
+      it 'through association organization_users' do
+        expect(subject.options[:through]).to eq :organization_users
+      end
+    end
+
+    context '#participated_groups' do
+      subject { described_class.reflect_on_association(:participated_groups) }
+
+      it 'has many participated_groups' do
+        expect(subject.macro).to eq(:has_many)
+      end
+
+      it 'through association group_users' do
+        expect(subject.options[:through]).to eq :group_users
+      end
+
+      it 'for class Group' do
+        expect(subject.options[:class_name]).to eq 'Group'
+      end
+    end
   end
 
   describe '#remember_expire_at' do
@@ -82,34 +146,6 @@ describe User, type: :model do
     context 'when user has expired token' do
       let(:user) { create :user, remember_created_at: (1.day.ago-User.remember_for) }
       it { is_expected.to be_truthy }
-    end
-  end
-
-  describe '#set_default_data' do
-    let(:status) { nil }
-    let(:user) { build :user, status: status }
-
-    it 'should call it on creation' do
-      expect(user).to receive(:set_default_data)
-      user.save
-    end
-
-    it "should set status as 'active'" do
-      user = build :user
-
-      expect(user.status).to eq status
-      user.save
-      expect(user.status).to eq 'active'
-    end
-
-    context 'already set data' do
-      let!(:status) { 'suspended' }
-
-      it 'should not change status if it is already set some value' do
-        expect(user.status).to eq status
-        user.save
-        expect(user.status).to_not eq 'active'
-      end
     end
   end
 end

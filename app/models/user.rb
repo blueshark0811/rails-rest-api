@@ -8,21 +8,13 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
-  before_validation :set_default_data
-
-def remember_expired?
+  def remember_expired?
     !remember_created_at || remember_expire_at < Time.zone.now
   end
 
   def remember_expire_at
     return unless remember_created_at
 
-    remember_created_at+self.class.remember_for
-  end
-
-  private
-
-  def set_default_data
-    self.status ||= 'active'
+    remember_created_at + self.class.remember_for
   end
 end

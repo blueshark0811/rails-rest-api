@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'api_spec_helper'
 
 RSpec.configure do |config|
   # Specify a root folder where Swagger JSON files are generated
@@ -7,11 +8,13 @@ RSpec.configure do |config|
   config.swagger_root = Rails.root.to_s + '/swagger'
 
   config.swagger_dry_run = false
-    
+
   config.after do |example|
-    example.metadata[:response][:examples] = { 
-      'application/json' => JSON.parse(response.body, symbolize_names: true) 
-    }
+    if respond_to?(:response)
+      example.metadata[:response][:examples] = { 
+       'application/json' => JSON.parse(response.body, symbolize_names: true)
+      }
+    end
   end
 
   # Define one or more Swagger documents and provide global metadata for each one

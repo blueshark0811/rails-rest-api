@@ -36,7 +36,7 @@ shared_examples_for 'apiattributable' do
 
       context 'with that are not exist in model' do
         let(:api_available_attriubtes) { (fields.keys+[:some_other]).map(&:to_sym) }
-  
+
         it 'should return hash with existing fields in model' do
           expect(subject).to eq fields
         end
@@ -105,7 +105,7 @@ shared_examples_for 'apiattributable' do
 
     context 'when field could be nil' do
       let(:dbl) { double }
-      
+
       it 'should contain x-nullable param' do
         allow(model).to receive(:column_for_attribute).and_return(dbl)
         allow(dbl).to receive(:type).and_return :string
