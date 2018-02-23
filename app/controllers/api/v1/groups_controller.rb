@@ -1,10 +1,12 @@
 class Api::V1::GroupsController < Api::V1::ApiController
-  before_action :set_group, only: %i[show update destroy]
-  
+  before_action :set_group, except: [:index]
+
   def index
     @groups = current_organization.groups
 
-    @groups = @groups.participated_by(current_user) if params[:my]
+    if params[:my] && params[:my] != 'false'
+      @groups = @groups.participated_by(current_user)
+    end
 
     if Group.visibilities.include?(params[:visibility])
       @groups = @groups.where(visibility: params[:visibility])
@@ -22,18 +24,24 @@ class Api::V1::GroupsController < Api::V1::ApiController
   end
 
   def update
-    @group = current_organization.groups.find params[:id]
-
     if @group.update_attributes permitted_attributes(@group)
-      render_result user: @group
-    else
       render_result @group
+    else
+      render_error @group
     end
+  end
+
+  def destroy
+    @group.destroy
+
+    render_result success: @group.destroyed?
   end
 
   private
 
   def set_group
     @group = current_organization.groups.find params[:id]
+
+    authorize @group
   end
 end

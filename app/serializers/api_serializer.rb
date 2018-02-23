@@ -3,11 +3,13 @@ module ApiSerializer
 
   included do
     battributes = base_attributes
+
     unless battributes.blank?
       attributes(*battributes)
 
       battributes.each do |field|
         define_method field do
+          # p 'a'*100,battributes, available_fields
           available_fields.include?(field) ? object.send(field) : ActiveModel::Serializer::ATTR_NOT_ACCEPTABLE
         end
       end
@@ -51,8 +53,15 @@ module ApiSerializer
   end
 
   def available_fields
+    key = params[:action]||:base
+
+    @available_fields ||= {}
+
+    return @available_fields[key] if @available_fields[key]
+
     return unless self.class.serializable_policy_class
 
-    self.class.serializable_policy_class.new(user_context, object).api_attributes params[:action]
+    @available_fields[key] = 
+      self.class.serializable_policy_class.new(user_context, object).api_attributes(params[:action])
   end
 end

@@ -41,24 +41,64 @@ RSpec.describe Organization, type: :model do
   end
 
   describe 'association' do
-    it 'has many organization_users' do
-      expect(described_class.reflect_on_association(:organization_users).macro).to eq(:has_many)
+    context '#organization_users' do
+      subject { described_class.reflect_on_association(:organization_users) }
+
+      it 'is has many association' do
+        expect(subject.macro).to eq(:has_many)
+      end
+
+      it 'dependent destroy' do
+        expect(subject.options[:dependent]).to eq :destroy
+      end
     end
 
-    it 'has many groups' do
-      expect(described_class.reflect_on_association(:groups).macro).to eq(:has_many)
+    context '#groups' do
+      subject { described_class.reflect_on_association(:groups) }
+
+      it 'is has many association' do
+        expect(subject.macro).to eq(:has_many)
+      end
+
+      it 'dependent destroy' do
+        expect(subject.options[:dependent]).to eq :destroy
+      end
     end
 
-    it 'has many courses' do
-      expect(described_class.reflect_on_association(:courses).macro).to eq(:has_many)
+    context '#courses' do
+      subject { described_class.reflect_on_association(:courses) }
+
+      it 'is has many association' do
+        expect(subject.macro).to eq(:has_many)
+      end
+
+      it 'dependent destroy' do
+        expect(subject.options[:dependent]).to eq :destroy
+      end
     end
 
-    it 'has many videos' do
-      expect(described_class.reflect_on_association(:videos).macro).to eq(:has_many)
+    context '#videos' do
+      subject { described_class.reflect_on_association(:videos) }
+
+      it 'is has many association' do
+        expect(subject.macro).to eq(:has_many)
+      end
+
+      it 'dependent destroy' do
+        expect(subject.options[:dependent]).to eq :destroy
+      end
     end
 
-    it 'has many attachments' do
-      expect(described_class.reflect_on_association(:attachments).macro).to eq(:has_many)
+    context '#attachments' do
+      subject { described_class.reflect_on_association(:attachments) }
+
+      it 'is has many association' do
+        expect(subject.macro).to eq(:has_many)
+      end
+
+      it 'dependent destroy' do
+        expect(subject.options[:dependent]).to eq :destroy
+      end
     end
 
     context '#users' do

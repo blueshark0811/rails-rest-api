@@ -4,6 +4,7 @@ class Api::V1::ApiController < ActionController::API
   include SharedController
 
   before_action :authenticate_user!
+  before_action :authenticate_organization!
   before_action :set_current_time_zone
   before_action :set_locale
 
@@ -17,6 +18,10 @@ class Api::V1::ApiController < ActionController::API
     render_error exception.message, '', 401
   end
 
+  rescue_from ActiveRecord::RecordNotFound do |exception|
+    render_error exception.message, '', 404
+  end
+
   def set_current_time_zone
   #   old_time_zone = Time.zone
   #   Time.zone = 'Eastern Time (US & Canada)' # todo
@@ -24,24 +29,20 @@ class Api::V1::ApiController < ActionController::API
   # rescue
   #   Time.zone = old_time_zone
   end
-
-  def render_not_found
-    render_result({ success: false }, 404)
-  end
-
+  
   def render_error(message = nil, error_code = '', status = 400, send_report = false, attrs = {})
     if send_report && message && !message.is_a?(String)
       # Mailer.error_occurred(message, false, params.merge(current_user_id: current_user.try(:id), current_user_name: current_user.try(:name), request_host: request.host, request_path: request.path).to_json).deliver
     end
 
     if message.is_a?(ApplicationRecord)
-      render_result message, status, errors: message.errors.details
+      render_result message, status, message.errors.details, :errors
     else
       render_result(attrs.merge(error_code: error_code, errors: [message]), status)
     end
   end
 
-  def render_result(json, status = 200, meta = nil)
+  def render_result(json, status = 200, meta = nil, meta_key = :meta)
     json.merge!(@additional_attrs_for_render) if @additional_attrs_for_render && json.respond_to?(:merge)
 
     root = json.base_class.to_s.underscore rescue nil
@@ -53,6 +54,7 @@ class Api::V1::ApiController < ActionController::API
       root: root,
       status: status,
       meta: meta || result_meta(json),
+      meta_key: meta_key,
       serializer_params: { currnet_user: current_user }
     }
 
@@ -63,6 +65,8 @@ class Api::V1::ApiController < ActionController::API
 
   def result_meta(obj)
     meta = {}
+    return meta if obj.is_a?(ApplicationRecord)
+
     meta[:total_pages] = obj.total_pages if obj.respond_to?(:total_pages)
     meta[:size] = obj.size if obj.respond_to?(:size)
     meta[:limit_value] = obj.limit_value if obj.respond_to?(:limit_value)
@@ -76,24 +80,6 @@ class Api::V1::ApiController < ActionController::API
     I18n.locale = params[:locale]
   end
 
-  protected
-
-  def jwt(resource)
-    return unless resource.confirmed?
-
-    resource.remember_me!
-
-    JWT.encode(
-      {
-        id: resource.id,
-        exp: resource.remember_expires_at.to_i,
-        type: resource.class.to_s.downcase,
-        email: resource.email
-      },
-      APP_CONFIG['api']['jwt']['secret'], APP_CONFIG['api']['jwt']['algorithm']
-    )
-  end
-
   private
 
   def authenticate_user!(_opts = {})
@@ -101,19 +87,16 @@ class Api::V1::ApiController < ActionController::API
 
     token = (request.headers['Authorization'] || params[:authorization]).to_s.split(' ').last
 
-    if token.present?
-      attrs = JWT.decode token, APP_CONFIG['api']['jwt']['secret'], APP_CONFIG['api']['jwt']['algorithm']
-
-      if (user = User.where(id: attrs.first['id']).last) && !user.remember_expired?
-        sign_in('user', user) && return
-      end
+    if user = User.find_by_token(token)
+      sign_in('user', user) && return
     end
 
-    invalid_login_attempt && return
+    render_error('You are not authorized', nil, 401)
   end
 
-  def invalid_login_attempt(status = 401)
-    warden.custom_failure!
-    render_error 'Error with your login', nil, status
+  def authenticate_organization!
+    return true if current_organization
+
+    render_error('Organization is not determinated', nil, 428)
   end
 end

@@ -48,6 +48,7 @@ module SharedController
   def debug(result)
     if Rails.env.test?
       p '-' * 100
+      p 'method ->', request.method
       p 'params ->', params
       p 'Authorization ->', request.headers['Authorization']
       p '-' * 100

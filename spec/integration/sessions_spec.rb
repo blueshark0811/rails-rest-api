@@ -4,7 +4,6 @@ include ApiSpecHelper
 describe Api::V1::SessionsController do
   let(:email) { Faker::Internet.email }
   let!(:user) { create :user, email: email, password: email }
-  let(:token) { Api::V1::ApiController.new.send :jwt, user }
 
   path '/api/v1/sessions' do
     delete 'Destroy a session' do
@@ -14,7 +13,6 @@ describe Api::V1::SessionsController do
       parameter name: :authorization, in: :header, type: :string, required: true
 
       response '200', 'session destroyed' do
-        let(:authorization){ "Bearer #{token}"}
 
         schema type: :object,
                properties: {
@@ -48,8 +46,8 @@ describe Api::V1::SessionsController do
           rswag_set_schema(example, {
             action: :show, 
             type: :object,
-            required: ['user', 'meta'],
-            properties: { meta: { type: :object, properties: { token: {type: :string, 'x-nullable': true } } } }
+            required: ['user', 'token'],
+            properties: { token: {type: :string, 'x-nullable': true } }
           })
         end
 

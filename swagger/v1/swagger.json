@@ -5,9 +5,773 @@
     "version": "v1"
   },
   "paths": {
+    "/api/v1/courses": {
+      "get": {
+        "summary": "Courses inside organization",
+        "tags": [
+          "Courses"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "organization_id",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "current_page",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "current_count",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns as array",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "courses": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "title": {
+                        "type": "string",
+                        "x-nullable": true
+                      },
+                      "description": {
+                        "type": "text",
+                        "x-nullable": true
+                      },
+                      "image": {
+                        "type": "string",
+                        "x-nullable": true
+                      },
+                      "user_id": {
+                        "type": "integer",
+                        "x-nullable": true
+                      },
+                      "organization_id": {
+                        "type": "integer",
+                        "x-nullable": true
+                      },
+                      "created_at": {
+                        "type": "datetime"
+                      },
+                      "updated_at": {
+                        "type": "datetime"
+                      }
+                    }
+                  }
+                }
+              },
+              "required": [
+                "courses"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "courses": [
+                  {
+                    "id": 1,
+                    "title": "Johns Inc",
+                    "description": "exploit scalable platforms",
+                    "image": "#<Rack::Test::UploadedFile:0x007fb0b791ce80>",
+                    "user_id": 2,
+                    "organization_id": 1,
+                    "created_at": "2018-02-23T17:10:36.292Z",
+                    "updated_at": "2018-02-23T17:10:36.292Z",
+                    "user": {
+                      "id": 2,
+                      "first_name": "Domenic Hyatt",
+                      "last_name": "Dr. Alda Runolfsson",
+                      "admin_role": "super_admin",
+                      "phone_number": null,
+                      "date_of_birth": null,
+                      "address": null,
+                      "country_id": 3,
+                      "state_id": 2,
+                      "zip_code": null,
+                      "status": "active",
+                      "created_at": "2018-02-23T17:10:36.286Z",
+                      "updated_at": "2018-02-23T17:10:36.286Z",
+                      "email": "halle@braun.net",
+                      "confirmation_token": null,
+                      "unconfirmed_email": null,
+                      "avatar": {
+                        "url": null,
+                        "small": {
+                          "url": null
+                        },
+                        "middle": {
+                          "url": null
+                        }
+                      },
+                      "password": null,
+                      "password_confirmation": null
+                    },
+                    "organization": {
+                    }
+                  }
+                ],
+                "meta": {
+                  "total_pages": 1,
+                  "size": 1,
+                  "limit_value": 20,
+                  "current_page": 1
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/courses/{id}": {
+      "get": {
+        "summary": "Get Course Details",
+        "tags": [
+          "Courses"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns as object",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "course": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "title": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "description": {
+                      "type": "text",
+                      "x-nullable": true
+                    },
+                    "image": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "user_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "organization_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "created_at": {
+                      "type": "datetime"
+                    },
+                    "updated_at": {
+                      "type": "datetime"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "course"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "course": {
+                  "id": 4,
+                  "title": "Johns Inc",
+                  "description": "exploit scalable platforms",
+                  "image": "#<Rack::Test::UploadedFile:0x007fb0b5fbd700>",
+                  "user_id": 9,
+                  "organization_id": 7,
+                  "created_at": "2018-02-23T17:10:36.545Z",
+                  "updated_at": "2018-02-23T17:10:36.545Z",
+                  "user": {
+                    "id": 9,
+                    "first_name": "Domenic Hyatt",
+                    "last_name": "Dr. Alda Runolfsson",
+                    "admin_role": "super_admin",
+                    "phone_number": null,
+                    "date_of_birth": null,
+                    "address": null,
+                    "country_id": 17,
+                    "state_id": 9,
+                    "zip_code": null,
+                    "status": "active",
+                    "created_at": "2018-02-23T17:10:36.539Z",
+                    "updated_at": "2018-02-23T17:10:36.539Z",
+                    "email": "mylene@bergnaum.io",
+                    "confirmation_token": null,
+                    "unconfirmed_email": null,
+                    "avatar": {
+                      "url": null,
+                      "small": {
+                        "url": null
+                      },
+                      "middle": {
+                        "url": null
+                      }
+                    },
+                    "password": null,
+                    "password_confirmation": null
+                  },
+                  "organization": {
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "returns error if instance not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": "",
+                "errors": [
+                  "Couldn't find Course with 'id'=0 [WHERE \"courses\".\"organization_id\" = $1]"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update Course Details",
+        "tags": [
+          "Courses"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "course": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "description": {
+                      "type": "text",
+                      "x-nullable": true
+                    },
+                    "image": {
+                      "type": "string",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "course"
+              ]
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "course": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "description": {
+                      "type": "text",
+                      "x-nullable": true
+                    },
+                    "image": {
+                      "type": "string",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "course"
+              ]
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "course": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "description": {
+                      "type": "text",
+                      "x-nullable": true
+                    },
+                    "image": {
+                      "type": "string",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "course"
+              ]
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "course": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "description": {
+                      "type": "text",
+                      "x-nullable": true
+                    },
+                    "image": {
+                      "type": "string",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "course"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "return data",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "course": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "description": {
+                      "type": "text",
+                      "x-nullable": true
+                    },
+                    "image": {
+                      "type": "string",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "course"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "course": {
+                  "title": "Johns Inc",
+                  "description": "exploit scalable platforms",
+                  "image": "#<Rack::Test::UploadedFile:0x007fb0b90a0480>",
+                  "user": {
+                    "first_name": "Domenic Hyatt",
+                    "last_name": "Dr. Alda Runolfsson",
+                    "email": "wilma.lesch@paucekhyatt.io",
+                    "password": null,
+                    "password_confirmation": null
+                  },
+                  "organization": {
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "returns error if instance not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": "",
+                "errors": [
+                  "Couldn't find Course with 'id'=0 [WHERE \"courses\".\"organization_id\" = $1]"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Course",
+        "tags": [
+          "Courses"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "deleting Course account",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "value": true
+                }
+              },
+              "required": [
+                "success"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "success": true
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "returns error if instance not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": "",
+                "errors": [
+                  "Couldn't find Course with 'id'=0 [WHERE \"courses\".\"organization_id\" = $1]"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/groups": {
       "get": {
-        "summary": "list of groups",
+        "summary": "Groups inside organization",
         "tags": [
           "Groups"
         ],
@@ -22,13 +786,19 @@
             "required": true
           },
           {
-            "name": "page",
+            "name": "organization_id",
             "in": "query",
             "type": "integer",
             "required": false
           },
           {
-            "name": "count",
+            "name": "current_page",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "current_count",
             "in": "query",
             "type": "integer",
             "required": false
@@ -38,26 +808,34 @@
             "in": "query",
             "type": "string",
             "required": false,
-            "description": "Filter groups, possible values: private, public"
+            "enum": [
+              "private",
+              "public"
+            ],
+            "description": "Filter groups by visibility"
           },
           {
             "name": "status",
             "in": "query",
             "type": "string",
             "required": false,
-            "description": "Filter groups, possible values: private, publicactive, pause"
+            "enum": [
+              "active",
+              "pause"
+            ],
+            "description": "Filter groups by status"
           },
           {
             "name": "my",
             "in": "query",
-            "type": "any",
+            "type": "boolean",
             "required": false,
             "description": "return user's groups"
           }
         ],
         "responses": {
           "200": {
-            "description": "returns",
+            "description": "returns as array",
             "schema": {
               "type": "object",
               "properties": {
@@ -66,22 +844,19 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "count_participants": {
-                        "type": "integer",
-                        "x-nullable": true
-                      },
-                      "created_at": {
-                        "type": "datetime"
-                      },
-                      "description": {
-                        "type": "text",
-                        "x-nullable": true
-                      },
                       "id": {
                         "type": "integer"
                       },
                       "organization_id": {
                         "type": "integer",
+                        "x-nullable": true
+                      },
+                      "title": {
+                        "type": "string",
+                        "x-nullable": true
+                      },
+                      "description": {
+                        "type": "text",
                         "x-nullable": true
                       },
                       "status": {
@@ -91,17 +866,6 @@
                           "active",
                           "pause"
                         ]
-                      },
-                      "title": {
-                        "type": "string",
-                        "x-nullable": true
-                      },
-                      "updated_at": {
-                        "type": "datetime"
-                      },
-                      "user_id": {
-                        "type": "integer",
-                        "x-nullable": true
                       },
                       "user_limit": {
                         "type": "integer",
@@ -114,6 +878,20 @@
                           "private",
                           "public"
                         ]
+                      },
+                      "created_at": {
+                        "type": "datetime"
+                      },
+                      "updated_at": {
+                        "type": "datetime"
+                      },
+                      "count_participants": {
+                        "type": "integer",
+                        "x-nullable": true
+                      },
+                      "user_id": {
+                        "type": "integer",
+                        "x-nullable": true
                       }
                     }
                   }
@@ -127,17 +905,17 @@
               "application/json": {
                 "groups": [
                   {
-                    "count_participants": null,
-                    "created_at": "2018-02-21T19:02:11.610Z",
-                    "description": "extend clicks-and-mortar action-items",
                     "id": 1,
-                    "organization_id": 1,
+                    "organization_id": 33,
+                    "title": "Hermiston Group",
+                    "description": "enhance mission-critical eyeballs",
                     "status": "active",
-                    "title": "Lebsack Inc",
-                    "updated_at": "2018-02-21T19:02:11.610Z",
-                    "user_id": null,
                     "user_limit": 10,
                     "visibility": "public",
+                    "created_at": "2018-02-23T17:10:37.208Z",
+                    "updated_at": "2018-02-23T17:10:37.208Z",
+                    "count_participants": null,
+                    "user_id": null,
                     "organization": {
                     }
                   }
@@ -150,13 +928,63 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
           }
         }
       }
     },
     "/api/v1/groups/{id}": {
       "get": {
-        "summary": "Details",
+        "summary": "Get Group Details",
         "tags": [
           "Groups"
         ],
@@ -179,29 +1007,26 @@
         ],
         "responses": {
           "200": {
-            "description": "returns",
+            "description": "returns as object",
             "schema": {
               "type": "object",
               "properties": {
                 "group": {
                   "type": "object",
                   "properties": {
-                    "count_participants": {
-                      "type": "integer",
-                      "x-nullable": true
-                    },
-                    "created_at": {
-                      "type": "datetime"
-                    },
-                    "description": {
-                      "type": "text",
-                      "x-nullable": true
-                    },
                     "id": {
                       "type": "integer"
                     },
                     "organization_id": {
                       "type": "integer",
+                      "x-nullable": true
+                    },
+                    "title": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "description": {
+                      "type": "text",
                       "x-nullable": true
                     },
                     "status": {
@@ -212,16 +1037,362 @@
                         "pause"
                       ]
                     },
-                    "title": {
-                      "type": "string",
+                    "user_limit": {
+                      "type": "integer",
                       "x-nullable": true
+                    },
+                    "visibility": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "private",
+                        "public"
+                      ]
+                    },
+                    "created_at": {
+                      "type": "datetime"
                     },
                     "updated_at": {
                       "type": "datetime"
                     },
+                    "count_participants": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
                     "user_id": {
                       "type": "integer",
                       "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "group"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "group": {
+                  "id": 4,
+                  "organization_id": 36,
+                  "title": "Hermiston Group",
+                  "description": "enhance mission-critical eyeballs",
+                  "status": "active",
+                  "user_limit": 10,
+                  "visibility": "public",
+                  "created_at": "2018-02-23T17:10:37.348Z",
+                  "updated_at": "2018-02-23T17:10:37.348Z",
+                  "count_participants": null,
+                  "user_id": null,
+                  "organization": {
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "returns error if instance not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": "",
+                "errors": [
+                  "Couldn't find Group with 'id'=0 [WHERE \"groups\".\"organization_id\" = $1]"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update Group Details",
+        "tags": [
+          "Groups"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "group": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "description": {
+                      "type": "text",
+                      "x-nullable": true
+                    },
+                    "status": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "active",
+                        "pause"
+                      ]
+                    },
+                    "user_limit": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "visibility": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "private",
+                        "public"
+                      ]
+                    }
+                  }
+                }
+              },
+              "required": [
+                "group"
+              ]
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "group": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "description": {
+                      "type": "text",
+                      "x-nullable": true
+                    },
+                    "status": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "active",
+                        "pause"
+                      ]
+                    },
+                    "user_limit": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "visibility": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "private",
+                        "public"
+                      ]
+                    }
+                  }
+                }
+              },
+              "required": [
+                "group"
+              ]
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "group": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "description": {
+                      "type": "text",
+                      "x-nullable": true
+                    },
+                    "status": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "active",
+                        "pause"
+                      ]
+                    },
+                    "user_limit": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "visibility": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "private",
+                        "public"
+                      ]
+                    }
+                  }
+                }
+              },
+              "required": [
+                "group"
+              ]
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "group": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "description": {
+                      "type": "text",
+                      "x-nullable": true
+                    },
+                    "status": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "active",
+                        "pause"
+                      ]
+                    },
+                    "user_limit": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "visibility": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "private",
+                        "public"
+                      ]
+                    }
+                  }
+                }
+              },
+              "required": [
+                "group"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "return data",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "group": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "description": {
+                      "type": "text",
+                      "x-nullable": true
+                    },
+                    "status": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "active",
+                        "pause"
+                      ]
                     },
                     "user_limit": {
                       "type": "integer",
@@ -245,23 +1416,209 @@
             "examples": {
               "application/json": {
                 "group": {
-                  "count_participants": null,
-                  "created_at": "2018-02-21T19:02:11.722Z",
-                  "description": "extend clicks-and-mortar action-items",
-                  "id": 2,
-                  "organization_id": 2,
+                  "title": "Hermiston Group",
+                  "description": "enhance mission-critical eyeballs",
                   "status": "active",
-                  "title": "Lebsack Inc",
-                  "updated_at": "2018-02-21T19:02:11.722Z",
-                  "user_id": null,
                   "user_limit": 10,
                   "visibility": "public",
                   "organization": {
                   }
-                },
-                "meta": {
-                  "current_page": 1
                 }
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "returns error if instance not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": "",
+                "errors": [
+                  "Couldn't find Group with 'id'=0 [WHERE \"groups\".\"organization_id\" = $1]"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Group",
+        "tags": [
+          "Groups"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "deleting Group account",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "value": true
+                }
+              },
+              "required": [
+                "success"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "success": true
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "returns error if instance not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": "",
+                "errors": [
+                  "Couldn't find Group with 'id'=0 [WHERE \"groups\".\"organization_id\" = $1]"
+                ]
               }
             }
           }
@@ -305,19 +1662,21 @@
             "schema": {
               "type": "object",
               "properties": {
-                "meta": {
-                  "type": "object",
-                  "properties": {
-                    "token": {
-                      "type": "string",
-                      "x-nullable": true
-                    }
-                  }
+                "token": {
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "user": {
                   "type": "object",
                   "properties": {
-                    "address": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "first_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "last_name": {
                       "type": "string",
                       "x-nullable": true
                     },
@@ -328,86 +1687,28 @@
                         "super_admin"
                       ]
                     },
-                    "avatar": {
-                      "type": "object"
-                    },
-                    "confirmation_sent_at": {
-                      "type": "datetime",
-                      "x-nullable": true
-                    },
-                    "confirmation_token": {
+                    "phone_number": {
                       "type": "string",
-                      "x-nullable": true
-                    },
-                    "confirmed_at": {
-                      "type": "datetime",
-                      "x-nullable": true
-                    },
-                    "country_id": {
-                      "type": "integer",
-                      "x-nullable": true
-                    },
-                    "created_at": {
-                      "type": "datetime"
-                    },
-                    "current_sign_in_at": {
-                      "type": "datetime",
-                      "x-nullable": true
-                    },
-                    "current_sign_in_ip": {
-                      "type": "inet",
                       "x-nullable": true
                     },
                     "date_of_birth": {
                       "type": "date",
                       "x-nullable": true
                     },
-                    "email": {
-                      "type": "string"
-                    },
-                    "encrypted_password": {
-                      "type": "string"
-                    },
-                    "first_name": {
+                    "address": {
                       "type": "string",
                       "x-nullable": true
                     },
-                    "id": {
-                      "type": "integer"
-                    },
-                    "last_name": {
-                      "type": "string",
+                    "country_id": {
+                      "type": "integer",
                       "x-nullable": true
-                    },
-                    "last_sign_in_at": {
-                      "type": "datetime",
-                      "x-nullable": true
-                    },
-                    "last_sign_in_ip": {
-                      "type": "inet",
-                      "x-nullable": true
-                    },
-                    "phone_number": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "remember_created_at": {
-                      "type": "datetime",
-                      "x-nullable": true
-                    },
-                    "reset_password_sent_at": {
-                      "type": "datetime",
-                      "x-nullable": true
-                    },
-                    "reset_password_token": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "sign_in_count": {
-                      "type": "integer"
                     },
                     "state_id": {
                       "type": "integer",
+                      "x-nullable": true
+                    },
+                    "zip_code": {
+                      "type": "string",
                       "x-nullable": true
                     },
                     "status": {
@@ -419,14 +1720,31 @@
                         "deleted"
                       ]
                     },
-                    "unconfirmed_email": {
-                      "type": "string",
-                      "x-nullable": true
+                    "created_at": {
+                      "type": "datetime"
                     },
                     "updated_at": {
                       "type": "datetime"
                     },
-                    "zip_code": {
+                    "email": {
+                      "type": "string"
+                    },
+                    "confirmation_token": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "unconfirmed_email": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "avatar": {
+                      "type": "object"
+                    },
+                    "password": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "password_confirmation": {
                       "type": "string",
                       "x-nullable": true
                     }
@@ -440,14 +1758,13 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "email": "bettye.kemmer@kshlerin.com",
                   "first_name": null,
                   "last_name": null,
+                  "email": "joshua.lubowitz@helleradams.co",
+                  "password": "6l021kOs3rJ2",
+                  "password_confirmation": null,
                   "country": null,
                   "state": null
-                },
-                "meta": {
-                  "token": null
                 }
               }
             }
@@ -558,19 +1875,21 @@
             "schema": {
               "type": "object",
               "properties": {
-                "meta": {
-                  "type": "object",
-                  "properties": {
-                    "token": {
-                      "type": "string",
-                      "x-nullable": true
-                    }
-                  }
+                "token": {
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "user": {
                   "type": "object",
                   "properties": {
-                    "address": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "first_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "last_name": {
                       "type": "string",
                       "x-nullable": true
                     },
@@ -581,86 +1900,28 @@
                         "super_admin"
                       ]
                     },
-                    "avatar": {
-                      "type": "object"
-                    },
-                    "confirmation_sent_at": {
-                      "type": "datetime",
-                      "x-nullable": true
-                    },
-                    "confirmation_token": {
+                    "phone_number": {
                       "type": "string",
-                      "x-nullable": true
-                    },
-                    "confirmed_at": {
-                      "type": "datetime",
-                      "x-nullable": true
-                    },
-                    "country_id": {
-                      "type": "integer",
-                      "x-nullable": true
-                    },
-                    "created_at": {
-                      "type": "datetime"
-                    },
-                    "current_sign_in_at": {
-                      "type": "datetime",
-                      "x-nullable": true
-                    },
-                    "current_sign_in_ip": {
-                      "type": "inet",
                       "x-nullable": true
                     },
                     "date_of_birth": {
                       "type": "date",
                       "x-nullable": true
                     },
-                    "email": {
-                      "type": "string"
-                    },
-                    "encrypted_password": {
-                      "type": "string"
-                    },
-                    "first_name": {
+                    "address": {
                       "type": "string",
                       "x-nullable": true
                     },
-                    "id": {
-                      "type": "integer"
-                    },
-                    "last_name": {
-                      "type": "string",
+                    "country_id": {
+                      "type": "integer",
                       "x-nullable": true
-                    },
-                    "last_sign_in_at": {
-                      "type": "datetime",
-                      "x-nullable": true
-                    },
-                    "last_sign_in_ip": {
-                      "type": "inet",
-                      "x-nullable": true
-                    },
-                    "phone_number": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "remember_created_at": {
-                      "type": "datetime",
-                      "x-nullable": true
-                    },
-                    "reset_password_sent_at": {
-                      "type": "datetime",
-                      "x-nullable": true
-                    },
-                    "reset_password_token": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "sign_in_count": {
-                      "type": "integer"
                     },
                     "state_id": {
                       "type": "integer",
+                      "x-nullable": true
+                    },
+                    "zip_code": {
+                      "type": "string",
                       "x-nullable": true
                     },
                     "status": {
@@ -672,14 +1933,31 @@
                         "deleted"
                       ]
                     },
-                    "unconfirmed_email": {
-                      "type": "string",
-                      "x-nullable": true
+                    "created_at": {
+                      "type": "datetime"
                     },
                     "updated_at": {
                       "type": "datetime"
                     },
-                    "zip_code": {
+                    "email": {
+                      "type": "string"
+                    },
+                    "confirmation_token": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "unconfirmed_email": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "avatar": {
+                      "type": "object"
+                    },
+                    "password": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "password_confirmation": {
                       "type": "string",
                       "x-nullable": true
                     }
@@ -693,21 +1971,21 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "email": "camylle.bogan@crist.info",
-                  "first_name": "Schuyler Walker V",
-                  "last_name": "Jada Haley",
+                  "first_name": "Domenic Hyatt",
+                  "last_name": "Dr. Alda Runolfsson",
+                  "email": "camylle.sauer@donnelly.name",
+                  "password": null,
+                  "password_confirmation": null,
                   "country": {
+                    "id": 141,
                     "code": null,
-                    "id": 27,
                     "name": "Canada",
                     "phonecode": null
                   },
                   "state": {
                   }
                 },
-                "meta": {
-                  "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTUsImV4cCI6MTU1MDc3NTczMiwidHlwZSI6InVzZXIiLCJlbWFpbCI6ImNhbXlsbGUuYm9nYW5AY3Jpc3QuaW5mbyJ9.GfRotWbeUzrczbDUCTDdPj7B1uQAUlf4kqoPAFuZyoE"
-                }
+                "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6NzIsImV4cCI6MTU1MDk0MTgzOCwidHlwZSI6InVzZXIiLCJlbWFpbCI6ImNhbXlsbGUuc2F1ZXJAZG9ubmVsbHkubmFtZSJ9.14XlV1Rqu9sZkB6Y_N9PMcR2XiQzeXSc6HYNBpQebww"
               }
             }
           },
@@ -771,7 +2049,7 @@
     },
     "/api/v1/users": {
       "get": {
-        "summary": "Users list inside organization",
+        "summary": "Users inside organization",
         "tags": [
           "Users"
         ],
@@ -784,6 +2062,12 @@
             "in": "header",
             "type": "string",
             "required": true
+          },
+          {
+            "name": "organization_id",
+            "in": "query",
+            "type": "integer",
+            "required": false
           },
           {
             "name": "current_page",
@@ -800,7 +2084,7 @@
         ],
         "responses": {
           "200": {
-            "description": "return data",
+            "description": "returns as array",
             "schema": {
               "type": "object",
               "properties": {
@@ -809,7 +2093,14 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "address": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "first_name": {
+                        "type": "string",
+                        "x-nullable": true
+                      },
+                      "last_name": {
                         "type": "string",
                         "x-nullable": true
                       },
@@ -820,86 +2111,28 @@
                           "super_admin"
                         ]
                       },
-                      "avatar": {
-                        "type": "object"
-                      },
-                      "confirmation_sent_at": {
-                        "type": "datetime",
-                        "x-nullable": true
-                      },
-                      "confirmation_token": {
+                      "phone_number": {
                         "type": "string",
-                        "x-nullable": true
-                      },
-                      "confirmed_at": {
-                        "type": "datetime",
-                        "x-nullable": true
-                      },
-                      "country_id": {
-                        "type": "integer",
-                        "x-nullable": true
-                      },
-                      "created_at": {
-                        "type": "datetime"
-                      },
-                      "current_sign_in_at": {
-                        "type": "datetime",
-                        "x-nullable": true
-                      },
-                      "current_sign_in_ip": {
-                        "type": "inet",
                         "x-nullable": true
                       },
                       "date_of_birth": {
                         "type": "date",
                         "x-nullable": true
                       },
-                      "email": {
-                        "type": "string"
-                      },
-                      "encrypted_password": {
-                        "type": "string"
-                      },
-                      "first_name": {
+                      "address": {
                         "type": "string",
                         "x-nullable": true
                       },
-                      "id": {
-                        "type": "integer"
-                      },
-                      "last_name": {
-                        "type": "string",
+                      "country_id": {
+                        "type": "integer",
                         "x-nullable": true
-                      },
-                      "last_sign_in_at": {
-                        "type": "datetime",
-                        "x-nullable": true
-                      },
-                      "last_sign_in_ip": {
-                        "type": "inet",
-                        "x-nullable": true
-                      },
-                      "phone_number": {
-                        "type": "string",
-                        "x-nullable": true
-                      },
-                      "remember_created_at": {
-                        "type": "datetime",
-                        "x-nullable": true
-                      },
-                      "reset_password_sent_at": {
-                        "type": "datetime",
-                        "x-nullable": true
-                      },
-                      "reset_password_token": {
-                        "type": "string",
-                        "x-nullable": true
-                      },
-                      "sign_in_count": {
-                        "type": "integer"
                       },
                       "state_id": {
                         "type": "integer",
+                        "x-nullable": true
+                      },
+                      "zip_code": {
+                        "type": "string",
                         "x-nullable": true
                       },
                       "status": {
@@ -911,14 +2144,31 @@
                           "deleted"
                         ]
                       },
-                      "unconfirmed_email": {
-                        "type": "string",
-                        "x-nullable": true
+                      "created_at": {
+                        "type": "datetime"
                       },
                       "updated_at": {
                         "type": "datetime"
                       },
-                      "zip_code": {
+                      "email": {
+                        "type": "string"
+                      },
+                      "confirmation_token": {
+                        "type": "string",
+                        "x-nullable": true
+                      },
+                      "unconfirmed_email": {
+                        "type": "string",
+                        "x-nullable": true
+                      },
+                      "avatar": {
+                        "type": "object"
+                      },
+                      "password": {
+                        "type": "string",
+                        "x-nullable": true
+                      },
+                      "password_confirmation": {
                         "type": "string",
                         "x-nullable": true
                       }
@@ -934,8 +2184,22 @@
               "application/json": {
                 "users": [
                   {
-                    "address": null,
+                    "id": 89,
+                    "first_name": "Domenic Hyatt",
+                    "last_name": "Dr. Alda Runolfsson",
                     "admin_role": "super_admin",
+                    "phone_number": null,
+                    "date_of_birth": null,
+                    "address": null,
+                    "country_id": 175,
+                    "state_id": 88,
+                    "zip_code": null,
+                    "status": "active",
+                    "created_at": "2018-02-23T17:10:38.728Z",
+                    "updated_at": "2018-02-23T17:10:38.742Z",
+                    "email": "jane@davichmeler.name",
+                    "confirmation_token": null,
+                    "unconfirmed_email": null,
                     "avatar": {
                       "url": null,
                       "small": {
@@ -945,42 +2209,11 @@
                         "url": null
                       }
                     },
-                    "confirmation_sent_at": null,
-                    "confirmation_token": null,
-                    "confirmed_at": "2018-02-21T19:02:11.408Z",
-                    "country_id": 55,
-                    "created_at": "2018-02-21T19:02:12.906Z",
-                    "current_sign_in_at": "2018-02-21T19:02:12.929Z",
-                    "current_sign_in_ip": {
-                      "family": 2,
-                      "addr": 2130706433,
-                      "mask_addr": 4294967295
-                    },
-                    "date_of_birth": null,
-                    "email": "jackie_purdy@runolfsdottir.net",
-                    "encrypted_password": "$2a$04$c64VMf.IZDApvnBxQqRpUOu/EG/wE1WfNk0Y.xClFxbK5AxH4odSK",
-                    "first_name": "Schuyler Walker V",
-                    "id": 29,
-                    "last_name": "Jada Haley",
-                    "last_sign_in_at": "2018-02-21T19:02:12.929Z",
-                    "last_sign_in_ip": {
-                      "family": 2,
-                      "addr": 2130706433,
-                      "mask_addr": 4294967295
-                    },
-                    "phone_number": null,
-                    "remember_created_at": "2018-02-21T19:02:12.920Z",
-                    "reset_password_sent_at": null,
-                    "reset_password_token": null,
-                    "sign_in_count": 1,
-                    "state_id": 28,
-                    "status": "active",
-                    "unconfirmed_email": null,
-                    "updated_at": "2018-02-21T19:02:12.930Z",
-                    "zip_code": null,
+                    "password": null,
+                    "password_confirmation": null,
                     "country": {
+                      "id": 175,
                       "code": null,
-                      "id": 55,
                       "name": "Canada",
                       "phonecode": null
                     },
@@ -996,13 +2229,63 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
           }
         }
       }
     },
     "/api/v1/users/{id}": {
       "get": {
-        "summary": "Users info",
+        "summary": "Get User Details",
         "tags": [
           "Users"
         ],
@@ -1025,14 +2308,21 @@
         ],
         "responses": {
           "200": {
-            "description": "information about User",
+            "description": "returns as object",
             "schema": {
               "type": "object",
               "properties": {
                 "user": {
                   "type": "object",
                   "properties": {
-                    "address": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "first_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "last_name": {
                       "type": "string",
                       "x-nullable": true
                     },
@@ -1043,86 +2333,28 @@
                         "super_admin"
                       ]
                     },
-                    "avatar": {
-                      "type": "object"
-                    },
-                    "confirmation_sent_at": {
-                      "type": "datetime",
-                      "x-nullable": true
-                    },
-                    "confirmation_token": {
+                    "phone_number": {
                       "type": "string",
-                      "x-nullable": true
-                    },
-                    "confirmed_at": {
-                      "type": "datetime",
-                      "x-nullable": true
-                    },
-                    "country_id": {
-                      "type": "integer",
-                      "x-nullable": true
-                    },
-                    "created_at": {
-                      "type": "datetime"
-                    },
-                    "current_sign_in_at": {
-                      "type": "datetime",
-                      "x-nullable": true
-                    },
-                    "current_sign_in_ip": {
-                      "type": "inet",
                       "x-nullable": true
                     },
                     "date_of_birth": {
                       "type": "date",
                       "x-nullable": true
                     },
-                    "email": {
-                      "type": "string"
-                    },
-                    "encrypted_password": {
-                      "type": "string"
-                    },
-                    "first_name": {
+                    "address": {
                       "type": "string",
                       "x-nullable": true
                     },
-                    "id": {
-                      "type": "integer"
-                    },
-                    "last_name": {
-                      "type": "string",
+                    "country_id": {
+                      "type": "integer",
                       "x-nullable": true
-                    },
-                    "last_sign_in_at": {
-                      "type": "datetime",
-                      "x-nullable": true
-                    },
-                    "last_sign_in_ip": {
-                      "type": "inet",
-                      "x-nullable": true
-                    },
-                    "phone_number": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "remember_created_at": {
-                      "type": "datetime",
-                      "x-nullable": true
-                    },
-                    "reset_password_sent_at": {
-                      "type": "datetime",
-                      "x-nullable": true
-                    },
-                    "reset_password_token": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "sign_in_count": {
-                      "type": "integer"
                     },
                     "state_id": {
                       "type": "integer",
+                      "x-nullable": true
+                    },
+                    "zip_code": {
+                      "type": "string",
                       "x-nullable": true
                     },
                     "status": {
@@ -1134,14 +2366,31 @@
                         "deleted"
                       ]
                     },
-                    "unconfirmed_email": {
-                      "type": "string",
-                      "x-nullable": true
+                    "created_at": {
+                      "type": "datetime"
                     },
                     "updated_at": {
                       "type": "datetime"
                     },
-                    "zip_code": {
+                    "email": {
+                      "type": "string"
+                    },
+                    "confirmation_token": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "unconfirmed_email": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "avatar": {
+                      "type": "object"
+                    },
+                    "password": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "password_confirmation": {
                       "type": "string",
                       "x-nullable": true
                     }
@@ -1155,8 +2404,22 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "address": null,
+                  "id": 93,
+                  "first_name": "Domenic Hyatt",
+                  "last_name": "Dr. Alda Runolfsson",
                   "admin_role": "super_admin",
+                  "phone_number": null,
+                  "date_of_birth": null,
+                  "address": null,
+                  "country_id": 183,
+                  "state_id": 92,
+                  "zip_code": null,
+                  "status": "active",
+                  "created_at": "2018-02-23T17:10:38.842Z",
+                  "updated_at": "2018-02-23T17:10:38.855Z",
+                  "email": "brook.reichel@reichertklein.org",
+                  "confirmation_token": null,
+                  "unconfirmed_email": null,
                   "avatar": {
                     "url": null,
                     "small": {
@@ -1166,43 +2429,92 @@
                       "url": null
                     }
                   },
-                  "confirmation_sent_at": null,
-                  "confirmation_token": null,
-                  "confirmed_at": "2018-02-21T19:02:11.408Z",
-                  "country_id": 57,
-                  "created_at": "2018-02-21T19:02:12.973Z",
-                  "current_sign_in_at": null,
-                  "current_sign_in_ip": null,
-                  "date_of_birth": null,
-                  "email": "edison_ward@ratke.net",
-                  "encrypted_password": "$2a$04$cAc9uDAh3G/gpNuU1qKD2eJj.j9cja4LjxLy7Rt2tkLVEOpNahZdq",
-                  "first_name": "Schuyler Walker V",
-                  "id": 30,
-                  "last_name": "Jada Haley",
-                  "last_sign_in_at": null,
-                  "last_sign_in_ip": null,
-                  "phone_number": null,
-                  "remember_created_at": null,
-                  "reset_password_sent_at": null,
-                  "reset_password_token": null,
-                  "sign_in_count": 0,
-                  "state_id": 29,
-                  "status": "active",
-                  "unconfirmed_email": null,
-                  "updated_at": "2018-02-21T19:02:12.973Z",
-                  "zip_code": null,
+                  "password": null,
+                  "password_confirmation": null,
                   "country": {
+                    "id": 183,
                     "code": null,
-                    "id": 57,
                     "name": "Canada",
                     "phonecode": null
                   },
                   "state": {
                   }
-                },
-                "meta": {
-                  "current_page": 1
                 }
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "returns error if instance not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": "",
+                "errors": [
+                  "Couldn't find User with 'id'=0"
+                ]
               }
             }
           }
@@ -1238,14 +2550,130 @@
                 "user": {
                   "type": "object",
                   "properties": {
-                    "email": {
-                      "type": "string"
-                    },
                     "first_name": {
                       "type": "string",
                       "x-nullable": true
                     },
                     "last_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "password_confirmation": {
+                      "type": "string",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "user"
+              ]
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "type": "object",
+                  "properties": {
+                    "first_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "last_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "password_confirmation": {
+                      "type": "string",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "user"
+              ]
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "type": "object",
+                  "properties": {
+                    "first_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "last_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "password_confirmation": {
+                      "type": "string",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "user"
+              ]
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "type": "object",
+                  "properties": {
+                    "first_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "last_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "password_confirmation": {
                       "type": "string",
                       "x-nullable": true
                     }
@@ -1267,14 +2695,22 @@
                 "user": {
                   "type": "object",
                   "properties": {
-                    "email": {
-                      "type": "string"
-                    },
                     "first_name": {
                       "type": "string",
                       "x-nullable": true
                     },
                     "last_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "password_confirmation": {
                       "type": "string",
                       "x-nullable": true
                     }
@@ -1288,21 +2724,215 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "email": "jules@stamm.io",
-                  "first_name": "Schuyler Walker V",
-                  "last_name": "Jada Haley",
+                  "first_name": "Domenic Hyatt",
+                  "last_name": "Dr. Alda Runolfsson",
+                  "email": "nichole@prosacco.info",
+                  "password": null,
+                  "password_confirmation": null,
                   "country": {
+                    "id": 193,
                     "code": null,
-                    "id": 63,
                     "name": "Canada",
                     "phonecode": null
                   },
                   "state": {
                   }
-                },
-                "meta": {
-                  "current_page": 1
                 }
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "returns error if instance not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": "",
+                "errors": [
+                  "Couldn't find User with 'id'=0"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete User",
+        "tags": [
+          "Users"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "deleting User account",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "value": true
+                }
+              },
+              "required": [
+                "success"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "success": true
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "returns error if instance not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": "",
+                "errors": [
+                  "Couldn't find User with 'id'=0"
+                ]
               }
             }
           }

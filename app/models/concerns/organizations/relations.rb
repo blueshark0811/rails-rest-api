@@ -3,12 +3,12 @@ module Organizations
     extend ActiveSupport::Concern
 
     included do
-      has_many :organization_users
+      has_many :organization_users, dependent: :destroy
       has_many :users, through: :organization_users
-      has_many :groups
-      has_many :courses
-      has_many :videos
-      has_many :attachments
+      has_many :groups, dependent: :destroy
+      has_many :courses, dependent: :destroy
+      has_many :videos, dependent: :destroy
+      has_many :attachments, dependent: :destroy
     end
   end
 end

@@ -1,6 +1,11 @@
 module ApiPolicy
+  #for override
+  def api_base_attributes_exclude
+    []
+  end
+
   def api_base_attributes
-    record.class.attributes
+    record.api_base_attributes.reject{|k| api_base_attributes_exclude.include?(k) }
   end
 
   def api_attributes action = nil

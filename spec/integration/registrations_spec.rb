@@ -1,6 +1,9 @@
-require 'swagger_helper'
+# frozen_string_literal: true
 
-describe 'Registration API' do  
+require 'swagger_helper'
+include ApiSpecHelper
+
+describe 'Registration API' do
   let(:email) { Faker::Internet.email }
   let!(:user) { create(:user, email: email) }
 
@@ -23,22 +26,20 @@ describe 'Registration API' do
       }
 
       response '201', 'user created' do
-        let(:body) {
+        let(:body) do
           {
             user: {
               email: Faker::Internet.email,
               password: Faker::Internet.password
             }
           }
-        }
+        end
 
         before do |example|
-          rswag_set_schema(example, {
-            action: :show, 
-            type: :object,
-            required: ['user', 'meta'],
-            properties: { meta: { type: :object, properties: { token: {type: :string, 'x-nullable': true } } } }
-          })
+          rswag_set_schema(example, action: :show,
+                                    type: :object,
+                                    required: %w[user],
+                                    properties: { token: { type: :string, 'x-nullable': true } })
         end
 
         run_test! do |response|
@@ -50,16 +51,16 @@ describe 'Registration API' do
         let(:body) { { user: { email: email, password: Faker::Internet.password } } }
 
         schema type: :object,
-          properties: {
-            errors: { 
-              type: :array,
-              items: { 
-                type: :object,
-                items: { email: :array }
-              } 
-            }
-          },
-          required: [ 'errors' ]
+               properties: {
+                 errors: {
+                   type: :array,
+                   items: {
+                     type: :object,
+                     items: { email: :array }
+                   }
+                 }
+               },
+               required: ['errors']
 
         run_test!
       end

@@ -44,6 +44,8 @@ shared_examples_for 'apiattributable' do
     end
   end
 
+  xdescribe '#api_base_attributes'
+
   describe '.serializer_class_name' do
     subject { model.serializer_class_name }
 
@@ -81,10 +83,19 @@ shared_examples_for 'apiattributable' do
 
   describe '.api_prepare_property' do
     let(:field) { :id }
+    let(:dbl) { double }
     subject { model.api_prepare_property field }
 
     it 'should contain type of field' do
       expect(subject[:type]).to_not be_nil
+    end
+
+    it 'should set type :string if there is no info about type of attribute' do
+      allow(model).to receive(:column_for_attribute).and_return(dbl)
+      allow(dbl).to receive(:type).and_return nil
+      allow(dbl).to receive(:null).and_return true
+
+      expect(subject[:type]).to eq :string
     end
 
     context 'when field is enum' do
@@ -104,8 +115,6 @@ shared_examples_for 'apiattributable' do
     end
 
     context 'when field could be nil' do
-      let(:dbl) { double }
-
       it 'should contain x-nullable param' do
         allow(model).to receive(:column_for_attribute).and_return(dbl)
         allow(dbl).to receive(:type).and_return :string

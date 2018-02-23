@@ -8,10 +8,8 @@ module ApiAttributes
 
     return res unless attrs
 
-    attrs_of_instance = attributes.keys.map(&:to_sym)
-
-    attrs.each do |field|
-      next unless attrs_of_instance.include?(field)
+     attrs.each do |field|
+      next unless api_base_attributes.include?(field)
 
       res[field] = self.class.api_prepare_property field
     end
@@ -45,7 +43,7 @@ module ApiAttributes
 
       col = column_for_attribute(field)
 
-      res = { type: col.type }
+      res = { type: col.type || :string }
       res['x-nullable'] = true if col.null
 
       if enum_values = defined_enums[field.to_s]
@@ -56,6 +54,10 @@ module ApiAttributes
     end
   end
 
+  def api_base_attributes
+    attributes.keys.map(&:to_sym)
+  end
+  
   protected
 
   def api_available_attriubtes(options = {})

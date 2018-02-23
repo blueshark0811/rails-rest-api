@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   mount Rswag::Api::Engine => '/api-docs'
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  
+
   namespace :api, defaults: { format: "json" } do
     namespace :v1 do
 
@@ -17,13 +17,10 @@ Rails.application.routes.draw do
 
       resources :users
       resources :registrations, only: [:create]
-      resources :passwords, only: %i[create update] do
-        member do
-          post :update
-        end
-      end
+      resources :passwords, only: %i[create update]
 
       resources :groups
+      resources :courses
     end
   end
 

@@ -1,8 +1,9 @@
 class Api::V1::SessionsController < Api::V1::ApiController
   skip_before_action :authenticate_user!, only: [:create]
+  skip_before_action :authenticate_organization!
 
   def create
-    @user = User.where(email: params[:email]).first if params[:email].present?
+    @user = User.find_by(email: params[:email]) if params[:email].present?
 
     return invalid_login_attempt unless @user
 
@@ -10,7 +11,7 @@ class Api::V1::SessionsController < Api::V1::ApiController
       if @user.confirmed?
         sign_in(@user)
 
-        render_result(@user, 201, {token: jwt(@user)})
+        render_result(@user, 201, @user.jwt_token, :token)
       else
         render_error({email: 'email is not confirmed'}, 400)
       end
@@ -37,7 +38,6 @@ class Api::V1::SessionsController < Api::V1::ApiController
   protected
 
   def invalid_login_attempt
-    warden.custom_failure!
     render_error 'Error with your login or password', 'wrong_credentials', 401
   end
 end

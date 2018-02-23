@@ -1,5 +1,6 @@
 class Api::V1::PasswordsController < Api::V1::ApiController
   skip_before_action :authenticate_user!
+  skip_before_action :authenticate_organization!
 
   def create
     if @user
@@ -15,7 +16,7 @@ class Api::V1::PasswordsController < Api::V1::ApiController
     valid_code = @user.valid_reset_password_code?(params[:code])
 
     if valid_code && @user && @user.update_attributes(permited_params)
-      render_result(:token => jwt(@user), @scope => @user)
+      render_result(@user, 201, @user.jwt_token, :token)
     else
       valid_code ?
           render_error('Invalid user params', 'invalid_user_params') :

@@ -1,4 +1,8 @@
+# frozen_string_literal: true
+
 class Api::V1::UsersController < Api::V1::ApiController
+  before_action :set_user, except: [:index]
+
   def index
     @users = current_organization.users
 
@@ -6,20 +10,26 @@ class Api::V1::UsersController < Api::V1::ApiController
   end
 
   def show
-    @user = User.find(params[:id]) if params[:id].to_i > 0
-
-    @user ||= current_user
-
     render_result @user
   end
 
   def update
-    @user = current_user # User.find(params[:id])
-
-    if @user.update_attributes permitted_attributes @user
+    if @user.update_attributes permitted_attributes(@user)
       render_result @user
     else
       render_error @user
     end
+  end
+
+  def destroy
+    render_result success: @user.deleted!
+  end
+
+  private
+
+  def set_user
+    @user = User.find params[:id]
+
+    authorize @user
   end
 end
