@@ -10,7 +10,7 @@ module ApiSerializer
       battributes.each do |field|
         define_method field do
           # p 'a'*100,battributes, available_fields
-          available_fields.include?(field) ? object.send(field) : ActiveModel::Serializer::ATTR_NOT_ACCEPTABLE
+          available_fields.include?(field) ? object.send(field) : ActiveModel::FieldUpgrade::ATTR_NOT_ACCEPTABLE
         end
       end
     end

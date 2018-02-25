@@ -29,7 +29,7 @@ gem "whenever"
 gem "daemons"
 gem 'delayed_job_active_record'
 
-gem 'active_model_serializers', path: './lib/active_model_serializers'
+gem 'active_model_serializers'#, path: './lib/active_model_serializers'
 gem 'carrierwave', '~> 1.0'
 gem 'rmagick'
 
