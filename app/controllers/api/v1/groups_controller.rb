@@ -19,6 +19,16 @@ class Api::V1::GroupsController < Api::V1::ApiController
     render_result @groups.page(current_page).per(current_count)
   end
 
+  def search
+    @groups = Group.search(
+      params[:term],
+      match: :word_start,
+      where: { organization_id: current_organization.id }
+    )
+
+    render_result @groups.page(current_page).per(current_count)
+  end
+
   def show
     render_result @group
   end

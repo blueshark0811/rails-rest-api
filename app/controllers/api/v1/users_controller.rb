@@ -6,6 +6,10 @@ class Api::V1::UsersController < Api::V1::ApiController
   def index
     @users = current_organization.users
 
+    if params[:group_id]
+      @users = @users.joins(:group_users).where(group_users: { group_id: params[:group_id] })
+    end
+
     render_result @users.page(current_page).per(current_count)
   end
 

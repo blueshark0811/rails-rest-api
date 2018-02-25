@@ -142,7 +142,7 @@ shared_examples_for 'not-aurhorized' do
     before do |example|
       rswag_set_error_schema example
     end
-    
+
     run_test! do |response|
       data = JSON.parse(response.body)
       expect(data['errors']).to include "You are not authorized"
@@ -157,7 +157,7 @@ shared_examples_for 'not-aurhorized' do
       Organization.destroy_all
       rswag_set_error_schema example
     end
-    
+
     run_test! do |response|
       data = JSON.parse(response.body)
       expect(data['errors']).to include "Organization is not determinated"

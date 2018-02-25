@@ -27,11 +27,15 @@ gem "rack-cors", require: "rack/cors"
 gem "rest-client"
 gem "whenever"
 gem "daemons"
-gem 'delayed_job_active_record'
 
 gem 'active_model_serializers'#, path: './lib/active_model_serializers'
 gem 'carrierwave', '~> 1.0'
 gem 'rmagick'
+
+gem 'resque'
+gem 'resque-scheduler'
+
+gem 'searchkick'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

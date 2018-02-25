@@ -3,6 +3,8 @@
 class Group < ApplicationRecord
   include Groups::Relations
 
+  searchkick callbacks: :async, word_start: [:title], searchable: %i[description title]
+
   enumerate :status, field: :visibility, prefix: true
 
   validates :organization_id, :status, :visibility, presence: true

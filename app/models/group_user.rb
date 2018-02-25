@@ -1,11 +1,49 @@
 class GroupUser < ApplicationRecord
+  SORT_SIMLE_FIELDS = %w[created_at status]
+  SORT_USER_FIELDS = %w[last_name first_name]
+  SORT_FIELDS = %w[role]+SORT_USER_FIELDS+SORT_SIMLE_FIELDS
+
+  searchkick callbacks: :async
+  def search_data
+    {
+      first_name: user.first_name,
+      last_name: user.last_name,
+      role: organization_user.role
+    }
+  end
+
   belongs_to :user
   belongs_to :group, counter_cache: :count_participants
+
+  enumerate :status
 
   validates :user_id, :group_id, presence: true
   validates :user_id, uniqueness: { scope: [:group_id] }
 
   validate :validate_limit_participants, on: :create
+
+  scope :order_by, ->(sort_field, sort_flag = SORT_FLAGS.first) do
+    return unless SORT_FIELDS.include? sort_field
+
+    sort_flag = sort_flag.to_s.upcase
+
+    sort_flag = SORT_FLAGS.include?(sort_flag) ? sort_flag : SORT_FLAGS.first
+
+    if SORT_SIMLE_FIELDS.include?(sort_field)
+      order(sort_field => sort_flag)
+    elsif SORT_USER_FIELDS.include?(sort_field)
+      joins(:user).order("users.#{sort_field}" => sort_flag)
+    else#role
+      #todo
+    end
+  end
+
+  def organization_user
+    @organization_user ||= OrganizationUser.find_by(
+      user_id: user_id, 
+      organization_id: group.organization.id
+      )
+  end
 
   protected
 

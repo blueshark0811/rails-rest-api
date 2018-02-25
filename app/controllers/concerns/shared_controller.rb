@@ -21,6 +21,16 @@ module SharedController
     params[:current_count] || 20
   end
 
+  def sort_default_flag
+    SORT_FLAGS.first
+  end
+
+  def sort_flag 
+    flag = params[:sort_flag].to_s.upcase
+
+    SORT_FLAGS.include?(flag) ? flag : sort_default_flag
+  end
+
   def organization_subdomain
     return unless request.domain == APP_CONFIG['host']
 

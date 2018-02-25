@@ -22,6 +22,11 @@ group:
     private: Private
     public: Public
 
+group_user:
+  statuses:
+    active: Active
+    pause: Pause
+
 action:
   action_types:
     reading: Reading

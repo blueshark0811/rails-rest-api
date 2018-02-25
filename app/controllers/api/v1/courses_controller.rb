@@ -4,6 +4,10 @@ class Api::V1::CoursesController < Api::V1::ApiController
   def index
     @courses = current_organization.courses
 
+    if params[:group_id]
+      @courses = @courses.where(group_id: params[:group_id])
+    end
+
     render_result @courses.page(current_page).per(current_count)
   end
 

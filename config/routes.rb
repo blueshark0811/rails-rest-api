@@ -19,7 +19,9 @@ Rails.application.routes.draw do
       resources :registrations, only: [:create]
       resources :passwords, only: %i[create update]
 
-      resources :groups
+      resources :groups do
+        resources :group_users, only: %i[index create update destroy]
+      end
       resources :courses
     end
   end
