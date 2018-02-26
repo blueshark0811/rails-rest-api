@@ -1,4 +1,3 @@
-
-web: ./bin/rails s -p4500
-
-yarn: cd ./equipengine-app && yarn start
+redis: redis-server
+#jobs: QUEUE=* rake resque:work
+web: rails s -p4500

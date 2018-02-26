@@ -154,7 +154,7 @@ shared_examples_for 'not-aurhorized' do
     let(:authorization) { super user }
 
     before do |example|
-      Organization.destroy_all
+      user.organization_users.delete_all
       rswag_set_error_schema example
     end
 
@@ -194,8 +194,8 @@ shared_examples_for 'crud-index' do
       parameter name: :current_count, in: :query, type: :integer, required: false
 
       response '200', 'returns as array' do
-        before do |example| 
-          rswag_set_schema example, action: :index, type: :array 
+        before do |example|
+          rswag_set_schema example, action: :index, type: :array
 
           additional_parameters.each do |parametr|
             rswag_parameter(example, parametr)

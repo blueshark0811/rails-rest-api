@@ -1,10 +1,4 @@
 class CountryPolicy < ApplicationPolicy
-  class Scope < Scope
-    def resolve
-      scope
-    end
-  end
-
   def api_base_attributes
     return @api_base_attributes if @api_base_attributes
 

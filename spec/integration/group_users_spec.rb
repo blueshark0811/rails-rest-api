@@ -4,7 +4,7 @@ require 'swagger_helper'
 include ApiSpecHelper
 
 def current_slug
-  "groups/{group_id}/group_users"
+  'groups/{group_id}/group_users'
 end
 
 describe Api::V1::GroupUsersController do
@@ -14,7 +14,7 @@ describe Api::V1::GroupUsersController do
   let(:group_id) { group.id }
 
   CURRENT_CLASS = GroupUser # need for description of actions
-
+  
   it_behaves_like 'crud-index' do
     let(:additional_parameters) do
       [{
@@ -22,20 +22,20 @@ describe Api::V1::GroupUsersController do
         in: :path,
         type: :integer,
         required: true
-      },{
+      }, {
         name: :sort_field,
         in: :query,
         type: :string,
         required: false,
         enum: GroupUser::SORT_FIELDS,
-        description: "field for sorting"
+        description: 'field for sorting'
       }, {
         name: :status,
         in: :query,
         type: :string,
         required: false,
         enum: SORT_FLAGS,
-        description: "flag for sorting"
+        description: 'flag for sorting'
       }]
     end
   end

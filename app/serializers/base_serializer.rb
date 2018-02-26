@@ -1,4 +1,10 @@
 class BaseSerializer < ActiveModel::Serializer
+  def self.serializer_for(model, options)
+    p 'serializer_for'*100, model.class
+    return SparseAdminSerializer if model.class == 'Admin'
+    super
+  end
+
   def context
     view_context rescue nil
   end

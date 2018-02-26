@@ -29,7 +29,7 @@ class Api::V1::ApiController < ActionController::API
   # rescue
   #   Time.zone = old_time_zone
   end
-  
+
   def render_error(message = nil, error_code = '', status = 400, send_report = false, attrs = {})
     if send_report && message && !message.is_a?(String)
       # Mailer.error_occurred(message, false, params.merge(current_user_id: current_user.try(:id), current_user_name: current_user.try(:name), request_host: request.host, request_path: request.path).to_json).deliver
@@ -45,17 +45,26 @@ class Api::V1::ApiController < ActionController::API
   def render_result(json, status = 200, meta = nil, meta_key = :meta)
     json.merge!(@additional_attrs_for_render) if @additional_attrs_for_render && json.respond_to?(:merge)
 
-    root = json.base_class.to_s.underscore rescue nil
+    root = nil
+    each_serializer = nil
 
-    root = root.pluralize if root.respond_to?(:size)
+    if json.is_a?(Searchkick::Results)
+      root = json.klass.to_s.underscore
+      each_serializer = ActiveModel::Serializer.serializer_for json.klass, {namespace: self.namespace_for_serializer}
+    end
 
+    root ||= json.base_class.to_s.underscore rescue nil
+
+    root = root.pluralize if root && json.respond_to?(:size)
+    ActiveModel::Serializer.serializer_for Group, {}
     res = {
       json: json,
       root: root,
       status: status,
       meta: meta || result_meta(json),
       meta_key: meta_key,
-      serializer_params: { currnet_user: current_user }
+      serializer_params: { currnet_user: current_user },
+      each_serializer: each_serializer
     }
 
     debug res

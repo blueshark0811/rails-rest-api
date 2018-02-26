@@ -1,10 +1,4 @@
 class OrganizationEntityPolicy < ApplicationPolicy
-  class Scope < Scope
-    def resolve
-      scope
-    end
-  end
-
   def show?
     record.user_id == user.id || record.organization_id == organization.id
   end

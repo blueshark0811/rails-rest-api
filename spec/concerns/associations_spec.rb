@@ -12,6 +12,10 @@ shared_examples_for 'attachmentable' do
   it 'is polymorphic association' do
     expect(subject.options[:as]).to eq(:attachmentable)
   end
+
+  it 'is dependent destroy' do
+    expect(subject.options[:dependent]).to eq(:destroy)
+  end
 end
 
 shared_examples_for 'videoable' do
@@ -23,5 +27,9 @@ shared_examples_for 'videoable' do
 
   it 'is polymorphic association' do
     expect(subject.options[:as]).to eq(:videoable)
+  end
+
+  it 'is dependent destroy' do
+    expect(subject.options[:dependent]).to eq(:destroy)
   end
 end

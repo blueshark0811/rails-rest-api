@@ -11,7 +11,7 @@ describe Api::V1::UsersController do
         in: :query,
         type: :integer,
         required: false,
-        description: "get users from specific group"
+        description: 'get users from specific group'
       }]
     end
   end

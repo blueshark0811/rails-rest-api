@@ -4,14 +4,14 @@ class Api::V1::GroupUsersController < Api::V1::ApiController
 
   def index
     order = if GroupUser::SORT_FIELDS.include?(params[:sort_field])
-      {params[:sort_field] => sort_flag}
+      { params[:sort_field] => sort_flag }
     else
-      {first_name: sort_flag}
+      { first_name: sort_flag }
     end
 
-    @group_users = GroupUser.search '*', order: order, load: false
+    @group_users = GroupUser.search '*', order: order, load: false, page: current_page, per_page: current_count
 
-    render_result @group_users.page(current_page).per(current_count)
+    render_result @group_users
   end
 
   def create

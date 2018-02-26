@@ -1,4 +1,3 @@
-
 module SharedController
   extend ActiveSupport::Concern
   include PunditController
@@ -64,11 +63,11 @@ module SharedController
       p '-' * 100
     end
 
-    unless Rails.env.production?
-      p '*' * 100
-      p 'result ->', result
-      p '*' * 100
-    end
+    # unless Rails.env.production?
+    #   p '*' * 100
+    #   p 'result ->', result
+    #   p '*' * 100
+    # end
   end
 
   module ClassMethods

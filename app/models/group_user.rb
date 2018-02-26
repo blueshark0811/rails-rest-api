@@ -6,9 +6,9 @@ class GroupUser < ApplicationRecord
   searchkick callbacks: :async
   def search_data
     {
-      first_name: user.first_name,
-      last_name: user.last_name,
-      role: organization_user.role
+      first_name: first_name,
+      last_name: last_name,
+      role: role
     }
   end
 
@@ -21,6 +21,8 @@ class GroupUser < ApplicationRecord
   validates :user_id, uniqueness: { scope: [:group_id] }
 
   validate :validate_limit_participants, on: :create
+
+  delegate :first_name, :last_name, to: :user, allow_nil: true
 
   scope :order_by, ->(sort_field, sort_flag = SORT_FLAGS.first) do
     return unless SORT_FIELDS.include? sort_field
@@ -38,9 +40,15 @@ class GroupUser < ApplicationRecord
     end
   end
 
+  def role
+    organization_user&.role || ''
+  end
+
   def organization_user
+    return unless group&.organization
+    
     @organization_user ||= OrganizationUser.find_by(
-      user_id: user_id, 
+      user_id: user_id,
       organization_id: group.organization.id
       )
   end

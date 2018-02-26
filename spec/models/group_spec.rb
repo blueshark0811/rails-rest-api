@@ -41,8 +41,16 @@ RSpec.describe Group, type: :model do
       expect(described_class.reflect_on_association(:organization).macro).to eq(:belongs_to)
     end
 
-    it 'has many group_users' do
-      expect(described_class.reflect_on_association(:group_users).macro).to eq(:has_many)
+    context '#group_users' do
+      subject { described_class.reflect_on_association(:group_users) }
+
+      it 'is has many association' do
+        expect(subject.macro).to eq(:has_many)
+      end
+
+      it 'dependent destroy' do
+        expect(subject.options[:dependent]).to eq :destroy
+      end
     end
 
     context '#users' do
@@ -57,8 +65,16 @@ RSpec.describe Group, type: :model do
       end
     end
 
-    it 'has many course_groups' do
-      expect(described_class.reflect_on_association(:course_groups).macro).to eq(:has_many)
+    context '#course_groups' do
+      subject { described_class.reflect_on_association(:course_groups) }
+
+      it 'is has many association' do
+        expect(subject.macro).to eq(:has_many)
+      end
+
+      it 'dependent destroy' do
+        expect(subject.options[:dependent]).to eq :destroy
+      end
     end
 
     context '#courses' do

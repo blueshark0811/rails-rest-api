@@ -11,7 +11,7 @@ module ApiAttributes
      attrs.each do |field|
       next unless api_base_attributes.include?(field)
 
-      res[field] = self.class.api_prepare_property field
+      res[field] = self.class.api_prepare_property field, options
     end
 
     res
@@ -36,14 +36,22 @@ module ApiAttributes
       Object.const_get serializer_class_name
     end
 
-    def api_prepare_property(field)
-      if uploaders.keys.include?(field)
-        return { type: :object }
-      end
-
+    def api_prepare_property(field, options = {})
       col = column_for_attribute(field)
 
-      res = { type: col.type || :string }
+      res = {}
+
+      res[:type] = :object if uploaders.keys.include?(field)
+
+      # fix for searchkick results..
+      if respond_to?(:searchkick_klass) && col.type == :integer && options[:params] && options[:params][:action] == :index
+        res[:type] = :string
+      end
+
+      res[:type] ||= col.type
+      
+      res[:type] ||= :string
+
       res['x-nullable'] = true if col.null
 
       if enum_values = defined_enums[field.to_s]
@@ -55,9 +63,11 @@ module ApiAttributes
   end
 
   def api_base_attributes
-    attributes.keys.map(&:to_sym)
+    res = attributes.keys.map(&:to_sym)
+    res += search_data.keys.map(&:to_sym) if respond_to?(:search_data)
+    res.uniq
   end
-  
+
   protected
 
   def api_available_attriubtes(options = {})

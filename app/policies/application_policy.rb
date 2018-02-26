@@ -9,7 +9,7 @@ class ApplicationPolicy
     @organization = user_context.organization
     @record = record
   end
-  
+
   def role
     @role ||= user.role(organization)
   end

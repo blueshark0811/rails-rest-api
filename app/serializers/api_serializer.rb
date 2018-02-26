@@ -9,7 +9,6 @@ module ApiSerializer
 
       battributes.each do |field|
         define_method field do
-          # p 'a'*100,battributes, available_fields
           available_fields.include?(field) ? object.send(field) : ActiveModel::FieldUpgrade::ATTR_NOT_ACCEPTABLE
         end
       end
@@ -61,7 +60,7 @@ module ApiSerializer
 
     return unless self.class.serializable_policy_class
 
-    @available_fields[key] = 
-      self.class.serializable_policy_class.new(user_context, object).api_attributes(params[:action])
+    @available_fields[key] = self.class.serializable_policy_class.new(user_context, object)
+      .api_attributes(params[:action])
   end
 end
