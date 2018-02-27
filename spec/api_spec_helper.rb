@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RswagHelper
   def rswag_properties
     {
@@ -18,26 +20,26 @@ module RswagHelper
     rswag_class.name.split('::').last.underscore.to_sym
   end
 
-  def rswag_set_schema example, options = {}
+  def rswag_set_schema(example, options = {})
     example.metadata[:response][:schema] = rswag_get_schema(options)
   end
 
-  def rswag_set_error_schema example, options = {}
+  def rswag_set_error_schema(example, _options = {})
     example.metadata[:response][:schema] = {
       type: :object,
       properties: {
         errors: {
           type: :array,
-          items: { 
+          items: {
             type: :string
-          } 
+          }
         }
       },
-      required: [ 'errors' ]
+      required: ['errors']
     }
   end
 
-  def rswag_parameter example, attributes
+  def rswag_parameter(example, attributes)
     if attributes[:in] && attributes[:in].to_sym == :path
       attributes[:required] = true
     end
@@ -69,70 +71,62 @@ module RswagHelper
     if options[:type] == :array
       {
         type: :object,
-        properties: 
-          options.fetch(:properties, {}).merge({
+        properties:
+          options.fetch(:properties, {}).merge(
             rswag_root.to_s.pluralize.to_sym => {
               type: :array,
               items: {
                 type: :object,
-                properties: rswag_item_properties(options.fetch(:action))
+                properties: rswag_item_properties(options)
               }
             }
-          }),
+          ),
         required: [rswag_root.to_s.pluralize.to_sym]
       }
     else
       {
         type: :object,
         properties:
-          options.fetch(:properties, {}).merge({
-            rswag_root.to_sym => { 
+          options.fetch(:properties, {}).merge(
+            rswag_root.to_sym => {
               type: :object,
-              properties: rswag_item_properties(options.fetch(:action))
+              properties: rswag_item_properties(options)
             }
-          }),
+          ),
         required: [rswag_root.to_sym]
       }
     end
   end
 
-  def rswag_item_properties(action)
+  def rswag_item_properties(options)
     rswag_properties[:object].api_properties_for_swagger(
       current_user: rswag_properties[:current_user],
-      params: { action: action }
+      params: { action: options.fetch(:action) },
+      as: options.fetch(:as, :active_model)
     )
   end
 end
 
-module ApiSpecHelper
-  include RswagHelper
-  # let!(:current_user) { create :user }
-  # let(:authorization) { "Bearer #{current_user.jwt_token}" }
-  # let(:current_page) { 1 }
-  # let(:current_count) { 20 }
-  def current_user
-    @current_user ||= create :user
-  end
+include RswagHelper
 
-  def authorization user = nil
-    "Bearer #{(user || current_user).jwt_token}"
-  end
+def current_user
+  @current_user ||= create :user
+end
 
-  def current_page
-    1
-  end
+def authorization(user = nil)
+  "Bearer #{(user || current_user).jwt_token}"
+end
 
-  def current_count
-    20
-  end
+def current_page
+  1
+end
 
-  def current_slug
-    CURRENT_CLASS.name.split('::').last.underscore.pluralize
-  end
+def current_count
+  20
+end
 
-  def current_class_name
-    CURRENT_CLASS.name
-  end
+def get_slug(klass = nil, slug = nil)
+  slug ||= klass.name.split('::').last.underscore.pluralize
 end
 
 shared_examples_for 'not-aurhorized' do
@@ -145,7 +139,7 @@ shared_examples_for 'not-aurhorized' do
 
     run_test! do |response|
       data = JSON.parse(response.body)
-      expect(data['errors']).to include "You are not authorized"
+      expect(data['errors']).to include 'You are not authorized'
     end
   end
 
@@ -160,7 +154,7 @@ shared_examples_for 'not-aurhorized' do
 
     run_test! do |response|
       data = JSON.parse(response.body)
-      expect(data['errors']).to include "Organization is not determinated"
+      expect(data['errors']).to include 'Organization is not determinated'
     end
   end
 end
@@ -172,20 +166,22 @@ shared_examples_for 'not-found' do
     before do |example|
       rswag_set_error_schema example
     end
-    
+
     run_test! do |response|
       data = JSON.parse(response.body)
-      expect(data['errors'].any?{|e| e.match /Couldn't find/}).to be_truthy
+      expect(data['errors'].any? { |e| e.match /Couldn't find/ }).to be_truthy
     end
   end
 end
 
-
-shared_examples_for 'crud-index' do
+def crud_index(klass, slug = nil, as = :active_model)
   let(:additional_parameters) { [] }
-  path "/api/v1/#{current_slug}" do
-    get "#{current_class_name.pluralize} inside organization" do
-      tags current_class_name.pluralize
+
+  yield if block_given?
+
+  path "/api/v1/#{slug || get_slug(klass)}" do
+    get "#{klass.name.pluralize} inside organization" do
+      tags klass.name.pluralize
       consumes 'application/json'
 
       parameter name: :authorization, in: :header, type: :string, required: true
@@ -195,7 +191,7 @@ shared_examples_for 'crud-index' do
 
       response '200', 'returns as array' do
         before do |example|
-          rswag_set_schema example, action: :index, type: :array
+          rswag_set_schema example, action: :index, type: :array, as: as
 
           additional_parameters.each do |parametr|
             rswag_parameter(example, parametr)
@@ -210,20 +206,29 @@ shared_examples_for 'crud-index' do
   end
 end
 
-shared_examples_for 'crud-show' do
-  path "/api/v1/#{current_slug}/{id}" do
+def crud_show(klass, slug = nil)
+  let(:additional_parameters) { [] }
+
+  yield if block_given?
+
+  path "/api/v1/#{get_slug klass, slug}/{id}" do
     let(:id) { rswag_properties[:object].id }
 
-    get "Get #{current_class_name} Details" do
-      before { |example| rswag_set_schema example, action: :show }
-
-      tags current_class_name.pluralize
+    get "Get #{klass.name} Details" do
+      tags klass.name.pluralize
       consumes 'application/json'
 
       parameter name: :id, in: :path, type: :integer
       parameter name: :authorization, in: :header, type: :string, required: true
 
       response '200', 'returns as object' do
+        before do |example|
+          rswag_set_schema example, action: :show
+          additional_parameters.each do |parametr|
+            rswag_parameter(example, parametr)
+          end
+        end
+
         run_test!
       end
 
@@ -233,25 +238,72 @@ shared_examples_for 'crud-show' do
   end
 end
 
-shared_examples_for 'crud-update' do
-  path "/api/v1/#{current_slug}/{id}" do
+def crud_create(klass, slug = nil)
+  let(:additional_parameters) { [] }
+
+  yield if block_given?
+
+  path "/api/v1/#{get_slug klass, slug}" do
     let(:id) { rswag_properties[:object].id }
 
-    put "Update #{current_class_name} Details" do
-      before do |example|
-        rswag_set_schema example, action: :update
-        @parameter = rswag_set_parameter(example, action: :update)
+    post "Create #{klass.name}" do
+      tags klass.name.pluralize
+      consumes 'application/json'
+      parameter name: :authorization, in: :header, type: :string, required: true
+
+      response '200', 'return data' do
+        before do |example|
+          rswag_set_schema example, action: :update
+          @parameter = rswag_set_parameter(example, action: :create)
+
+          additional_parameters.each do |parametr|
+            rswag_parameter(example, parametr)
+          end
+        end
+
+        let(:body) do
+          {
+            rswag_root => build(rswag_root).attributes.reject do |k, v|
+              v.nil? || !@parameter[:schema][:properties][rswag_root][:properties].keys.include?(k)
+            end
+          }
+        end
+
+        run_test!
       end
-      
-      tags current_class_name.pluralize
+
+      it_behaves_like 'not-aurhorized'
+    end
+  end
+end
+
+def crud_update(klass, slug = nil)
+  let(:additional_parameters) { [] }
+
+  yield if block_given?
+
+  path "/api/v1/#{get_slug klass, slug}/{id}" do
+    let(:id) { rswag_properties[:object].id }
+
+    put "Update #{klass.name} Details" do
+      tags klass.name.pluralize
       consumes 'application/json'
       parameter name: :id, in: :path, type: :integer
       parameter name: :authorization, in: :header, type: :string, required: true
 
       response '200', 'return data' do
+        before do |example|
+          rswag_set_schema example, action: :update
+          @parameter = rswag_set_parameter(example, action: :update)
+          
+          additional_parameters.each do |parametr|
+            rswag_parameter(example, parametr)
+          end
+        end
+
         let(:body) do
           {
-            rswag_root => build(rswag_root).attributes.reject do |k,v| 
+            rswag_root => build(rswag_root).attributes.reject do |k, v|
               v.nil? || !@parameter[:schema][:properties][rswag_root][:properties].keys.include?(k)
             end
           }
@@ -266,23 +318,33 @@ shared_examples_for 'crud-update' do
   end
 end
 
-shared_examples_for 'crud-delete' do
-  path "/api/v1/#{current_slug}/{id}" do
+def crud_delete(klass, slug = nil)
+  let(:additional_parameters) { [] }
+
+  yield if block_given?
+
+  path "/api/v1/#{get_slug klass, slug}/{id}" do
     let(:id) { rswag_properties[:object].id }
 
-    delete "Delete #{current_class_name}" do
-      tags current_class_name.pluralize
+    delete "Delete #{klass.name}" do
+      tags klass.name.pluralize
       consumes 'application/json'
 
       parameter name: :id, in: :path, type: :integer
       parameter name: :authorization, in: :header, type: :string, required: true
 
-      response '200', "deleting #{current_class_name} account" do
+      response '200', "deleting #{klass.name} account" do
+        before do |example|
+          additional_parameters.each do |parametr|
+            rswag_parameter(example, parametr)
+          end
+        end
+
         schema type: :object,
-        properties: {
-          success: { type: :boolean, value: true }
-        },
-        required: ['success']
+               properties: {
+                 success: { type: :boolean, value: true }
+               },
+               required: ['success']
 
         run_test! do |response|
           data = JSON.parse(response.body)
@@ -296,9 +358,49 @@ shared_examples_for 'crud-delete' do
   end
 end
 
-shared_examples_for 'crud' do
-  it_behaves_like 'crud-index'
-  it_behaves_like 'crud-show'
-  it_behaves_like 'crud-update'
-  it_behaves_like 'crud-delete'
+def batch_update(klass, slug = nil)
+  let(:additional_parameters) { [] }
+
+  yield if block_given?
+
+  path "/api/v1/#{get_slug klass, slug}/batch_update" do
+    let(:id) { rswag_properties[:object].id }
+
+    put "Batch update #{klass.name} Details" do
+      tags klass.name.pluralize
+      consumes 'application/json'
+      parameter name: :ids, in: :body, type: :array, items: { type: :integer }
+      parameter name: :authorization, in: :header, type: :string, required: true
+
+      response '200', 'return data' do
+        before do |example|
+          additional_parameters.each do |parametr|
+            rswag_parameter(example, parametr)
+          end
+        end
+
+        schema type: :object,
+               properties: {
+                 success: { type: :boolean, value: true },
+                 errors: { type: :array },
+               },
+               required: ['success']
+
+        run_test! do |response|
+          data = JSON.parse(response.body)
+          expect(data['success']).to eq true
+        end
+      end
+
+      it_behaves_like 'not-aurhorized'
+    end
+  end
+end
+
+def crud(klass, slug = nil)
+  crud_index(klass, slug)
+  crud_show(klass, slug)
+  crud_create(klass, slug) 
+  crud_update(klass, slug)
+  crud_delete(klass, slug)
 end

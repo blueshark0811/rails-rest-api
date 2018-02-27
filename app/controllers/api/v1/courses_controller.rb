@@ -1,5 +1,5 @@
 class Api::V1::CoursesController < Api::V1::ApiController
-  before_action :set_course, except: [:index]
+  before_action :set_course, except: [:index, :create]
 
   def index
     @courses = current_organization.courses
@@ -13,6 +13,16 @@ class Api::V1::CoursesController < Api::V1::ApiController
 
   def show
     render_result @course
+  end
+
+  def create
+    @course = current_organization.courses.new user_id: current_user.id
+
+    if @course.update permitted_attributes(@course)
+      render_result @course
+    else
+      render_error @course
+    end
   end
 
   def update

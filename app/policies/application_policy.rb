@@ -56,6 +56,10 @@ class ApplicationPolicy
     Pundit.policy_scope!(user_context, record.class)
   end
 
+  def permitted_attributes
+    []
+  end
+
   class Scope
     attr_reader :user_context, :user, :organization, :scope
 

@@ -20,7 +20,13 @@ Rails.application.routes.draw do
       resources :passwords, only: %i[create update]
 
       resources :groups do
-        resources :group_users, only: %i[index create update destroy]
+        resources :course_groups, only: %i[index create update destroy] 
+
+        resources :group_users, only: %i[index create update destroy] do
+          collection do
+            put :batch_update
+          end
+        end
       end
       resources :courses
     end

@@ -10,7 +10,7 @@ RSpec.configure do |config|
   config.swagger_dry_run = false
 
   config.after do |example|
-    if respond_to?(:response)
+    if respond_to?(:response) && response
       p '-'*100, 'response ->', JSON.parse(response.body, symbolize_names: true), '-'*100
       example.metadata[:response][:examples] = {
        'application/json' => JSON.parse(response.body, symbolize_names: true)

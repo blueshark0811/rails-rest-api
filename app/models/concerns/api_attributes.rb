@@ -44,7 +44,7 @@ module ApiAttributes
       res[:type] = :object if uploaders.keys.include?(field)
 
       # fix for searchkick results..
-      if respond_to?(:searchkick_klass) && col.type == :integer && options[:params] && options[:params][:action] == :index
+      if respond_to?(:searchkick_klass) && col.type == :integer && options[:as] == :searchkick
         res[:type] = :string
       end
 

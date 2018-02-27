@@ -1,5 +1,5 @@
 class Api::V1::GroupsController < Api::V1::ApiController
-  before_action :set_group, except: [:index]
+  before_action :set_group, except: [:index, :create]
 
   def index
     @groups = current_organization.groups
@@ -31,6 +31,16 @@ class Api::V1::GroupsController < Api::V1::ApiController
 
   def show
     render_result @group
+  end
+
+  def create
+    @group = current_organization.groups.new user_id: current_user.id
+
+    if @group.update permitted_attributes(@group)
+      render_result @group
+    else
+      render_error @group
+    end
   end
 
   def update

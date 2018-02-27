@@ -1,5 +1,4 @@
 require 'swagger_helper'
-include ApiSpecHelper
 
 describe Api::V1::SessionsController do
   let(:email) { Faker::Internet.email }

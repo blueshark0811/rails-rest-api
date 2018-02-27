@@ -34,6 +34,23 @@ class Api::V1::GroupUsersController < Api::V1::ApiController
     end
   end
 
+  # params:
+  # ids - array of id group_users
+  # status - new status of group_user
+  def batch_update
+    errors = []
+
+    @group.group_users.where(id: params[:ids]).each do |group_user|
+      authorize group_user, :update?
+
+      unless group_user.update_attributes status: params[:status]
+        errors << { group_user.id => group_user.errors.details }
+      end
+    end
+
+    render_result errors: errors, success: errors.blank?
+  end
+
   def destroy
     @group_user.destroy
 
@@ -51,7 +68,8 @@ class Api::V1::GroupUsersController < Api::V1::ApiController
   end
 
   def set_group_user
-    @group_user = @group.group_users.where user_id: params[:user_id]
+    @group_user = @group.group_users.find params[:id] if params[:id]
+    @group_user ||= @group.group_users.find_by! user_id: params[:user_id]
 
     authorize @group_user
   end

@@ -12,5 +12,6 @@ FactoryBot.define do
   factory :group_user do
     group
     user
+    status GroupUser.statuses.first.first
   end
 end

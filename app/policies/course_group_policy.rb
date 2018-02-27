@@ -1,0 +1,3 @@
+class CourseGroupPolicy < ApplicationPolicy
+
+end

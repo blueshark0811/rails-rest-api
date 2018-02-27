@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'swagger_helper'
-include ApiSpecHelper
 
 describe 'Registration API' do
   let(:email) { Faker::Internet.email }

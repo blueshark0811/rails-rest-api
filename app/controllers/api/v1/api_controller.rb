@@ -45,27 +45,24 @@ class Api::V1::ApiController < ActionController::API
   def render_result(json, status = 200, meta = nil, meta_key = :meta)
     json.merge!(@additional_attrs_for_render) if @additional_attrs_for_render && json.respond_to?(:merge)
 
-    root = nil
-    each_serializer = nil
+    res = {}
 
     if json.is_a?(Searchkick::Results)
-      root = json.klass.to_s.underscore
-      each_serializer = ActiveModel::Serializer.serializer_for json.klass, {namespace: self.namespace_for_serializer}
+      res[:root] = json.klass.to_s.underscore
+      res[:each_serializer] = ActiveModel::Serializer.serializer_for(json.klass, namespace: self.namespace_for_serializer)
     end
 
-    root ||= json.base_class.to_s.underscore rescue nil
+    res[:root] ||= json.base_class.to_s.underscore rescue nil
 
-    root = root.pluralize if root && json.respond_to?(:size)
-    ActiveModel::Serializer.serializer_for Group, {}
-    res = {
+    res[:root] = res[:root].pluralize if res[:root] && json.respond_to?(:size)
+
+    res.merge!(
       json: json,
-      root: root,
       status: status,
       meta: meta || result_meta(json),
       meta_key: meta_key,
-      serializer_params: { currnet_user: current_user },
-      each_serializer: each_serializer
-    }
+      serializer_params: { currrent_user: current_user }
+    )
 
     debug res
 

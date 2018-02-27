@@ -1,7 +1,5 @@
 class GroupUserPolicy < ApplicationPolicy
-  class Scope < Scope
-    def resolve
-      scope
-    end
+  def permitted_attributes
+    [:status]
   end
 end
