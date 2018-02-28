@@ -174,14 +174,22 @@ shared_examples_for 'not-found' do
   end
 end
 
-def crud_index(klass, slug = nil, as = :active_model)
+def crud_index(options = {})
   let(:additional_parameters) { [] }
+
+  klass = options[:klass]
+  slug = get_slug klass, options[:slug]
+  url = options[:url] || "/api/v1/#{slug}"
+  description = options[:description] || "Get #{klass.name.pluralize} inside organization"
+  tag = options[:tag] || klass.name.pluralize
+  description_200 = options[:description_200] || 'returns as array'
+  as = options[:as] || :active_model
 
   yield if block_given?
 
-  path "/api/v1/#{slug || get_slug(klass)}" do
-    get "#{klass.name.pluralize} inside organization" do
-      tags klass.name.pluralize
+  path url do
+    get description do
+      tags tag
       consumes 'application/json'
 
       parameter name: :authorization, in: :header, type: :string, required: true
@@ -189,7 +197,7 @@ def crud_index(klass, slug = nil, as = :active_model)
       parameter name: :current_page, in: :query, type: :integer, required: false
       parameter name: :current_count, in: :query, type: :integer, required: false
 
-      response '200', 'returns as array' do
+      response '200', description_200 do
         before do |example|
           rswag_set_schema example, action: :index, type: :array, as: as
 
@@ -206,22 +214,29 @@ def crud_index(klass, slug = nil, as = :active_model)
   end
 end
 
-def crud_show(klass, slug = nil)
+def crud_show(options = {})
   let(:additional_parameters) { [] }
+
+  klass = options[:klass]
+  slug = get_slug klass, options[:slug]
+  url = options[:url] || "/api/v1/#{slug}/{id}"
+  description = options[:description] || "Get #{klass.name} Details"
+  tag = options[:tag] || klass.name.pluralize
+  description_200 = options[:description_200] || 'returns as object'
 
   yield if block_given?
 
-  path "/api/v1/#{get_slug klass, slug}/{id}" do
+  path url do
     let(:id) { rswag_properties[:object].id }
 
-    get "Get #{klass.name} Details" do
-      tags klass.name.pluralize
+    get description do
+      tags tag
       consumes 'application/json'
 
       parameter name: :id, in: :path, type: :integer
       parameter name: :authorization, in: :header, type: :string, required: true
 
-      response '200', 'returns as object' do
+      response '200', description_200 do
         before do |example|
           rswag_set_schema example, action: :show
           additional_parameters.each do |parametr|
@@ -238,22 +253,29 @@ def crud_show(klass, slug = nil)
   end
 end
 
-def crud_create(klass, slug = nil)
+def crud_create(options = {})
   let(:additional_parameters) { [] }
+
+  klass = options[:klass]
+  slug = get_slug klass, options[:slug]
+  url = options[:url] || "/api/v1/#{slug}"
+  description = options[:description] || "Create #{klass.name}"
+  tag = options[:tag] || klass.name.pluralize
+  description_200 = options[:description_200] || 'returns created object'
 
   yield if block_given?
 
-  path "/api/v1/#{get_slug klass, slug}" do
+  path url do
     let(:id) { rswag_properties[:object].id }
 
-    post "Create #{klass.name}" do
-      tags klass.name.pluralize
+    post description do
+      tags tag
       consumes 'application/json'
       parameter name: :authorization, in: :header, type: :string, required: true
 
-      response '200', 'return data' do
+      response '200', description_200 do
         before do |example|
-          rswag_set_schema example, action: :update
+          rswag_set_schema example, action: :show
           @parameter = rswag_set_parameter(example, action: :create)
 
           additional_parameters.each do |parametr|
@@ -277,25 +299,32 @@ def crud_create(klass, slug = nil)
   end
 end
 
-def crud_update(klass, slug = nil)
+def crud_update(options = {})
   let(:additional_parameters) { [] }
+
+  klass = options[:klass]
+  slug = get_slug klass, options[:slug]
+  url = options[:url] || "/api/v1/#{slug}/{id}"
+  description = options[:description] || "Update #{klass.name} Details"
+  tag = options[:tag] || klass.name.pluralize
+  description_200 = options[:description_200] || 'returns data'
 
   yield if block_given?
 
-  path "/api/v1/#{get_slug klass, slug}/{id}" do
+  path url do
     let(:id) { rswag_properties[:object].id }
 
-    put "Update #{klass.name} Details" do
-      tags klass.name.pluralize
+    put description do
+      tags tag
       consumes 'application/json'
       parameter name: :id, in: :path, type: :integer
       parameter name: :authorization, in: :header, type: :string, required: true
 
-      response '200', 'return data' do
+      response '200', description_200 do
         before do |example|
           rswag_set_schema example, action: :update
           @parameter = rswag_set_parameter(example, action: :update)
-          
+
           additional_parameters.each do |parametr|
             rswag_parameter(example, parametr)
           end
@@ -318,22 +347,29 @@ def crud_update(klass, slug = nil)
   end
 end
 
-def crud_delete(klass, slug = nil)
+def crud_delete(options = {})
   let(:additional_parameters) { [] }
+
+  klass = options[:klass]
+  slug = get_slug klass, options[:slug]
+  url = options[:url] || "/api/v1/#{slug}/{id}"
+  description = options[:description] || "Delete #{klass.name}"
+  tag = options[:tag] || klass.name.pluralize
+  description_200 = options[:description_200] || "deleting #{klass.name} account"
 
   yield if block_given?
 
-  path "/api/v1/#{get_slug klass, slug}/{id}" do
+  path url do
     let(:id) { rswag_properties[:object].id }
 
-    delete "Delete #{klass.name}" do
-      tags klass.name.pluralize
+    delete description do
+      tags tag
       consumes 'application/json'
 
       parameter name: :id, in: :path, type: :integer
       parameter name: :authorization, in: :header, type: :string, required: true
 
-      response '200', "deleting #{klass.name} account" do
+      response '200', description_200 do
         before do |example|
           additional_parameters.each do |parametr|
             rswag_parameter(example, parametr)
@@ -358,21 +394,28 @@ def crud_delete(klass, slug = nil)
   end
 end
 
-def batch_update(klass, slug = nil)
+def batch_update(options = {})
   let(:additional_parameters) { [] }
+
+  klass = options[:klass]
+  slug = get_slug klass, options[:slug]
+  url = options[:url] || "/api/v1/#{get_slug klass, slug}/batch_update"
+  description = options[:description] || "Batch update #{klass.name} Details"
+  tag = options[:tag] || klass.name.pluralize
+  description_200 = options[:description_200] || 'returns status and errors'
 
   yield if block_given?
 
-  path "/api/v1/#{get_slug klass, slug}/batch_update" do
+  path url do
     let(:id) { rswag_properties[:object].id }
 
-    put "Batch update #{klass.name} Details" do
-      tags klass.name.pluralize
+    put description do
+      tags tag
       consumes 'application/json'
       parameter name: :ids, in: :body, type: :array, items: { type: :integer }
       parameter name: :authorization, in: :header, type: :string, required: true
 
-      response '200', 'return data' do
+      response '200', description_200 do
         before do |example|
           additional_parameters.each do |parametr|
             rswag_parameter(example, parametr)
@@ -397,10 +440,10 @@ def batch_update(klass, slug = nil)
   end
 end
 
-def crud(klass, slug = nil)
-  crud_index(klass, slug)
-  crud_show(klass, slug)
-  crud_create(klass, slug) 
-  crud_update(klass, slug)
-  crud_delete(klass, slug)
+def crud(options = {})
+  crud_index options
+  crud_show options
+  crud_create options
+  crud_update options
+  crud_delete options
 end

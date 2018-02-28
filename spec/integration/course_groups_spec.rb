@@ -9,18 +9,9 @@ describe Api::V1::CourseGroupsController do
   let(:rswag_properties) { { current_user: current_user, object: course_group } }
   let!(:group_id) { group.id }
 
-  # crud_index GroupUser, 'groups/{group_id}/course_groups' do
-  #   let(:additional_parameters) do
-  #     [{
-  #       name: :group_id,
-  #       in: :path,
-  #       type: :integer,
-  #       required: true
-  #     }]
-  #   end
-  # end
+  options = { klass: CourseGroup, slug: 'groups/{group_id}/course_groups' }
 
-  crud_update GroupUser, 'groups/{group_id}/course_groups' do
+  crud_create options.merge(description: 'Add Course to group', tag: 'Courses') do
     let(:additional_parameters) do
       [{
         name: :group_id,
@@ -31,7 +22,18 @@ describe Api::V1::CourseGroupsController do
     end
   end
 
-  crud_delete GroupUser, 'groups/{group_id}/course_groups' do
+  crud_update options.merge(description: 'Update Course in group', tag: 'Courses') do
+    let(:additional_parameters) do
+      [{
+        name: :group_id,
+        in: :path,
+        type: :integer,
+        required: true
+      }]
+    end
+  end
+
+  crud_delete options.merge(description: 'Delete Course from group', tag: 'Courses') do
     let(:additional_parameters) do
       [{
         name: :group_id,

@@ -8,7 +8,7 @@ class Api::V1::ApiController < ActionController::API
   before_action :set_current_time_zone
   before_action :set_locale
 
-  serialization_scope :view_context
+  #serialization_scope :view_context
 
   before_action do
     self.namespace_for_serializer = Api::V1
@@ -49,7 +49,7 @@ class Api::V1::ApiController < ActionController::API
 
     if json.is_a?(Searchkick::Results)
       res[:root] = json.klass.to_s.underscore
-      res[:each_serializer] = ActiveModel::Serializer.serializer_for(json.klass, namespace: self.namespace_for_serializer)
+      res[:each_serializer] = ActiveModel::Serializer.serializer_for(json.klass, namespace: namespace_for_serializer)
     end
 
     res[:root] ||= json.base_class.to_s.underscore rescue nil
@@ -61,7 +61,7 @@ class Api::V1::ApiController < ActionController::API
       status: status,
       meta: meta || result_meta(json),
       meta_key: meta_key,
-      serializer_params: { currrent_user: current_user }
+      serializer_params: { currrent_user: current_user, params: { action: :show } }
     )
 
     debug res

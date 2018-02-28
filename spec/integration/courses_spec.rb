@@ -4,7 +4,9 @@ describe Api::V1::CoursesController do
   let!(:course) { create :course, organization: current_user.organizations.first }
   let(:rswag_properties) { { current_user: current_user, object: course } }
 
-  crud_index Course do
+  options = { klass: Course }
+
+  crud_index options do
     let(:additional_parameters) do
       [{
         name: :group_id,
@@ -16,8 +18,8 @@ describe Api::V1::CoursesController do
     end
   end
 
-  crud_show Course
-  crud_create Course
-  crud_update Course
-  crud_delete Course
+  crud_show options
+  crud_create options
+  crud_update options
+  crud_delete options
 end

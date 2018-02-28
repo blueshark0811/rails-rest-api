@@ -4,11 +4,11 @@ class BaseSerializer < ActiveModel::Serializer
   end
 
   def current_user
-    instance_options[:current_user] || context&.current_user
+    serializer_params[:current_user] || context&.current_user
   end
 
   def current_organization
-    instance_options[:current_organization] || context&.current_organization
+    serializer_params[:current_organization] || context&.current_organization
   end
 
   def user_context
@@ -16,6 +16,10 @@ class BaseSerializer < ActiveModel::Serializer
   end
 
   def params
-    instance_options[:params] || context&.params || {}
+    serializer_params[:params] || context&.params || {}
+  end
+
+  def serializer_params
+    instance_options[:serializer_params] || {}
   end
 end

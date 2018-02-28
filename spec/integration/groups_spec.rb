@@ -6,7 +6,9 @@ describe Api::V1::GroupsController do
   let!(:group) { create :group, organization: current_user.organizations.first }
   let(:rswag_properties) { { current_user: current_user, object: group } }
 
-  crud_index Group do
+  options = { klass: Group }
+
+  crud_index options do
     let(:additional_parameters) do
       [{
         name: :visibility,
@@ -32,8 +34,8 @@ describe Api::V1::GroupsController do
     end
   end
 
-  crud_show Group
-  crud_create Group
-  crud_update Group
-  crud_delete Group
+  crud_show options
+  crud_create options
+  crud_update options
+  crud_delete options
 end

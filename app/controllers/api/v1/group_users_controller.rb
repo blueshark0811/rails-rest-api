@@ -15,11 +15,11 @@ class Api::V1::GroupUsersController < Api::V1::ApiController
   end
 
   def create
-    @group_user = @group.group_users.create user_id: params[:user_id]
+    @group_user = @group.group_users.new
 
     authorize @group_user
 
-    if @group_user.save
+    if @group_user.update permitted_attributes(@group_user)
       render_result @group_user
     else
       render_error @group_user

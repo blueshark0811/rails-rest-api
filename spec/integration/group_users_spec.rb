@@ -8,7 +8,9 @@ describe Api::V1::GroupUsersController do
   let(:rswag_properties) { { current_user: current_user, object: group_user } }
   let!(:group_id) { group.id }
 
-  crud_index GroupUser, 'groups/{group_id}/group_users', :searchkick do
+  options = { klass: GroupUser, slug: 'groups/{group_id}/group_users' }
+
+  crud_index options.merge(as: :searchkick, description: 'Users in group', tag: 'Users') do
     let(:additional_parameters) do
       [{
         name: :group_id,
@@ -33,24 +35,7 @@ describe Api::V1::GroupUsersController do
     end
   end
 
-  crud_create GroupUser, 'groups/{group_id}/group_users' do
-    let(:user_id) { current_user.id }
-    let(:additional_parameters) do
-      [{
-        name: :group_id,
-        in: :path,
-        type: :integer,
-        required: true
-      },{
-        name: :user_id,
-        in: :body,
-        type: :integer,
-        required: true
-      }]
-    end
-  end
-
-  crud_update GroupUser, 'groups/{group_id}/group_users' do
+  crud_create options.merge(description: 'Add User to group', tag: 'Users') do
     let(:additional_parameters) do
       [{
         name: :group_id,
@@ -61,7 +46,7 @@ describe Api::V1::GroupUsersController do
     end
   end
 
-  crud_delete GroupUser, 'groups/{group_id}/group_users' do
+  crud_update options.merge(description: 'Change status of user in group', tag: 'Users') do
     let(:additional_parameters) do
       [{
         name: :group_id,
@@ -72,7 +57,18 @@ describe Api::V1::GroupUsersController do
     end
   end
 
-  batch_update GroupUser, 'groups/{group_id}/group_users' do
+  crud_delete options.merge(description: 'Delete user from group', tag: 'Users') do
+    let(:additional_parameters) do
+      [{
+        name: :group_id,
+        in: :path,
+        type: :integer,
+        required: true
+      }]
+    end
+  end
+
+  batch_update options.merge(description: 'Change status of batch users in group', tag: 'Users') do
     let(:ids){ [group.id] }
     let(:status){ GroupUser.statuses.keys.first }
 
@@ -82,7 +78,7 @@ describe Api::V1::GroupUsersController do
         in: :path,
         type: :integer,
         required: true
-      },{
+      }, {
         name: :status,
         in: :body,
         type: :string,

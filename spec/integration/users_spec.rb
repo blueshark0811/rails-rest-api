@@ -3,7 +3,9 @@ require 'swagger_helper'
 describe Api::V1::UsersController do
   let!(:rswag_properties) { { current_user: current_user, object: current_user } }
 
-  crud_index User do
+  options = { klass: User }
+
+  crud_index options do
     let(:additional_parameters) do
       [{
         name: :group_id,
@@ -15,7 +17,7 @@ describe Api::V1::UsersController do
     end
   end
 
-  crud_show User
-  crud_update User
-  crud_delete User
+  crud_show options
+  crud_update options
+  crud_delete options
 end

@@ -5,9 +5,591 @@
     "version": "v1"
   },
   "paths": {
+    "/api/v1/groups/{group_id}/course_groups": {
+      "post": {
+        "summary": "Add Course to group",
+        "tags": [
+          "Courses"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "course_group": {
+                  "type": "object",
+                  "properties": {
+                    "course_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "precourse_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "complete_lesson_can": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "teacher",
+                        "student",
+                        "all"
+                      ]
+                    },
+                    "reports_enabled": {
+                      "type": "boolean",
+                      "x-nullable": true
+                    },
+                    "files_enabled": {
+                      "type": "boolean",
+                      "x-nullable": true
+                    },
+                    "discussing_enabled": {
+                      "type": "boolean",
+                      "x-nullable": true
+                    },
+                    "student_content_enabled": {
+                      "type": "boolean",
+                      "x-nullable": true
+                    },
+                    "status": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "active",
+                        "pause"
+                      ]
+                    }
+                  }
+                }
+              },
+              "required": [
+                "course_group"
+              ]
+            }
+          },
+          {
+            "name": "group_id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns created object",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "course_group": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "course_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "group_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "precourse_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "complete_lesson_can": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "teacher",
+                        "student",
+                        "all"
+                      ]
+                    },
+                    "reports_enabled": {
+                      "type": "boolean",
+                      "x-nullable": true
+                    },
+                    "files_enabled": {
+                      "type": "boolean",
+                      "x-nullable": true
+                    },
+                    "discussing_enabled": {
+                      "type": "boolean",
+                      "x-nullable": true
+                    },
+                    "student_content_enabled": {
+                      "type": "boolean",
+                      "x-nullable": true
+                    },
+                    "status": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "active",
+                        "pause"
+                      ]
+                    },
+                    "created_at": {
+                      "type": "datetime"
+                    },
+                    "updated_at": {
+                      "type": "datetime"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "course_group"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "course_group": {
+                  "id": 2,
+                  "course_id": 3,
+                  "group_id": 1,
+                  "precourse_id": 4,
+                  "complete_lesson_can": "all",
+                  "reports_enabled": true,
+                  "files_enabled": true,
+                  "discussing_enabled": true,
+                  "student_content_enabled": true,
+                  "status": "active",
+                  "created_at": "2018-02-28T20:28:59.509Z",
+                  "updated_at": "2018-02-28T20:28:59.509Z"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/groups/{group_id}/course_groups/{id}": {
+      "put": {
+        "summary": "Update Course in group",
+        "tags": [
+          "Courses"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "course_group": {
+                  "type": "object",
+                  "properties": {
+                    "precourse_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "complete_lesson_can": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "teacher",
+                        "student",
+                        "all"
+                      ]
+                    },
+                    "reports_enabled": {
+                      "type": "boolean",
+                      "x-nullable": true
+                    },
+                    "files_enabled": {
+                      "type": "boolean",
+                      "x-nullable": true
+                    },
+                    "discussing_enabled": {
+                      "type": "boolean",
+                      "x-nullable": true
+                    },
+                    "student_content_enabled": {
+                      "type": "boolean",
+                      "x-nullable": true
+                    },
+                    "status": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "active",
+                        "pause"
+                      ]
+                    }
+                  }
+                }
+              },
+              "required": [
+                "course_group"
+              ]
+            }
+          },
+          {
+            "name": "group_id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns data",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "course_group": {
+                  "type": "object",
+                  "properties": {
+                    "precourse_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "complete_lesson_can": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "teacher",
+                        "student",
+                        "all"
+                      ]
+                    },
+                    "reports_enabled": {
+                      "type": "boolean",
+                      "x-nullable": true
+                    },
+                    "files_enabled": {
+                      "type": "boolean",
+                      "x-nullable": true
+                    },
+                    "discussing_enabled": {
+                      "type": "boolean",
+                      "x-nullable": true
+                    },
+                    "student_content_enabled": {
+                      "type": "boolean",
+                      "x-nullable": true
+                    },
+                    "status": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "active",
+                        "pause"
+                      ]
+                    }
+                  }
+                }
+              },
+              "required": [
+                "course_group"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "course_group": {
+                  "id": 5,
+                  "course_id": 9,
+                  "group_id": 5,
+                  "precourse_id": 12,
+                  "complete_lesson_can": "all",
+                  "reports_enabled": true,
+                  "files_enabled": true,
+                  "discussing_enabled": true,
+                  "student_content_enabled": true,
+                  "status": "active",
+                  "created_at": "2018-02-28T20:29:00.062Z",
+                  "updated_at": "2018-02-28T20:29:00.196Z"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "returns error if instance not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": "",
+                "errors": [
+                  "Couldn't find CourseGroup with 'id'=0 [WHERE \"course_groups\".\"group_id\" = $1]"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Course from group",
+        "tags": [
+          "Courses"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "group_id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "deleting CourseGroup account",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "value": true
+                }
+              },
+              "required": [
+                "success"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "success": true
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "returns error if instance not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": "",
+                "errors": [
+                  "Couldn't find CourseGroup with 'id'=0 [WHERE \"course_groups\".\"group_id\" = $1]"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/courses": {
       "get": {
-        "summary": "Courses inside organization",
+        "summary": "Get Courses inside organization",
         "tags": [
           "Courses"
         ],
@@ -63,7 +645,7 @@
                         "x-nullable": true
                       },
                       "image": {
-                        "type": "string",
+                        "type": "object",
                         "x-nullable": true
                       },
                       "user_id": {
@@ -92,29 +674,31 @@
               "application/json": {
                 "courses": [
                   {
-                    "id": 1,
-                    "title": "Schuster Group",
-                    "description": "benchmark next-generation action-items",
-                    "image": "#<Rack::Test::UploadedFile:0x007fa18b2115b8>",
-                    "user_id": 2,
-                    "organization_id": 1,
-                    "created_at": "2018-02-27T20:13:28.733Z",
-                    "updated_at": "2018-02-27T20:13:28.733Z",
+                    "id": 27,
+                    "title": "Feeney-Zemlak",
+                    "description": "aggregate web-enabled relationships",
+                    "image": {
+                      "url": "/uploads/course/image/27/test.jpg"
+                    },
+                    "user_id": 42,
+                    "organization_id": 55,
+                    "created_at": "2018-02-28T20:29:01.478Z",
+                    "updated_at": "2018-02-28T20:29:01.478Z",
                     "user": {
-                      "id": 2,
-                      "first_name": "Bret O'Keefe",
-                      "last_name": "Morgan Davis",
+                      "id": 42,
+                      "first_name": "Sabrina Lowe",
+                      "last_name": "Miss Callie Balistreri",
                       "admin_role": "super_admin",
                       "phone_number": null,
                       "date_of_birth": null,
                       "address": null,
-                      "country_id": 3,
-                      "state_id": 2,
+                      "country_id": 83,
+                      "state_id": 42,
                       "zip_code": null,
                       "status": "active",
-                      "created_at": "2018-02-27T20:13:28.722Z",
-                      "updated_at": "2018-02-27T20:13:28.722Z",
-                      "email": "kristy@feest.name",
+                      "created_at": "2018-02-28T20:29:01.463Z",
+                      "updated_at": "2018-02-28T20:29:01.463Z",
+                      "email": "alexys@spencer.io",
                       "confirmation_token": null,
                       "unconfirmed_email": null,
                       "avatar": {
@@ -227,7 +811,7 @@
                       "x-nullable": true
                     },
                     "image": {
-                      "type": "string",
+                      "type": "object",
                       "x-nullable": true
                     }
                   }
@@ -241,13 +825,16 @@
         ],
         "responses": {
           "200": {
-            "description": "return data",
+            "description": "returns created object",
             "schema": {
               "type": "object",
               "properties": {
                 "course": {
                   "type": "object",
                   "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
                     "title": {
                       "type": "string",
                       "x-nullable": true
@@ -257,8 +844,22 @@
                       "x-nullable": true
                     },
                     "image": {
-                      "type": "string",
+                      "type": "object",
                       "x-nullable": true
+                    },
+                    "user_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "organization_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "created_at": {
+                      "type": "datetime"
+                    },
+                    "updated_at": {
+                      "type": "datetime"
                     }
                   }
                 }
@@ -270,13 +871,42 @@
             "examples": {
               "application/json": {
                 "course": {
-                  "title": "Schuster Group",
-                  "description": "benchmark next-generation action-items",
-                  "image": "#<Rack::Test::UploadedFile:0x007fa18c6343b0>",
+                  "id": 35,
+                  "title": "Feeney-Zemlak",
+                  "description": "aggregate web-enabled relationships",
+                  "image": {
+                    "url": null
+                  },
+                  "user_id": 57,
+                  "organization_id": 69,
+                  "created_at": "2018-02-28T20:29:02.139Z",
+                  "updated_at": "2018-02-28T20:29:02.139Z",
                   "user": {
-                    "first_name": "Bret O'Keefe",
-                    "last_name": "Morgan Davis",
-                    "email": "marjorie@runolfsdottir.net",
+                    "id": 57,
+                    "first_name": "Sabrina Lowe",
+                    "last_name": "Miss Callie Balistreri",
+                    "admin_role": "super_admin",
+                    "phone_number": null,
+                    "date_of_birth": null,
+                    "address": null,
+                    "country_id": 113,
+                    "state_id": 57,
+                    "zip_code": null,
+                    "status": "active",
+                    "created_at": "2018-02-28T20:29:02.044Z",
+                    "updated_at": "2018-02-28T20:29:02.133Z",
+                    "email": "gino.hauck@cartwright.biz",
+                    "confirmation_token": null,
+                    "unconfirmed_email": null,
+                    "avatar": {
+                      "url": null,
+                      "small": {
+                        "url": null
+                      },
+                      "middle": {
+                        "url": null
+                      }
+                    },
                     "password": null,
                     "password_confirmation": null
                   },
@@ -383,7 +1013,7 @@
                       "x-nullable": true
                     },
                     "image": {
-                      "type": "string",
+                      "type": "object",
                       "x-nullable": true
                     },
                     "user_id": {
@@ -410,29 +1040,31 @@
             "examples": {
               "application/json": {
                 "course": {
-                  "id": 4,
-                  "title": "Schuster Group",
-                  "description": "benchmark next-generation action-items",
-                  "image": "#<Rack::Test::UploadedFile:0x007fa18dc91130>",
-                  "user_id": 9,
-                  "organization_id": 7,
-                  "created_at": "2018-02-27T20:13:29.097Z",
-                  "updated_at": "2018-02-27T20:13:29.097Z",
+                  "id": 30,
+                  "title": "Feeney-Zemlak",
+                  "description": "aggregate web-enabled relationships",
+                  "image": {
+                    "url": "/uploads/course/image/30/test.jpg"
+                  },
+                  "user_id": 49,
+                  "organization_id": 61,
+                  "created_at": "2018-02-28T20:29:01.770Z",
+                  "updated_at": "2018-02-28T20:29:01.770Z",
                   "user": {
-                    "id": 9,
-                    "first_name": "Bret O'Keefe",
-                    "last_name": "Morgan Davis",
+                    "id": 49,
+                    "first_name": "Sabrina Lowe",
+                    "last_name": "Miss Callie Balistreri",
                     "admin_role": "super_admin",
                     "phone_number": null,
                     "date_of_birth": null,
                     "address": null,
-                    "country_id": 17,
-                    "state_id": 9,
+                    "country_id": 97,
+                    "state_id": 49,
                     "zip_code": null,
                     "status": "active",
-                    "created_at": "2018-02-27T20:13:29.086Z",
-                    "updated_at": "2018-02-27T20:13:29.086Z",
-                    "email": "annetta_bednar@wittingsauer.net",
+                    "created_at": "2018-02-28T20:29:01.761Z",
+                    "updated_at": "2018-02-28T20:29:01.761Z",
+                    "email": "savion@williamson.co",
                     "confirmation_token": null,
                     "unconfirmed_email": null,
                     "avatar": {
@@ -569,7 +1201,7 @@
                       "x-nullable": true
                     },
                     "image": {
-                      "type": "string",
+                      "type": "object",
                       "x-nullable": true
                     }
                   }
@@ -583,7 +1215,7 @@
         ],
         "responses": {
           "200": {
-            "description": "return data",
+            "description": "returns data",
             "schema": {
               "type": "object",
               "properties": {
@@ -599,7 +1231,7 @@
                       "x-nullable": true
                     },
                     "image": {
-                      "type": "string",
+                      "type": "object",
                       "x-nullable": true
                     }
                   }
@@ -612,13 +1244,42 @@
             "examples": {
               "application/json": {
                 "course": {
-                  "title": "Schuster Group",
-                  "description": "benchmark next-generation action-items",
-                  "image": "#<Rack::Test::UploadedFile:0x007fa18dbcfa58>",
+                  "id": 38,
+                  "title": "Feeney-Zemlak",
+                  "description": "aggregate web-enabled relationships",
+                  "image": {
+                    "url": "/uploads/course/image/38/test.jpg"
+                  },
+                  "user_id": 66,
+                  "organization_id": 77,
+                  "created_at": "2018-02-28T20:29:02.346Z",
+                  "updated_at": "2018-02-28T20:29:02.346Z",
                   "user": {
-                    "first_name": "Bret O'Keefe",
-                    "last_name": "Morgan Davis",
-                    "email": "jayde.stamm@bartoletti.biz",
+                    "id": 66,
+                    "first_name": "Sabrina Lowe",
+                    "last_name": "Miss Callie Balistreri",
+                    "admin_role": "super_admin",
+                    "phone_number": null,
+                    "date_of_birth": null,
+                    "address": null,
+                    "country_id": 131,
+                    "state_id": 66,
+                    "zip_code": null,
+                    "status": "active",
+                    "created_at": "2018-02-28T20:29:02.335Z",
+                    "updated_at": "2018-02-28T20:29:02.335Z",
+                    "email": "fidel@walter.biz",
+                    "confirmation_token": null,
+                    "unconfirmed_email": null,
+                    "avatar": {
+                      "url": null,
+                      "small": {
+                        "url": null
+                      },
+                      "middle": {
+                        "url": null
+                      }
+                    },
                     "password": null,
                     "password_confirmation": null
                   },
@@ -828,9 +1489,9 @@
     },
     "/api/v1/groups/{group_id}/group_users": {
       "get": {
-        "summary": "GroupUsers inside organization",
+        "summary": "Users in group",
         "tags": [
-          "GroupUsers"
+          "Users"
         ],
         "consumes": [
           "application/json"
@@ -938,88 +1599,286 @@
                 "group_users": [
                   {
                     "id": "1",
-                    "first_name": "Ivory Glover",
-                    "last_name": "Liana Howell",
+                    "first_name": "Bernice Oberbrunner",
+                    "last_name": "Margaret Pfeffer",
                     "role": "admin"
                   },
                   {
                     "id": "2",
-                    "first_name": "Ivory Glover",
-                    "last_name": "Liana Howell",
-                    "role": ""
+                    "first_name": "Bernice Oberbrunner",
+                    "last_name": "Margaret Pfeffer",
+                    "role": "admin"
                   },
                   {
                     "id": "3",
-                    "first_name": "Ivory Glover",
-                    "last_name": "Liana Howell",
+                    "first_name": "Bernice Oberbrunner",
+                    "last_name": "Margaret Pfeffer",
+                    "role": "admin"
+                  },
+                  {
+                    "id": "4",
+                    "first_name": "Bernice Oberbrunner",
+                    "last_name": "Margaret Pfeffer",
                     "role": "admin"
                   },
                   {
                     "id": "5",
-                    "first_name": "Ivory Glover",
-                    "last_name": "Liana Howell",
+                    "first_name": "Bernice Oberbrunner",
+                    "last_name": "Margaret Pfeffer",
                     "role": ""
                   },
                   {
                     "id": "6",
-                    "first_name": "Ivory Glover",
-                    "last_name": "Liana Howell",
+                    "first_name": "Bernice Oberbrunner",
+                    "last_name": "Margaret Pfeffer",
                     "role": "admin"
                   },
                   {
                     "id": "7",
-                    "first_name": "Ivory Glover",
-                    "last_name": "Liana Howell",
+                    "first_name": "Bernice Oberbrunner",
+                    "last_name": "Margaret Pfeffer",
                     "role": "admin"
                   },
                   {
+                    "id": "8",
+                    "first_name": "Bernice Oberbrunner",
+                    "last_name": "Margaret Pfeffer",
+                    "role": ""
+                  },
+                  {
                     "id": "9",
-                    "first_name": "Ivory Glover",
-                    "last_name": "Liana Howell",
+                    "first_name": "Bernice Oberbrunner",
+                    "last_name": "Margaret Pfeffer",
                     "role": ""
                   },
                   {
                     "id": "10",
-                    "first_name": "Ivory Glover",
-                    "last_name": "Liana Howell",
+                    "first_name": "Bernice Oberbrunner",
+                    "last_name": "Margaret Pfeffer",
                     "role": "admin"
                   },
                   {
                     "id": "11",
-                    "first_name": "Ivory Glover",
-                    "last_name": "Liana Howell",
-                    "role": "admin"
-                  },
-                  {
-                    "id": "12",
-                    "first_name": "Ivory Glover",
-                    "last_name": "Liana Howell",
+                    "first_name": "Bernice Oberbrunner",
+                    "last_name": "Margaret Pfeffer",
                     "role": "admin"
                   },
                   {
                     "id": "13",
-                    "first_name": "Ivory Glover",
-                    "last_name": "Liana Howell",
-                    "role": ""
+                    "first_name": "Bernice Oberbrunner",
+                    "last_name": "Margaret Pfeffer",
+                    "role": "admin"
                   },
                   {
                     "id": "14",
-                    "first_name": "Ivory Glover",
-                    "last_name": "Liana Howell",
+                    "first_name": "Bernice Oberbrunner",
+                    "last_name": "Margaret Pfeffer",
                     "role": "admin"
                   },
                   {
                     "id": "15",
-                    "first_name": "Sim Mann",
-                    "last_name": "Miss Florence Hane",
+                    "first_name": "Bernice Oberbrunner",
+                    "last_name": "Margaret Pfeffer",
+                    "role": "admin"
+                  },
+                  {
+                    "id": "16",
+                    "first_name": "Bernice Oberbrunner",
+                    "last_name": "Margaret Pfeffer",
+                    "role": "admin"
+                  },
+                  {
+                    "id": "17",
+                    "first_name": "Bernice Oberbrunner",
+                    "last_name": "Margaret Pfeffer",
+                    "role": ""
+                  },
+                  {
+                    "id": "18",
+                    "first_name": "Bernice Oberbrunner",
+                    "last_name": "Margaret Pfeffer",
                     "role": "admin"
                   }
                 ],
                 "meta": {
                   "total_pages": 1,
-                  "size": 13,
+                  "size": 17,
                   "limit_value": 20,
                   "current_page": 1
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Add User to group",
+        "tags": [
+          "Users"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "group_user": {
+                  "type": "object",
+                  "properties": {
+                    "user_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "group_user"
+              ]
+            }
+          },
+          {
+            "name": "group_id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "status",
+            "in": "body",
+            "type": "string",
+            "enum": [
+              "active",
+              "pause"
+            ],
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns created object",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "group_user": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "user_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "group_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "created_at": {
+                      "type": "datetime"
+                    },
+                    "updated_at": {
+                      "type": "datetime"
+                    },
+                    "status": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "active",
+                        "pause"
+                      ]
+                    },
+                    "first_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "last_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "role": {
+                      "type": "string",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "group_user"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "group_user": {
+                  "id": 5,
+                  "user_id": 89,
+                  "group_id": 17,
+                  "created_at": "2018-02-28T20:29:03.472Z",
+                  "updated_at": "2018-02-28T20:29:03.472Z",
+                  "status": "active",
+                  "first_name": "Sabrina Lowe",
+                  "last_name": "Miss Callie Balistreri",
+                  "role": ""
                 }
               }
             }
@@ -1079,9 +1938,9 @@
     },
     "/api/v1/groups/{group_id}/group_users/{id}": {
       "put": {
-        "summary": "Update GroupUser Details",
+        "summary": "Change status of user in group",
         "tags": [
-          "GroupUsers"
+          "Users"
         ],
         "consumes": [
           "application/json"
@@ -1143,7 +2002,7 @@
         ],
         "responses": {
           "200": {
-            "description": "return data",
+            "description": "returns data",
             "schema": {
               "type": "object",
               "properties": {
@@ -1168,7 +2027,15 @@
             "examples": {
               "application/json": {
                 "group_user": {
-                  "status": "active"
+                  "id": 8,
+                  "user_id": 93,
+                  "group_id": 21,
+                  "created_at": "2018-02-28T20:29:03.711Z",
+                  "updated_at": "2018-02-28T20:29:03.711Z",
+                  "status": "active",
+                  "first_name": "Sabrina Lowe",
+                  "last_name": "Miss Callie Balistreri",
+                  "role": "admin"
                 }
               }
             }
@@ -1251,9 +2118,9 @@
         }
       },
       "delete": {
-        "summary": "Delete GroupUser",
+        "summary": "Delete user from group",
         "tags": [
-          "GroupUsers"
+          "Users"
         ],
         "consumes": [
           "application/json"
@@ -1389,9 +2256,9 @@
     },
     "/api/v1/groups/{group_id}/group_users/batch_update": {
       "put": {
-        "summary": "Batch update GroupUser Details",
+        "summary": "Change status of batch users in group",
         "tags": [
-          "GroupUsers"
+          "Users"
         ],
         "consumes": [
           "application/json"
@@ -1430,7 +2297,7 @@
         ],
         "responses": {
           "200": {
-            "description": "return data",
+            "description": "returns status and errors",
             "schema": {
               "type": "object",
               "properties": {
@@ -1510,7 +2377,7 @@
     },
     "/api/v1/groups": {
       "get": {
-        "summary": "Groups inside organization",
+        "summary": "Get Groups inside organization",
         "tags": [
           "Groups"
         ],
@@ -1615,15 +2482,15 @@
               "application/json": {
                 "groups": [
                   {
-                    "id": 16,
-                    "organization_id": 57,
-                    "title": "Kautzer, Stark and Kuhic",
-                    "description": "architect customized functionalities",
+                    "id": 33,
+                    "organization_id": 116,
+                    "title": "Rutherford, Swift and Bayer",
+                    "description": "seize magnetic infomediaries",
                     "status": "active",
                     "user_limit": 10,
                     "visibility": "public",
-                    "created_at": "2018-02-27T20:13:31.577Z",
-                    "updated_at": "2018-02-27T20:13:31.577Z",
+                    "created_at": "2018-02-28T20:29:04.900Z",
+                    "updated_at": "2018-02-28T20:29:04.900Z",
                     "count_participants": null,
                     "user_id": null,
                     "organization": {
@@ -1754,13 +2621,20 @@
         ],
         "responses": {
           "200": {
-            "description": "return data",
+            "description": "returns created object",
             "schema": {
               "type": "object",
               "properties": {
                 "group": {
                   "type": "object",
                   "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "organization_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
                     "title": {
                       "type": "string",
                       "x-nullable": true
@@ -1788,6 +2662,20 @@
                         "private",
                         "public"
                       ]
+                    },
+                    "created_at": {
+                      "type": "datetime"
+                    },
+                    "updated_at": {
+                      "type": "datetime"
+                    },
+                    "count_participants": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "user_id": {
+                      "type": "integer",
+                      "x-nullable": true
                     }
                   }
                 }
@@ -1799,11 +2687,17 @@
             "examples": {
               "application/json": {
                 "group": {
-                  "title": "Kautzer, Stark and Kuhic",
-                  "description": "architect customized functionalities",
+                  "id": 41,
+                  "organization_id": 123,
+                  "title": "Rutherford, Swift and Bayer",
+                  "description": "seize magnetic infomediaries",
                   "status": "active",
                   "user_limit": 10,
                   "visibility": "public",
+                  "created_at": "2018-02-28T20:29:05.386Z",
+                  "updated_at": "2018-02-28T20:29:05.386Z",
+                  "count_participants": null,
+                  "user_id": 117,
                   "organization": {
                   }
                 }
@@ -1954,15 +2848,15 @@
             "examples": {
               "application/json": {
                 "group": {
-                  "id": 19,
-                  "organization_id": 60,
-                  "title": "Kautzer, Stark and Kuhic",
-                  "description": "architect customized functionalities",
+                  "id": 36,
+                  "organization_id": 119,
+                  "title": "Rutherford, Swift and Bayer",
+                  "description": "seize magnetic infomediaries",
                   "status": "active",
                   "user_limit": 10,
                   "visibility": "public",
-                  "created_at": "2018-02-27T20:13:31.802Z",
-                  "updated_at": "2018-02-27T20:13:31.802Z",
+                  "created_at": "2018-02-28T20:29:05.102Z",
+                  "updated_at": "2018-02-28T20:29:05.102Z",
                   "count_participants": null,
                   "user_id": null,
                   "organization": {
@@ -2117,7 +3011,7 @@
         ],
         "responses": {
           "200": {
-            "description": "return data",
+            "description": "returns data",
             "schema": {
               "type": "object",
               "properties": {
@@ -2162,11 +3056,17 @@
             "examples": {
               "application/json": {
                 "group": {
-                  "title": "Kautzer, Stark and Kuhic",
-                  "description": "architect customized functionalities",
+                  "id": 44,
+                  "organization_id": 127,
+                  "title": "Rutherford, Swift and Bayer",
+                  "description": "seize magnetic infomediaries",
                   "status": "active",
                   "user_limit": 10,
                   "visibility": "public",
+                  "created_at": "2018-02-28T20:29:05.558Z",
+                  "updated_at": "2018-02-28T20:29:05.558Z",
+                  "count_participants": null,
+                  "user_id": null,
                   "organization": {
                   }
                 }
@@ -2505,10 +3405,32 @@
             "examples": {
               "application/json": {
                 "user": {
+                  "id": 144,
                   "first_name": null,
                   "last_name": null,
-                  "email": "candelario_schuppe@corkery.org",
-                  "password": "2j6rXaY7S90nV",
+                  "admin_role": "super_admin",
+                  "phone_number": null,
+                  "date_of_birth": null,
+                  "address": null,
+                  "country_id": null,
+                  "state_id": null,
+                  "zip_code": null,
+                  "status": "active",
+                  "created_at": "2018-02-28T20:29:06.316Z",
+                  "updated_at": "2018-02-28T20:29:06.316Z",
+                  "email": "florine@padberg.info",
+                  "confirmation_token": "Q6jjrcGhpDqviV9EsQiu",
+                  "unconfirmed_email": null,
+                  "avatar": {
+                    "url": null,
+                    "small": {
+                      "url": null
+                    },
+                    "middle": {
+                      "url": null
+                    }
+                  },
+                  "password": "SwMwCcXa3h0d",
                   "password_confirmation": null,
                   "country": null,
                   "state": null
@@ -2719,17 +3641,43 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "first_name": "Bret O'Keefe",
-                  "last_name": "Morgan Davis",
-                  "email": "moses_kuhlman@carter.name",
+                  "id": 148,
+                  "first_name": "Sabrina Lowe",
+                  "last_name": "Miss Callie Balistreri",
+                  "admin_role": "super_admin",
+                  "phone_number": null,
+                  "date_of_birth": null,
+                  "address": null,
+                  "country_id": 293,
+                  "state_id": 147,
+                  "zip_code": null,
+                  "status": "active",
+                  "created_at": "2018-02-28T20:29:06.833Z",
+                  "updated_at": "2018-02-28T20:29:07.122Z",
+                  "email": "zoey@greenholtnikolaus.biz",
+                  "confirmation_token": null,
+                  "unconfirmed_email": null,
+                  "avatar": {
+                    "url": null,
+                    "small": {
+                      "url": null
+                    },
+                    "middle": {
+                      "url": null
+                    }
+                  },
                   "password": null,
                   "password_confirmation": null,
                   "country": {
+                    "id": 293,
+                    "code": null,
+                    "name": "Canada",
+                    "phonecode": null
                   },
                   "state": {
                   }
                 },
-                "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTAzLCJleHAiOjE1NTEyOTg0MTMsInR5cGUiOiJ1c2VyIiwiZW1haWwiOiJtb3Nlc19rdWhsbWFuQGNhcnRlci5uYW1lIn0.bdGKLcLFzlq-9EYH7MLMr_kRcpPqwem4whH9OesMIkQ"
+                "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTQ4LCJleHAiOjE1NTEzODU3NDcsInR5cGUiOiJ1c2VyIiwiZW1haWwiOiJ6b2V5QGdyZWVuaG9sdG5pa29sYXVzLmJpeiJ9.tejr4C8l3Q7WTe3ZXVRag1G5GgRE9VqEZ4NgSEWtxF0"
               }
             }
           },
@@ -2793,7 +3741,7 @@
     },
     "/api/v1/users": {
       "get": {
-        "summary": "Users inside organization",
+        "summary": "Get Users inside organization",
         "tags": [
           "Users"
         ],
@@ -2929,20 +3877,20 @@
               "application/json": {
                 "users": [
                   {
-                    "id": 120,
-                    "first_name": "Bret O'Keefe",
-                    "last_name": "Morgan Davis",
+                    "id": 165,
+                    "first_name": "Sabrina Lowe",
+                    "last_name": "Miss Callie Balistreri",
                     "admin_role": "super_admin",
                     "phone_number": null,
                     "date_of_birth": null,
                     "address": null,
-                    "country_id": 237,
-                    "state_id": 119,
+                    "country_id": 327,
+                    "state_id": 164,
                     "zip_code": null,
                     "status": "active",
-                    "created_at": "2018-02-27T20:13:34.031Z",
-                    "updated_at": "2018-02-27T20:13:34.056Z",
-                    "email": "alf.brakus@bailey.io",
+                    "created_at": "2018-02-28T20:29:07.293Z",
+                    "updated_at": "2018-02-28T20:29:07.317Z",
+                    "email": "yvonne@hills.org",
                     "confirmation_token": null,
                     "unconfirmed_email": null,
                     "avatar": {
@@ -2957,7 +3905,7 @@
                     "password": null,
                     "password_confirmation": null,
                     "country": {
-                      "id": 237,
+                      "id": 327,
                       "code": null,
                       "name": "Canada",
                       "phonecode": null
@@ -3150,20 +4098,20 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "id": 124,
-                  "first_name": "Bret O'Keefe",
-                  "last_name": "Morgan Davis",
+                  "id": 169,
+                  "first_name": "Sabrina Lowe",
+                  "last_name": "Miss Callie Balistreri",
                   "admin_role": "super_admin",
                   "phone_number": null,
                   "date_of_birth": null,
                   "address": null,
-                  "country_id": 245,
-                  "state_id": 123,
+                  "country_id": 335,
+                  "state_id": 168,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "2018-02-27T20:13:34.210Z",
-                  "updated_at": "2018-02-27T20:13:34.236Z",
-                  "email": "jayce_emard@brakusoberbrunner.biz",
+                  "created_at": "2018-02-28T20:29:07.459Z",
+                  "updated_at": "2018-02-28T20:29:07.483Z",
+                  "email": "angel.oberbrunner@schumm.biz",
                   "confirmation_token": null,
                   "unconfirmed_email": null,
                   "avatar": {
@@ -3178,7 +4126,7 @@
                   "password": null,
                   "password_confirmation": null,
                   "country": {
-                    "id": 245,
+                    "id": 335,
                     "code": null,
                     "name": "Canada",
                     "phonecode": null
@@ -3326,7 +4274,7 @@
         ],
         "responses": {
           "200": {
-            "description": "return data",
+            "description": "returns data",
             "schema": {
               "type": "object",
               "properties": {
@@ -3362,12 +4310,38 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "first_name": "Bret O'Keefe",
-                  "last_name": "Morgan Davis",
-                  "email": "cleora@green.biz",
+                  "id": 174,
+                  "first_name": "Sabrina Lowe",
+                  "last_name": "Miss Callie Balistreri",
+                  "admin_role": "super_admin",
+                  "phone_number": null,
+                  "date_of_birth": null,
+                  "address": null,
+                  "country_id": 345,
+                  "state_id": 173,
+                  "zip_code": null,
+                  "status": "active",
+                  "created_at": "2018-02-28T20:29:07.668Z",
+                  "updated_at": "2018-02-28T20:29:07.712Z",
+                  "email": "ally@brakusebert.info",
+                  "confirmation_token": "qgXAQs_ka1xZLB4XjQYs",
+                  "unconfirmed_email": "madelyn_pacocha@gibson.co",
+                  "avatar": {
+                    "url": null,
+                    "small": {
+                      "url": null
+                    },
+                    "middle": {
+                      "url": null
+                    }
+                  },
                   "password": null,
                   "password_confirmation": null,
                   "country": {
+                    "id": 345,
+                    "code": null,
+                    "name": "Canada",
+                    "phonecode": null
                   },
                   "state": {
                   }

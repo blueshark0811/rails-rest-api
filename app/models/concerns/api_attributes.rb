@@ -71,6 +71,6 @@ module ApiAttributes
   protected
 
   def api_available_attriubtes(options = {})
-    self.class.serializer&.new(self, options)&.attributes&.keys&.map(&:to_sym)
+    self.class.serializer&.new(self, serializer_params: options)&.attributes&.keys&.map(&:to_sym)
   end
 end

@@ -3,11 +3,11 @@ class Api::V1::CourseGroupsController < Api::V1::ApiController
   before_action :set_course_group, only: %i[update destroy]
 
   def create
-    @course_group = @group.course_groups.create user_id: params[:user_id]
+    @course_group = @group.course_groups.new
 
     authorize @course_group
 
-    if @course_group.save
+    if @course_group.update permitted_attributes(@course_group)
       render_result @course_group
     else
       render_error @course_group
