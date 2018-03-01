@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180225145551) do
+ActiveRecord::Schema.define(version: 20180301145017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -143,6 +143,10 @@ ActiveRecord::Schema.define(version: 20180225145551) do
     t.string "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
+    t.text "exclude_students_ids"
+    t.boolean "files_controll_enabled"
+    t.boolean "mesanger_access_enabled"
     t.index ["organization_id"], name: "index_organization_users_on_organization_id"
     t.index ["user_id"], name: "index_organization_users_on_user_id"
   end

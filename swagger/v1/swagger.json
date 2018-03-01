@@ -30,14 +30,6 @@
                 "course_group": {
                   "type": "object",
                   "properties": {
-                    "course_id": {
-                      "type": "integer",
-                      "x-nullable": true
-                    },
-                    "precourse_id": {
-                      "type": "integer",
-                      "x-nullable": true
-                    },
                     "complete_lesson_can": {
                       "type": "string",
                       "x-nullable": true,
@@ -47,7 +39,7 @@
                         "all"
                       ]
                     },
-                    "reports_enabled": {
+                    "discussing_enabled": {
                       "type": "boolean",
                       "x-nullable": true
                     },
@@ -55,11 +47,11 @@
                       "type": "boolean",
                       "x-nullable": true
                     },
-                    "discussing_enabled": {
-                      "type": "boolean",
+                    "precourse_id": {
+                      "type": "integer",
                       "x-nullable": true
                     },
-                    "student_content_enabled": {
+                    "reports_enabled": {
                       "type": "boolean",
                       "x-nullable": true
                     },
@@ -70,6 +62,14 @@
                         "active",
                         "pause"
                       ]
+                    },
+                    "student_content_enabled": {
+                      "type": "boolean",
+                      "x-nullable": true
+                    },
+                    "course_id": {
+                      "type": "integer",
+                      "x-nullable": true
                     }
                   }
                 }
@@ -169,8 +169,8 @@
                   "discussing_enabled": true,
                   "student_content_enabled": true,
                   "status": "active",
-                  "created_at": "2018-02-28T20:28:59.509Z",
-                  "updated_at": "2018-02-28T20:28:59.509Z"
+                  "created_at": "2018-03-01T17:28:13.800Z",
+                  "updated_at": "2018-03-01T17:28:13.800Z"
                 }
               }
             }
@@ -259,10 +259,6 @@
                 "course_group": {
                   "type": "object",
                   "properties": {
-                    "precourse_id": {
-                      "type": "integer",
-                      "x-nullable": true
-                    },
                     "complete_lesson_can": {
                       "type": "string",
                       "x-nullable": true,
@@ -272,7 +268,7 @@
                         "all"
                       ]
                     },
-                    "reports_enabled": {
+                    "discussing_enabled": {
                       "type": "boolean",
                       "x-nullable": true
                     },
@@ -280,11 +276,11 @@
                       "type": "boolean",
                       "x-nullable": true
                     },
-                    "discussing_enabled": {
-                      "type": "boolean",
+                    "precourse_id": {
+                      "type": "integer",
                       "x-nullable": true
                     },
-                    "student_content_enabled": {
+                    "reports_enabled": {
                       "type": "boolean",
                       "x-nullable": true
                     },
@@ -295,6 +291,10 @@
                         "active",
                         "pause"
                       ]
+                    },
+                    "student_content_enabled": {
+                      "type": "boolean",
+                      "x-nullable": true
                     }
                   }
                 }
@@ -377,8 +377,8 @@
                   "discussing_enabled": true,
                   "student_content_enabled": true,
                   "status": "active",
-                  "created_at": "2018-02-28T20:29:00.062Z",
-                  "updated_at": "2018-02-28T20:29:00.196Z"
+                  "created_at": "2018-03-01T17:28:14.350Z",
+                  "updated_at": "2018-03-01T17:28:14.441Z"
                 }
               }
             }
@@ -675,19 +675,19 @@
                 "courses": [
                   {
                     "id": 27,
-                    "title": "Feeney-Zemlak",
-                    "description": "aggregate web-enabled relationships",
+                    "title": "Howell and Sons",
+                    "description": "benchmark ubiquitous niches",
                     "image": {
                       "url": "/uploads/course/image/27/test.jpg"
                     },
                     "user_id": 42,
                     "organization_id": 55,
-                    "created_at": "2018-02-28T20:29:01.478Z",
-                    "updated_at": "2018-02-28T20:29:01.478Z",
+                    "created_at": "2018-03-01T17:28:15.589Z",
+                    "updated_at": "2018-03-01T17:28:15.589Z",
                     "user": {
                       "id": 42,
-                      "first_name": "Sabrina Lowe",
-                      "last_name": "Miss Callie Balistreri",
+                      "first_name": "Julia Ortiz",
+                      "last_name": "Danika Rempel",
                       "admin_role": "super_admin",
                       "phone_number": null,
                       "date_of_birth": null,
@@ -696,9 +696,9 @@
                       "state_id": 42,
                       "zip_code": null,
                       "status": "active",
-                      "created_at": "2018-02-28T20:29:01.463Z",
-                      "updated_at": "2018-02-28T20:29:01.463Z",
-                      "email": "alexys@spencer.io",
+                      "created_at": "2018-03-01T17:28:15.576Z",
+                      "updated_at": "2018-03-01T17:28:15.576Z",
+                      "email": "lelah@klocko.net",
                       "confirmation_token": null,
                       "unconfirmed_email": null,
                       "avatar": {
@@ -709,9 +709,7 @@
                         "middle": {
                           "url": null
                         }
-                      },
-                      "password": null,
-                      "password_confirmation": null
+                      }
                     },
                     "organization": {
                     }
@@ -802,16 +800,16 @@
                 "course": {
                   "type": "object",
                   "properties": {
-                    "title": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
                     "description": {
                       "type": "text",
                       "x-nullable": true
                     },
                     "image": {
                       "type": "object",
+                      "x-nullable": true
+                    },
+                    "title": {
+                      "type": "string",
                       "x-nullable": true
                     }
                   }
@@ -872,19 +870,19 @@
               "application/json": {
                 "course": {
                   "id": 35,
-                  "title": "Feeney-Zemlak",
-                  "description": "aggregate web-enabled relationships",
+                  "title": "Howell and Sons",
+                  "description": "benchmark ubiquitous niches",
                   "image": {
                     "url": null
                   },
                   "user_id": 57,
                   "organization_id": 69,
-                  "created_at": "2018-02-28T20:29:02.139Z",
-                  "updated_at": "2018-02-28T20:29:02.139Z",
+                  "created_at": "2018-03-01T17:28:16.459Z",
+                  "updated_at": "2018-03-01T17:28:16.459Z",
                   "user": {
                     "id": 57,
-                    "first_name": "Sabrina Lowe",
-                    "last_name": "Miss Callie Balistreri",
+                    "first_name": "Julia Ortiz",
+                    "last_name": "Danika Rempel",
                     "admin_role": "super_admin",
                     "phone_number": null,
                     "date_of_birth": null,
@@ -893,9 +891,9 @@
                     "state_id": 57,
                     "zip_code": null,
                     "status": "active",
-                    "created_at": "2018-02-28T20:29:02.044Z",
-                    "updated_at": "2018-02-28T20:29:02.133Z",
-                    "email": "gino.hauck@cartwright.biz",
+                    "created_at": "2018-03-01T17:28:16.341Z",
+                    "updated_at": "2018-03-01T17:28:16.449Z",
+                    "email": "marcos.jerde@labadie.io",
                     "confirmation_token": null,
                     "unconfirmed_email": null,
                     "avatar": {
@@ -906,9 +904,7 @@
                       "middle": {
                         "url": null
                       }
-                    },
-                    "password": null,
-                    "password_confirmation": null
+                    }
                   },
                   "organization": {
                   }
@@ -1041,19 +1037,19 @@
               "application/json": {
                 "course": {
                   "id": 30,
-                  "title": "Feeney-Zemlak",
-                  "description": "aggregate web-enabled relationships",
+                  "title": "Howell and Sons",
+                  "description": "benchmark ubiquitous niches",
                   "image": {
                     "url": "/uploads/course/image/30/test.jpg"
                   },
                   "user_id": 49,
                   "organization_id": 61,
-                  "created_at": "2018-02-28T20:29:01.770Z",
-                  "updated_at": "2018-02-28T20:29:01.770Z",
+                  "created_at": "2018-03-01T17:28:15.976Z",
+                  "updated_at": "2018-03-01T17:28:15.976Z",
                   "user": {
                     "id": 49,
-                    "first_name": "Sabrina Lowe",
-                    "last_name": "Miss Callie Balistreri",
+                    "first_name": "Julia Ortiz",
+                    "last_name": "Danika Rempel",
                     "admin_role": "super_admin",
                     "phone_number": null,
                     "date_of_birth": null,
@@ -1062,9 +1058,9 @@
                     "state_id": 49,
                     "zip_code": null,
                     "status": "active",
-                    "created_at": "2018-02-28T20:29:01.761Z",
-                    "updated_at": "2018-02-28T20:29:01.761Z",
-                    "email": "savion@williamson.co",
+                    "created_at": "2018-03-01T17:28:15.960Z",
+                    "updated_at": "2018-03-01T17:28:15.960Z",
+                    "email": "antone@mclaughlin.info",
                     "confirmation_token": null,
                     "unconfirmed_email": null,
                     "avatar": {
@@ -1075,9 +1071,7 @@
                       "middle": {
                         "url": null
                       }
-                    },
-                    "password": null,
-                    "password_confirmation": null
+                    }
                   },
                   "organization": {
                   }
@@ -1192,16 +1186,16 @@
                 "course": {
                   "type": "object",
                   "properties": {
-                    "title": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
                     "description": {
                       "type": "text",
                       "x-nullable": true
                     },
                     "image": {
                       "type": "object",
+                      "x-nullable": true
+                    },
+                    "title": {
+                      "type": "string",
                       "x-nullable": true
                     }
                   }
@@ -1245,19 +1239,19 @@
               "application/json": {
                 "course": {
                   "id": 38,
-                  "title": "Feeney-Zemlak",
-                  "description": "aggregate web-enabled relationships",
+                  "title": "Howell and Sons",
+                  "description": "benchmark ubiquitous niches",
                   "image": {
                     "url": "/uploads/course/image/38/test.jpg"
                   },
                   "user_id": 66,
                   "organization_id": 77,
-                  "created_at": "2018-02-28T20:29:02.346Z",
-                  "updated_at": "2018-02-28T20:29:02.346Z",
+                  "created_at": "2018-03-01T17:28:16.777Z",
+                  "updated_at": "2018-03-01T17:28:16.777Z",
                   "user": {
                     "id": 66,
-                    "first_name": "Sabrina Lowe",
-                    "last_name": "Miss Callie Balistreri",
+                    "first_name": "Julia Ortiz",
+                    "last_name": "Danika Rempel",
                     "admin_role": "super_admin",
                     "phone_number": null,
                     "date_of_birth": null,
@@ -1266,9 +1260,9 @@
                     "state_id": 66,
                     "zip_code": null,
                     "status": "active",
-                    "created_at": "2018-02-28T20:29:02.335Z",
-                    "updated_at": "2018-02-28T20:29:02.335Z",
-                    "email": "fidel@walter.biz",
+                    "created_at": "2018-03-01T17:28:16.762Z",
+                    "updated_at": "2018-03-01T17:28:16.762Z",
+                    "email": "leonel_heidenreich@monahan.net",
                     "confirmation_token": null,
                     "unconfirmed_email": null,
                     "avatar": {
@@ -1279,9 +1273,7 @@
                       "middle": {
                         "url": null
                       }
-                    },
-                    "password": null,
-                    "password_confirmation": null
+                    }
                   },
                   "organization": {
                   }
@@ -1593,120 +1585,6 @@
               "required": [
                 "group_users"
               ]
-            },
-            "examples": {
-              "application/json": {
-                "group_users": [
-                  {
-                    "id": "1",
-                    "first_name": "Bernice Oberbrunner",
-                    "last_name": "Margaret Pfeffer",
-                    "role": "admin"
-                  },
-                  {
-                    "id": "2",
-                    "first_name": "Bernice Oberbrunner",
-                    "last_name": "Margaret Pfeffer",
-                    "role": "admin"
-                  },
-                  {
-                    "id": "3",
-                    "first_name": "Bernice Oberbrunner",
-                    "last_name": "Margaret Pfeffer",
-                    "role": "admin"
-                  },
-                  {
-                    "id": "4",
-                    "first_name": "Bernice Oberbrunner",
-                    "last_name": "Margaret Pfeffer",
-                    "role": "admin"
-                  },
-                  {
-                    "id": "5",
-                    "first_name": "Bernice Oberbrunner",
-                    "last_name": "Margaret Pfeffer",
-                    "role": ""
-                  },
-                  {
-                    "id": "6",
-                    "first_name": "Bernice Oberbrunner",
-                    "last_name": "Margaret Pfeffer",
-                    "role": "admin"
-                  },
-                  {
-                    "id": "7",
-                    "first_name": "Bernice Oberbrunner",
-                    "last_name": "Margaret Pfeffer",
-                    "role": "admin"
-                  },
-                  {
-                    "id": "8",
-                    "first_name": "Bernice Oberbrunner",
-                    "last_name": "Margaret Pfeffer",
-                    "role": ""
-                  },
-                  {
-                    "id": "9",
-                    "first_name": "Bernice Oberbrunner",
-                    "last_name": "Margaret Pfeffer",
-                    "role": ""
-                  },
-                  {
-                    "id": "10",
-                    "first_name": "Bernice Oberbrunner",
-                    "last_name": "Margaret Pfeffer",
-                    "role": "admin"
-                  },
-                  {
-                    "id": "11",
-                    "first_name": "Bernice Oberbrunner",
-                    "last_name": "Margaret Pfeffer",
-                    "role": "admin"
-                  },
-                  {
-                    "id": "13",
-                    "first_name": "Bernice Oberbrunner",
-                    "last_name": "Margaret Pfeffer",
-                    "role": "admin"
-                  },
-                  {
-                    "id": "14",
-                    "first_name": "Bernice Oberbrunner",
-                    "last_name": "Margaret Pfeffer",
-                    "role": "admin"
-                  },
-                  {
-                    "id": "15",
-                    "first_name": "Bernice Oberbrunner",
-                    "last_name": "Margaret Pfeffer",
-                    "role": "admin"
-                  },
-                  {
-                    "id": "16",
-                    "first_name": "Bernice Oberbrunner",
-                    "last_name": "Margaret Pfeffer",
-                    "role": "admin"
-                  },
-                  {
-                    "id": "17",
-                    "first_name": "Bernice Oberbrunner",
-                    "last_name": "Margaret Pfeffer",
-                    "role": ""
-                  },
-                  {
-                    "id": "18",
-                    "first_name": "Bernice Oberbrunner",
-                    "last_name": "Margaret Pfeffer",
-                    "role": "admin"
-                  }
-                ],
-                "meta": {
-                  "total_pages": 1,
-                  "size": 17,
-                  "limit_value": 20,
-                  "current_page": 1
-                }
-              }
             }
           },
           "401": {
@@ -1873,11 +1751,11 @@
                   "id": 5,
                   "user_id": 89,
                   "group_id": 17,
-                  "created_at": "2018-02-28T20:29:03.472Z",
-                  "updated_at": "2018-02-28T20:29:03.472Z",
+                  "created_at": "2018-03-01T17:28:17.943Z",
+                  "updated_at": "2018-03-01T17:28:17.943Z",
                   "status": "active",
-                  "first_name": "Sabrina Lowe",
-                  "last_name": "Miss Callie Balistreri",
+                  "first_name": "Julia Ortiz",
+                  "last_name": "Danika Rempel",
                   "role": ""
                 }
               }
@@ -2030,11 +1908,11 @@
                   "id": 8,
                   "user_id": 93,
                   "group_id": 21,
-                  "created_at": "2018-02-28T20:29:03.711Z",
-                  "updated_at": "2018-02-28T20:29:03.711Z",
+                  "created_at": "2018-03-01T17:28:18.181Z",
+                  "updated_at": "2018-03-01T17:28:18.181Z",
                   "status": "active",
-                  "first_name": "Sabrina Lowe",
-                  "last_name": "Miss Callie Balistreri",
+                  "first_name": "Julia Ortiz",
+                  "last_name": "Danika Rempel",
                   "role": "admin"
                 }
               }
@@ -2484,13 +2362,13 @@
                   {
                     "id": 33,
                     "organization_id": 116,
-                    "title": "Rutherford, Swift and Bayer",
-                    "description": "seize magnetic infomediaries",
+                    "title": "Russel, Zulauf and Wiegand",
+                    "description": "enable interactive bandwidth",
                     "status": "active",
                     "user_limit": 10,
                     "visibility": "public",
-                    "created_at": "2018-02-28T20:29:04.900Z",
-                    "updated_at": "2018-02-28T20:29:04.900Z",
+                    "created_at": "2018-03-01T17:28:19.248Z",
+                    "updated_at": "2018-03-01T17:28:19.248Z",
                     "count_participants": null,
                     "user_id": null,
                     "organization": {
@@ -2582,10 +2460,6 @@
                 "group": {
                   "type": "object",
                   "properties": {
-                    "title": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
                     "description": {
                       "type": "text",
                       "x-nullable": true
@@ -2597,6 +2471,10 @@
                         "active",
                         "pause"
                       ]
+                    },
+                    "title": {
+                      "type": "string",
+                      "x-nullable": true
                     },
                     "user_limit": {
                       "type": "integer",
@@ -2689,13 +2567,13 @@
                 "group": {
                   "id": 41,
                   "organization_id": 123,
-                  "title": "Rutherford, Swift and Bayer",
-                  "description": "seize magnetic infomediaries",
+                  "title": "Russel, Zulauf and Wiegand",
+                  "description": "enable interactive bandwidth",
                   "status": "active",
                   "user_limit": 10,
                   "visibility": "public",
-                  "created_at": "2018-02-28T20:29:05.386Z",
-                  "updated_at": "2018-02-28T20:29:05.386Z",
+                  "created_at": "2018-03-01T17:28:19.831Z",
+                  "updated_at": "2018-03-01T17:28:19.831Z",
                   "count_participants": null,
                   "user_id": 117,
                   "organization": {
@@ -2850,13 +2728,13 @@
                 "group": {
                   "id": 36,
                   "organization_id": 119,
-                  "title": "Rutherford, Swift and Bayer",
-                  "description": "seize magnetic infomediaries",
+                  "title": "Russel, Zulauf and Wiegand",
+                  "description": "enable interactive bandwidth",
                   "status": "active",
                   "user_limit": 10,
                   "visibility": "public",
-                  "created_at": "2018-02-28T20:29:05.102Z",
-                  "updated_at": "2018-02-28T20:29:05.102Z",
+                  "created_at": "2018-03-01T17:28:19.490Z",
+                  "updated_at": "2018-03-01T17:28:19.490Z",
                   "count_participants": null,
                   "user_id": null,
                   "organization": {
@@ -2972,10 +2850,6 @@
                 "group": {
                   "type": "object",
                   "properties": {
-                    "title": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
                     "description": {
                       "type": "text",
                       "x-nullable": true
@@ -2987,6 +2861,10 @@
                         "active",
                         "pause"
                       ]
+                    },
+                    "title": {
+                      "type": "string",
+                      "x-nullable": true
                     },
                     "user_limit": {
                       "type": "integer",
@@ -3058,13 +2936,13 @@
                 "group": {
                   "id": 44,
                   "organization_id": 127,
-                  "title": "Rutherford, Swift and Bayer",
-                  "description": "seize magnetic infomediaries",
+                  "title": "Russel, Zulauf and Wiegand",
+                  "description": "enable interactive bandwidth",
                   "status": "active",
                   "user_limit": 10,
                   "visibility": "public",
-                  "created_at": "2018-02-28T20:29:05.558Z",
-                  "updated_at": "2018-02-28T20:29:05.558Z",
+                  "created_at": "2018-03-01T17:28:20.036Z",
+                  "updated_at": "2018-03-01T17:28:20.036Z",
                   "count_participants": null,
                   "user_id": null,
                   "organization": {
@@ -3386,14 +3264,6 @@
                     "avatar": {
                       "type": "object",
                       "x-nullable": true
-                    },
-                    "password": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "password_confirmation": {
-                      "type": "string",
-                      "x-nullable": true
                     }
                   }
                 }
@@ -3405,7 +3275,7 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "id": 144,
+                  "id": 146,
                   "first_name": null,
                   "last_name": null,
                   "admin_role": "super_admin",
@@ -3416,10 +3286,10 @@
                   "state_id": null,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "2018-02-28T20:29:06.316Z",
-                  "updated_at": "2018-02-28T20:29:06.316Z",
-                  "email": "florine@padberg.info",
-                  "confirmation_token": "Q6jjrcGhpDqviV9EsQiu",
+                  "created_at": "2018-03-01T17:28:21.093Z",
+                  "updated_at": "2018-03-01T17:28:21.093Z",
+                  "email": "misael.runolfsdottir@bodekuhic.org",
+                  "confirmation_token": "X2uQnayQL6pqcYqcS7KV",
                   "unconfirmed_email": null,
                   "avatar": {
                     "url": null,
@@ -3430,8 +3300,6 @@
                       "url": null
                     }
                   },
-                  "password": "SwMwCcXa3h0d",
-                  "password_confirmation": null,
                   "country": null,
                   "state": null
                 }
@@ -3622,14 +3490,6 @@
                     "avatar": {
                       "type": "object",
                       "x-nullable": true
-                    },
-                    "password": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "password_confirmation": {
-                      "type": "string",
-                      "x-nullable": true
                     }
                   }
                 }
@@ -3641,20 +3501,20 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "id": 148,
-                  "first_name": "Sabrina Lowe",
-                  "last_name": "Miss Callie Balistreri",
+                  "id": 150,
+                  "first_name": "Julia Ortiz",
+                  "last_name": "Danika Rempel",
                   "admin_role": "super_admin",
                   "phone_number": null,
                   "date_of_birth": null,
                   "address": null,
-                  "country_id": 293,
-                  "state_id": 147,
+                  "country_id": 297,
+                  "state_id": 149,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "2018-02-28T20:29:06.833Z",
-                  "updated_at": "2018-02-28T20:29:07.122Z",
-                  "email": "zoey@greenholtnikolaus.biz",
+                  "created_at": "2018-03-01T17:28:21.639Z",
+                  "updated_at": "2018-03-01T17:28:21.977Z",
+                  "email": "adell@moriettewehner.name",
                   "confirmation_token": null,
                   "unconfirmed_email": null,
                   "avatar": {
@@ -3666,10 +3526,8 @@
                       "url": null
                     }
                   },
-                  "password": null,
-                  "password_confirmation": null,
                   "country": {
-                    "id": 293,
+                    "id": 297,
                     "code": null,
                     "name": "Canada",
                     "phonecode": null
@@ -3677,7 +3535,7 @@
                   "state": {
                   }
                 },
-                "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTQ4LCJleHAiOjE1NTEzODU3NDcsInR5cGUiOiJ1c2VyIiwiZW1haWwiOiJ6b2V5QGdyZWVuaG9sdG5pa29sYXVzLmJpeiJ9.tejr4C8l3Q7WTe3ZXVRag1G5GgRE9VqEZ4NgSEWtxF0"
+                "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTUwLCJleHAiOjE1NTE0NjEzMDEsInR5cGUiOiJ1c2VyIiwiZW1haWwiOiJhZGVsbEBtb3JpZXR0ZXdlaG5lci5uYW1lIn0.4oIM-zgb2cVUKpxirkOFVnvooeoZPvDWsF-iqGXNqJY"
               }
             }
           },
@@ -3856,14 +3714,6 @@
                       "avatar": {
                         "type": "object",
                         "x-nullable": true
-                      },
-                      "password": {
-                        "type": "string",
-                        "x-nullable": true
-                      },
-                      "password_confirmation": {
-                        "type": "string",
-                        "x-nullable": true
                       }
                     }
                   }
@@ -3877,20 +3727,20 @@
               "application/json": {
                 "users": [
                   {
-                    "id": 165,
-                    "first_name": "Sabrina Lowe",
-                    "last_name": "Miss Callie Balistreri",
+                    "id": 169,
+                    "first_name": "Julia Ortiz",
+                    "last_name": "Danika Rempel",
                     "admin_role": "super_admin",
                     "phone_number": null,
                     "date_of_birth": null,
                     "address": null,
-                    "country_id": 327,
-                    "state_id": 164,
+                    "country_id": 335,
+                    "state_id": 168,
                     "zip_code": null,
                     "status": "active",
-                    "created_at": "2018-02-28T20:29:07.293Z",
-                    "updated_at": "2018-02-28T20:29:07.317Z",
-                    "email": "yvonne@hills.org",
+                    "created_at": "2018-03-01T17:28:22.205Z",
+                    "updated_at": "2018-03-01T17:28:22.234Z",
+                    "email": "ellie_crona@reynoldsrowe.name",
                     "confirmation_token": null,
                     "unconfirmed_email": null,
                     "avatar": {
@@ -3902,10 +3752,8 @@
                         "url": null
                       }
                     },
-                    "password": null,
-                    "password_confirmation": null,
                     "country": {
-                      "id": 327,
+                      "id": 335,
                       "code": null,
                       "name": "Canada",
                       "phonecode": null
@@ -3919,6 +3767,266 @@
                   "size": 1,
                   "limit_value": 20,
                   "current_page": 1
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create User",
+        "tags": [
+          "Users"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "type": "object",
+                  "properties": {
+                    "address": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "avatar": {
+                      "type": "object",
+                      "x-nullable": true
+                    },
+                    "country_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "state_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "zip_code": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "date_of_birth": {
+                      "type": "date",
+                      "x-nullable": true
+                    },
+                    "phone_number": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "first_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "last_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "password_confirmation": {
+                      "type": "string",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "user"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns created object",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "first_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "last_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "admin_role": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "super_admin"
+                      ]
+                    },
+                    "phone_number": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "date_of_birth": {
+                      "type": "date",
+                      "x-nullable": true
+                    },
+                    "address": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "country_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "state_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "zip_code": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "status": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "active",
+                        "suspended",
+                        "deleted"
+                      ]
+                    },
+                    "created_at": {
+                      "type": "datetime"
+                    },
+                    "updated_at": {
+                      "type": "datetime"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "confirmation_token": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "unconfirmed_email": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "avatar": {
+                      "type": "object",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "user"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "user": {
+                  "id": 179,
+                  "first_name": "Julia Ortiz",
+                  "last_name": "Danika Rempel",
+                  "admin_role": "super_admin",
+                  "phone_number": null,
+                  "date_of_birth": null,
+                  "address": null,
+                  "country_id": 355,
+                  "state_id": 178,
+                  "zip_code": null,
+                  "status": "active",
+                  "created_at": "2018-03-01T17:28:22.732Z",
+                  "updated_at": "2018-03-01T17:28:22.732Z",
+                  "email": "silas.mckenzie@bernhard.net",
+                  "confirmation_token": "wR8X_o9X-9kg3U3yyKox",
+                  "unconfirmed_email": null,
+                  "avatar": {
+                    "url": null,
+                    "small": {
+                      "url": null
+                    },
+                    "middle": {
+                      "url": null
+                    }
+                  },
+                  "country": {
+                    "id": 355,
+                    "code": null,
+                    "name": "Canada",
+                    "phonecode": null
+                  },
+                  "state": {
+                  }
                 }
               }
             }
@@ -4079,14 +4187,6 @@
                     "avatar": {
                       "type": "object",
                       "x-nullable": true
-                    },
-                    "password": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "password_confirmation": {
-                      "type": "string",
-                      "x-nullable": true
                     }
                   }
                 }
@@ -4098,20 +4198,20 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "id": 169,
-                  "first_name": "Sabrina Lowe",
-                  "last_name": "Miss Callie Balistreri",
+                  "id": 173,
+                  "first_name": "Julia Ortiz",
+                  "last_name": "Danika Rempel",
                   "admin_role": "super_admin",
                   "phone_number": null,
                   "date_of_birth": null,
                   "address": null,
-                  "country_id": 335,
-                  "state_id": 168,
+                  "country_id": 343,
+                  "state_id": 172,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "2018-02-28T20:29:07.459Z",
-                  "updated_at": "2018-02-28T20:29:07.483Z",
-                  "email": "angel.oberbrunner@schumm.biz",
+                  "created_at": "2018-03-01T17:28:22.412Z",
+                  "updated_at": "2018-03-01T17:28:22.436Z",
+                  "email": "lori@monahan.net",
                   "confirmation_token": null,
                   "unconfirmed_email": null,
                   "avatar": {
@@ -4123,10 +4223,8 @@
                       "url": null
                     }
                   },
-                  "password": null,
-                  "password_confirmation": null,
                   "country": {
-                    "id": 335,
+                    "id": 343,
                     "code": null,
                     "name": "Canada",
                     "phonecode": null
@@ -4244,6 +4342,34 @@
                 "user": {
                   "type": "object",
                   "properties": {
+                    "address": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "avatar": {
+                      "type": "object",
+                      "x-nullable": true
+                    },
+                    "country_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "state_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "zip_code": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "date_of_birth": {
+                      "type": "date",
+                      "x-nullable": true
+                    },
+                    "phone_number": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
                     "first_name": {
                       "type": "string",
                       "x-nullable": true
@@ -4262,6 +4388,46 @@
                     "password_confirmation": {
                       "type": "string",
                       "x-nullable": true
+                    },
+                    "organization_users_attributes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "role": {
+                            "type": "string",
+                            "x-nullable": true,
+                            "enum": [
+                              "student",
+                              "teacher",
+                              "admin"
+                            ]
+                          },
+                          "status": {
+                            "type": "string",
+                            "x-nullable": true,
+                            "enum": [
+                              "active",
+                              "suspended"
+                            ]
+                          },
+                          "exclude_students_ids": {
+                            "type": "text",
+                            "x-nullable": true
+                          },
+                          "files_controll_enabled": {
+                            "type": "boolean",
+                            "x-nullable": true
+                          },
+                          "mesanger_access_enabled": {
+                            "type": "boolean",
+                            "x-nullable": true
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -4289,15 +4455,35 @@
                       "type": "string",
                       "x-nullable": true
                     },
-                    "email": {
-                      "type": "string"
-                    },
-                    "password": {
+                    "phone_number": {
                       "type": "string",
                       "x-nullable": true
                     },
-                    "password_confirmation": {
+                    "date_of_birth": {
+                      "type": "date",
+                      "x-nullable": true
+                    },
+                    "address": {
                       "type": "string",
+                      "x-nullable": true
+                    },
+                    "country_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "state_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "zip_code": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "avatar": {
+                      "type": "object",
                       "x-nullable": true
                     }
                   }
@@ -4310,22 +4496,22 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "id": 174,
-                  "first_name": "Sabrina Lowe",
-                  "last_name": "Miss Callie Balistreri",
+                  "id": 183,
+                  "first_name": "Julia Ortiz",
+                  "last_name": "Danika Rempel",
                   "admin_role": "super_admin",
                   "phone_number": null,
                   "date_of_birth": null,
                   "address": null,
-                  "country_id": 345,
-                  "state_id": 173,
+                  "country_id": 365,
+                  "state_id": 183,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "2018-02-28T20:29:07.668Z",
-                  "updated_at": "2018-02-28T20:29:07.712Z",
-                  "email": "ally@brakusebert.info",
-                  "confirmation_token": "qgXAQs_ka1xZLB4XjQYs",
-                  "unconfirmed_email": "madelyn_pacocha@gibson.co",
+                  "created_at": "2018-03-01T17:28:22.967Z",
+                  "updated_at": "2018-03-01T17:28:23.029Z",
+                  "email": "emilie@king.io",
+                  "confirmation_token": "Z75zqsLC6SEa4JyULUUQ",
+                  "unconfirmed_email": "domenico.kulas@okuneva.com",
                   "avatar": {
                     "url": null,
                     "small": {
@@ -4335,10 +4521,8 @@
                       "url": null
                     }
                   },
-                  "password": null,
-                  "password_confirmation": null,
                   "country": {
-                    "id": 345,
+                    "id": 365,
                     "code": null,
                     "name": "Canada",
                     "phonecode": null

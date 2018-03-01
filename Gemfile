@@ -30,6 +30,7 @@ gem "daemons"
 
 gem 'active_model_serializers'#, path: './lib/active_model_serializers'
 gem 'carrierwave', '~> 1.0'
+gem 'carrierwave-base64'
 gem 'rmagick'
 
 gem 'resque'

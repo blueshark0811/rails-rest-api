@@ -2,7 +2,7 @@ require 'models_helper'
 
 RSpec.describe OrganizationUser, type: :model do
   it_behaves_like 'enumerable' do
-    let(:fields) { %i[role] }
+    let(:fields) { %i[role status] }
   end
 
   describe 'validate' do

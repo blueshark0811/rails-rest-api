@@ -157,7 +157,7 @@ describe User, type: :model do
     let(:user) { create :user, role: role, organization: organization }
     let(:organization2) { create :organization }
     let!(:organization_user2) { create :organization_user, user: user, organization: organization2, role: role2 }
-    
+
     it 'returns role' do
       expect(user.role(organization)).to eq role
     end
@@ -174,15 +174,28 @@ describe User, type: :model do
     end
   end
 
-  describe '#api_base_attributes' do
-    subject { user.api_base_attributes }
+  describe '#organization_status' do
+    let(:status) { OrganizationUser.statuses.keys.first }
+    let(:status2) { OrganizationUser.statuses.keys.last }
 
-    it 'returns array of attributes' do
-      expect(subject).to include :id
+    let(:organization) { create :organization }
+    let(:user) { create :user, status: status, organization: organization }
+    let(:organization2) { create :organization }
+    let!(:organization_user2) { create :organization_user, user: user, organization: organization2, status: status2 }
+
+    it 'returns status' do
+      expect(user.organization_status(organization)).to eq status
     end
 
-    it 'extend super classs with password attributes' do
-      expect(subject.sort).to eq (user.attributes.keys.map(&:to_sym)+[:password, :password_confirmation]).sort
+    it 'returns sttus depend from sent organization' do
+      expect(user.organization_status(organization2)).to eq status2
+    end
+
+    it 'cache status for specific organization' do
+      allow(user).to receive(:organization_users).and_return OrganizationUser
+      expect(user).to receive(:organization_users).once
+      user.organization_status organization
+      user.organization_status organization
     end
   end
 
@@ -190,14 +203,14 @@ describe User, type: :model do
     subject { user.jwt_token }
 
     context 'user is not confirmed' do
-      let(:user){ create :user, confirmed_at: nil }
-      
+      let(:user) { create :user, confirmed_at: nil }
+
       it { is_expected.to be_nil }
     end
 
     context 'user confirmed' do
-      let(:user){ create :user, remember_created_at: nil }
-      
+      let(:user) { create :user, remember_created_at: nil }
+
       it { is_expected.to be_kind_of(String) }
 
       it 'update remember_created_at' do
@@ -218,6 +231,42 @@ describe User, type: :model do
         )
         subject
       end
+    end
+  end
+
+  describe '#current_organization' do
+    subject { described_class.new }
+    it { is_expected.to respond_to(:current_organization) }
+    it { is_expected.to respond_to('current_organization=') }
+  end
+
+  describe '#current_organization_user' do
+    let(:organization) { create :organization }
+    before { user.organizations << organization }
+
+    context 'when organization sent as parameter' do
+      subject { user.current_organization_user organization }
+
+      it 'returns organization_user instance for current user and organization' do
+        expect(subject.organization_id).to eq organization.id
+        expect(subject.user_id).to eq user.id
+      end
+    end
+
+    context 'when organization as attr accessor in instance' do
+      subject { user.current_organization_user }
+
+      it 'returns organization_user instance for current user and organization' do
+        user.current_organization = organization
+        expect(subject.organization_id).to eq organization.id
+        expect(subject.user_id).to eq user.id
+      end
+    end
+
+    context 'when organization as attr accessor did not set and did not send as parameter ' do
+      subject { user.current_organization_user }
+
+      it { is_expected.to be_nil }
     end
   end
 
@@ -246,4 +295,6 @@ describe User, type: :model do
       it { is_expected.to be_nil }
     end
   end
+
+  xdescription '#set_temp_passsword'
 end

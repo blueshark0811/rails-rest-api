@@ -7,10 +7,40 @@ class User < ApplicationRecord
 
   enumerate :admin_role, :status
 
-  mount_uploader :avatar, AvatarUploader
+  mount_base64_uploader :avatar, AvatarUploader
 
-  def role organization
+  before_validation :set_temp_passsword, on: :create
+
+  accepts_nested_attributes_for :organization_users
+
+  attr_accessor :current_organization
+
+  def current_organization_user(organization = nil)
+    return unless organization ||= current_organization
+
+    organization_users.find_by(organization_id: organization.id)
+  end
+
+  def role(organization = nil)
+    return unless organization ||= current_organization
+
     @role ||= {}
-    @role[organization.id] ||= organization_users.find_by(organization_id: organization.id)&.role
+    @role[organization.id] ||= current_organization_user(organization)&.role
+  end
+
+  def organization_status(organization = nil)
+    return unless organization ||= current_organization
+
+    @organization_status ||= {}
+    @organization_status[organization.id] ||= current_organization_user(organization)&.status
+  end
+
+  protected
+
+  def set_temp_passsword
+    return if password.present?
+
+    self.password = Devise.friendly_token.first(8)
+    self.password_confirmation = password
   end
 end

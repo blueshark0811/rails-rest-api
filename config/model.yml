@@ -13,6 +13,10 @@ organization_user:
     teacher: Teacher
     admin: Admin
 
+  statuses:
+    active: Active
+    suspended: Suspended
+
 group:
   statuses:
     active: Active

@@ -1,20 +1,19 @@
+# frozen_string_literal: true
+
 module ApiAttributes
   extend ActiveSupport::Concern
 
-  def api_properties_for_swagger(options = {})
-    attrs = api_available_attriubtes(options)
+  def api_attributes_for_swagger(options)
 
-    res = {}.with_indifferent_access
-
-    return res unless attrs
-
-     attrs.each do |field|
-      next unless api_base_attributes.include?(field)
-
-      res[field] = self.class.api_prepare_property field, options
+    attrs = if options.fetch(:data_action, :return) == :return
+              api_return_attributes options
+            else
+              api_receive_attributes options
     end
 
-    res
+    return {} unless attrs
+
+    self.class.api_prepare_attributes_for_swagger attrs, options
   end
 
   module ClassMethods
@@ -36,20 +35,72 @@ module ApiAttributes
       Object.const_get serializer_class_name
     end
 
-    def api_prepare_property(field, options = {})
+    def policy_file
+      Rails.root.join("app/policies/#{name.underscore}_policy.rb")
+    end
+
+    def policy_class
+      return @policy_class if @policy_class
+
+      return unless File.exist?(policy_file)
+
+      require policy_file
+
+      klass = "#{name}Policy"
+
+      return unless Object.const_defined?(klass)
+
+      @policy_class = Object.const_get klass
+    end
+
+    def policy_base_attributes
+      return [] unless policy_class
+
+      policy_class.new(UserContext.new, new).api_attributes
+    end
+
+    def api_prepare_attributes_for_swagger(attrs, options)
+      res = {}.with_indifferent_access
+
+      attrs.each do |field|
+        # next unless api_base_attributes.include?(field)
+
+        unless field.is_a?(Hash)
+          res[field] = api_prepare_attribute_for_swagger field, options
+          next
+        end
+
+        key = field.keys.first
+
+        next if (skan = key.to_s.scan(/\A(.+)_attributes\z/)).blank?
+
+        next unless (klass = skan.first.first.singularize.classify.constantize rescue nil)
+
+        res[key] = {
+          type: :array,
+          items: {
+            type: :object,
+            properties: klass.api_prepare_attributes_for_swagger(field.values.first, options) 
+          }
+        }
+      end
+
+      res
+    end
+
+    def api_prepare_attribute_for_swagger(field, options = {})
       col = column_for_attribute(field)
 
       res = {}
 
       res[:type] = :object if uploaders.keys.include?(field)
 
-      # fix for searchkick results..
       if respond_to?(:searchkick_klass) && col.type == :integer && options[:as] == :searchkick
         res[:type] = :string
       end
 
       res[:type] ||= col.type
-      
+
       res[:type] ||= :string
 
       res['x-nullable'] = true if col.null
@@ -68,9 +119,26 @@ module ApiAttributes
     res.uniq
   end
 
+  def policy_available_attribute(user_context, action)
+    return [] unless pclass = self.class.policy_class
+
+    pclass.new(user_context, self).api_attributes(action)
+  end
+
   protected
 
-  def api_available_attriubtes(options = {})
+  # attributes that api receive, for ex: for update/create actions
+  def api_receive_attributes(options = {})
+    policy_available_attribute(
+      UserContext.new(
+        options[:current_user], options[:current_organization]
+      ),
+      options.dig(:params, :action)
+    )
+  end
+
+  #attributes that returns api
+  def api_return_attributes(options = {})
     self.class.serializer&.new(self, serializer_params: options)&.attributes&.keys&.map(&:to_sym)
   end
 end

@@ -28,26 +28,10 @@ module ApiSerializer
       @serializable_class = Object.const_get serializable_class_name
     end
 
-    def serializable_policy_class
-      return @serializable_policy_class if @serializable_policy_class
-
-      serializer_file = Rails.root.join("app/policies/#{serializable_class_name.underscore}_policy.rb")
-
-      return unless File.exist?(serializer_file)
-
-      require serializer_file
-
-      klass = "#{serializable_class_name}Policy"
-
-      return unless Object.const_defined?(klass)
-
-      @serializable_policy_class = Object.const_get klass
-    end
-
     def base_attributes
-      return [] if !serializable_class || !serializable_policy_class
+      return [] if !serializable_class
 
-      serializable_policy_class.new(UserContext.new, serializable_class.new).api_attributes
+      serializable_class.policy_base_attributes
     end
   end
 
@@ -58,9 +42,8 @@ module ApiSerializer
 
     return @available_fields[key] if @available_fields[key]
 
-    return unless self.class.serializable_policy_class
+    return unless self.class.serializable_class
 
-    @available_fields[key] = self.class.serializable_policy_class.new(user_context, object)
-      .api_attributes(params[:action])
+    @available_fields[key] = object.policy_available_attribute(user_context, params[:action])
   end
 end

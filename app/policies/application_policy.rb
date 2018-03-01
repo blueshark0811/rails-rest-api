@@ -11,7 +11,7 @@ class ApplicationPolicy
   end
 
   def role
-    @role ||= user.role(organization)
+    @role ||= user&.role(organization)
   end
 
   def super_admin?
@@ -50,6 +50,10 @@ class ApplicationPolicy
 
   def destroy?
     super_admin?
+  end
+
+  def author?
+    user.id == record.user_id
   end
 
   def scope

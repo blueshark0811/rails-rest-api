@@ -21,7 +21,7 @@ module RswagHelper
   end
 
   def rswag_set_schema(example, options = {})
-    example.metadata[:response][:schema] = rswag_get_schema(options)
+    example.metadata[:response][:schema] = rswag_get_schema(options.merge(data_action: :return))
   end
 
   def rswag_set_error_schema(example, _options = {})
@@ -59,7 +59,7 @@ module RswagHelper
     param = {
       name: options.fetch(:name, :body),
       in: options.fetch(:in, :body),
-      schema: rswag_get_schema(options)
+      schema: rswag_get_schema(options.merge(data_action: :receive))
     }
 
     rswag_parameter example, param
@@ -99,10 +99,12 @@ module RswagHelper
   end
 
   def rswag_item_properties(options)
-    rswag_properties[:object].api_properties_for_swagger(
+    rswag_properties[:object].api_attributes_for_swagger(
       current_user: rswag_properties[:current_user],
+      current_organization: rswag_properties[:current_organization],
       params: { action: options.fetch(:action) },
-      as: options.fetch(:as, :active_model)
+      as: options.fetch(:as, :active_model),
+      data_action: options.fetch(:data_action, :return)
     )
   end
 end

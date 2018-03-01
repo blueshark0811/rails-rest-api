@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Api::V1::UsersController < Api::V1::ApiController
-  before_action :set_user, except: [:index]
+  before_action :set_user, except: [:index, :create]
 
   def index
     @users = current_organization.users
@@ -27,6 +27,16 @@ class Api::V1::UsersController < Api::V1::ApiController
 
   def destroy
     render_result success: @user.deleted!
+  end
+
+  def create
+    @user = User.new
+
+    if @user.update permitted_attributes(@user)
+      render_result @user
+    else
+      render_error @user
+    end
   end
 
   private

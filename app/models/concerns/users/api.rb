@@ -5,10 +5,6 @@ module Users
     included do
     end
 
-    def api_base_attributes
-      super+[:password, :password_confirmation]
-    end
-
     def remember_expired?
       !remember_created_at || remember_expire_at < Time.zone.now
     end

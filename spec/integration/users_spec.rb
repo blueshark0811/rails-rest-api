@@ -1,7 +1,12 @@
 require 'swagger_helper'
 
 describe Api::V1::UsersController do
-  let!(:rswag_properties) { { current_user: current_user, object: current_user } }
+  let!(:rswag_properties) do { 
+    current_user: current_user,
+    current_organization: current_user.organizations.first,
+    object: current_user
+    } 
+  end
 
   options = { klass: User }
 
@@ -18,6 +23,7 @@ describe Api::V1::UsersController do
   end
 
   crud_show options
+  crud_create options
   crud_update options
   crud_delete options
 end
