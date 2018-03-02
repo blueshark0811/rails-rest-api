@@ -6,13 +6,13 @@ module ApiPolicy
 
   def api_base_attributes
     if record.is_a?(Searchkick::HashWrapper)
-      record.keys.map(&:to_sym).reject{|k| k.match(/\A_|\Asort\z/) }
+      record.keys.map(&:to_sym).reject { |k| k.match(/\A_|\Asort\z/) }
     else
-      record.api_base_attributes.reject{|k| api_base_attributes_exclude.include?(k) }
+      record.api_base_attributes.reject { |k| api_base_attributes_exclude.include?(k) }
     end
   end
 
-  def api_attributes action = nil
+  def api_attributes(action = nil)
     if action && respond_to?(act = "api_attributes_#{action}")
       return send(act)
     end

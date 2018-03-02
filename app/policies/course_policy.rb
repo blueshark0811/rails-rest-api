@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class CoursePolicy < OrganizationEntityPolicy
   def permitted_attributes
-    [:description, :image, :title]
+    %i[description image title]
   end
 end

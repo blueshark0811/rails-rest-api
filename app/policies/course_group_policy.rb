@@ -7,6 +7,6 @@ class CourseGroupPolicy < ApplicationPolicy
   end
 
   def permitted_attributes_for_create
-    permitted_attributes+%i[course_id]
+    permitted_attributes + %i[course_id]
   end
 end

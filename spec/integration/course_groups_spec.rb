@@ -9,9 +9,21 @@ describe Api::V1::CourseGroupsController do
   let(:rswag_properties) { { current_user: current_user, object: course_group } }
   let!(:group_id) { group.id }
 
-  options = { klass: CourseGroup, slug: 'groups/{group_id}/course_groups' }
+  options = { klass: CourseGroup, slug: 'groups/{group_id}/course_groups', tag: 'Courses vs Groups' }
 
-  crud_create options.merge(description: 'Add Course to group', tag: 'Courses') do
+  crud_index options.merge(description: 'Courses in group') do
+    let(:additional_parameters) do
+      [{
+        name: :group_id,
+        in: :query,
+        type: :integer,
+        required: true,
+        description: 'get courses from specific group'
+      }]
+    end
+  end
+
+  crud_create options.merge(description: 'Add Course to group') do
     let(:additional_parameters) do
       [{
         name: :group_id,
@@ -22,7 +34,7 @@ describe Api::V1::CourseGroupsController do
     end
   end
 
-  crud_update options.merge(description: 'Update Course in group', tag: 'Courses') do
+  crud_update options.merge(description: 'Update Course in group') do
     let(:additional_parameters) do
       [{
         name: :group_id,
@@ -33,7 +45,7 @@ describe Api::V1::CourseGroupsController do
     end
   end
 
-  crud_delete options.merge(description: 'Delete Course from group', tag: 'Courses') do
+  crud_delete options.merge(description: 'Delete Course from group') do
     let(:additional_parameters) do
       [{
         name: :group_id,

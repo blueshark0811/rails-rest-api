@@ -2,12 +2,18 @@
 
 class Group < ApplicationRecord
   include Groups::Relations
+  SEARCH_FIELDS = %i[description title]
 
-  searchkick callbacks: :async, word_start: [:title], searchable: %i[description title]
+  searchkick callbacks: :async, word_start: SEARCH_FIELDS, searchable: SEARCH_FIELDS
+  def search_data
+    attributes.merge(
+      user_ids: user_ids
+    )
+  end
 
   enumerate :status, field: :visibility, prefix: true
 
-  validates :organization_id, :status, :visibility, presence: true
+  validates :organization_id, :title, :status, :visibility, presence: true
 
   scope :participated_by, lambda { |user|
     joins(:group_users).where(group_users: { user_id: user.id })

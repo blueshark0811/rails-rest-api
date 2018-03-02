@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  
   factory :user do
     transient do
       with_organization true
@@ -22,6 +21,12 @@ FactoryBot.define do
       if evaluator.with_organization
         organization = evaluator.organization || create(:organization)
         create :organization_user, organization: organization, user: object, role: evaluator.role
+      end
+    end
+
+    trait :reindex do
+      after(:create) do |object, _evaluator|
+        object.reindex(refresh: true)
       end
     end
 

@@ -4,13 +4,23 @@ class Api::V1::UsersController < Api::V1::ApiController
   before_action :set_user, except: [:index, :create]
 
   def index
-    @users = current_organization.users
+    order = { first_name: sort_flag }
 
-    if params[:group_id]
-      @users = @users.joins(:group_users).where(group_users: { group_id: params[:group_id] })
-    end
+    where = { organization_ids: current_organization.id }
 
-    render_result @users.page(current_page).per(current_count)
+    where.merge!(group_ids: params[:group_id]) if params[:group_id]
+
+    @users = User.search params[:term] || '*',
+      where: where,
+      order: order,
+      page: current_page,
+      per_page: current_count,
+      fields: User::SEARCH_FIELDS,
+      match: :word_start
+
+    authorize @users
+
+    render_result @users
   end
 
   def show
@@ -19,9 +29,7 @@ class Api::V1::UsersController < Api::V1::ApiController
 
   def update
     if @user.update_attributes permitted_attributes(@user)
-      render_result @user
-    else
-      render_error @user
+      render_result(@user) else render_error(@user)
     end
   end
 
@@ -31,12 +39,17 @@ class Api::V1::UsersController < Api::V1::ApiController
 
   def create
     @user = User.new
+    @user.skip_confirmation!
+
+    authorize @user
 
     if @user.update permitted_attributes(@user)
-      render_result @user
-    else
-      render_error @user
+      render_result(@user) else render_error(@user)
     end
+  end
+
+  def send_set_password_link
+    render_result success: !!@user.send_reset_password_instructions
   end
 
   private

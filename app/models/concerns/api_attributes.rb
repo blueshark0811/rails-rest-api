@@ -17,6 +17,19 @@ module ApiAttributes
   end
 
   module ClassMethods
+    def additional_attributes
+      {} # { attribute_name: { type: :integer, null: false }, attribute_name2: { type: :string, null: true } }
+    end
+
+    #extended columns info of instance with additional_attributes
+    def column_of_attribute(name)
+      col = column_for_attribute name
+
+      return col if col.type
+
+      OpenStruct.new additional_attributes[name.to_sym]
+    end
+    
     def serializer_file
       Rails.root.join("app/serializers/api/v#{API_VERSION}/#{name.underscore}_serializer.rb")
     end
@@ -80,7 +93,7 @@ module ApiAttributes
           type: :array,
           items: {
             type: :object,
-            properties: klass.api_prepare_attributes_for_swagger(field.values.first, options) 
+            properties: klass.api_prepare_attributes_for_swagger(field.values.first, options)
           }
         }
       end
@@ -89,19 +102,17 @@ module ApiAttributes
     end
 
     def api_prepare_attribute_for_swagger(field, options = {})
-      col = column_for_attribute(field)
+      col = column_of_attribute(field)
 
       res = {}
 
       res[:type] = :object if uploaders.keys.include?(field)
 
-      if respond_to?(:searchkick_klass) && col.type == :integer && options[:as] == :searchkick
-        res[:type] = :string
-      end
-
       res[:type] ||= col.type
 
-      res[:type] ||= :string
+      unless res[:type]
+        res[:type] = field.to_s.match(/_ids/) ? :array : :string
+      end
 
       res['x-nullable'] = true if col.null
 

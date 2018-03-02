@@ -1,14 +1,15 @@
 class GroupUser < ApplicationRecord
   SORT_SIMLE_FIELDS = %w[created_at status]
   SORT_USER_FIELDS = %w[last_name first_name]
-  SORT_FIELDS = %w[role]+SORT_USER_FIELDS+SORT_SIMLE_FIELDS
+  SORT_FIELDS = %w[role] + SORT_USER_FIELDS+SORT_SIMLE_FIELDS
 
   searchkick callbacks: :async
   def search_data
     {
-      first_name: first_name,
-      last_name: last_name,
-      role: role
+      first_name: first_name || '',
+      last_name: last_name || '',
+      role: role || '',
+      organization_id: organization_id
     }
   end
 
@@ -44,13 +45,28 @@ class GroupUser < ApplicationRecord
     organization_user&.role || ''
   end
 
+  def organization_id
+    group&.organization_id
+  end
+
   def organization_user
     return unless group&.organization
-    
+
     @organization_user ||= OrganizationUser.find_by(
       user_id: user_id,
       organization_id: group.organization.id
       )
+  end
+
+  class << self
+    def additional_attributes
+      {
+        first_name: { type: :string },
+        last_name: { type: :string },
+        role: { type: :string },
+        organization_id: { type: :integer }
+      }
+    end
   end
 
   protected

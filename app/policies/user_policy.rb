@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class UserPolicy < ApplicationPolicy
+  def send_set_password_link?
+    user.id == record.id || admin?
+  end
+
   def permitted_attributes_for_update
     attrs = permitted_attributes_for_create
 
@@ -20,7 +24,7 @@ class UserPolicy < ApplicationPolicy
     %i[
       address avatar country_id state_id zip_code date_of_birth phone_number
       first_name last_name email password password_confirmation
-    ]
+    ]# << {group_ids: []}
   end
 
   def api_base_attributes_exclude

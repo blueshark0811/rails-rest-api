@@ -7,11 +7,23 @@ FactoryBot.define do
     user_limit 10
     visibility 'public'
     status 'active'
+
+    trait :reindex do
+      after(:create) do |object, _evaluator|
+        object.reindex(refresh: true)
+      end
+    end
   end
 
   factory :group_user do
     group
     user
     status GroupUser.statuses.first.first
+
+    trait :reindex do
+      after(:create) do |object, _evaluator|
+        object.reindex(refresh: true)
+      end
+    end
   end
 end

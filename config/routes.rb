@@ -15,7 +15,11 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :users
+      resources :users do
+        member do
+          post :send_set_password_link
+        end
+      end
       resources :registrations, only: [:create]
       resources :passwords, only: %i[create update]
 

@@ -3,14 +3,14 @@
 require 'swagger_helper'
 
 describe Api::V1::GroupUsersController do
-  let!(:group) { create :group, organization: current_user.organizations.first }
-  let!(:group_user) { create :group_user, group: group, user: current_user }
+  let!(:group) { create :group, :reindex, organization: current_user.organizations.first }
+  let!(:group_user) { create :group_user, :reindex, group: group, user: current_user}
   let(:rswag_properties) { { current_user: current_user, object: group_user } }
   let!(:group_id) { group.id }
 
-  options = { klass: GroupUser, slug: 'groups/{group_id}/group_users' }
+  options = { klass: GroupUser, slug: 'groups/{group_id}/group_users', tag: 'Users vs Groups' }
 
-  crud_index options.merge(as: :searchkick, description: 'Users in group', tag: 'Users') do
+  crud_index options.merge(as: :searchkick, description: 'Users in group') do
     let(:additional_parameters) do
       [{
         name: :group_id,
@@ -35,7 +35,7 @@ describe Api::V1::GroupUsersController do
     end
   end
 
-  crud_create options.merge(description: 'Add User to group', tag: 'Users') do
+  crud_create options.merge(description: 'Add User to group') do
     let(:additional_parameters) do
       [{
         name: :group_id,
@@ -46,7 +46,7 @@ describe Api::V1::GroupUsersController do
     end
   end
 
-  crud_update options.merge(description: 'Change status of user in group', tag: 'Users') do
+  crud_update options.merge(description: 'Change status of user in group') do
     let(:additional_parameters) do
       [{
         name: :group_id,
@@ -57,7 +57,7 @@ describe Api::V1::GroupUsersController do
     end
   end
 
-  crud_delete options.merge(description: 'Delete user from group', tag: 'Users') do
+  crud_delete options.merge(description: 'Delete user from group') do
     let(:additional_parameters) do
       [{
         name: :group_id,
@@ -68,9 +68,9 @@ describe Api::V1::GroupUsersController do
     end
   end
 
-  batch_update options.merge(description: 'Change status of batch users in group', tag: 'Users') do
-    let(:ids){ [group.id] }
-    let(:status){ GroupUser.statuses.keys.first }
+  batch_update options.merge(description: 'Change status of batch users in group') do
+    let(:ids) { [group.id] }
+    let(:status) { GroupUser.statuses.keys.first }
 
     let(:additional_parameters) do
       [{

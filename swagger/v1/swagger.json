@@ -9,7 +9,7 @@
       "post": {
         "summary": "Add Course to group",
         "tags": [
-          "Courses"
+          "Courses vs Groups"
         ],
         "consumes": [
           "application/json"
@@ -169,8 +169,8 @@
                   "discussing_enabled": true,
                   "student_content_enabled": true,
                   "status": "active",
-                  "created_at": "2018-03-01T17:28:13.800Z",
-                  "updated_at": "2018-03-01T17:28:13.800Z"
+                  "created_at": "March 02, 2018 19:27",
+                  "updated_at": "March 02, 2018 19:27"
                 }
               }
             }
@@ -232,7 +232,7 @@
       "put": {
         "summary": "Update Course in group",
         "tags": [
-          "Courses"
+          "Courses vs Groups"
         ],
         "consumes": [
           "application/json"
@@ -377,8 +377,8 @@
                   "discussing_enabled": true,
                   "student_content_enabled": true,
                   "status": "active",
-                  "created_at": "2018-03-01T17:28:14.350Z",
-                  "updated_at": "2018-03-01T17:28:14.441Z"
+                  "created_at": "March 02, 2018 19:27",
+                  "updated_at": "March 02, 2018 19:27"
                 }
               }
             }
@@ -463,7 +463,7 @@
       "delete": {
         "summary": "Delete Course from group",
         "tags": [
-          "Courses"
+          "Courses vs Groups"
         ],
         "consumes": [
           "application/json"
@@ -675,19 +675,19 @@
                 "courses": [
                   {
                     "id": 27,
-                    "title": "Howell and Sons",
-                    "description": "benchmark ubiquitous niches",
+                    "title": "Bahringer and Sons",
+                    "description": "enhance dot-com partnerships",
                     "image": {
                       "url": "/uploads/course/image/27/test.jpg"
                     },
                     "user_id": 42,
                     "organization_id": 55,
-                    "created_at": "2018-03-01T17:28:15.589Z",
-                    "updated_at": "2018-03-01T17:28:15.589Z",
+                    "created_at": "March 02, 2018 19:27",
+                    "updated_at": "March 02, 2018 19:27",
                     "user": {
                       "id": 42,
-                      "first_name": "Julia Ortiz",
-                      "last_name": "Danika Rempel",
+                      "first_name": "Ms. Dimitri Ernser",
+                      "last_name": "Thalia Casper",
                       "admin_role": "super_admin",
                       "phone_number": null,
                       "date_of_birth": null,
@@ -696,9 +696,9 @@
                       "state_id": 42,
                       "zip_code": null,
                       "status": "active",
-                      "created_at": "2018-03-01T17:28:15.576Z",
-                      "updated_at": "2018-03-01T17:28:15.576Z",
-                      "email": "lelah@klocko.net",
+                      "created_at": "March 02, 2018 19:27",
+                      "updated_at": "March 02, 2018 19:27",
+                      "email": "juston.kovacek@schillerlangworth.name",
                       "confirmation_token": null,
                       "unconfirmed_email": null,
                       "avatar": {
@@ -709,9 +709,21 @@
                         "middle": {
                           "url": null
                         }
-                      }
+                      },
+                      "organization_ids": [
+                        56
+                      ],
+                      "group_ids": [
+
+                      ]
                     },
                     "organization": {
+                      "id": 55,
+                      "title": "Moen, Reichel and Wisoky",
+                      "subdomain": "zboncak",
+                      "domain": "quitzon.io",
+                      "created_at": "March 02, 2018 19:27",
+                      "updated_at": "March 02, 2018 19:27"
                     }
                   }
                 ],
@@ -870,19 +882,19 @@
               "application/json": {
                 "course": {
                   "id": 35,
-                  "title": "Howell and Sons",
-                  "description": "benchmark ubiquitous niches",
+                  "title": "Bahringer and Sons",
+                  "description": "enhance dot-com partnerships",
                   "image": {
                     "url": null
                   },
                   "user_id": 57,
                   "organization_id": 69,
-                  "created_at": "2018-03-01T17:28:16.459Z",
-                  "updated_at": "2018-03-01T17:28:16.459Z",
+                  "created_at": "March 02, 2018 19:27",
+                  "updated_at": "March 02, 2018 19:27",
                   "user": {
                     "id": 57,
-                    "first_name": "Julia Ortiz",
-                    "last_name": "Danika Rempel",
+                    "first_name": "Ms. Dimitri Ernser",
+                    "last_name": "Thalia Casper",
                     "admin_role": "super_admin",
                     "phone_number": null,
                     "date_of_birth": null,
@@ -891,9 +903,9 @@
                     "state_id": 57,
                     "zip_code": null,
                     "status": "active",
-                    "created_at": "2018-03-01T17:28:16.341Z",
-                    "updated_at": "2018-03-01T17:28:16.449Z",
-                    "email": "marcos.jerde@labadie.io",
+                    "created_at": "March 02, 2018 19:27",
+                    "updated_at": "March 02, 2018 19:27",
+                    "email": "robin@harris.name",
                     "confirmation_token": null,
                     "unconfirmed_email": null,
                     "avatar": {
@@ -904,9 +916,21 @@
                       "middle": {
                         "url": null
                       }
-                    }
+                    },
+                    "organization_ids": [
+                      69
+                    ],
+                    "group_ids": [
+
+                    ]
                   },
                   "organization": {
+                    "id": 69,
+                    "title": "Moen, Reichel and Wisoky",
+                    "subdomain": "zboncak",
+                    "domain": "quitzon.io",
+                    "created_at": "March 02, 2018 19:27",
+                    "updated_at": "March 02, 2018 19:27"
                   }
                 }
               }
@@ -1037,19 +1061,19 @@
               "application/json": {
                 "course": {
                   "id": 30,
-                  "title": "Howell and Sons",
-                  "description": "benchmark ubiquitous niches",
+                  "title": "Bahringer and Sons",
+                  "description": "enhance dot-com partnerships",
                   "image": {
                     "url": "/uploads/course/image/30/test.jpg"
                   },
                   "user_id": 49,
                   "organization_id": 61,
-                  "created_at": "2018-03-01T17:28:15.976Z",
-                  "updated_at": "2018-03-01T17:28:15.976Z",
+                  "created_at": "March 02, 2018 19:27",
+                  "updated_at": "March 02, 2018 19:27",
                   "user": {
                     "id": 49,
-                    "first_name": "Julia Ortiz",
-                    "last_name": "Danika Rempel",
+                    "first_name": "Ms. Dimitri Ernser",
+                    "last_name": "Thalia Casper",
                     "admin_role": "super_admin",
                     "phone_number": null,
                     "date_of_birth": null,
@@ -1058,9 +1082,9 @@
                     "state_id": 49,
                     "zip_code": null,
                     "status": "active",
-                    "created_at": "2018-03-01T17:28:15.960Z",
-                    "updated_at": "2018-03-01T17:28:15.960Z",
-                    "email": "antone@mclaughlin.info",
+                    "created_at": "March 02, 2018 19:27",
+                    "updated_at": "March 02, 2018 19:27",
+                    "email": "eileen_gulgowski@feil.com",
                     "confirmation_token": null,
                     "unconfirmed_email": null,
                     "avatar": {
@@ -1071,9 +1095,21 @@
                       "middle": {
                         "url": null
                       }
-                    }
+                    },
+                    "organization_ids": [
+                      62
+                    ],
+                    "group_ids": [
+
+                    ]
                   },
                   "organization": {
+                    "id": 61,
+                    "title": "Moen, Reichel and Wisoky",
+                    "subdomain": "zboncak",
+                    "domain": "quitzon.io",
+                    "created_at": "March 02, 2018 19:27",
+                    "updated_at": "March 02, 2018 19:27"
                   }
                 }
               }
@@ -1239,19 +1275,19 @@
               "application/json": {
                 "course": {
                   "id": 38,
-                  "title": "Howell and Sons",
-                  "description": "benchmark ubiquitous niches",
+                  "title": "Bahringer and Sons",
+                  "description": "enhance dot-com partnerships",
                   "image": {
                     "url": "/uploads/course/image/38/test.jpg"
                   },
                   "user_id": 66,
                   "organization_id": 77,
-                  "created_at": "2018-03-01T17:28:16.777Z",
-                  "updated_at": "2018-03-01T17:28:16.777Z",
+                  "created_at": "March 02, 2018 19:27",
+                  "updated_at": "March 02, 2018 19:27",
                   "user": {
                     "id": 66,
-                    "first_name": "Julia Ortiz",
-                    "last_name": "Danika Rempel",
+                    "first_name": "Ms. Dimitri Ernser",
+                    "last_name": "Thalia Casper",
                     "admin_role": "super_admin",
                     "phone_number": null,
                     "date_of_birth": null,
@@ -1260,9 +1296,9 @@
                     "state_id": 66,
                     "zip_code": null,
                     "status": "active",
-                    "created_at": "2018-03-01T17:28:16.762Z",
-                    "updated_at": "2018-03-01T17:28:16.762Z",
-                    "email": "leonel_heidenreich@monahan.net",
+                    "created_at": "March 02, 2018 19:27",
+                    "updated_at": "March 02, 2018 19:27",
+                    "email": "howard@bauchgulgowski.co",
                     "confirmation_token": null,
                     "unconfirmed_email": null,
                     "avatar": {
@@ -1273,9 +1309,21 @@
                       "middle": {
                         "url": null
                       }
-                    }
+                    },
+                    "organization_ids": [
+                      78
+                    ],
+                    "group_ids": [
+
+                    ]
                   },
                   "organization": {
+                    "id": 77,
+                    "title": "Moen, Reichel and Wisoky",
+                    "subdomain": "zboncak",
+                    "domain": "quitzon.io",
+                    "created_at": "March 02, 2018 19:27",
+                    "updated_at": "March 02, 2018 19:27"
                   }
                 }
               }
@@ -1483,7 +1531,7 @@
       "get": {
         "summary": "Users in group",
         "tags": [
-          "Users"
+          "Users vs Groups"
         ],
         "consumes": [
           "application/json"
@@ -1542,14 +1590,14 @@
                     "type": "object",
                     "properties": {
                       "id": {
-                        "type": "string"
+                        "type": "integer"
                       },
                       "user_id": {
-                        "type": "string",
+                        "type": "integer",
                         "x-nullable": true
                       },
                       "group_id": {
-                        "type": "string",
+                        "type": "integer",
                         "x-nullable": true
                       },
                       "created_at": {
@@ -1567,16 +1615,16 @@
                         ]
                       },
                       "first_name": {
-                        "type": "string",
-                        "x-nullable": true
+                        "type": "string"
                       },
                       "last_name": {
-                        "type": "string",
-                        "x-nullable": true
+                        "type": "string"
                       },
                       "role": {
-                        "type": "string",
-                        "x-nullable": true
+                        "type": "string"
+                      },
+                      "organization_id": {
+                        "type": "integer"
                       }
                     }
                   }
@@ -1585,6 +1633,25 @@
               "required": [
                 "group_users"
               ]
+            },
+            "examples": {
+              "application/json": {
+                "group_users": [
+                  {
+                    "id": 1,
+                    "first_name": "Ms. Dimitri Ernser",
+                    "last_name": "Thalia Casper",
+                    "role": "admin",
+                    "organization_id": 95
+                  }
+                ],
+                "meta": {
+                  "total_pages": 1,
+                  "size": 1,
+                  "limit_value": 20,
+                  "current_page": 1
+                }
+              }
             }
           },
           "401": {
@@ -1642,7 +1709,7 @@
       "post": {
         "summary": "Add User to group",
         "tags": [
-          "Users"
+          "Users vs Groups"
         ],
         "consumes": [
           "application/json"
@@ -1727,16 +1794,16 @@
                       ]
                     },
                     "first_name": {
-                      "type": "string",
-                      "x-nullable": true
+                      "type": "string"
                     },
                     "last_name": {
-                      "type": "string",
-                      "x-nullable": true
+                      "type": "string"
                     },
                     "role": {
-                      "type": "string",
-                      "x-nullable": true
+                      "type": "string"
+                    },
+                    "organization_id": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -1751,12 +1818,13 @@
                   "id": 5,
                   "user_id": 89,
                   "group_id": 17,
-                  "created_at": "2018-03-01T17:28:17.943Z",
-                  "updated_at": "2018-03-01T17:28:17.943Z",
+                  "created_at": "March 02, 2018 19:27",
+                  "updated_at": "March 02, 2018 19:27",
                   "status": "active",
-                  "first_name": "Julia Ortiz",
-                  "last_name": "Danika Rempel",
-                  "role": ""
+                  "first_name": "Ms. Dimitri Ernser",
+                  "last_name": "Thalia Casper",
+                  "role": "",
+                  "organization_id": 98
                 }
               }
             }
@@ -1818,7 +1886,7 @@
       "put": {
         "summary": "Change status of user in group",
         "tags": [
-          "Users"
+          "Users vs Groups"
         ],
         "consumes": [
           "application/json"
@@ -1908,12 +1976,13 @@
                   "id": 8,
                   "user_id": 93,
                   "group_id": 21,
-                  "created_at": "2018-03-01T17:28:18.181Z",
-                  "updated_at": "2018-03-01T17:28:18.181Z",
+                  "created_at": "March 02, 2018 19:27",
+                  "updated_at": "March 02, 2018 19:27",
                   "status": "active",
-                  "first_name": "Julia Ortiz",
-                  "last_name": "Danika Rempel",
-                  "role": "admin"
+                  "first_name": "Ms. Dimitri Ernser",
+                  "last_name": "Thalia Casper",
+                  "role": "admin",
+                  "organization_id": 103
                 }
               }
             }
@@ -1998,7 +2067,7 @@
       "delete": {
         "summary": "Delete user from group",
         "tags": [
-          "Users"
+          "Users vs Groups"
         ],
         "consumes": [
           "application/json"
@@ -2136,7 +2205,7 @@
       "put": {
         "summary": "Change status of batch users in group",
         "tags": [
-          "Users"
+          "Users vs Groups"
         ],
         "consumes": [
           "application/json"
@@ -2347,6 +2416,9 @@
                       "user_id": {
                         "type": "integer",
                         "x-nullable": true
+                      },
+                      "user_ids": {
+                        "type": "array"
                       }
                     }
                   }
@@ -2362,16 +2434,25 @@
                   {
                     "id": 33,
                     "organization_id": 116,
-                    "title": "Russel, Zulauf and Wiegand",
-                    "description": "enable interactive bandwidth",
+                    "title": "Renner LLC",
+                    "description": "brand ubiquitous experiences",
                     "status": "active",
                     "user_limit": 10,
                     "visibility": "public",
-                    "created_at": "2018-03-01T17:28:19.248Z",
-                    "updated_at": "2018-03-01T17:28:19.248Z",
+                    "created_at": "March 02, 2018 19:27",
+                    "updated_at": "March 02, 2018 19:27",
                     "count_participants": null,
                     "user_id": null,
+                    "user_ids": [
+
+                    ],
                     "organization": {
+                      "id": 116,
+                      "title": "Moen, Reichel and Wisoky",
+                      "subdomain": "zboncak",
+                      "domain": "quitzon.io",
+                      "created_at": "March 02, 2018 19:27",
+                      "updated_at": "March 02, 2018 19:27"
                     }
                   }
                 ],
@@ -2554,6 +2635,9 @@
                     "user_id": {
                       "type": "integer",
                       "x-nullable": true
+                    },
+                    "user_ids": {
+                      "type": "array"
                     }
                   }
                 }
@@ -2567,16 +2651,25 @@
                 "group": {
                   "id": 41,
                   "organization_id": 123,
-                  "title": "Russel, Zulauf and Wiegand",
-                  "description": "enable interactive bandwidth",
+                  "title": "Renner LLC",
+                  "description": "brand ubiquitous experiences",
                   "status": "active",
                   "user_limit": 10,
                   "visibility": "public",
-                  "created_at": "2018-03-01T17:28:19.831Z",
-                  "updated_at": "2018-03-01T17:28:19.831Z",
+                  "created_at": "March 02, 2018 19:27",
+                  "updated_at": "March 02, 2018 19:27",
                   "count_participants": null,
                   "user_id": 117,
+                  "user_ids": [
+
+                  ],
                   "organization": {
+                    "id": 123,
+                    "title": "Moen, Reichel and Wisoky",
+                    "subdomain": "zboncak",
+                    "domain": "quitzon.io",
+                    "created_at": "March 02, 2018 19:27",
+                    "updated_at": "March 02, 2018 19:27"
                   }
                 }
               }
@@ -2715,6 +2808,9 @@
                     "user_id": {
                       "type": "integer",
                       "x-nullable": true
+                    },
+                    "user_ids": {
+                      "type": "array"
                     }
                   }
                 }
@@ -2728,16 +2824,25 @@
                 "group": {
                   "id": 36,
                   "organization_id": 119,
-                  "title": "Russel, Zulauf and Wiegand",
-                  "description": "enable interactive bandwidth",
+                  "title": "Renner LLC",
+                  "description": "brand ubiquitous experiences",
                   "status": "active",
                   "user_limit": 10,
                   "visibility": "public",
-                  "created_at": "2018-03-01T17:28:19.490Z",
-                  "updated_at": "2018-03-01T17:28:19.490Z",
+                  "created_at": "March 02, 2018 19:27",
+                  "updated_at": "March 02, 2018 19:27",
                   "count_participants": null,
                   "user_id": null,
+                  "user_ids": [
+
+                  ],
                   "organization": {
+                    "id": 119,
+                    "title": "Moen, Reichel and Wisoky",
+                    "subdomain": "zboncak",
+                    "domain": "quitzon.io",
+                    "created_at": "March 02, 2018 19:27",
+                    "updated_at": "March 02, 2018 19:27"
                   }
                 }
               }
@@ -2936,16 +3041,25 @@
                 "group": {
                   "id": 44,
                   "organization_id": 127,
-                  "title": "Russel, Zulauf and Wiegand",
-                  "description": "enable interactive bandwidth",
+                  "title": "Renner LLC",
+                  "description": "brand ubiquitous experiences",
                   "status": "active",
                   "user_limit": 10,
                   "visibility": "public",
-                  "created_at": "2018-03-01T17:28:20.036Z",
-                  "updated_at": "2018-03-01T17:28:20.036Z",
+                  "created_at": "March 02, 2018 19:27",
+                  "updated_at": "March 02, 2018 19:27",
                   "count_participants": null,
                   "user_id": null,
+                  "user_ids": [
+
+                  ],
                   "organization": {
+                    "id": 127,
+                    "title": "Moen, Reichel and Wisoky",
+                    "subdomain": "zboncak",
+                    "domain": "quitzon.io",
+                    "created_at": "March 02, 2018 19:27",
+                    "updated_at": "March 02, 2018 19:27"
                   }
                 }
               }
@@ -3264,6 +3378,12 @@
                     "avatar": {
                       "type": "object",
                       "x-nullable": true
+                    },
+                    "organization_ids": {
+                      "type": "array"
+                    },
+                    "group_ids": {
+                      "type": "array"
                     }
                   }
                 }
@@ -3286,10 +3406,10 @@
                   "state_id": null,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "2018-03-01T17:28:21.093Z",
-                  "updated_at": "2018-03-01T17:28:21.093Z",
-                  "email": "misael.runolfsdottir@bodekuhic.org",
-                  "confirmation_token": "X2uQnayQL6pqcYqcS7KV",
+                  "created_at": "March 02, 2018 19:27",
+                  "updated_at": "March 02, 2018 19:27",
+                  "email": "estrella.beier@ernser.info",
+                  "confirmation_token": "gMM4cNvebWAbifCn-bg_",
                   "unconfirmed_email": null,
                   "avatar": {
                     "url": null,
@@ -3300,6 +3420,12 @@
                       "url": null
                     }
                   },
+                  "organization_ids": [
+
+                  ],
+                  "group_ids": [
+
+                  ],
                   "country": null,
                   "state": null
                 }
@@ -3490,6 +3616,12 @@
                     "avatar": {
                       "type": "object",
                       "x-nullable": true
+                    },
+                    "organization_ids": {
+                      "type": "array"
+                    },
+                    "group_ids": {
+                      "type": "array"
                     }
                   }
                 }
@@ -3502,8 +3634,8 @@
               "application/json": {
                 "user": {
                   "id": 150,
-                  "first_name": "Julia Ortiz",
-                  "last_name": "Danika Rempel",
+                  "first_name": "Ms. Dimitri Ernser",
+                  "last_name": "Thalia Casper",
                   "admin_role": "super_admin",
                   "phone_number": null,
                   "date_of_birth": null,
@@ -3512,9 +3644,9 @@
                   "state_id": 149,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "2018-03-01T17:28:21.639Z",
-                  "updated_at": "2018-03-01T17:28:21.977Z",
-                  "email": "adell@moriettewehner.name",
+                  "created_at": "March 02, 2018 19:27",
+                  "updated_at": "March 02, 2018 19:27",
+                  "email": "amparo@gusikowskimcclure.org",
                   "confirmation_token": null,
                   "unconfirmed_email": null,
                   "avatar": {
@@ -3526,6 +3658,12 @@
                       "url": null
                     }
                   },
+                  "organization_ids": [
+                    154
+                  ],
+                  "group_ids": [
+
+                  ],
                   "country": {
                     "id": 297,
                     "code": null,
@@ -3535,7 +3673,7 @@
                   "state": {
                   }
                 },
-                "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTUwLCJleHAiOjE1NTE0NjEzMDEsInR5cGUiOiJ1c2VyIiwiZW1haWwiOiJhZGVsbEBtb3JpZXR0ZXdlaG5lci5uYW1lIn0.4oIM-zgb2cVUKpxirkOFVnvooeoZPvDWsF-iqGXNqJY"
+                "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTUwLCJleHAiOjE1NTE1NTQ4NzgsInR5cGUiOiJ1c2VyIiwiZW1haWwiOiJhbXBhcm9AZ3VzaWtvd3NraW1jY2x1cmUub3JnIn0.cp7Zelw3cAfplmf1irHE8LEuqdqcMAFG7QXhr9Nvs_U"
               }
             }
           },
@@ -3714,6 +3852,12 @@
                       "avatar": {
                         "type": "object",
                         "x-nullable": true
+                      },
+                      "organization_ids": {
+                        "type": "array"
+                      },
+                      "group_ids": {
+                        "type": "array"
                       }
                     }
                   }
@@ -3728,8 +3872,8 @@
                 "users": [
                   {
                     "id": 169,
-                    "first_name": "Julia Ortiz",
-                    "last_name": "Danika Rempel",
+                    "first_name": "Ms. Dimitri Ernser",
+                    "last_name": "Thalia Casper",
                     "admin_role": "super_admin",
                     "phone_number": null,
                     "date_of_birth": null,
@@ -3738,9 +3882,9 @@
                     "state_id": 168,
                     "zip_code": null,
                     "status": "active",
-                    "created_at": "2018-03-01T17:28:22.205Z",
-                    "updated_at": "2018-03-01T17:28:22.234Z",
-                    "email": "ellie_crona@reynoldsrowe.name",
+                    "created_at": "March 02, 2018 19:27",
+                    "updated_at": "March 02, 2018 19:28",
+                    "email": "durward_toy@lakinmoore.net",
                     "confirmation_token": null,
                     "unconfirmed_email": null,
                     "avatar": {
@@ -3752,6 +3896,12 @@
                         "url": null
                       }
                     },
+                    "organization_ids": [
+                      173
+                    ],
+                    "group_ids": [
+
+                    ],
                     "country": {
                       "id": 335,
                       "code": null,
@@ -3887,12 +4037,10 @@
                       "type": "string"
                     },
                     "password": {
-                      "type": "string",
-                      "x-nullable": true
+                      "type": "string"
                     },
                     "password_confirmation": {
-                      "type": "string",
-                      "x-nullable": true
+                      "type": "string"
                     }
                   }
                 }
@@ -3983,6 +4131,12 @@
                     "avatar": {
                       "type": "object",
                       "x-nullable": true
+                    },
+                    "organization_ids": {
+                      "type": "array"
+                    },
+                    "group_ids": {
+                      "type": "array"
                     }
                   }
                 }
@@ -3995,8 +4149,8 @@
               "application/json": {
                 "user": {
                   "id": 179,
-                  "first_name": "Julia Ortiz",
-                  "last_name": "Danika Rempel",
+                  "first_name": "Ms. Dimitri Ernser",
+                  "last_name": "Thalia Casper",
                   "admin_role": "super_admin",
                   "phone_number": null,
                   "date_of_birth": null,
@@ -4005,10 +4159,10 @@
                   "state_id": 178,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "2018-03-01T17:28:22.732Z",
-                  "updated_at": "2018-03-01T17:28:22.732Z",
-                  "email": "silas.mckenzie@bernhard.net",
-                  "confirmation_token": "wR8X_o9X-9kg3U3yyKox",
+                  "created_at": "March 02, 2018 19:28",
+                  "updated_at": "March 02, 2018 19:28",
+                  "email": "herminia@roob.co",
+                  "confirmation_token": null,
                   "unconfirmed_email": null,
                   "avatar": {
                     "url": null,
@@ -4019,6 +4173,12 @@
                       "url": null
                     }
                   },
+                  "organization_ids": [
+
+                  ],
+                  "group_ids": [
+
+                  ],
                   "country": {
                     "id": 355,
                     "code": null,
@@ -4187,6 +4347,12 @@
                     "avatar": {
                       "type": "object",
                       "x-nullable": true
+                    },
+                    "organization_ids": {
+                      "type": "array"
+                    },
+                    "group_ids": {
+                      "type": "array"
                     }
                   }
                 }
@@ -4199,8 +4365,8 @@
               "application/json": {
                 "user": {
                   "id": 173,
-                  "first_name": "Julia Ortiz",
-                  "last_name": "Danika Rempel",
+                  "first_name": "Ms. Dimitri Ernser",
+                  "last_name": "Thalia Casper",
                   "admin_role": "super_admin",
                   "phone_number": null,
                   "date_of_birth": null,
@@ -4209,9 +4375,9 @@
                   "state_id": 172,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "2018-03-01T17:28:22.412Z",
-                  "updated_at": "2018-03-01T17:28:22.436Z",
-                  "email": "lori@monahan.net",
+                  "created_at": "March 02, 2018 19:28",
+                  "updated_at": "March 02, 2018 19:28",
+                  "email": "jon.von@mraz.io",
                   "confirmation_token": null,
                   "unconfirmed_email": null,
                   "avatar": {
@@ -4223,6 +4389,12 @@
                       "url": null
                     }
                   },
+                  "organization_ids": [
+                    176
+                  ],
+                  "group_ids": [
+
+                  ],
                   "country": {
                     "id": 343,
                     "code": null,
@@ -4382,12 +4554,10 @@
                       "type": "string"
                     },
                     "password": {
-                      "type": "string",
-                      "x-nullable": true
+                      "type": "string"
                     },
                     "password_confirmation": {
-                      "type": "string",
-                      "x-nullable": true
+                      "type": "string"
                     },
                     "organization_users_attributes": {
                       "type": "array",
@@ -4497,8 +4667,8 @@
               "application/json": {
                 "user": {
                   "id": 183,
-                  "first_name": "Julia Ortiz",
-                  "last_name": "Danika Rempel",
+                  "first_name": "Ms. Dimitri Ernser",
+                  "last_name": "Thalia Casper",
                   "admin_role": "super_admin",
                   "phone_number": null,
                   "date_of_birth": null,
@@ -4507,11 +4677,11 @@
                   "state_id": 183,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "2018-03-01T17:28:22.967Z",
-                  "updated_at": "2018-03-01T17:28:23.029Z",
-                  "email": "emilie@king.io",
-                  "confirmation_token": "Z75zqsLC6SEa4JyULUUQ",
-                  "unconfirmed_email": "domenico.kulas@okuneva.com",
+                  "created_at": "March 02, 2018 19:28",
+                  "updated_at": "March 02, 2018 19:28",
+                  "email": "hilda@littlegrady.co",
+                  "confirmation_token": "ECpQ9MW-5wF4iqrrXyTR",
+                  "unconfirmed_email": "jairo@toyhahn.info",
                   "avatar": {
                     "url": null,
                     "small": {
@@ -4521,6 +4691,12 @@
                       "url": null
                     }
                   },
+                  "organization_ids": [
+                    183
+                  ],
+                  "group_ids": [
+
+                  ],
                   "country": {
                     "id": 365,
                     "code": null,
@@ -4641,6 +4817,127 @@
                 "success": {
                   "type": "boolean",
                   "value": true
+                }
+              },
+              "required": [
+                "success"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "success": true
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "returns error if instance not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": "",
+                "errors": [
+                  "Couldn't find User with 'id'=0"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/{id}/send_set_password_link": {
+      "post": {
+        "summary": "Send set password link to user",
+        "tags": [
+          "Users"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns result",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
                 }
               },
               "required": [

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   include Users::Relations
   include Users::Api
+  SEARCH_FIELDS = %i[first_name last_name email]
   #  :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -8,6 +9,15 @@ class User < ApplicationRecord
   enumerate :admin_role, :status
 
   mount_base64_uploader :avatar, AvatarUploader
+
+  searchkick callbacks: :async, word_start: SEARCH_FIELDS
+  def search_data
+    attributes.merge(
+      'first_name' => first_name || '',
+      organization_ids: organization_ids, 
+      group_ids: group_ids
+      )
+  end
 
   before_validation :set_temp_passsword, on: :create
 

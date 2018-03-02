@@ -12,7 +12,8 @@ class ApplicationRecord < ActiveRecord::Base
     end
   end
 
-  def error_keys field
-    errors.details[field]&.map{ |w| w[:error] }
+  # for debuging and testing
+  def error_keys(field)
+    errors.details[field]&.map { |w| w[:error] }
   end
 end

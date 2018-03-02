@@ -111,6 +111,10 @@ end
 
 include RswagHelper
 
+def api_base_endpoint
+  '/api/v1/'
+end
+
 def current_user
   @current_user ||= create :user
 end
@@ -181,7 +185,7 @@ def crud_index(options = {})
 
   klass = options[:klass]
   slug = get_slug klass, options[:slug]
-  url = options[:url] || "/api/v1/#{slug}"
+  url = options[:url] || "#{api_base_endpoint}#{slug}"
   description = options[:description] || "Get #{klass.name.pluralize} inside organization"
   tag = options[:tag] || klass.name.pluralize
   description_200 = options[:description_200] || 'returns as array'
@@ -202,7 +206,7 @@ def crud_index(options = {})
       response '200', description_200 do
         before do |example|
           rswag_set_schema example, action: :index, type: :array, as: as
-
+          sleep 1 if as == :searchkick
           additional_parameters.each do |parametr|
             rswag_parameter(example, parametr)
           end
@@ -221,7 +225,7 @@ def crud_show(options = {})
 
   klass = options[:klass]
   slug = get_slug klass, options[:slug]
-  url = options[:url] || "/api/v1/#{slug}/{id}"
+  url = options[:url] || "#{api_base_endpoint}#{slug}/{id}"
   description = options[:description] || "Get #{klass.name} Details"
   tag = options[:tag] || klass.name.pluralize
   description_200 = options[:description_200] || 'returns as object'
@@ -260,7 +264,7 @@ def crud_create(options = {})
 
   klass = options[:klass]
   slug = get_slug klass, options[:slug]
-  url = options[:url] || "/api/v1/#{slug}"
+  url = options[:url] || "#{api_base_endpoint}#{slug}"
   description = options[:description] || "Create #{klass.name}"
   tag = options[:tag] || klass.name.pluralize
   description_200 = options[:description_200] || 'returns created object'
@@ -306,7 +310,7 @@ def crud_update(options = {})
 
   klass = options[:klass]
   slug = get_slug klass, options[:slug]
-  url = options[:url] || "/api/v1/#{slug}/{id}"
+  url = options[:url] || "#{api_base_endpoint}#{slug}/{id}"
   description = options[:description] || "Update #{klass.name} Details"
   tag = options[:tag] || klass.name.pluralize
   description_200 = options[:description_200] || 'returns data'
@@ -354,7 +358,7 @@ def crud_delete(options = {})
 
   klass = options[:klass]
   slug = get_slug klass, options[:slug]
-  url = options[:url] || "/api/v1/#{slug}/{id}"
+  url = options[:url] || "#{api_base_endpoint}#{slug}/{id}"
   description = options[:description] || "Delete #{klass.name}"
   tag = options[:tag] || klass.name.pluralize
   description_200 = options[:description_200] || "deleting #{klass.name} account"
@@ -401,7 +405,7 @@ def batch_update(options = {})
 
   klass = options[:klass]
   slug = get_slug klass, options[:slug]
-  url = options[:url] || "/api/v1/#{get_slug klass, slug}/batch_update"
+  url = options[:url] || "#{api_base_endpoint}#{get_slug klass, slug}/batch_update"
   description = options[:description] || "Batch update #{klass.name} Details"
   tag = options[:tag] || klass.name.pluralize
   description_200 = options[:description_200] || 'returns status and errors'

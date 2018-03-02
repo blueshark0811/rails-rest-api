@@ -9,7 +9,11 @@ module ApiSerializer
 
       battributes.each do |field|
         define_method field do
-          available_fields.include?(field) ? object.send(field) : ActiveModel::FieldUpgrade::ATTR_NOT_ACCEPTABLE
+          if available_fields.include?(field) 
+            type_cast(field) 
+          else
+             ActiveModel::FieldUpgrade::ATTR_NOT_ACCEPTABLE
+          end
         end
       end
     end
@@ -29,7 +33,7 @@ module ApiSerializer
     end
 
     def base_attributes
-      return [] if !serializable_class
+      return [] unless serializable_class
 
       serializable_class.policy_base_attributes
     end
@@ -42,8 +46,47 @@ module ApiSerializer
 
     return @available_fields[key] if @available_fields[key]
 
-    return unless self.class.serializable_class
+    return [] unless self.class.serializable_class
 
-    @available_fields[key] = object.policy_available_attribute(user_context, params[:action])
+    @available_fields[key] = if object.is_a?(self.class.serializable_class)
+      object.policy_available_attribute(user_context, params[:action])
+    else#in case searchkick
+      return [] unless pclass = self.class.serializable_class.policy_class
+
+      pclass.new(user_context, object).api_attributes(params[:action])
+    end
+
+    @available_fields[key] 
+  end
+
+  def type_cast field
+    res = object.send(field)
+    type = nil
+
+    begin
+      if object.is_a?(Searchkick::HashWrapper) && searchkickable_class
+        case type = searchkickable_class.column_of_attribute(field).type
+        when :integer
+          res = res.to_i
+        when :string
+          res = res.to_s
+          #todo else
+        end
+      else
+        type = object.class.column_of_attribute(field).type
+      end
+    rescue
+    end
+
+    case type
+    when :datetime
+      res = res.to_s(:long)
+    end
+
+    res
+  end
+
+  def searchkickable_class
+    object._type.classify.constantize rescue nil
   end
 end

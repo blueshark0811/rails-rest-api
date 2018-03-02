@@ -2,6 +2,14 @@ class Api::V1::CourseGroupsController < Api::V1::ApiController
   before_action :set_group
   before_action :set_course_group, only: %i[update destroy]
 
+  def index
+    @course_groups = @group.course_groups
+
+    authorize @course_groups
+
+    render_result @course_groups.page(current_page).per(current_count)
+  end
+
   def create
     @course_group = @group.course_groups.new
 

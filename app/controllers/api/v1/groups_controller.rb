@@ -2,31 +2,31 @@ class Api::V1::GroupsController < Api::V1::ApiController
   before_action :set_group, except: [:index, :create]
 
   def index
-    @groups = current_organization.groups
+    where = { organization_id: current_organization.id }
 
     if params[:my] && params[:my] != 'false'
-      @groups = @groups.participated_by(current_user)
+      where.merge!(user_ids: current_user.id)
     end
 
     if Group.visibilities.include?(params[:visibility])
-      @groups = @groups.where(visibility: params[:visibility])
+      where.merge!(visibility: params[:visibility])
     end
 
     if Group.statuses.include?(params[:status])
-      @groups = @groups.where(status: params[:status])
+      where.merge!(status: params[:status])
     end
 
-    render_result @groups.page(current_page).per(current_count)
-  end
+    order = { title: sort_flag }
 
-  def search
-    @groups = Group.search(
-      params[:term],
-      match: :word_start,
-      where: { organization_id: current_organization.id }
-    )
+    @groups = Group.search params[:term] || '*', 
+      where: where,
+      order: order,
+      page: current_page,
+      per_page: current_count,
+      fields: Group::SEARCH_FIELDS,
+      match: :word_start
 
-    render_result @groups.page(current_page).per(current_count)
+    render_result @groups
   end
 
   def show
