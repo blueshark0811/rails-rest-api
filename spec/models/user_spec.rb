@@ -296,5 +296,55 @@ describe User, type: :model do
     end
   end
 
-  xdescription '#set_temp_passsword'
+  describe '#set_temp_passsword' do
+    let(:user) { build :user, password: password }
+
+    context 'when password is not set' do
+      let(:password) { nil }
+
+      context 'when user creating' do
+        it 'generates password before validation' do
+          user.valid?
+          expect(user.password).to_not be_nil
+        end
+
+        it 'makes validation passed' do
+          expect(user.valid?).to be_truthy
+        end
+      end
+
+      xcontext 'when user updating' do
+      end
+    end
+
+    context 'when password is set' do
+      let(:password) { 'password' }
+
+      context 'when user creating' do
+        it 'does not change password' do
+          user.valid?
+          expect(user.password).to eq password
+        end
+      end
+
+      xcontext 'when user updating' do
+      end
+    end
+  end
+
+  describe '#search_data' do
+    subject { user.search_data }
+
+    it 'returns all base attributes' do
+      expect((subject.keys.map(&:to_sym)&User.attributes).size).to eq User.attributes.size
+    end
+
+    it 'returns aditionaly group_ids' do
+      expect(subject.key?(:group_ids)).to be_truthy
+    end
+
+    it 'returns aditionaly organization_ids' do
+      expect(subject.key?(:organization_ids)).to be_truthy
+    end
+  end
 end

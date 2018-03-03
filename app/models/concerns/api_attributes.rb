@@ -29,7 +29,7 @@ module ApiAttributes
 
       OpenStruct.new additional_attributes[name.to_sym]
     end
-    
+
     def serializer_file
       Rails.root.join("app/serializers/api/v#{API_VERSION}/#{name.underscore}_serializer.rb")
     end
