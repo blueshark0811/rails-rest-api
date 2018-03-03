@@ -23,6 +23,30 @@ RSpec.describe Course, type: :model do
       end
     end
 
+    context '#course_users' do
+      subject { described_class.reflect_on_association(:course_users) }
+
+      it 'is has many' do
+        expect(subject.macro).to eq(:has_many)
+      end
+
+      it 'dependent destroy' do
+        expect(subject.options[:dependent]).to eq :destroy
+      end
+    end
+
+    context '#users' do
+      subject { described_class.reflect_on_association(:users) }
+
+      it 'is has many' do
+        expect(subject.macro).to eq(:has_many)
+      end
+
+      it 'through association course_users' do
+        expect(subject.options[:through]).to eq :course_users
+      end
+    end
+
     context '#precourses' do
       subject { described_class.reflect_on_association(:precourses) }
 
@@ -37,12 +61,28 @@ RSpec.describe Course, type: :model do
 
     it_behaves_like 'attachmentable'
 
-    it 'has many lessons' do
-      expect(described_class.reflect_on_association(:lessons).macro).to eq(:has_many)
+    context '#lessons' do
+      subject { described_class.reflect_on_association(:lessons) }
+
+      it 'is has many' do
+        expect(subject.macro).to eq(:has_many)
+      end
+
+      it 'dependent destroy' do
+        expect(subject.options[:dependent]).to eq :destroy
+      end
     end
 
-    it 'has many course_groups' do
-      expect(described_class.reflect_on_association(:course_groups).macro).to eq(:has_many)
+    context '#course_groups' do
+      subject { described_class.reflect_on_association(:course_groups) }
+
+      it 'is has many' do
+        expect(subject.macro).to eq(:has_many)
+      end
+
+      it 'dependent destroy' do
+        expect(subject.options[:dependent]).to eq :destroy
+      end
     end
   end
 end
