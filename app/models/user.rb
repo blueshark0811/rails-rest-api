@@ -14,7 +14,7 @@ class User < ApplicationRecord
   def search_data
     attributes.merge(
       'first_name' => first_name || '',
-      organization_ids: organization_ids, 
+      organization_ids: organization_ids,
       group_ids: group_ids
       )
   end

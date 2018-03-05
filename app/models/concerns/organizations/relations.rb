@@ -7,8 +7,11 @@ module Organizations
       has_many :users, through: :organization_users
       has_many :groups, dependent: :destroy
       has_many :courses, dependent: :destroy
-      has_many :videos, dependent: :destroy
-      has_many :attachments, dependent: :destroy
+      has_many :all_videos, class_name: 'Video', dependent: :destroy #as author
+      has_many :all_attachments, class_name: 'Attachment', dependent: :destroy #as author
+
+      has_many :videos, as: :videoable, dependent: :destroy
+      has_many :attachments, as: :attachmentable, dependent: :destroy
     end
   end
 end

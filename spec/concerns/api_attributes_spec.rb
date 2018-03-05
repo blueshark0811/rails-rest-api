@@ -69,9 +69,31 @@ shared_examples_for 'apiattributable' do
 
     context 'when attribute is not from base fields' do
       let(:attribute) { :some_other }
+      let(:additional_attributes) { { some_other: { type: :string } } }
+
+      before do
+        allow(model).to receive(:additional_attributes).and_return additional_attributes
+      end
 
       it 'returns OpenStruct data' do
         is_expected.to be_kind_of(OpenStruct)
+      end
+    end
+
+    context 'when attribute is from base fields but there is additional description for it' do
+      let(:attribute) { :id }
+      let(:additional_attributes) { {id: { type: :string } } }
+
+      before do
+        allow(model).to receive(:additional_attributes).and_return additional_attributes
+      end
+
+      it 'returns OpenStruct data' do
+        is_expected.to be_kind_of(OpenStruct)
+      end
+
+      it 'returns data form additional_attributes, not from base column info' do
+        expect(subject[:type]).to eq additional_attributes[:id][:type]
       end
     end
   end

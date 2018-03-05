@@ -61,7 +61,10 @@ class Api::V1::ApiController < ActionController::API
       status: status,
       meta: meta || result_meta(json),
       meta_key: meta_key,
-      serializer_params: { currrent_user: current_user, params: { action: :show } }
+      serializer_params: {
+        currrent_user: current_user,
+        params: { action: :show }
+      }
     )
 
     debug res

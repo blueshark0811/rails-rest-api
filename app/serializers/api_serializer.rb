@@ -9,8 +9,8 @@ module ApiSerializer
 
       battributes.each do |field|
         define_method field do
-          if available_fields.include?(field) 
-            type_cast(field) 
+          if available_fields.include?(field)
+            type_cast(field)
           else
              ActiveModel::FieldUpgrade::ATTR_NOT_ACCEPTABLE
           end
@@ -80,7 +80,7 @@ module ApiSerializer
 
     case type
     when :datetime
-      res = res.to_s(:long)
+      res = res.to_s(:long) if res
     end
 
     res

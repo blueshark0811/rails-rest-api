@@ -8,8 +8,8 @@ module Actions
 
       has_one :course, through: :lesson
 
-      has_many :attachments, as: :attachmentable
-      has_many :videos, as: :videoable
+      has_many :attachments, as: :attachmentable, dependent: :destroy
+      has_many :videos, as: :videoable, dependent: :destroy
     end
   end
 end

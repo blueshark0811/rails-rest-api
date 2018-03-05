@@ -4,5 +4,13 @@ class OrganizationUser < ApplicationRecord
 
   enumerate :role, :status
 
+  serialize :exclude_students_ids, Array
+
   validates :user_id, :organization_id, :role, presence: true
+
+  class << self
+    def additional_attributes
+      { exclude_students_ids: { type: :array, null: true } }
+    end
+  end
 end

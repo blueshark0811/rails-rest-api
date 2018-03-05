@@ -26,6 +26,18 @@ describe Lesson, type: :model do
       end
     end
 
+    context '#actions' do
+      subject { described_class.reflect_on_association(:actions) }
+
+      it 'is has many' do
+        expect(subject.macro).to eq(:has_many)
+      end
+
+      it 'dependent destroy' do
+        expect(subject.options[:dependent]).to eq :destroy
+      end
+    end
+
     context '#users' do
       subject { described_class.reflect_on_association(:users) }
 

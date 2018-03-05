@@ -23,11 +23,11 @@ module ApiAttributes
 
     #extended columns info of instance with additional_attributes
     def column_of_attribute(name)
-      col = column_for_attribute name
+      if col = additional_attributes[name.to_sym]
+        return OpenStruct.new col
+      end
 
-      return col if col.type
-
-      OpenStruct.new additional_attributes[name.to_sym]
+      column_for_attribute name
     end
 
     def serializer_file
@@ -89,16 +89,22 @@ module ApiAttributes
 
         next unless (klass = skan.first.first.singularize.classify.constantize rescue nil)
 
-        res[key] = {
-          type: :array,
-          items: {
-            type: :object,
-            properties: klass.api_prepare_attributes_for_swagger(field.values.first, options)
-          }
-        }
+        res[key] = api_array_of_type :object, klass.api_prepare_attributes_for_swagger(field.values.first, options)
       end
 
       res
+    end
+
+    def api_array_of_type type = nil, properties = {}
+      type ||= :integer
+
+      {
+        type: :array,
+        items: {
+          type: type,
+          properties: properties
+        }
+      }
     end
 
     def api_prepare_attribute_for_swagger(field, options = {})
@@ -112,6 +118,10 @@ module ApiAttributes
 
       unless res[:type]
         res[:type] = field.to_s.match(/_ids/) ? :array : :string
+      end
+
+      if res[:type] == :array
+        return api_array_of_type(col.try(:items).try(:type), col.try(:items).try(:properties)||{})
       end
 
       res['x-nullable'] = true if col.null

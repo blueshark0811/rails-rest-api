@@ -3,12 +3,13 @@ Rails.application.routes.draw do
   mount Rswag::Api::Engine => '/api-docs'
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+  
+  # authenticate :user do
+  #   mount Resque::Server, at: '/jobs'
+  # end
 
   namespace :api, defaults: { format: "json" } do
     namespace :v1 do
-
-      resources :app_settings, only: [:index]
-
       resources :sessions, only: %i[create] do
         collection do
           match :destroy, via: %i[delete get]
@@ -32,7 +33,17 @@ Rails.application.routes.draw do
           end
         end
       end
-      resources :courses
+      resources :courses do
+        resources :lessons
+      end
+
+      scope ':attachmentable_type/:attachmentable_id' do
+        resources :attachments
+      end
+
+      scope ':videoable_type/:videoable_id' do
+        resources :videos
+      end
     end
   end
 
