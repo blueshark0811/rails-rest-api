@@ -9,37 +9,31 @@ describe Api::V1::VideosController do
   let!(:videoable_id) { videoable.id }
   let(:videoable_type) { videoable.class.name }
 
-  options = { 
+  options = {
     klass: Video,
     slug: '{videoable_type}/{videoable_id}/videos',
-    tag: 'Videos'
+    tag: 'Videos',
+    additional_parameters: [{
+      name: :videoable_id,
+      in: :path,
+      type: :integer,
+      required: true
+    }, {
+      name: :videoable_type,
+      in: :path,
+      type: :string,
+      required: true
+    }]
   }
 
-  additional_params = [{
-    name: :videoable_id,
-    in: :path,
-    type: :integer,
-    required: true
-  },{
-    name: :videoable_type,
-    in: :path,
-    type: :string,
-    required: true
-  }]
+  additional_body = {
+    video: {
+      video: FakeFile.file
+    }
+  }
 
-  crud_index options.merge(description: 'Videos') do
-    let(:additional_parameters) { additional_params }
-  end
-
-  crud_create options.merge(description: 'Add Video') do
-    let(:additional_parameters) { additional_params }
-  end
-
-  crud_update options.merge(description: 'Update Video') do
-    let(:additional_parameters) { additional_params }
-  end
-
-  crud_delete options.merge(description: 'Delete Video') do
-    let(:additional_parameters) { additional_params }
-  end
+  crud_index options.merge(description: 'Videos')
+  crud_create options.merge(description: 'Add Video', additional_body: additional_body)
+  crud_update options.merge(description: 'Update Video')
+  crud_delete options.merge(description: 'Delete Video')
 end

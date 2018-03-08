@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: "json" } do
     namespace :v1 do
+      
       resources :sessions, only: %i[create] do
         collection do
           match :destroy, via: %i[delete get]
@@ -34,7 +35,9 @@ Rails.application.routes.draw do
         end
       end
       resources :courses do
-        resources :lessons
+        resources :lessons do
+          resources :actions
+        end
       end
 
       scope ':attachmentable_type/:attachmentable_id' do

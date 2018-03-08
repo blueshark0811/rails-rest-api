@@ -49,7 +49,14 @@
             "name": "attachmentable_type",
             "in": "path",
             "type": "string",
-            "required": true
+            "required": true,
+            "enum": [
+              "Action",
+              "Course",
+              "Group",
+              "Lesson",
+              "Organization"
+            ]
           }
         ],
         "responses": {
@@ -74,7 +81,7 @@
                         "type": "text",
                         "x-nullable": true
                       },
-                      "file": {
+                      "data": {
                         "type": "object",
                         "x-nullable": true
                       },
@@ -113,24 +120,24 @@
                 "attachments": [
                   {
                     "id": 1,
-                    "title": "Conroy, Gleason and Kihn",
-                    "description": "facilitate cutting-edge bandwidth",
-                    "file": {
-                      "url": "/uploads/attachment/file/1/test.jpg"
+                    "title": "Koepp and Sons",
+                    "description": "engage clicks-and-mortar content",
+                    "data": {
+                      "url": "/uploads/attachment/data/1/data.jpeg"
                     },
                     "user_id": 1,
                     "organization_id": 1,
-                    "created_at": "March 05, 2018 20:21",
-                    "updated_at": "March 05, 2018 20:21",
+                    "created_at": "March 08, 2018 18:05",
+                    "updated_at": "March 08, 2018 18:05",
                     "attachmentable_type": "Organization",
                     "attachmentable_id": 1,
                     "attachmentable": {
                       "id": 1,
-                      "title": "Sipes, Baumbach and Schumm",
-                      "subdomain": "krisbradtke",
-                      "domain": "grant.co",
-                      "created_at": "March 05, 2018 20:21",
-                      "updated_at": "March 05, 2018 20:21"
+                      "title": "Pagac, Gutmann and Watsica",
+                      "subdomain": "homenick",
+                      "domain": "pfannerstill.info",
+                      "created_at": "March 08, 2018 18:05",
+                      "updated_at": "March 08, 2018 18:05"
                     }
                   }
                 ],
@@ -231,7 +238,7 @@
                       "type": "text",
                       "x-nullable": true
                     },
-                    "file": {
+                    "data": {
                       "type": "object",
                       "x-nullable": true
                     },
@@ -257,7 +264,14 @@
             "name": "attachmentable_type",
             "in": "path",
             "type": "string",
-            "required": true
+            "required": true,
+            "enum": [
+              "Action",
+              "Course",
+              "Group",
+              "Lesson",
+              "Organization"
+            ]
           }
         ],
         "responses": {
@@ -280,7 +294,7 @@
                       "type": "text",
                       "x-nullable": true
                     },
-                    "file": {
+                    "data": {
                       "type": "object",
                       "x-nullable": true
                     },
@@ -316,33 +330,26 @@
             "examples": {
               "application/json": {
                 "attachment": {
-                  "id": null,
-                  "title": "Conroy, Gleason and Kihn",
-                  "description": "facilitate cutting-edge bandwidth",
-                  "file": {
-                    "url": null
+                  "id": 5,
+                  "title": null,
+                  "description": null,
+                  "data": {
+                    "url": "/uploads/attachment/data/5/data.jpeg"
                   },
                   "user_id": 5,
-                  "organization_id": null,
-                  "created_at": null,
-                  "updated_at": null,
+                  "organization_id": 4,
+                  "created_at": "March 08, 2018 18:05",
+                  "updated_at": "March 08, 2018 18:05",
                   "attachmentable_type": "Organization",
-                  "attachmentable_id": 7,
+                  "attachmentable_id": 4,
                   "attachmentable": {
-                    "id": 7,
-                    "title": "Sipes, Baumbach and Schumm",
-                    "subdomain": "krisbradtke",
-                    "domain": "grant.co",
-                    "created_at": "March 05, 2018 20:21",
-                    "updated_at": "March 05, 2018 20:21"
+                    "id": 4,
+                    "title": "Pagac, Gutmann and Watsica",
+                    "subdomain": "homenick",
+                    "domain": "pfannerstill.info",
+                    "created_at": "March 08, 2018 18:05",
+                    "updated_at": "March 08, 2018 18:05"
                   }
-                },
-                "errors": {
-                  "organization": [
-                    {
-                      "error": "blank"
-                    }
-                  ]
                 }
               }
             }
@@ -443,7 +450,7 @@
                       "type": "text",
                       "x-nullable": true
                     },
-                    "file": {
+                    "data": {
                       "type": "object",
                       "x-nullable": true
                     },
@@ -469,7 +476,14 @@
             "name": "attachmentable_type",
             "in": "path",
             "type": "string",
-            "required": true
+            "required": true,
+            "enum": [
+              "Action",
+              "Course",
+              "Group",
+              "Lesson",
+              "Organization"
+            ]
           }
         ],
         "responses": {
@@ -489,7 +503,7 @@
                       "type": "text",
                       "x-nullable": true
                     },
-                    "file": {
+                    "data": {
                       "type": "object",
                       "x-nullable": true
                     },
@@ -511,25 +525,25 @@
             "examples": {
               "application/json": {
                 "attachment": {
-                  "id": 7,
-                  "title": "Conroy, Gleason and Kihn",
-                  "description": "facilitate cutting-edge bandwidth",
-                  "file": {
-                    "url": "/uploads/attachment/file/7/test.jpg"
+                  "id": 8,
+                  "title": "Koepp and Sons",
+                  "description": "engage clicks-and-mortar content",
+                  "data": {
+                    "url": "/uploads/attachment/data/8/data.jpeg"
                   },
                   "user_id": 10,
                   "organization_id": 10,
-                  "created_at": "March 05, 2018 20:21",
-                  "updated_at": "March 05, 2018 20:21",
+                  "created_at": "March 08, 2018 18:05",
+                  "updated_at": "March 08, 2018 18:05",
                   "attachmentable_type": "Organization",
                   "attachmentable_id": 13,
                   "attachmentable": {
                     "id": 13,
-                    "title": "Sipes, Baumbach and Schumm",
-                    "subdomain": "krisbradtke",
-                    "domain": "grant.co",
-                    "created_at": "March 05, 2018 20:21",
-                    "updated_at": "March 05, 2018 20:21"
+                    "title": "Pagac, Gutmann and Watsica",
+                    "subdomain": "homenick",
+                    "domain": "pfannerstill.info",
+                    "created_at": "March 08, 2018 18:05",
+                    "updated_at": "March 08, 2018 18:05"
                   }
                 }
               }
@@ -643,7 +657,14 @@
             "name": "attachmentable_type",
             "in": "path",
             "type": "string",
-            "required": true
+            "required": true,
+            "enum": [
+              "Action",
+              "Course",
+              "Group",
+              "Lesson",
+              "Organization"
+            ]
           }
         ],
         "responses": {
@@ -783,7 +804,8 @@
             "name": "group_id",
             "in": "path",
             "type": "integer",
-            "required": true
+            "required": true,
+            "description": "get courses from specific group"
           }
         ],
         "responses": {
@@ -873,8 +895,8 @@
                     "discussing_enabled": true,
                     "student_content_enabled": true,
                     "status": "active",
-                    "created_at": "March 05, 2018 20:21",
-                    "updated_at": "March 05, 2018 20:21"
+                    "created_at": "March 08, 2018 18:05",
+                    "updated_at": "March 08, 2018 18:05"
                   }
                 ],
                 "meta": {
@@ -1015,7 +1037,8 @@
             "name": "group_id",
             "in": "path",
             "type": "integer",
-            "required": true
+            "required": true,
+            "description": "get courses from specific group"
           }
         ],
         "responses": {
@@ -1101,8 +1124,8 @@
                   "discussing_enabled": true,
                   "student_content_enabled": true,
                   "status": "active",
-                  "created_at": "March 05, 2018 20:21",
-                  "updated_at": "March 05, 2018 20:21"
+                  "created_at": "March 08, 2018 18:05",
+                  "updated_at": "March 08, 2018 18:05"
                 }
               }
             }
@@ -1240,7 +1263,8 @@
             "name": "group_id",
             "in": "path",
             "type": "integer",
-            "required": true
+            "required": true,
+            "description": "get courses from specific group"
           }
         ],
         "responses": {
@@ -1309,8 +1333,8 @@
                   "discussing_enabled": true,
                   "student_content_enabled": true,
                   "status": "active",
-                  "created_at": "March 05, 2018 20:21",
-                  "updated_at": "March 05, 2018 20:21"
+                  "created_at": "March 08, 2018 18:05",
+                  "updated_at": "March 08, 2018 18:05"
                 }
               }
             }
@@ -1417,7 +1441,8 @@
             "name": "group_id",
             "in": "path",
             "type": "integer",
-            "required": true
+            "required": true,
+            "description": "get courses from specific group"
           }
         ],
         "responses": {
@@ -1552,6 +1577,42 @@
             "in": "query",
             "type": "integer",
             "required": false
+          },
+          {
+            "name": "group_id",
+            "in": "query",
+            "type": "integer",
+            "required": false,
+            "description": "get courses from specific group"
+          },
+          {
+            "name": "term",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "description": "term for searching by [:title, :description]"
+          },
+          {
+            "name": "sort_field",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "enum": [
+              "title",
+              "created_at"
+            ],
+            "description": "field for sorting"
+          },
+          {
+            "name": "sort_flag",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "enum": [
+              "ASC",
+              "DESC"
+            ],
+            "description": "flag for sorting"
           }
         ],
         "responses": {
@@ -1593,6 +1654,14 @@
                       },
                       "updated_at": {
                         "type": "datetime"
+                      },
+                      "group_ids": {
+                        "type": "array",
+                        "items": {
+                          "type": "integer",
+                          "properties": {
+                          }
+                        }
                       }
                     }
                   }
@@ -1737,6 +1806,14 @@
                     },
                     "updated_at": {
                       "type": "datetime"
+                    },
+                    "group_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer",
+                        "properties": {
+                        }
+                      }
                     }
                   }
                 }
@@ -1749,19 +1826,22 @@
               "application/json": {
                 "course": {
                   "id": 41,
-                  "title": "Purdy LLC",
-                  "description": "scale user-centric communities",
+                  "title": "Collins LLC",
+                  "description": "harness impactful partnerships",
                   "image": {
                     "url": null
                   },
                   "user_id": 87,
                   "organization_id": 101,
-                  "created_at": "March 05, 2018 20:21",
-                  "updated_at": "March 05, 2018 20:21",
+                  "created_at": "March 08, 2018 18:05",
+                  "updated_at": "March 08, 2018 18:05",
+                  "group_ids": [
+
+                  ],
                   "user": {
                     "id": 87,
-                    "first_name": "Robb Feil",
-                    "last_name": "Queen Stokes",
+                    "first_name": "Dr. Maye Rath",
+                    "last_name": "Miguel Quitzon",
                     "admin_role": "super_admin",
                     "phone_number": null,
                     "date_of_birth": null,
@@ -1770,9 +1850,9 @@
                     "state_id": 87,
                     "zip_code": null,
                     "status": "active",
-                    "created_at": "March 05, 2018 20:21",
-                    "updated_at": "March 05, 2018 20:21",
-                    "email": "jasen@welch.biz",
+                    "created_at": "March 08, 2018 18:05",
+                    "updated_at": "March 08, 2018 18:05",
+                    "email": "victoria_stehr@blanda.com",
                     "confirmation_token": null,
                     "unconfirmed_email": null,
                     "avatar": {
@@ -1793,11 +1873,11 @@
                   },
                   "organization": {
                     "id": 101,
-                    "title": "Sipes, Baumbach and Schumm",
-                    "subdomain": "krisbradtke",
-                    "domain": "grant.co",
-                    "created_at": "March 05, 2018 20:21",
-                    "updated_at": "March 05, 2018 20:21"
+                    "title": "Pagac, Gutmann and Watsica",
+                    "subdomain": "homenick",
+                    "domain": "pfannerstill.info",
+                    "created_at": "March 08, 2018 18:05",
+                    "updated_at": "March 08, 2018 18:05"
                   }
                 }
               }
@@ -1916,6 +1996,14 @@
                     },
                     "updated_at": {
                       "type": "datetime"
+                    },
+                    "group_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer",
+                        "properties": {
+                        }
+                      }
                     }
                   }
                 }
@@ -1928,19 +2016,22 @@
               "application/json": {
                 "course": {
                   "id": 36,
-                  "title": "Purdy LLC",
-                  "description": "scale user-centric communities",
+                  "title": "Collins LLC",
+                  "description": "harness impactful partnerships",
                   "image": {
                     "url": "/uploads/course/image/36/test.jpg"
                   },
                   "user_id": 79,
                   "organization_id": 93,
-                  "created_at": "March 05, 2018 20:21",
-                  "updated_at": "March 05, 2018 20:21",
+                  "created_at": "March 08, 2018 18:05",
+                  "updated_at": "March 08, 2018 18:05",
+                  "group_ids": [
+
+                  ],
                   "user": {
                     "id": 79,
-                    "first_name": "Robb Feil",
-                    "last_name": "Queen Stokes",
+                    "first_name": "Dr. Maye Rath",
+                    "last_name": "Miguel Quitzon",
                     "admin_role": "super_admin",
                     "phone_number": null,
                     "date_of_birth": null,
@@ -1949,9 +2040,9 @@
                     "state_id": 79,
                     "zip_code": null,
                     "status": "active",
-                    "created_at": "March 05, 2018 20:21",
-                    "updated_at": "March 05, 2018 20:21",
-                    "email": "johnny_runolfsdottir@stamm.org",
+                    "created_at": "March 08, 2018 18:05",
+                    "updated_at": "March 08, 2018 18:05",
+                    "email": "raymond.konopelski@dooley.com",
                     "confirmation_token": null,
                     "unconfirmed_email": null,
                     "avatar": {
@@ -1972,11 +2063,11 @@
                   },
                   "organization": {
                     "id": 93,
-                    "title": "Sipes, Baumbach and Schumm",
-                    "subdomain": "krisbradtke",
-                    "domain": "grant.co",
-                    "created_at": "March 05, 2018 20:21",
-                    "updated_at": "March 05, 2018 20:21"
+                    "title": "Pagac, Gutmann and Watsica",
+                    "subdomain": "homenick",
+                    "domain": "pfannerstill.info",
+                    "created_at": "March 08, 2018 18:05",
+                    "updated_at": "March 08, 2018 18:05"
                   }
                 }
               }
@@ -2142,19 +2233,22 @@
               "application/json": {
                 "course": {
                   "id": 44,
-                  "title": "Purdy LLC",
-                  "description": "scale user-centric communities",
+                  "title": "Collins LLC",
+                  "description": "harness impactful partnerships",
                   "image": {
                     "url": "/uploads/course/image/44/test.jpg"
                   },
                   "user_id": 96,
                   "organization_id": 109,
-                  "created_at": "March 05, 2018 20:21",
-                  "updated_at": "March 05, 2018 20:21",
+                  "created_at": "March 08, 2018 18:05",
+                  "updated_at": "March 08, 2018 18:05",
+                  "group_ids": [
+
+                  ],
                   "user": {
                     "id": 96,
-                    "first_name": "Robb Feil",
-                    "last_name": "Queen Stokes",
+                    "first_name": "Dr. Maye Rath",
+                    "last_name": "Miguel Quitzon",
                     "admin_role": "super_admin",
                     "phone_number": null,
                     "date_of_birth": null,
@@ -2163,9 +2257,9 @@
                     "state_id": 96,
                     "zip_code": null,
                     "status": "active",
-                    "created_at": "March 05, 2018 20:21",
-                    "updated_at": "March 05, 2018 20:21",
-                    "email": "scotty@streichthiel.info",
+                    "created_at": "March 08, 2018 18:05",
+                    "updated_at": "March 08, 2018 18:05",
+                    "email": "aliya@wilderman.co",
                     "confirmation_token": null,
                     "unconfirmed_email": null,
                     "avatar": {
@@ -2186,11 +2280,11 @@
                   },
                   "organization": {
                     "id": 109,
-                    "title": "Sipes, Baumbach and Schumm",
-                    "subdomain": "krisbradtke",
-                    "domain": "grant.co",
-                    "created_at": "March 05, 2018 20:21",
-                    "updated_at": "March 05, 2018 20:21"
+                    "title": "Pagac, Gutmann and Watsica",
+                    "subdomain": "homenick",
+                    "domain": "pfannerstill.info",
+                    "created_at": "March 08, 2018 18:05",
+                    "updated_at": "March 08, 2018 18:05"
                   }
                 }
               }
@@ -2435,14 +2529,29 @@
             "required": true
           },
           {
-            "name": "status",
-            "in": "body",
+            "name": "sort_field",
+            "in": "query",
             "type": "string",
+            "required": false,
             "enum": [
-              "active",
-              "pause"
+              "role",
+              "last_name",
+              "first_name",
+              "created_at",
+              "status"
             ],
-            "required": true
+            "description": "field for sorting"
+          },
+          {
+            "name": "sort_flag",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "enum": [
+              "ASC",
+              "DESC"
+            ],
+            "description": "flag for sorting"
           }
         ],
         "responses": {
@@ -2505,23 +2614,16 @@
               "application/json": {
                 "group_users": [
                   {
-                    "id": 18,
-                    "first_name": "Margaretta Gibson",
-                    "last_name": "Shaniya Dach",
-                    "role": "admin",
-                    "organization_id": 127
-                  },
-                  {
                     "id": 1,
-                    "first_name": "Robb Feil",
-                    "last_name": "Queen Stokes",
+                    "first_name": "Dr. Maye Rath",
+                    "last_name": "Miguel Quitzon",
                     "role": "admin",
                     "organization_id": 127
                   }
                 ],
                 "meta": {
                   "total_pages": 1,
-                  "size": 2,
+                  "size": 1,
                   "limit_value": 20,
                   "current_page": 1
                 }
@@ -2621,16 +2723,6 @@
             "in": "path",
             "type": "integer",
             "required": true
-          },
-          {
-            "name": "status",
-            "in": "body",
-            "type": "string",
-            "enum": [
-              "active",
-              "pause"
-            ],
-            "required": true
           }
         ],
         "responses": {
@@ -2692,11 +2784,11 @@
                   "id": 5,
                   "user_id": 119,
                   "group_id": 20,
-                  "created_at": "March 05, 2018 20:21",
-                  "updated_at": "March 05, 2018 20:21",
+                  "created_at": "March 08, 2018 18:05",
+                  "updated_at": "March 08, 2018 18:05",
                   "status": "active",
-                  "first_name": "Robb Feil",
-                  "last_name": "Queen Stokes",
+                  "first_name": "Dr. Maye Rath",
+                  "last_name": "Miguel Quitzon",
                   "role": "",
                   "organization_id": 130
                 }
@@ -2808,16 +2900,6 @@
             "in": "path",
             "type": "integer",
             "required": true
-          },
-          {
-            "name": "status",
-            "in": "body",
-            "type": "string",
-            "enum": [
-              "active",
-              "pause"
-            ],
-            "required": true
           }
         ],
         "responses": {
@@ -2850,11 +2932,11 @@
                   "id": 8,
                   "user_id": 123,
                   "group_id": 24,
-                  "created_at": "March 05, 2018 20:21",
-                  "updated_at": "March 05, 2018 20:21",
+                  "created_at": "March 08, 2018 18:05",
+                  "updated_at": "March 08, 2018 18:05",
                   "status": "active",
-                  "first_name": "Robb Feil",
-                  "last_name": "Queen Stokes",
+                  "first_name": "Dr. Maye Rath",
+                  "last_name": "Miguel Quitzon",
                   "role": "admin",
                   "organization_id": 135
                 }
@@ -2963,16 +3045,6 @@
             "name": "group_id",
             "in": "path",
             "type": "integer",
-            "required": true
-          },
-          {
-            "name": "status",
-            "in": "body",
-            "type": "string",
-            "enum": [
-              "active",
-              "pause"
-            ],
             "required": true
           }
         ],
@@ -3229,6 +3301,42 @@
             "in": "query",
             "type": "integer",
             "required": false
+          },
+          {
+            "name": "visibility",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "enum": [
+              "private",
+              "public"
+            ],
+            "description": "Filter groups by visibility"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "enum": [
+              "active",
+              "pause"
+            ],
+            "description": "Filter groups by status"
+          },
+          {
+            "name": "my",
+            "in": "query",
+            "type": "boolean",
+            "required": false,
+            "description": "return user's groups"
+          },
+          {
+            "name": "term",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "description": "term for searching by [:description, :title]"
           }
         ],
         "responses": {
@@ -3310,11 +3418,34 @@
             "examples": {
               "application/json": {
                 "groups": [
+                  {
+                    "id": 36,
+                    "organization_id": 148,
+                    "title": "Hane-Johnson",
+                    "description": "evolve ubiquitous web services",
+                    "status": "active",
+                    "user_limit": 10,
+                    "visibility": "public",
+                    "created_at": "March 08, 2018 18:05",
+                    "updated_at": "March 08, 2018 18:05",
+                    "count_participants": null,
+                    "user_id": null,
+                    "user_ids": [
 
+                    ],
+                    "organization": {
+                      "id": 148,
+                      "title": "Pagac, Gutmann and Watsica",
+                      "subdomain": "homenick",
+                      "domain": "pfannerstill.info",
+                      "created_at": "March 08, 2018 18:05",
+                      "updated_at": "March 08, 2018 18:05"
+                    }
+                  }
                 ],
                 "meta": {
-                  "total_pages": 0,
-                  "size": 0,
+                  "total_pages": 1,
+                  "size": 1,
                   "limit_value": 20,
                   "current_page": 1
                 }
@@ -3512,13 +3643,13 @@
                 "group": {
                   "id": 44,
                   "organization_id": 155,
-                  "title": "Schiller, Jacobson and Kozey",
-                  "description": "empower robust ROI",
+                  "title": "Hane-Johnson",
+                  "description": "evolve ubiquitous web services",
                   "status": "active",
                   "user_limit": 10,
                   "visibility": "public",
-                  "created_at": "March 05, 2018 20:21",
-                  "updated_at": "March 05, 2018 20:21",
+                  "created_at": "March 08, 2018 18:05",
+                  "updated_at": "March 08, 2018 18:05",
                   "count_participants": null,
                   "user_id": 147,
                   "user_ids": [
@@ -3526,11 +3657,11 @@
                   ],
                   "organization": {
                     "id": 155,
-                    "title": "Sipes, Baumbach and Schumm",
-                    "subdomain": "krisbradtke",
-                    "domain": "grant.co",
-                    "created_at": "March 05, 2018 20:21",
-                    "updated_at": "March 05, 2018 20:21"
+                    "title": "Pagac, Gutmann and Watsica",
+                    "subdomain": "homenick",
+                    "domain": "pfannerstill.info",
+                    "created_at": "March 08, 2018 18:05",
+                    "updated_at": "March 08, 2018 18:05"
                   }
                 }
               }
@@ -3690,13 +3821,13 @@
                 "group": {
                   "id": 39,
                   "organization_id": 151,
-                  "title": "Schiller, Jacobson and Kozey",
-                  "description": "empower robust ROI",
+                  "title": "Hane-Johnson",
+                  "description": "evolve ubiquitous web services",
                   "status": "active",
                   "user_limit": 10,
                   "visibility": "public",
-                  "created_at": "March 05, 2018 20:21",
-                  "updated_at": "March 05, 2018 20:21",
+                  "created_at": "March 08, 2018 18:05",
+                  "updated_at": "March 08, 2018 18:05",
                   "count_participants": null,
                   "user_id": null,
                   "user_ids": [
@@ -3704,11 +3835,11 @@
                   ],
                   "organization": {
                     "id": 151,
-                    "title": "Sipes, Baumbach and Schumm",
-                    "subdomain": "krisbradtke",
-                    "domain": "grant.co",
-                    "created_at": "March 05, 2018 20:21",
-                    "updated_at": "March 05, 2018 20:21"
+                    "title": "Pagac, Gutmann and Watsica",
+                    "subdomain": "homenick",
+                    "domain": "pfannerstill.info",
+                    "created_at": "March 08, 2018 18:05",
+                    "updated_at": "March 08, 2018 18:05"
                   }
                 }
               }
@@ -3907,13 +4038,13 @@
                 "group": {
                   "id": 47,
                   "organization_id": 159,
-                  "title": "Schiller, Jacobson and Kozey",
-                  "description": "empower robust ROI",
+                  "title": "Hane-Johnson",
+                  "description": "evolve ubiquitous web services",
                   "status": "active",
                   "user_limit": 10,
                   "visibility": "public",
-                  "created_at": "March 05, 2018 20:21",
-                  "updated_at": "March 05, 2018 20:21",
+                  "created_at": "March 08, 2018 18:05",
+                  "updated_at": "March 08, 2018 18:05",
                   "count_participants": null,
                   "user_id": null,
                   "user_ids": [
@@ -3921,11 +4052,11 @@
                   ],
                   "organization": {
                     "id": 159,
-                    "title": "Sipes, Baumbach and Schumm",
-                    "subdomain": "krisbradtke",
-                    "domain": "grant.co",
-                    "created_at": "March 05, 2018 20:21",
-                    "updated_at": "March 05, 2018 20:21"
+                    "title": "Pagac, Gutmann and Watsica",
+                    "subdomain": "homenick",
+                    "domain": "pfannerstill.info",
+                    "created_at": "March 08, 2018 18:05",
+                    "updated_at": "March 08, 2018 18:05"
                   }
                 }
               }
@@ -4227,27 +4358,30 @@
                 "lessons": [
                   {
                     "id": 1,
-                    "title": "Prohaska, Lowe and Bartoletti",
-                    "description": "engineer wireless web services",
+                    "title": "Lubowitz LLC",
+                    "description": "cultivate B2C technologies",
                     "status": "active",
                     "user_id": 161,
                     "course_id": 52,
-                    "created_at": "March 05, 2018 20:21",
-                    "updated_at": "March 05, 2018 20:21",
+                    "created_at": "March 08, 2018 18:05",
+                    "updated_at": "March 08, 2018 18:05",
                     "actions": [
 
                     ],
                     "course": {
                       "id": 52,
-                      "title": "Purdy LLC",
-                      "description": "scale user-centric communities",
+                      "title": "Collins LLC",
+                      "description": "harness impactful partnerships",
                       "image": {
                         "url": "/uploads/course/image/52/test.jpg"
                       },
                       "user_id": 162,
                       "organization_id": 168,
-                      "created_at": "March 05, 2018 20:21",
-                      "updated_at": "March 05, 2018 20:21"
+                      "created_at": "March 08, 2018 18:05",
+                      "updated_at": "March 08, 2018 18:05",
+                      "group_ids": [
+
+                      ]
                     }
                   }
                 ],
@@ -4420,27 +4554,30 @@
               "application/json": {
                 "lesson": {
                   "id": 5,
-                  "title": "Prohaska, Lowe and Bartoletti",
-                  "description": "engineer wireless web services",
+                  "title": "Lubowitz LLC",
+                  "description": "cultivate B2C technologies",
                   "status": "active",
                   "user_id": 168,
                   "course_id": 55,
-                  "created_at": "March 05, 2018 20:21",
-                  "updated_at": "March 05, 2018 20:21",
+                  "created_at": "March 08, 2018 18:05",
+                  "updated_at": "March 08, 2018 18:05",
                   "actions": [
 
                   ],
                   "course": {
                     "id": 55,
-                    "title": "Purdy LLC",
-                    "description": "scale user-centric communities",
+                    "title": "Collins LLC",
+                    "description": "harness impactful partnerships",
                     "image": {
                       "url": "/uploads/course/image/55/test.jpg"
                     },
                     "user_id": 169,
                     "organization_id": 174,
-                    "created_at": "March 05, 2018 20:21",
-                    "updated_at": "March 05, 2018 20:21"
+                    "created_at": "March 08, 2018 18:05",
+                    "updated_at": "March 08, 2018 18:05",
+                    "group_ids": [
+
+                    ]
                   }
                 }
               }
@@ -4597,27 +4734,30 @@
               "application/json": {
                 "lesson": {
                   "id": 8,
-                  "title": "Prohaska, Lowe and Bartoletti",
-                  "description": "engineer wireless web services",
+                  "title": "Lubowitz LLC",
+                  "description": "cultivate B2C technologies",
                   "status": "active",
                   "user_id": 177,
                   "course_id": 59,
-                  "created_at": "March 05, 2018 20:22",
-                  "updated_at": "March 05, 2018 20:22",
+                  "created_at": "March 08, 2018 18:05",
+                  "updated_at": "March 08, 2018 18:05",
                   "actions": [
 
                   ],
                   "course": {
                     "id": 59,
-                    "title": "Purdy LLC",
-                    "description": "scale user-centric communities",
+                    "title": "Collins LLC",
+                    "description": "harness impactful partnerships",
                     "image": {
                       "url": "/uploads/course/image/59/test.jpg"
                     },
                     "user_id": 178,
                     "organization_id": 183,
-                    "created_at": "March 05, 2018 20:22",
-                    "updated_at": "March 05, 2018 20:22"
+                    "created_at": "March 08, 2018 18:05",
+                    "updated_at": "March 08, 2018 18:05",
+                    "group_ids": [
+
+                    ]
                   }
                 }
               }
@@ -4980,10 +5120,10 @@
                   "state_id": null,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "March 05, 2018 20:22",
-                  "updated_at": "March 05, 2018 20:22",
-                  "email": "enoch@zemlak.io",
-                  "confirmation_token": "iwG5WTcVxjzqP-GaYudi",
+                  "created_at": "March 08, 2018 18:05",
+                  "updated_at": "March 08, 2018 18:05",
+                  "email": "anabelle_barrows@hamill.com",
+                  "confirmation_token": "4TUCBy5t6SYULDmzK3sz",
                   "unconfirmed_email": null,
                   "avatar": {
                     "url": null,
@@ -5218,8 +5358,8 @@
               "application/json": {
                 "user": {
                   "id": 216,
-                  "first_name": "Robb Feil",
-                  "last_name": "Queen Stokes",
+                  "first_name": "Dr. Maye Rath",
+                  "last_name": "Miguel Quitzon",
                   "admin_role": "super_admin",
                   "phone_number": null,
                   "date_of_birth": null,
@@ -5228,9 +5368,9 @@
                   "state_id": 215,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "March 05, 2018 20:22",
-                  "updated_at": "March 05, 2018 20:22",
-                  "email": "maya@franeckicruickshank.org",
+                  "created_at": "March 08, 2018 18:05",
+                  "updated_at": "March 08, 2018 18:05",
+                  "email": "raymond@adamsko.com",
                   "confirmation_token": null,
                   "unconfirmed_email": null,
                   "avatar": {
@@ -5257,7 +5397,7 @@
                   "state": {
                   }
                 },
-                "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MjE2LCJleHAiOjE1NTE4MTczMjIsInR5cGUiOiJ1c2VyIiwiZW1haWwiOiJtYXlhQGZyYW5lY2tpY3J1aWNrc2hhbmsub3JnIn0.1YQkxA-dSHHeZI2tnEispQL30T3e482VmLe3Cxgg-iM"
+                "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MjE2LCJleHAiOjE1NTIwNjgzMTgsInR5cGUiOiJ1c2VyIiwiZW1haWwiOiJyYXltb25kQGFkYW1za28uY29tIn0.attAz_p4sZuCaPZNAtr-kEDwfkXCBXHXpH7T6Q4N7jY"
               }
             }
           },
@@ -5352,6 +5492,20 @@
             "in": "query",
             "type": "integer",
             "required": false
+          },
+          {
+            "name": "group_id",
+            "in": "query",
+            "type": "integer",
+            "required": false,
+            "description": "get users from specific group"
+          },
+          {
+            "name": "term",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "description": "term for searching by [:first_name, :last_name, :email]"
           }
         ],
         "responses": {
@@ -5466,8 +5620,8 @@
                 "users": [
                   {
                     "id": 235,
-                    "first_name": "Robb Feil",
-                    "last_name": "Queen Stokes",
+                    "first_name": "Dr. Maye Rath",
+                    "last_name": "Miguel Quitzon",
                     "admin_role": "super_admin",
                     "phone_number": null,
                     "date_of_birth": null,
@@ -5476,9 +5630,9 @@
                     "state_id": 234,
                     "zip_code": null,
                     "status": "active",
-                    "created_at": "March 05, 2018 20:22",
-                    "updated_at": "March 05, 2018 20:22",
-                    "email": "alphonso_white@waelchi.org",
+                    "created_at": "March 08, 2018 18:05",
+                    "updated_at": "March 08, 2018 18:05",
+                    "email": "bettye@schillerhuels.io",
                     "confirmation_token": null,
                     "unconfirmed_email": null,
                     "avatar": {
@@ -5755,8 +5909,8 @@
               "application/json": {
                 "user": {
                   "id": 245,
-                  "first_name": "Robb Feil",
-                  "last_name": "Queen Stokes",
+                  "first_name": "Dr. Maye Rath",
+                  "last_name": "Miguel Quitzon",
                   "admin_role": "super_admin",
                   "phone_number": null,
                   "date_of_birth": null,
@@ -5765,9 +5919,9 @@
                   "state_id": 244,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "March 05, 2018 20:22",
-                  "updated_at": "March 05, 2018 20:22",
-                  "email": "dayton_boyle@padbergrolfson.biz",
+                  "created_at": "March 08, 2018 18:05",
+                  "updated_at": "March 08, 2018 18:05",
+                  "email": "arvilla_kuhic@gorczany.name",
                   "confirmation_token": null,
                   "unconfirmed_email": null,
                   "avatar": {
@@ -5981,8 +6135,8 @@
               "application/json": {
                 "user": {
                   "id": 239,
-                  "first_name": "Robb Feil",
-                  "last_name": "Queen Stokes",
+                  "first_name": "Dr. Maye Rath",
+                  "last_name": "Miguel Quitzon",
                   "admin_role": "super_admin",
                   "phone_number": null,
                   "date_of_birth": null,
@@ -5991,9 +6145,9 @@
                   "state_id": 238,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "March 05, 2018 20:22",
-                  "updated_at": "March 05, 2018 20:22",
-                  "email": "skyla@hauck.name",
+                  "created_at": "March 08, 2018 18:05",
+                  "updated_at": "March 08, 2018 18:05",
+                  "email": "jonathan@wehnermacejkovic.biz",
                   "confirmation_token": null,
                   "unconfirmed_email": null,
                   "avatar": {
@@ -6289,8 +6443,8 @@
               "application/json": {
                 "user": {
                   "id": 249,
-                  "first_name": "Robb Feil",
-                  "last_name": "Queen Stokes",
+                  "first_name": "Dr. Maye Rath",
+                  "last_name": "Miguel Quitzon",
                   "admin_role": "super_admin",
                   "phone_number": null,
                   "date_of_birth": null,
@@ -6299,11 +6453,11 @@
                   "state_id": 249,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "March 05, 2018 20:22",
-                  "updated_at": "March 05, 2018 20:22",
-                  "email": "jacynthe_koch@hodkiewicz.io",
-                  "confirmation_token": "DtQsRTFZyEzkUdS1AJsU",
-                  "unconfirmed_email": "elia@glover.net",
+                  "created_at": "March 08, 2018 18:05",
+                  "updated_at": "March 08, 2018 18:05",
+                  "email": "vaughn@batzko.io",
+                  "confirmation_token": "MvCkvzzcS5Zuwh1DT8Rv",
+                  "unconfirmed_email": "tyreek@will.co",
                   "avatar": {
                     "url": null,
                     "small": {
@@ -6720,7 +6874,7 @@
                         "x-nullable": true
                       },
                       "video": {
-                        "type": "string",
+                        "type": "object",
                         "x-nullable": true
                       },
                       "organization_id": {
@@ -6758,22 +6912,24 @@
                 "videos": [
                   {
                     "id": 1,
-                    "title": "Legros-Considine",
+                    "title": "Koepp, Marvin and Parker",
                     "length": 100,
-                    "video": "#<Rack::Test::UploadedFile:0x007fe4d6ef86d0>",
+                    "video": {
+                      "url": "/uploads/video/video/1/video.jpeg"
+                    },
                     "organization_id": 261,
                     "user_id": 264,
                     "videoable_type": "Organization",
                     "videoable_id": 261,
-                    "created_at": "March 05, 2018 20:22",
-                    "updated_at": "March 05, 2018 20:22",
+                    "created_at": "March 08, 2018 18:05",
+                    "updated_at": "March 08, 2018 18:05",
                     "videoable": {
                       "id": 261,
-                      "title": "Sipes, Baumbach and Schumm",
-                      "subdomain": "krisbradtke",
-                      "domain": "grant.co",
-                      "created_at": "March 05, 2018 20:22",
-                      "updated_at": "March 05, 2018 20:22"
+                      "title": "Pagac, Gutmann and Watsica",
+                      "subdomain": "homenick",
+                      "domain": "pfannerstill.info",
+                      "created_at": "March 08, 2018 18:05",
+                      "updated_at": "March 08, 2018 18:05"
                     }
                   }
                 ],
@@ -6875,7 +7031,7 @@
                       "x-nullable": true
                     },
                     "video": {
-                      "type": "string",
+                      "type": "object",
                       "x-nullable": true
                     },
                     "length": {
@@ -6928,7 +7084,7 @@
                       "x-nullable": true
                     },
                     "video": {
-                      "type": "string",
+                      "type": "object",
                       "x-nullable": true
                     },
                     "organization_id": {
@@ -6963,31 +7119,26 @@
             "examples": {
               "application/json": {
                 "video": {
-                  "id": null,
-                  "title": "Legros-Considine",
-                  "length": 100,
-                  "video": "#<Rack::Test::UploadedFile:0x007fe4da15fce0>",
-                  "organization_id": null,
+                  "id": 5,
+                  "title": null,
+                  "length": null,
+                  "video": {
+                    "url": "/uploads/video/video/5/video.jpeg"
+                  },
+                  "organization_id": 264,
                   "user_id": 268,
                   "videoable_type": "Organization",
-                  "videoable_id": 267,
-                  "created_at": null,
-                  "updated_at": null,
+                  "videoable_id": 264,
+                  "created_at": "March 08, 2018 18:05",
+                  "updated_at": "March 08, 2018 18:05",
                   "videoable": {
-                    "id": 267,
-                    "title": "Sipes, Baumbach and Schumm",
-                    "subdomain": "krisbradtke",
-                    "domain": "grant.co",
-                    "created_at": "March 05, 2018 20:22",
-                    "updated_at": "March 05, 2018 20:22"
+                    "id": 264,
+                    "title": "Pagac, Gutmann and Watsica",
+                    "subdomain": "homenick",
+                    "domain": "pfannerstill.info",
+                    "created_at": "March 08, 2018 18:05",
+                    "updated_at": "March 08, 2018 18:05"
                   }
-                },
-                "errors": {
-                  "organization": [
-                    {
-                      "error": "blank"
-                    }
-                  ]
                 }
               }
             }
@@ -7089,7 +7240,7 @@
                       "x-nullable": true
                     },
                     "video": {
-                      "type": "string",
+                      "type": "object",
                       "x-nullable": true
                     },
                     "length": {
@@ -7139,7 +7290,7 @@
                       "x-nullable": true
                     },
                     "video": {
-                      "type": "string",
+                      "type": "object",
                       "x-nullable": true
                     },
                     "videoable_type": {
@@ -7160,23 +7311,25 @@
             "examples": {
               "application/json": {
                 "video": {
-                  "id": 7,
-                  "title": "Legros-Considine",
+                  "id": 8,
+                  "title": "Koepp, Marvin and Parker",
                   "length": 100,
-                  "video": "#<Rack::Test::UploadedFile:0x007fe4d96cf0a0>",
+                  "video": {
+                    "url": "/uploads/video/video/8/video.jpeg"
+                  },
                   "organization_id": 270,
                   "user_id": 273,
                   "videoable_type": "Organization",
                   "videoable_id": 273,
-                  "created_at": "March 05, 2018 20:22",
-                  "updated_at": "March 05, 2018 20:22",
+                  "created_at": "March 08, 2018 18:05",
+                  "updated_at": "March 08, 2018 18:05",
                   "videoable": {
                     "id": 273,
-                    "title": "Sipes, Baumbach and Schumm",
-                    "subdomain": "krisbradtke",
-                    "domain": "grant.co",
-                    "created_at": "March 05, 2018 20:22",
-                    "updated_at": "March 05, 2018 20:22"
+                    "title": "Pagac, Gutmann and Watsica",
+                    "subdomain": "homenick",
+                    "domain": "pfannerstill.info",
+                    "created_at": "March 08, 2018 18:05",
+                    "updated_at": "March 08, 2018 18:05"
                   }
                 }
               }

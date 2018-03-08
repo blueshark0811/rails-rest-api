@@ -7,16 +7,20 @@ class Api::V1::CoursesController < Api::V1::ApiController
     order = if Course::SORT_FIELDS.include?(params[:sort_field])
               { params[:sort_field] => sort_flag }
             else
-              { first_name: sort_flag }
+              { title: sort_flag }
             end
 
     where = { organization_id: current_organization.id }
 
-    where.merge!(group_id: params[:group_id]) if params[:group_id]
+    where[:group_ids] = params[:group_id] if params[:group_id]
 
     @courses = Course.search '*',
       where: where,
-      order: order, load: false, page: current_page, per_page: current_count
+      order: order,
+      load: false,
+      page: current_page,
+      per_page: current_count,
+      match: :word_start
 
     render_result @courses
   end

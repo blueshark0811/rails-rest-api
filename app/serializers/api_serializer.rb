@@ -65,7 +65,7 @@ module ApiSerializer
 
     begin
       if object.is_a?(Searchkick::HashWrapper) && searchkickable_class
-        case type = searchkickable_class.column_of_attribute(field).type
+        case searchkickable_class.column_of_attribute(field).type
         when :integer
           res = res.to_i
         when :string
@@ -73,14 +73,12 @@ module ApiSerializer
           #todo else
         end
       else
-        type = object.class.column_of_attribute(field).type
+        case object.class.column_of_attribute(field).type
+        when :datetime
+          res = res.to_s(:long) unless res.blank?
+        end
       end
     rescue
-    end
-
-    case type
-    when :datetime
-      res = res.to_s(:long) if res
     end
 
     res

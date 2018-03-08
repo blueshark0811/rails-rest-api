@@ -9,15 +9,15 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-  # config.before(:suite) do
-  #   Rails.application.eager_load!
-  #   Searchkick.models.each do |model|
-  #     puts "Reindexing #{model.name}..."
-  #     model.reindex
-  #   end
+  config.before(:suite) do
+    Rails.application.eager_load!
+    Searchkick.models.each do |model|
+      puts "Reindexing #{model.name}..."
+      model.reindex
+    end
   #   # and disable callbacks
   #   Searchkick.disable_callbacks
-  # end
+  end
 
   # config.around(:each, search: true) do |example|
   #   Searchkick.enable_callbacks

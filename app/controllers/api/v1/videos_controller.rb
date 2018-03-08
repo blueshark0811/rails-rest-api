@@ -15,7 +15,10 @@ class Api::V1::VideosController < Api::V1::ApiController
   end
 
   def create
-    @video = @videoable.videos.new user_id: current_user.id
+    @video = @videoable.videos.new(
+      user_id: current_user.id,
+      organization_id: current_organization.id
+    )
 
     if @video.update permitted_attributes(@video)
       render_result @video
@@ -45,7 +48,7 @@ class Api::V1::VideosController < Api::V1::ApiController
       render_error('wrong videoable type')
       return
     end
-    
+
     @videoable = params[:videoable_type].constantize.find params[:videoable_id]
   end
 

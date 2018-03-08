@@ -15,7 +15,10 @@ class Api::V1::AttachmentsController < Api::V1::ApiController
   end
 
   def create
-    @attachment = @attachmentable.attachments.new user_id: current_user.id
+    @attachment = @attachmentable.attachments.new(
+      user_id: current_user.id,
+      organization_id: current_organization.id
+    )
 
     if @attachment.update permitted_attributes(@attachment)
       render_result @attachment
@@ -45,7 +48,7 @@ class Api::V1::AttachmentsController < Api::V1::ApiController
       render_error('wrong attachmentable type')
       return
     end
-    
+
     @attachmentable = params[:attachmentable_type].constantize.find params[:attachmentable_id]
   end
 

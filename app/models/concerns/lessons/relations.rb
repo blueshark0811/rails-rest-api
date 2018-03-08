@@ -4,8 +4,8 @@ module Lessons
 
     included do
       belongs_to :user #author
-      belongs_to :course
-      
+      belongs_to :course, counter_cache: true
+
       has_many :attachments, as: :attachmentable, dependent: :destroy
 
       has_many :lesson_users, dependent: :destroy

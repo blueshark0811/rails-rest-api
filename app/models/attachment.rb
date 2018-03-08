@@ -4,5 +4,7 @@ class Attachment < ApplicationRecord
   belongs_to :organization
   belongs_to :attachmentable, polymorphic: true, optional: true
 
-  mount_base64_uploader :file, FileUploader
+  mount_base64_uploader :data, FileUploader
+
+  validates :data, presence: true
 end

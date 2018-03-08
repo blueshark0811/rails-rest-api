@@ -10,23 +10,22 @@ describe Api::V1::UsersController do
 
   options = { klass: User }
 
-  crud_index options.merge(as: :searchkick) do
-    let(:additional_parameters) do
-      [{
-        name: :group_id,
-        in: :query,
-        type: :integer,
-        required: false,
-        description: 'get users from specific group'
-      }, {
-        name: :term,
-        in: :query,
-        type: :string,
-        required: false,
-        description: "term for searching by #{User::SEARCH_FIELDS}"
-      }]
-    end
-  end
+  crud_index options.merge(
+    as: :searchkick,
+    additional_parameters: [{
+      name: :group_id,
+      in: :query,
+      type: :integer,
+      required: false,
+      description: 'get users from specific group'
+    }, {
+      name: :term,
+      in: :query,
+      type: :string,
+      required: false,
+      description: "term for searching by #{User::SEARCH_FIELDS}"
+    }]
+  )
 
   crud_show options
   crud_create options

@@ -1,5 +1,5 @@
 require 'rails_helper'
-require 'api_spec_helper'
+require 'api/helper'
 
 RSpec.configure do |config|
   # Specify a root folder where Swagger JSON files are generated

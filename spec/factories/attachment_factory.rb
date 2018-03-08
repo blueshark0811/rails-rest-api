@@ -4,7 +4,7 @@ FactoryBot.define do
     title Faker::Company.name
     description Faker::Company.bs
     user
-    file { Rack::Test::UploadedFile.new(Rails.root.join('spec', 'factories', 'test.jpg'), 'image/jpeg') }#todo
+    data FakeFile.file
     attachmentable { create :organization }
   end
 end
