@@ -30,6 +30,11 @@ module SharedController
     SORT_FLAGS.include?(flag) ? flag : sort_default_flag
   end
 
+  def bparams *param
+    res = params.dig(*param)
+    res == true || res == 'true'
+  end
+
   def organization_subdomain
     return unless request.domain == APP_CONFIG['host']
 

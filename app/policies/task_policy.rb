@@ -1,4 +1,4 @@
-class ActionPolicy < ApplicationPolicy
+class TaskPolicy < ApplicationPolicy
   def permitted_attributes
     %i[action_type description]
   end

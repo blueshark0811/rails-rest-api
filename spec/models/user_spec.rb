@@ -54,8 +54,8 @@ describe User, type: :model do
       expect(described_class.reflect_on_association(:group_users).macro).to eq(:has_many)
     end
 
-    it 'has many actions' do
-      expect(described_class.reflect_on_association(:actions).macro).to eq(:has_many)
+    it 'has many tasks' do
+      expect(described_class.reflect_on_association(:tasks).macro).to eq(:has_many)
     end
 
     it 'has many attachments' do

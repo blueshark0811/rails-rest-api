@@ -1,8 +1,20 @@
 Description:
-    Explain the generator
+    Generator of files for api resource
 
 Example:
-    rails generate api_resource Thing
+    rails g api_resource purchase
 
     This will create:
-        what/will/it/create
+        - controller without searchkick
+        - serializer
+        - policy
+        - specs without searchkick
+        - factory
+        - route
+
+    rails g api_resource purchase --actions controller,specs --searchkick true
+
+    This will create:
+        - controller with searchkick
+        - specs with searchkick
+    

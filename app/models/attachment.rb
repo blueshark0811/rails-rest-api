@@ -1,5 +1,5 @@
 class Attachment < ApplicationRecord
-  ATTACHMENTABLES = %w[Action Course Group Lesson Organization]
+  ATTACHMENTABLES = %w[Task Course Group Lesson Organization]
   belongs_to :user
   belongs_to :organization
   belongs_to :attachmentable, polymorphic: true, optional: true

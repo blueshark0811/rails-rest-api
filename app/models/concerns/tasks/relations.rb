@@ -1,4 +1,4 @@
-module Actions
+module Tasks
   module Relations
     extend ActiveSupport::Concern
 

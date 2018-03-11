@@ -11,7 +11,7 @@ module Lessons
       has_many :lesson_users, dependent: :destroy
       has_many :users, through: :lesson_users
 
-      has_many :actions, dependent: :destroy
+      has_many :tasks, dependent: :destroy
     end
   end
 end

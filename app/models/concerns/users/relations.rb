@@ -13,7 +13,7 @@ module Users
       has_many :organizations, through: :organization_users
 
       # as author
-      has_many :actions
+      has_many :tasks
       has_many :attachments
       has_many :courses
       has_many :groups

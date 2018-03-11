@@ -10,21 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180308191215) do
+ActiveRecord::Schema.define(version: 20180311201643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "actions", force: :cascade do |t|
-    t.string "action_type"
-    t.text "description"
-    t.bigint "lesson_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["lesson_id"], name: "index_actions_on_lesson_id"
-    t.index ["user_id"], name: "index_actions_on_user_id"
-  end
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -189,6 +178,17 @@ ActiveRecord::Schema.define(version: 20180308191215) do
     t.index ["country_id"], name: "index_states_on_country_id"
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.string "action_type"
+    t.text "description"
+    t.bigint "lesson_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lesson_id"], name: "index_tasks_on_lesson_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -239,8 +239,6 @@ ActiveRecord::Schema.define(version: 20180308191215) do
     t.index ["videoable_type", "videoable_id"], name: "index_videos_on_videoable_type_and_videoable_id"
   end
 
-  add_foreign_key "actions", "lessons"
-  add_foreign_key "actions", "users"
   add_foreign_key "attachments", "organizations"
   add_foreign_key "attachments", "users"
   add_foreign_key "cities", "states"
@@ -261,6 +259,8 @@ ActiveRecord::Schema.define(version: 20180308191215) do
   add_foreign_key "organization_users", "organizations"
   add_foreign_key "organization_users", "users"
   add_foreign_key "states", "countries"
+  add_foreign_key "tasks", "lessons"
+  add_foreign_key "tasks", "users"
   add_foreign_key "videos", "organizations"
   add_foreign_key "videos", "users"
 end

@@ -100,6 +100,7 @@ module ApiAttributes
 
       {
         type: :array,
+        'x-nullable' => true,
         items: {
           type: type,
           properties: properties

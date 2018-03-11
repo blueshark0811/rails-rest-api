@@ -1,7 +1,28 @@
-# frozen_string_literal: true
+require "#{Rails.root}/lib/import/permissions.rb"
 
 class ApiResourceGenerator < Rails::Generators::NamedBase
+  ACTIONS = %w[controller serializer policy specs factory route permissions]
+
+  class_option :actions, type: :string
+  class_option :searchkick, type: :boolean, default: false
+
   source_root File.expand_path('../templates', __FILE__)
+
+  def create
+    actions = if options['actions']
+      options['actions'].split(',').map { |a| a.gsub(/\W/, '').presence }.compact & ACTIONS
+    end
+
+    actions ||= ACTIONS
+
+    actions.each do |action|
+      p 'do action -> ', action
+
+      send "create_#{action}"
+    end
+  end
+
+  protected
 
   def create_controller
     set_variables
@@ -26,46 +47,37 @@ class ApiResourceGenerator < Rails::Generators::NamedBase
 
   def create_factory
     set_variables
-    @associations = @associations.reject { |a| [:has_many].include?(a.macro) }
+    @associations = @associations.reject{ |a| [:has_many].include?(a.macro) }
     @permitted_attributes = @permitted_attributes.reject{ |a| a.match /_id\z/ }
 
-    template 'factory.rb', "spec/factories/#{file_name}_factory.rb"
+    template "factory.rb", "spec/factories/#{file_name}_factory.rb"
   end
 
-  def write_route
-    routes_file_path = 'config/routes.rb'
-
-    after_line = 'namespace :v1 do'
-
-    new_routes = "resources :#{plural_name}"
-
-    file_content = File.read(routes_file_path)
-
-    return if file_content.include?(new_routes)
-
-    gsub_file routes_file_path, /(#{Regexp.escape(after_line)})/mi do |match|
-      "#{match}\n      #{new_routes}"
-    end
+  def create_route
+    write_to_file 'config/routes.rb', "namespace :v1 do", "resources :#{plural_name}", ' '*6
   end
-
-  protected
 
   def set_variables
     @model = class_name.constantize
     @associations = @model.reflect_on_all_associations
+    @searchkick = options['searchkick']
 
     excluded = %i[id created_at updated_at confirmation_sent_at confirmed_at current_sign_in_at
-                  current_sign_in_ip encrypted_password last_sign_in_at confirmation_token
-                  last_sign_in_ip remember_created_at reset_password_sent_at
-                  reset_password_token sign_in_count]
+      current_sign_in_ip encrypted_password last_sign_in_at confirmation_token
+      last_sign_in_ip remember_created_at reset_password_sent_at
+      reset_password_token sign_in_count]
 
     @permitted_attributes = @model.attributes - excluded
   end
 
-  def get_attribute_faker(attribute)
-    return '{ Faker::Internet.email }' if attribute.match?(/email/)
+  def get_attribute_faker attribute
+    if attribute.match /email/
+      return '{ Faker::Internet.email }'
+    end
 
-    return '{ Faker::Name.name }' if attribute.match?(/name/)
+    if attribute.match /name/
+      return '{ Faker::Name.name }'
+    end
 
     case @model.column_of_attribute(attribute).type
     when :integer
@@ -80,6 +92,17 @@ class ApiResourceGenerator < Rails::Generators::NamedBase
       'Faker::Number.positive'
     else
       "''"
+    end
+  end
+
+  def write_to_file file, after_line, new_content, shift = nil
+
+    file_content = File.read(file)
+
+    return if file_content.include?(new_content)
+
+    gsub_file file, /(#{Regexp.escape(after_line)})/mi do |match|
+      "#{match}\n#{shift}#{new_content}"
     end
   end
 end

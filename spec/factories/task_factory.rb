@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :action do
+  factory :task do
     lesson
     user
     course

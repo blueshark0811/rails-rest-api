@@ -1,10 +1,10 @@
 require 'models_helper'
 
-describe Action, type: :model do
-  let(:action) { create :action }
+describe Task, type: :model do
+  let(:task) { create :task }
 
   it_behaves_like 'enumerable' do
-    let(:fields) { %i[action_type] }
+    let(:fields) { %i[task_type] }
   end
 
   describe 'associations' do

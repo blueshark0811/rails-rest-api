@@ -1,6 +1,6 @@
-class Api::V1::ActionSerializer < BaseSerializer
+class Api::V1::TaskSerializer < BaseSerializer
   include ApiSerializer
-  
+
   belongs_to :lesson
   belongs_to :user
   has_one :course

@@ -1,11 +1,11 @@
 class Api::V1::<%= class_name.pluralize %>Controller < Api::V1::ApiController
-  before_action :set_<%= singular_name %>, except: [:index, :create]
+  before_action :set_<%= singular_name %>, except: %i[index create]
 
   def index
     order = { <%= @sort_field %>: sort_flag }
 
-    where = {}
-
+    where = policy_condition(<%= class_name %>)
+<% if @searchkick %>
     @<%= plural_name %> = <%= class_name %>.search params[:term] || '*',
       where: where,
       order: order,
@@ -13,7 +13,10 @@ class Api::V1::<%= class_name.pluralize %>Controller < Api::V1::ApiController
       per_page: current_count,
       fields: <%= class_name %>::SEARCH_FIELDS,
       match: :word_start
-
+<% else %>
+    @<%= plural_name %> = policy_scope(<%= class_name %>).where(where).order(order)
+      .page(current_page).per(current_count)
+<% end %>
     authorize @<%= plural_name %>
 
     render_result @<%= plural_name %>

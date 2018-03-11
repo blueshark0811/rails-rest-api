@@ -1,24 +1,6 @@
 module ApiSerializer
   extend ActiveSupport::Concern
 
-  included do
-    battributes = base_attributes
-
-    unless battributes.blank?
-      attributes(*battributes)
-
-      battributes.each do |field|
-        define_method field do
-          if available_fields.include?(field)
-            type_cast(field)
-          else
-             ActiveModel::FieldUpgrade::ATTR_NOT_ACCEPTABLE
-          end
-        end
-      end
-    end
-  end
-
   module ClassMethods
     def serializable_class_name
       @serializable_class_name ||= name.split('::').last.gsub(/Serializer/, '')
@@ -39,6 +21,27 @@ module ApiSerializer
     end
   end
 
+  def attributes(requested_attrs = nil, reload = false)
+    @attributes = nil if reload
+    @attributes ||= self.class.base_attributes.each_with_object({}) do |(field), hash|
+      attr = ActiveModel::Serializer::Attribute.new(field, {})
+
+      next if attr.excluded?(self)
+      next unless requested_attrs.nil? || requested_attrs.include?(field)
+      hash[field] = attr.value(self)
+    end
+  end
+
+  def read_attribute_for_serialization(attr)
+    return ActiveModel::FieldUpgrade::ATTR_NOT_ACCEPTABLE if attr.is_a?(Hash)
+
+    return send(attr) if respond_to?(attr)
+      
+    return type_cast(attr) if available_fields.include?(attr)
+
+    ActiveModel::FieldUpgrade::ATTR_NOT_ACCEPTABLE
+  end
+
   def available_fields
     key = params[:action]||:base
 
@@ -56,18 +59,21 @@ module ApiSerializer
       pclass.new(user_context, object).api_attributes(params[:action])
     end
 
-    @available_fields[key] 
+    @available_fields[key]
   end
 
   def type_cast field
-    res = object.send(field)
-    type = nil
+    res = nil
+
+    res = object.send(field) if object.respond_to?(field)
 
     begin
       if object.is_a?(Searchkick::HashWrapper) && searchkickable_class
         case searchkickable_class.column_of_attribute(field).type
         when :integer
           res = res.to_i
+        when :float
+          res = res.ceil 2
         when :string
           res = res.to_s
           #todo else
@@ -75,12 +81,12 @@ module ApiSerializer
       else
         case object.class.column_of_attribute(field).type
         when :datetime
-          res = res.to_s(:long) unless res.blank?
+          res = res.to_s(:long) if res
         end
       end
-    rescue
+    rescue => e
+      p 'error', e
     end
-
     res
   end
 

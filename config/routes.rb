@@ -36,7 +36,7 @@ Rails.application.routes.draw do
       end
       resources :courses do
         resources :lessons do
-          resources :actions
+          resources :tasks
         end
       end
 

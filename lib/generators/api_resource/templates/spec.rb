@@ -12,10 +12,11 @@ describe Api::V1::<%= class_name.pluralize %>Controller do
   options = { klass: <%= class_name %> }
   additional_parameters = []
 
-  crud_index options.merge(
+  crud_index options.merge(<%= "\n    as: :searchkick," if @searchkick %>
     description: 'List of <%= class_name.pluralize %>',
     additional_parameters: additional_parameters
   )
+
   crud_show options.merge(description: 'Details of <%= class_name %>')
   crud_create options.merge(description: 'Create <%= class_name %>')
   crud_update options.merge(description: 'Update details of <%= class_name %>')

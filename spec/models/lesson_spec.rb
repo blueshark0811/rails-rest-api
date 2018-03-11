@@ -26,8 +26,8 @@ describe Lesson, type: :model do
       end
     end
 
-    context '#actions' do
-      subject { described_class.reflect_on_association(:actions) }
+    context '#tasks' do
+      subject { described_class.reflect_on_association(:tasks) }
 
       it 'is has many' do
         expect(subject.macro).to eq(:has_many)

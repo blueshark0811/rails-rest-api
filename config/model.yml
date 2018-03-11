@@ -31,7 +31,7 @@ group_user:
     active: Active
     pause: Pause
 
-action:
+task:
   action_types:
     reading: Reading
     question: Question

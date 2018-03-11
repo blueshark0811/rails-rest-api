@@ -21,7 +21,7 @@ def rswag_root
 end
 
 def rswag_set_schema(example, options = {})
-  example.metadata[:response][:schema] = rswag_get_schema(options.merge(data_action: :return))
+ p example.metadata[:response][:schema] = rswag_get_schema(options.merge(data_action: :return))
 end
 
 def rswag_set_error_schema(example, _options = {})

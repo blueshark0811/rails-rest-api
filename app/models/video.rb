@@ -1,5 +1,5 @@
 class Video < ApplicationRecord
-  VIDEOABLES = %w[Action Organization]
+  VIDEOABLES = %w[Task Organization]
   
   belongs_to :organization
   belongs_to :user
