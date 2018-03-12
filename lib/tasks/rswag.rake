@@ -1,3 +1,5 @@
+return if Rails.env.production?
+
 require 'rspec/core/rake_task'
 
 namespace :rswag do
