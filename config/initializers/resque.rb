@@ -1,7 +1,7 @@
 if ENV["REDISCLOUD_URL"]
   Resque.redis = Redis.new(url: ENV["REDISCLOUD_URL"])
 else
-  RESQUE_CONFIG = Config.get('resque')å
+  RESQUE_CONFIG = Config.get('resque')
 
   Resque.redis = Redis.new(
     host: RESQUE_CONFIG[:host],
