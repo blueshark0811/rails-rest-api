@@ -2,9 +2,9 @@ require 'swagger_helper'
 
 describe Api::V1::UsersController do
   let!(:rswag_properties) do {
-    current_user: current_user,
-    current_organization: current_user.organizations.first,
-    object: current_user
+      current_user: current_user,
+      current_organization: current_user.organizations.first,
+      object: current_user
     }
   end
 
