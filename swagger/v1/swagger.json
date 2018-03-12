@@ -51,7 +51,7 @@
             "type": "string",
             "required": true,
             "enum": [
-              "Action",
+              "Task",
               "Course",
               "Group",
               "Lesson",
@@ -120,25 +120,17 @@
                 "attachments": [
                   {
                     "id": 1,
-                    "title": "Koepp and Sons",
-                    "description": "engage clicks-and-mortar content",
+                    "title": "Macejkovic Group",
+                    "description": "enhance clicks-and-mortar models",
                     "data": {
                       "url": "/uploads/attachment/data/1/data.jpeg"
                     },
                     "user_id": 1,
                     "organization_id": 1,
-                    "created_at": "March 08, 2018 18:05",
-                    "updated_at": "March 08, 2018 18:05",
+                    "created_at": "March 12, 2018 09:39",
+                    "updated_at": "March 12, 2018 09:39",
                     "attachmentable_type": "Organization",
-                    "attachmentable_id": 1,
-                    "attachmentable": {
-                      "id": 1,
-                      "title": "Pagac, Gutmann and Watsica",
-                      "subdomain": "homenick",
-                      "domain": "pfannerstill.info",
-                      "created_at": "March 08, 2018 18:05",
-                      "updated_at": "March 08, 2018 18:05"
-                    }
+                    "attachmentable_id": 1
                   }
                 ],
                 "meta": {
@@ -266,7 +258,7 @@
             "type": "string",
             "required": true,
             "enum": [
-              "Action",
+              "Task",
               "Course",
               "Group",
               "Lesson",
@@ -338,18 +330,10 @@
                   },
                   "user_id": 5,
                   "organization_id": 4,
-                  "created_at": "March 08, 2018 18:05",
-                  "updated_at": "March 08, 2018 18:05",
+                  "created_at": "March 12, 2018 09:39",
+                  "updated_at": "March 12, 2018 09:39",
                   "attachmentable_type": "Organization",
-                  "attachmentable_id": 4,
-                  "attachmentable": {
-                    "id": 4,
-                    "title": "Pagac, Gutmann and Watsica",
-                    "subdomain": "homenick",
-                    "domain": "pfannerstill.info",
-                    "created_at": "March 08, 2018 18:05",
-                    "updated_at": "March 08, 2018 18:05"
-                  }
+                  "attachmentable_id": 4
                 }
               }
             }
@@ -478,7 +462,7 @@
             "type": "string",
             "required": true,
             "enum": [
-              "Action",
+              "Task",
               "Course",
               "Group",
               "Lesson",
@@ -526,25 +510,17 @@
               "application/json": {
                 "attachment": {
                   "id": 8,
-                  "title": "Koepp and Sons",
-                  "description": "engage clicks-and-mortar content",
+                  "title": "Macejkovic Group",
+                  "description": "enhance clicks-and-mortar models",
                   "data": {
                     "url": "/uploads/attachment/data/8/data.jpeg"
                   },
                   "user_id": 10,
                   "organization_id": 10,
-                  "created_at": "March 08, 2018 18:05",
-                  "updated_at": "March 08, 2018 18:05",
+                  "created_at": "March 12, 2018 09:39",
+                  "updated_at": "March 12, 2018 09:39",
                   "attachmentable_type": "Organization",
-                  "attachmentable_id": 13,
-                  "attachmentable": {
-                    "id": 13,
-                    "title": "Pagac, Gutmann and Watsica",
-                    "subdomain": "homenick",
-                    "domain": "pfannerstill.info",
-                    "created_at": "March 08, 2018 18:05",
-                    "updated_at": "March 08, 2018 18:05"
-                  }
+                  "attachmentable_id": 13
                 }
               }
             }
@@ -659,7 +635,7 @@
             "type": "string",
             "required": true,
             "enum": [
-              "Action",
+              "Task",
               "Course",
               "Group",
               "Lesson",
@@ -895,8 +871,8 @@
                     "discussing_enabled": true,
                     "student_content_enabled": true,
                     "status": "active",
-                    "created_at": "March 08, 2018 18:05",
-                    "updated_at": "March 08, 2018 18:05"
+                    "created_at": "March 12, 2018 09:39",
+                    "updated_at": "March 12, 2018 09:39"
                   }
                 ],
                 "meta": {
@@ -1124,8 +1100,8 @@
                   "discussing_enabled": true,
                   "student_content_enabled": true,
                   "status": "active",
-                  "created_at": "March 08, 2018 18:05",
-                  "updated_at": "March 08, 2018 18:05"
+                  "created_at": "March 12, 2018 09:39",
+                  "updated_at": "March 12, 2018 09:39"
                 }
               }
             }
@@ -1333,8 +1309,8 @@
                   "discussing_enabled": true,
                   "student_content_enabled": true,
                   "status": "active",
-                  "created_at": "March 08, 2018 18:05",
-                  "updated_at": "March 08, 2018 18:05"
+                  "created_at": "March 12, 2018 09:39",
+                  "updated_at": "March 12, 2018 09:39"
                 }
               }
             }
@@ -1599,7 +1575,9 @@
             "required": false,
             "enum": [
               "title",
-              "created_at"
+              "created_at",
+              "lessons_count",
+              "active_user_ids"
             ],
             "description": "field for sorting"
           },
@@ -1655,8 +1633,22 @@
                       "updated_at": {
                         "type": "datetime"
                       },
+                      "lessons_count": {
+                        "type": "integer",
+                        "x-nullable": true
+                      },
                       "group_ids": {
                         "type": "array",
+                        "x-nullable": true,
+                        "items": {
+                          "type": "integer",
+                          "properties": {
+                          }
+                        }
+                      },
+                      "active_user_ids": {
+                        "type": "array",
+                        "x-nullable": true,
                         "items": {
                           "type": "integer",
                           "properties": {
@@ -1670,6 +1662,35 @@
               "required": [
                 "courses"
               ]
+            },
+            "examples": {
+              "application/json": {
+                "courses": [
+                  {
+                    "id": 33,
+                    "title": "Becker Inc",
+                    "description": "drive user-centric infrastructures",
+                    "image": "image.jpeg",
+                    "user_id": 72,
+                    "organization_id": 87,
+                    "created_at": "2018-03-12T09:39:58.027Z",
+                    "updated_at": "2018-03-12T09:39:58.027Z",
+                    "lessons_count": 0,
+                    "group_ids": [
+
+                    ],
+                    "active_user_ids": [
+
+                    ]
+                  }
+                ],
+                "meta": {
+                  "total_pages": 1,
+                  "size": 1,
+                  "limit_value": 20,
+                  "current_page": 1
+                }
+              }
             }
           },
           "401": {
@@ -1807,8 +1828,22 @@
                     "updated_at": {
                       "type": "datetime"
                     },
+                    "lessons_count": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
                     "group_ids": {
                       "type": "array",
+                      "x-nullable": true,
+                      "items": {
+                        "type": "integer",
+                        "properties": {
+                        }
+                      }
+                    },
+                    "active_user_ids": {
+                      "type": "array",
+                      "x-nullable": true,
                       "items": {
                         "type": "integer",
                         "properties": {
@@ -1826,59 +1861,20 @@
               "application/json": {
                 "course": {
                   "id": 41,
-                  "title": "Collins LLC",
-                  "description": "harness impactful partnerships",
+                  "title": "Becker Inc",
+                  "description": "drive user-centric infrastructures",
                   "image": {
                     "url": null
                   },
                   "user_id": 87,
                   "organization_id": 101,
-                  "created_at": "March 08, 2018 18:05",
-                  "updated_at": "March 08, 2018 18:05",
+                  "created_at": "March 12, 2018 09:39",
+                  "updated_at": "March 12, 2018 09:39",
+                  "lessons_count": 0,
                   "group_ids": [
 
                   ],
-                  "user": {
-                    "id": 87,
-                    "first_name": "Dr. Maye Rath",
-                    "last_name": "Miguel Quitzon",
-                    "admin_role": "super_admin",
-                    "phone_number": null,
-                    "date_of_birth": null,
-                    "address": null,
-                    "country_id": 173,
-                    "state_id": 87,
-                    "zip_code": null,
-                    "status": "active",
-                    "created_at": "March 08, 2018 18:05",
-                    "updated_at": "March 08, 2018 18:05",
-                    "email": "victoria_stehr@blanda.com",
-                    "confirmation_token": null,
-                    "unconfirmed_email": null,
-                    "avatar": {
-                      "url": null,
-                      "small": {
-                        "url": null
-                      },
-                      "middle": {
-                        "url": null
-                      }
-                    },
-                    "organization_ids": [
-                      101
-                    ],
-                    "group_ids": [
-
-                    ]
-                  },
-                  "organization": {
-                    "id": 101,
-                    "title": "Pagac, Gutmann and Watsica",
-                    "subdomain": "homenick",
-                    "domain": "pfannerstill.info",
-                    "created_at": "March 08, 2018 18:05",
-                    "updated_at": "March 08, 2018 18:05"
-                  }
+                  "active_user_ids": null
                 }
               }
             }
@@ -1997,8 +1993,22 @@
                     "updated_at": {
                       "type": "datetime"
                     },
+                    "lessons_count": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
                     "group_ids": {
                       "type": "array",
+                      "x-nullable": true,
+                      "items": {
+                        "type": "integer",
+                        "properties": {
+                        }
+                      }
+                    },
+                    "active_user_ids": {
+                      "type": "array",
+                      "x-nullable": true,
                       "items": {
                         "type": "integer",
                         "properties": {
@@ -2016,59 +2026,20 @@
               "application/json": {
                 "course": {
                   "id": 36,
-                  "title": "Collins LLC",
-                  "description": "harness impactful partnerships",
+                  "title": "Becker Inc",
+                  "description": "drive user-centric infrastructures",
                   "image": {
-                    "url": "/uploads/course/image/36/test.jpg"
+                    "url": "/uploads/course/image/36/image.jpeg"
                   },
                   "user_id": 79,
                   "organization_id": 93,
-                  "created_at": "March 08, 2018 18:05",
-                  "updated_at": "March 08, 2018 18:05",
+                  "created_at": "March 12, 2018 09:39",
+                  "updated_at": "March 12, 2018 09:39",
+                  "lessons_count": 0,
                   "group_ids": [
 
                   ],
-                  "user": {
-                    "id": 79,
-                    "first_name": "Dr. Maye Rath",
-                    "last_name": "Miguel Quitzon",
-                    "admin_role": "super_admin",
-                    "phone_number": null,
-                    "date_of_birth": null,
-                    "address": null,
-                    "country_id": 157,
-                    "state_id": 79,
-                    "zip_code": null,
-                    "status": "active",
-                    "created_at": "March 08, 2018 18:05",
-                    "updated_at": "March 08, 2018 18:05",
-                    "email": "raymond.konopelski@dooley.com",
-                    "confirmation_token": null,
-                    "unconfirmed_email": null,
-                    "avatar": {
-                      "url": null,
-                      "small": {
-                        "url": null
-                      },
-                      "middle": {
-                        "url": null
-                      }
-                    },
-                    "organization_ids": [
-                      94
-                    ],
-                    "group_ids": [
-
-                    ]
-                  },
-                  "organization": {
-                    "id": 93,
-                    "title": "Pagac, Gutmann and Watsica",
-                    "subdomain": "homenick",
-                    "domain": "pfannerstill.info",
-                    "created_at": "March 08, 2018 18:05",
-                    "updated_at": "March 08, 2018 18:05"
-                  }
+                  "active_user_ids": null
                 }
               }
             }
@@ -2233,59 +2204,20 @@
               "application/json": {
                 "course": {
                   "id": 44,
-                  "title": "Collins LLC",
-                  "description": "harness impactful partnerships",
+                  "title": "Becker Inc",
+                  "description": "drive user-centric infrastructures",
                   "image": {
-                    "url": "/uploads/course/image/44/test.jpg"
+                    "url": "/uploads/course/image/44/image.jpeg"
                   },
                   "user_id": 96,
                   "organization_id": 109,
-                  "created_at": "March 08, 2018 18:05",
-                  "updated_at": "March 08, 2018 18:05",
+                  "created_at": "March 12, 2018 09:40",
+                  "updated_at": "March 12, 2018 09:40",
+                  "lessons_count": 0,
                   "group_ids": [
 
                   ],
-                  "user": {
-                    "id": 96,
-                    "first_name": "Dr. Maye Rath",
-                    "last_name": "Miguel Quitzon",
-                    "admin_role": "super_admin",
-                    "phone_number": null,
-                    "date_of_birth": null,
-                    "address": null,
-                    "country_id": 191,
-                    "state_id": 96,
-                    "zip_code": null,
-                    "status": "active",
-                    "created_at": "March 08, 2018 18:05",
-                    "updated_at": "March 08, 2018 18:05",
-                    "email": "aliya@wilderman.co",
-                    "confirmation_token": null,
-                    "unconfirmed_email": null,
-                    "avatar": {
-                      "url": null,
-                      "small": {
-                        "url": null
-                      },
-                      "middle": {
-                        "url": null
-                      }
-                    },
-                    "organization_ids": [
-                      110
-                    ],
-                    "group_ids": [
-
-                    ]
-                  },
-                  "organization": {
-                    "id": 109,
-                    "title": "Pagac, Gutmann and Watsica",
-                    "subdomain": "homenick",
-                    "domain": "pfannerstill.info",
-                    "created_at": "March 08, 2018 18:05",
-                    "updated_at": "March 08, 2018 18:05"
-                  }
+                  "active_user_ids": null
                 }
               }
             }
@@ -2615,8 +2547,8 @@
                 "group_users": [
                   {
                     "id": 1,
-                    "first_name": "Dr. Maye Rath",
-                    "last_name": "Miguel Quitzon",
+                    "first_name": "Marshall DuBuque",
+                    "last_name": "Otho Hayes",
                     "role": "admin",
                     "organization_id": 127
                   }
@@ -2784,11 +2716,11 @@
                   "id": 5,
                   "user_id": 119,
                   "group_id": 20,
-                  "created_at": "March 08, 2018 18:05",
-                  "updated_at": "March 08, 2018 18:05",
+                  "created_at": "March 12, 2018 09:40",
+                  "updated_at": "March 12, 2018 09:40",
                   "status": "active",
-                  "first_name": "Dr. Maye Rath",
-                  "last_name": "Miguel Quitzon",
+                  "first_name": "Marshall DuBuque",
+                  "last_name": "Otho Hayes",
                   "role": "",
                   "organization_id": 130
                 }
@@ -2932,11 +2864,11 @@
                   "id": 8,
                   "user_id": 123,
                   "group_id": 24,
-                  "created_at": "March 08, 2018 18:05",
-                  "updated_at": "March 08, 2018 18:05",
+                  "created_at": "March 12, 2018 09:40",
+                  "updated_at": "March 12, 2018 09:40",
                   "status": "active",
-                  "first_name": "Dr. Maye Rath",
-                  "last_name": "Miguel Quitzon",
+                  "first_name": "Marshall DuBuque",
+                  "last_name": "Otho Hayes",
                   "role": "admin",
                   "organization_id": 135
                 }
@@ -3401,6 +3333,7 @@
                       },
                       "user_ids": {
                         "type": "array",
+                        "x-nullable": true,
                         "items": {
                           "type": "integer",
                           "properties": {
@@ -3421,26 +3354,18 @@
                   {
                     "id": 36,
                     "organization_id": 148,
-                    "title": "Hane-Johnson",
-                    "description": "evolve ubiquitous web services",
+                    "title": "Thiel-Heathcote",
+                    "description": "optimize synergistic markets",
                     "status": "active",
                     "user_limit": 10,
                     "visibility": "public",
-                    "created_at": "March 08, 2018 18:05",
-                    "updated_at": "March 08, 2018 18:05",
+                    "created_at": "March 12, 2018 09:40",
+                    "updated_at": "March 12, 2018 09:40",
                     "count_participants": null,
                     "user_id": null,
                     "user_ids": [
 
-                    ],
-                    "organization": {
-                      "id": 148,
-                      "title": "Pagac, Gutmann and Watsica",
-                      "subdomain": "homenick",
-                      "domain": "pfannerstill.info",
-                      "created_at": "March 08, 2018 18:05",
-                      "updated_at": "March 08, 2018 18:05"
-                    }
+                    ]
                   }
                 ],
                 "meta": {
@@ -3625,6 +3550,7 @@
                     },
                     "user_ids": {
                       "type": "array",
+                      "x-nullable": true,
                       "items": {
                         "type": "integer",
                         "properties": {
@@ -3643,26 +3569,18 @@
                 "group": {
                   "id": 44,
                   "organization_id": 155,
-                  "title": "Hane-Johnson",
-                  "description": "evolve ubiquitous web services",
+                  "title": "Thiel-Heathcote",
+                  "description": "optimize synergistic markets",
                   "status": "active",
                   "user_limit": 10,
                   "visibility": "public",
-                  "created_at": "March 08, 2018 18:05",
-                  "updated_at": "March 08, 2018 18:05",
+                  "created_at": "March 12, 2018 09:40",
+                  "updated_at": "March 12, 2018 09:40",
                   "count_participants": null,
                   "user_id": 147,
                   "user_ids": [
 
-                  ],
-                  "organization": {
-                    "id": 155,
-                    "title": "Pagac, Gutmann and Watsica",
-                    "subdomain": "homenick",
-                    "domain": "pfannerstill.info",
-                    "created_at": "March 08, 2018 18:05",
-                    "updated_at": "March 08, 2018 18:05"
-                  }
+                  ]
                 }
               }
             }
@@ -3803,6 +3721,7 @@
                     },
                     "user_ids": {
                       "type": "array",
+                      "x-nullable": true,
                       "items": {
                         "type": "integer",
                         "properties": {
@@ -3821,26 +3740,18 @@
                 "group": {
                   "id": 39,
                   "organization_id": 151,
-                  "title": "Hane-Johnson",
-                  "description": "evolve ubiquitous web services",
+                  "title": "Thiel-Heathcote",
+                  "description": "optimize synergistic markets",
                   "status": "active",
                   "user_limit": 10,
                   "visibility": "public",
-                  "created_at": "March 08, 2018 18:05",
-                  "updated_at": "March 08, 2018 18:05",
+                  "created_at": "March 12, 2018 09:40",
+                  "updated_at": "March 12, 2018 09:40",
                   "count_participants": null,
                   "user_id": null,
                   "user_ids": [
 
-                  ],
-                  "organization": {
-                    "id": 151,
-                    "title": "Pagac, Gutmann and Watsica",
-                    "subdomain": "homenick",
-                    "domain": "pfannerstill.info",
-                    "created_at": "March 08, 2018 18:05",
-                    "updated_at": "March 08, 2018 18:05"
-                  }
+                  ]
                 }
               }
             }
@@ -4038,26 +3949,18 @@
                 "group": {
                   "id": 47,
                   "organization_id": 159,
-                  "title": "Hane-Johnson",
-                  "description": "evolve ubiquitous web services",
+                  "title": "Thiel-Heathcote",
+                  "description": "optimize synergistic markets",
                   "status": "active",
                   "user_limit": 10,
                   "visibility": "public",
-                  "created_at": "March 08, 2018 18:05",
-                  "updated_at": "March 08, 2018 18:05",
+                  "created_at": "March 12, 2018 09:40",
+                  "updated_at": "March 12, 2018 09:40",
                   "count_participants": null,
                   "user_id": null,
                   "user_ids": [
 
-                  ],
-                  "organization": {
-                    "id": 159,
-                    "title": "Pagac, Gutmann and Watsica",
-                    "subdomain": "homenick",
-                    "domain": "pfannerstill.info",
-                    "created_at": "March 08, 2018 18:05",
-                    "updated_at": "March 08, 2018 18:05"
-                  }
+                  ]
                 }
               }
             }
@@ -4358,31 +4261,13 @@
                 "lessons": [
                   {
                     "id": 1,
-                    "title": "Lubowitz LLC",
-                    "description": "cultivate B2C technologies",
+                    "title": "Rice Group",
+                    "description": "synergize strategic web services",
                     "status": "active",
                     "user_id": 161,
                     "course_id": 52,
-                    "created_at": "March 08, 2018 18:05",
-                    "updated_at": "March 08, 2018 18:05",
-                    "actions": [
-
-                    ],
-                    "course": {
-                      "id": 52,
-                      "title": "Collins LLC",
-                      "description": "harness impactful partnerships",
-                      "image": {
-                        "url": "/uploads/course/image/52/test.jpg"
-                      },
-                      "user_id": 162,
-                      "organization_id": 168,
-                      "created_at": "March 08, 2018 18:05",
-                      "updated_at": "March 08, 2018 18:05",
-                      "group_ids": [
-
-                      ]
-                    }
+                    "created_at": "March 12, 2018 09:40",
+                    "updated_at": "March 12, 2018 09:40"
                   }
                 ],
                 "meta": {
@@ -4554,31 +4439,13 @@
               "application/json": {
                 "lesson": {
                   "id": 5,
-                  "title": "Lubowitz LLC",
-                  "description": "cultivate B2C technologies",
+                  "title": "Rice Group",
+                  "description": "synergize strategic web services",
                   "status": "active",
                   "user_id": 168,
                   "course_id": 55,
-                  "created_at": "March 08, 2018 18:05",
-                  "updated_at": "March 08, 2018 18:05",
-                  "actions": [
-
-                  ],
-                  "course": {
-                    "id": 55,
-                    "title": "Collins LLC",
-                    "description": "harness impactful partnerships",
-                    "image": {
-                      "url": "/uploads/course/image/55/test.jpg"
-                    },
-                    "user_id": 169,
-                    "organization_id": 174,
-                    "created_at": "March 08, 2018 18:05",
-                    "updated_at": "March 08, 2018 18:05",
-                    "group_ids": [
-
-                    ]
-                  }
+                  "created_at": "March 12, 2018 09:40",
+                  "updated_at": "March 12, 2018 09:40"
                 }
               }
             }
@@ -4734,31 +4601,13 @@
               "application/json": {
                 "lesson": {
                   "id": 8,
-                  "title": "Lubowitz LLC",
-                  "description": "cultivate B2C technologies",
+                  "title": "Rice Group",
+                  "description": "synergize strategic web services",
                   "status": "active",
                   "user_id": 177,
                   "course_id": 59,
-                  "created_at": "March 08, 2018 18:05",
-                  "updated_at": "March 08, 2018 18:05",
-                  "actions": [
-
-                  ],
-                  "course": {
-                    "id": 59,
-                    "title": "Collins LLC",
-                    "description": "harness impactful partnerships",
-                    "image": {
-                      "url": "/uploads/course/image/59/test.jpg"
-                    },
-                    "user_id": 178,
-                    "organization_id": 183,
-                    "created_at": "March 08, 2018 18:05",
-                    "updated_at": "March 08, 2018 18:05",
-                    "group_ids": [
-
-                    ]
-                  }
+                  "created_at": "March 12, 2018 09:40",
+                  "updated_at": "March 12, 2018 09:40"
                 }
               }
             }
@@ -4870,7 +4719,7 @@
         ],
         "responses": {
           "200": {
-            "description": "deleting GroupUser account",
+            "description": "deleting Lesson account",
             "schema": {
               "type": "object",
               "properties": {
@@ -5085,6 +4934,7 @@
                     },
                     "organization_ids": {
                       "type": "array",
+                      "x-nullable": true,
                       "items": {
                         "type": "integer",
                         "properties": {
@@ -5093,6 +4943,7 @@
                     },
                     "group_ids": {
                       "type": "array",
+                      "x-nullable": true,
                       "items": {
                         "type": "integer",
                         "properties": {
@@ -5120,10 +4971,10 @@
                   "state_id": null,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "March 08, 2018 18:05",
-                  "updated_at": "March 08, 2018 18:05",
-                  "email": "anabelle_barrows@hamill.com",
-                  "confirmation_token": "4TUCBy5t6SYULDmzK3sz",
+                  "created_at": "March 12, 2018 09:40",
+                  "updated_at": "March 12, 2018 09:40",
+                  "email": "ruby@macejkovicpollich.name",
+                  "confirmation_token": "7RZs7JRR_N84m19UrJnw",
                   "unconfirmed_email": null,
                   "avatar": {
                     "url": null,
@@ -5139,9 +4990,7 @@
                   ],
                   "group_ids": [
 
-                  ],
-                  "country": null,
-                  "state": null
+                  ]
                 }
               }
             }
@@ -5333,6 +5182,7 @@
                     },
                     "organization_ids": {
                       "type": "array",
+                      "x-nullable": true,
                       "items": {
                         "type": "integer",
                         "properties": {
@@ -5341,6 +5191,7 @@
                     },
                     "group_ids": {
                       "type": "array",
+                      "x-nullable": true,
                       "items": {
                         "type": "integer",
                         "properties": {
@@ -5358,8 +5209,8 @@
               "application/json": {
                 "user": {
                   "id": 216,
-                  "first_name": "Dr. Maye Rath",
-                  "last_name": "Miguel Quitzon",
+                  "first_name": "Marshall DuBuque",
+                  "last_name": "Otho Hayes",
                   "admin_role": "super_admin",
                   "phone_number": null,
                   "date_of_birth": null,
@@ -5368,9 +5219,9 @@
                   "state_id": 215,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "March 08, 2018 18:05",
-                  "updated_at": "March 08, 2018 18:05",
-                  "email": "raymond@adamsko.com",
+                  "created_at": "March 12, 2018 09:40",
+                  "updated_at": "March 12, 2018 09:40",
+                  "email": "annette@schmitteffertz.net",
                   "confirmation_token": null,
                   "unconfirmed_email": null,
                   "avatar": {
@@ -5387,17 +5238,9 @@
                   ],
                   "group_ids": [
 
-                  ],
-                  "country": {
-                    "id": 429,
-                    "code": null,
-                    "name": "Canada",
-                    "phonecode": null
-                  },
-                  "state": {
-                  }
+                  ]
                 },
-                "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MjE2LCJleHAiOjE1NTIwNjgzMTgsInR5cGUiOiJ1c2VyIiwiZW1haWwiOiJyYXltb25kQGFkYW1za28uY29tIn0.attAz_p4sZuCaPZNAtr-kEDwfkXCBXHXpH7T6Q4N7jY"
+                "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MjE2LCJleHAiOjE1NTIzODM2MTAsInR5cGUiOiJ1c2VyIiwiZW1haWwiOiJhbm5ldHRlQHNjaG1pdHRlZmZlcnR6Lm5ldCJ9.paKhyw5PqYx1eIfk6vq4nmBfKbYnTFSYgtxUAOrod7o"
               }
             }
           },
@@ -5452,6 +5295,836 @@
                   {
                     "email": "email is not confirmed"
                   }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/courses/{course_id}/lessons/{lesson_id}/tasks": {
+      "get": {
+        "summary": "List of Tasks",
+        "tags": [
+          "Tasks"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "organization_id",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "current_page",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "current_count",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "course_id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "lesson_id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns as array",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "tasks": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "action_type": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "enum": [
+                          "reading",
+                          "question",
+                          "watch"
+                        ]
+                      },
+                      "description": {
+                        "type": "text",
+                        "x-nullable": true
+                      },
+                      "lesson_id": {
+                        "type": "integer",
+                        "x-nullable": true
+                      },
+                      "user_id": {
+                        "type": "integer",
+                        "x-nullable": true
+                      },
+                      "created_at": {
+                        "type": "datetime"
+                      },
+                      "updated_at": {
+                        "type": "datetime"
+                      }
+                    }
+                  }
+                }
+              },
+              "required": [
+                "tasks"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "tasks": [
+                  {
+                    "id": 1,
+                    "action_type": "reading",
+                    "description": "Et officia dolores aut omnis. Est deserunt quidem maxime a. Et ut soluta temporibus corrupti magni cupiditate commodi. Impedit amet veniam placeat rem.",
+                    "lesson_id": 16,
+                    "user_id": 238,
+                    "created_at": "March 12, 2018 09:40",
+                    "updated_at": "March 12, 2018 09:40"
+                  }
+                ],
+                "meta": {
+                  "total_pages": 1,
+                  "size": 1,
+                  "limit_value": 20,
+                  "current_page": 1
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create Task",
+        "tags": [
+          "Tasks"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "task": {
+                  "type": "object",
+                  "properties": {
+                    "action_type": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "reading",
+                        "question",
+                        "watch"
+                      ]
+                    },
+                    "description": {
+                      "type": "text",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "task"
+              ]
+            }
+          },
+          {
+            "name": "course_id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "lesson_id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns created object",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "task": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "action_type": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "reading",
+                        "question",
+                        "watch"
+                      ]
+                    },
+                    "description": {
+                      "type": "text",
+                      "x-nullable": true
+                    },
+                    "lesson_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "user_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "created_at": {
+                      "type": "datetime"
+                    },
+                    "updated_at": {
+                      "type": "datetime"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "task"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "task": {
+                  "id": 9,
+                  "action_type": "reading",
+                  "description": "Et officia dolores aut omnis. Est deserunt quidem maxime a. Et ut soluta temporibus corrupti magni cupiditate commodi. Impedit amet veniam placeat rem.",
+                  "lesson_id": 23,
+                  "user_id": 272,
+                  "created_at": "March 12, 2018 09:40",
+                  "updated_at": "March 12, 2018 09:40"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/courses/{course_id}/lessons/{lesson_id}/tasks/{id}": {
+      "get": {
+        "summary": "Details of Task",
+        "tags": [
+          "Tasks"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "course_id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "lesson_id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns as object",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "task": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "action_type": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "reading",
+                        "question",
+                        "watch"
+                      ]
+                    },
+                    "description": {
+                      "type": "text",
+                      "x-nullable": true
+                    },
+                    "lesson_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "user_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "created_at": {
+                      "type": "datetime"
+                    },
+                    "updated_at": {
+                      "type": "datetime"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "task"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "task": {
+                  "id": 4,
+                  "action_type": "reading",
+                  "description": "Et officia dolores aut omnis. Est deserunt quidem maxime a. Et ut soluta temporibus corrupti magni cupiditate commodi. Impedit amet veniam placeat rem.",
+                  "lesson_id": 19,
+                  "user_id": 254,
+                  "created_at": "March 12, 2018 09:40",
+                  "updated_at": "March 12, 2018 09:40"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "returns error if instance not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": "",
+                "errors": [
+                  "Couldn't find Task with 'id'=0 [WHERE \"tasks\".\"lesson_id\" = $1]"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update details of Task",
+        "tags": [
+          "Tasks"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "task": {
+                  "type": "object",
+                  "properties": {
+                    "action_type": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "reading",
+                        "question",
+                        "watch"
+                      ]
+                    },
+                    "description": {
+                      "type": "text",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "task"
+              ]
+            }
+          },
+          {
+            "name": "course_id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "lesson_id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns data",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "task": {
+                  "type": "object",
+                  "properties": {
+                    "action_type": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "reading",
+                        "question",
+                        "watch"
+                      ]
+                    },
+                    "description": {
+                      "type": "text",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "task"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "task": {
+                  "id": 12,
+                  "action_type": "reading",
+                  "description": "Et officia dolores aut omnis. Est deserunt quidem maxime a. Et ut soluta temporibus corrupti magni cupiditate commodi. Impedit amet veniam placeat rem.",
+                  "lesson_id": 27,
+                  "user_id": 295,
+                  "created_at": "March 12, 2018 09:40",
+                  "updated_at": "March 12, 2018 09:40"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "returns error if instance not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": "",
+                "errors": [
+                  "Couldn't find Task with 'id'=0 [WHERE \"tasks\".\"lesson_id\" = $1]"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Task",
+        "tags": [
+          "Tasks"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "course_id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "lesson_id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "deleting Task account",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "value": true
+                }
+              },
+              "required": [
+                "success"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "success": true
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "returns error if instance not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": "",
+                "errors": [
+                  "Couldn't find Task with 'id'=0 [WHERE \"tasks\".\"lesson_id\" = $1]"
                 ]
               }
             }
@@ -5593,6 +6266,7 @@
                       },
                       "organization_ids": {
                         "type": "array",
+                        "x-nullable": true,
                         "items": {
                           "type": "integer",
                           "properties": {
@@ -5601,6 +6275,7 @@
                       },
                       "group_ids": {
                         "type": "array",
+                        "x-nullable": true,
                         "items": {
                           "type": "integer",
                           "properties": {
@@ -5619,20 +6294,20 @@
               "application/json": {
                 "users": [
                   {
-                    "id": 235,
-                    "first_name": "Dr. Maye Rath",
-                    "last_name": "Miguel Quitzon",
+                    "id": 338,
+                    "first_name": "Marshall DuBuque",
+                    "last_name": "Otho Hayes",
                     "admin_role": "super_admin",
                     "phone_number": null,
                     "date_of_birth": null,
                     "address": null,
-                    "country_id": 467,
-                    "state_id": 234,
+                    "country_id": 673,
+                    "state_id": 337,
                     "zip_code": null,
                     "status": "active",
-                    "created_at": "March 08, 2018 18:05",
-                    "updated_at": "March 08, 2018 18:05",
-                    "email": "bettye@schillerhuels.io",
+                    "created_at": "March 12, 2018 09:40",
+                    "updated_at": "March 12, 2018 09:40",
+                    "email": "seth@medhurst.biz",
                     "confirmation_token": null,
                     "unconfirmed_email": null,
                     "avatar": {
@@ -5645,19 +6320,11 @@
                       }
                     },
                     "organization_ids": [
-                      239
+                      377
                     ],
                     "group_ids": [
 
-                    ],
-                    "country": {
-                      "id": 467,
-                      "code": null,
-                      "name": "Canada",
-                      "phonecode": null
-                    },
-                    "state": {
-                    }
+                    ]
                   }
                 ],
                 "meta": {
@@ -5884,6 +6551,7 @@
                     },
                     "organization_ids": {
                       "type": "array",
+                      "x-nullable": true,
                       "items": {
                         "type": "integer",
                         "properties": {
@@ -5892,6 +6560,7 @@
                     },
                     "group_ids": {
                       "type": "array",
+                      "x-nullable": true,
                       "items": {
                         "type": "integer",
                         "properties": {
@@ -5908,20 +6577,20 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "id": 245,
-                  "first_name": "Dr. Maye Rath",
-                  "last_name": "Miguel Quitzon",
+                  "id": 348,
+                  "first_name": "Marshall DuBuque",
+                  "last_name": "Otho Hayes",
                   "admin_role": "super_admin",
                   "phone_number": null,
                   "date_of_birth": null,
                   "address": null,
-                  "country_id": 487,
-                  "state_id": 244,
+                  "country_id": 693,
+                  "state_id": 347,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "March 08, 2018 18:05",
-                  "updated_at": "March 08, 2018 18:05",
-                  "email": "arvilla_kuhic@gorczany.name",
+                  "created_at": "March 12, 2018 09:40",
+                  "updated_at": "March 12, 2018 09:40",
+                  "email": "kenneth@wehner.biz",
                   "confirmation_token": null,
                   "unconfirmed_email": null,
                   "avatar": {
@@ -5938,15 +6607,7 @@
                   ],
                   "group_ids": [
 
-                  ],
-                  "country": {
-                    "id": 487,
-                    "code": null,
-                    "name": "Canada",
-                    "phonecode": null
-                  },
-                  "state": {
-                  }
+                  ]
                 }
               }
             }
@@ -6110,6 +6771,7 @@
                     },
                     "organization_ids": {
                       "type": "array",
+                      "x-nullable": true,
                       "items": {
                         "type": "integer",
                         "properties": {
@@ -6118,6 +6780,7 @@
                     },
                     "group_ids": {
                       "type": "array",
+                      "x-nullable": true,
                       "items": {
                         "type": "integer",
                         "properties": {
@@ -6134,20 +6797,20 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "id": 239,
-                  "first_name": "Dr. Maye Rath",
-                  "last_name": "Miguel Quitzon",
+                  "id": 342,
+                  "first_name": "Marshall DuBuque",
+                  "last_name": "Otho Hayes",
                   "admin_role": "super_admin",
                   "phone_number": null,
                   "date_of_birth": null,
                   "address": null,
-                  "country_id": 475,
-                  "state_id": 238,
+                  "country_id": 681,
+                  "state_id": 341,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "March 08, 2018 18:05",
-                  "updated_at": "March 08, 2018 18:05",
-                  "email": "jonathan@wehnermacejkovic.biz",
+                  "created_at": "March 12, 2018 09:40",
+                  "updated_at": "March 12, 2018 09:40",
+                  "email": "chelsie@kuvalis.biz",
                   "confirmation_token": null,
                   "unconfirmed_email": null,
                   "avatar": {
@@ -6160,19 +6823,11 @@
                     }
                   },
                   "organization_ids": [
-                    242
+                    380
                   ],
                   "group_ids": [
 
-                  ],
-                  "country": {
-                    "id": 475,
-                    "code": null,
-                    "name": "Canada",
-                    "phonecode": null
-                  },
-                  "state": {
-                  }
+                  ]
                 }
               }
             }
@@ -6333,6 +6988,7 @@
                     },
                     "organization_users_attributes": {
                       "type": "array",
+                      "x-nullable": true,
                       "items": {
                         "type": "object",
                         "properties": {
@@ -6358,6 +7014,7 @@
                           },
                           "exclude_students_ids": {
                             "type": "array",
+                            "x-nullable": true,
                             "items": {
                               "type": "integer",
                               "properties": {
@@ -6442,22 +7099,22 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "id": 249,
-                  "first_name": "Dr. Maye Rath",
-                  "last_name": "Miguel Quitzon",
+                  "id": 352,
+                  "first_name": "Marshall DuBuque",
+                  "last_name": "Otho Hayes",
                   "admin_role": "super_admin",
                   "phone_number": null,
                   "date_of_birth": null,
                   "address": null,
-                  "country_id": 497,
-                  "state_id": 249,
+                  "country_id": 703,
+                  "state_id": 352,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "March 08, 2018 18:05",
-                  "updated_at": "March 08, 2018 18:05",
-                  "email": "vaughn@batzko.io",
-                  "confirmation_token": "MvCkvzzcS5Zuwh1DT8Rv",
-                  "unconfirmed_email": "tyreek@will.co",
+                  "created_at": "March 12, 2018 09:40",
+                  "updated_at": "March 12, 2018 09:40",
+                  "email": "ambrose@gusikowski.org",
+                  "confirmation_token": "5xxqvJfWTm6sr5dyyw2Y",
+                  "unconfirmed_email": "alivia@bayer.com",
                   "avatar": {
                     "url": null,
                     "small": {
@@ -6468,19 +7125,11 @@
                     }
                   },
                   "organization_ids": [
-                    249
+                    387
                   ],
                   "group_ids": [
 
-                  ],
-                  "country": {
-                    "id": 497,
-                    "code": null,
-                    "name": "Canada",
-                    "phonecode": null
-                  },
-                  "state": {
-                  }
+                  ]
                 }
               }
             }
@@ -6912,25 +7561,17 @@
                 "videos": [
                   {
                     "id": 1,
-                    "title": "Koepp, Marvin and Parker",
+                    "title": "Beahan, Ritchie and Schulist",
                     "length": 100,
                     "video": {
                       "url": "/uploads/video/video/1/video.jpeg"
                     },
-                    "organization_id": 261,
-                    "user_id": 264,
+                    "organization_id": 399,
+                    "user_id": 367,
                     "videoable_type": "Organization",
-                    "videoable_id": 261,
-                    "created_at": "March 08, 2018 18:05",
-                    "updated_at": "March 08, 2018 18:05",
-                    "videoable": {
-                      "id": 261,
-                      "title": "Pagac, Gutmann and Watsica",
-                      "subdomain": "homenick",
-                      "domain": "pfannerstill.info",
-                      "created_at": "March 08, 2018 18:05",
-                      "updated_at": "March 08, 2018 18:05"
-                    }
+                    "videoable_id": 399,
+                    "created_at": "March 12, 2018 09:40",
+                    "updated_at": "March 12, 2018 09:40"
                   }
                 ],
                 "meta": {
@@ -7125,20 +7766,12 @@
                   "video": {
                     "url": "/uploads/video/video/5/video.jpeg"
                   },
-                  "organization_id": 264,
-                  "user_id": 268,
+                  "organization_id": 402,
+                  "user_id": 371,
                   "videoable_type": "Organization",
-                  "videoable_id": 264,
-                  "created_at": "March 08, 2018 18:05",
-                  "updated_at": "March 08, 2018 18:05",
-                  "videoable": {
-                    "id": 264,
-                    "title": "Pagac, Gutmann and Watsica",
-                    "subdomain": "homenick",
-                    "domain": "pfannerstill.info",
-                    "created_at": "March 08, 2018 18:05",
-                    "updated_at": "March 08, 2018 18:05"
-                  }
+                  "videoable_id": 402,
+                  "created_at": "March 12, 2018 09:40",
+                  "updated_at": "March 12, 2018 09:40"
                 }
               }
             }
@@ -7312,25 +7945,17 @@
               "application/json": {
                 "video": {
                   "id": 8,
-                  "title": "Koepp, Marvin and Parker",
+                  "title": "Beahan, Ritchie and Schulist",
                   "length": 100,
                   "video": {
                     "url": "/uploads/video/video/8/video.jpeg"
                   },
-                  "organization_id": 270,
-                  "user_id": 273,
+                  "organization_id": 408,
+                  "user_id": 376,
                   "videoable_type": "Organization",
-                  "videoable_id": 273,
-                  "created_at": "March 08, 2018 18:05",
-                  "updated_at": "March 08, 2018 18:05",
-                  "videoable": {
-                    "id": 273,
-                    "title": "Pagac, Gutmann and Watsica",
-                    "subdomain": "homenick",
-                    "domain": "pfannerstill.info",
-                    "created_at": "March 08, 2018 18:05",
-                    "updated_at": "March 08, 2018 18:05"
-                  }
+                  "videoable_id": 411,
+                  "created_at": "March 12, 2018 09:40",
+                  "updated_at": "March 12, 2018 09:40"
                 }
               }
             }
