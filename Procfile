@@ -1,3 +1,3 @@
-redis: redis-server
-#jobs: QUEUE=* rake resque:work
-web: rails s -p4500
+#redis: redis-server
+resque: env TERM_CHILD=1 RESQUE_TERM_TIMEOUT=7 QUEUE=* bundle exec rake resque:work
+web: bundle exec puma -C config/puma.rb
