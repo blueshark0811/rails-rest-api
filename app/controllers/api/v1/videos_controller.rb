@@ -4,6 +4,9 @@ class Api::V1::VideosController < Api::V1::ApiController
   before_action :set_videoable
   before_action :set_video, except: %i[index create]
 
+  skip_before_action :authenticate_user!, only: [:sproutvideo]
+  skip_before_action :authenticate_organization!, only: [:sproutvideo]
+
   def index
     @videos = @videoable.videos.page(current_page).per(current_count)
 
@@ -25,6 +28,11 @@ class Api::V1::VideosController < Api::V1::ApiController
     else
       render_error @video
     end
+  end
+
+  def sproutvideo
+    @video.update_via_sproutvideo! params
+    head :ok
   end
 
   def update

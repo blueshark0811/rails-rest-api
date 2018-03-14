@@ -5,11 +5,11 @@ class Api::V1::TasksController < Api::V1::ApiController
   def index
     order = { id: sort_flag }
 
-    @tasks = @lesson.tasks.page(current_page).per(current_count)
+    @tasks = @lesson.tasks
 
     authorize @tasks
 
-    render_result @tasks
+    render_result @tasks.page(current_page).per(current_count)
   end
 
   def show
@@ -41,6 +41,7 @@ class Api::V1::TasksController < Api::V1::ApiController
   private
 
   def set_lesson
+    p Lesson.all
     @lesson = Lesson.where(course_id: params[:course_id]).find params[:lesson_id]
   end
 

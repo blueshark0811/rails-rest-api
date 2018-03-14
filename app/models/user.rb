@@ -15,6 +15,7 @@ class User < ApplicationRecord
     attributes.merge(
       'first_name' => first_name || '',
       organization_ids: organization_ids,
+      roles: cached_roles,
       group_ids: group_ids
       )
   end
@@ -24,6 +25,10 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :organization_users
 
   attr_accessor :current_organization
+
+  def cached_roles
+    @cached_roles ||= organization_users.map{|ou| [ou.organization_id, ou.role].join('_')}
+  end
 
   def current_organization_user(organization = nil)
     return unless organization ||= current_organization

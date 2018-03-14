@@ -33,7 +33,7 @@ class ApplicationPolicy
   end
 
   def create?
-    super_admin?
+    admin?
   end
 
   def new?
@@ -41,7 +41,7 @@ class ApplicationPolicy
   end
 
   def update?
-    super_admin?
+    super_admin? || author?
   end
 
   def edit?
@@ -49,11 +49,11 @@ class ApplicationPolicy
   end
 
   def destroy?
-    super_admin?
+    update?
   end
 
   def author?
-    user.id == record.user_id
+    user.id == record.try(:user_id)
   end
 
   def scope

@@ -1,16 +1,19 @@
+require 'resque/server'
+
 Rails.application.routes.draw do
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  
-  # authenticate :user do
-  #   mount Resque::Server, at: '/jobs'
-  # end
+
+  authenticate :user, -> (user) { user.super_admin? } do
+    mount PgHero::Engine, at: "pghero"
+    mount Resque::Server, at: '/jobs'
+  end
 
   namespace :api, defaults: { format: "json" } do
     namespace :v1 do
-      
+
       resources :sessions, only: %i[create] do
         collection do
           match :destroy, via: %i[delete get]
@@ -45,7 +48,11 @@ Rails.application.routes.draw do
       end
 
       scope ':videoable_type/:videoable_id' do
-        resources :videos
+        resources :videos do
+          member do
+            post 'sproutvideo/:token', action: :sproutvideo, as: :sproutvideo
+          end
+        end
       end
     end
   end

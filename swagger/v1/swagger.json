@@ -120,15 +120,15 @@
                 "attachments": [
                   {
                     "id": 1,
-                    "title": "Macejkovic Group",
-                    "description": "enhance clicks-and-mortar models",
+                    "title": "Waters Inc",
+                    "description": "syndicate viral channels",
                     "data": {
                       "url": "/uploads/attachment/data/1/data.jpeg"
                     },
                     "user_id": 1,
                     "organization_id": 1,
-                    "created_at": "March 12, 2018 09:39",
-                    "updated_at": "March 12, 2018 09:39",
+                    "created_at": "March 12, 2018 15:23",
+                    "updated_at": "March 12, 2018 15:23",
                     "attachmentable_type": "Organization",
                     "attachmentable_id": 1
                   }
@@ -330,8 +330,8 @@
                   },
                   "user_id": 5,
                   "organization_id": 4,
-                  "created_at": "March 12, 2018 09:39",
-                  "updated_at": "March 12, 2018 09:39",
+                  "created_at": "March 12, 2018 15:23",
+                  "updated_at": "March 12, 2018 15:23",
                   "attachmentable_type": "Organization",
                   "attachmentable_id": 4
                 }
@@ -510,15 +510,15 @@
               "application/json": {
                 "attachment": {
                   "id": 8,
-                  "title": "Macejkovic Group",
-                  "description": "enhance clicks-and-mortar models",
+                  "title": "Waters Inc",
+                  "description": "syndicate viral channels",
                   "data": {
                     "url": "/uploads/attachment/data/8/data.jpeg"
                   },
                   "user_id": 10,
                   "organization_id": 10,
-                  "created_at": "March 12, 2018 09:39",
-                  "updated_at": "March 12, 2018 09:39",
+                  "created_at": "March 12, 2018 15:23",
+                  "updated_at": "March 12, 2018 15:23",
                   "attachmentable_type": "Organization",
                   "attachmentable_id": 13
                 }
@@ -871,8 +871,8 @@
                     "discussing_enabled": true,
                     "student_content_enabled": true,
                     "status": "active",
-                    "created_at": "March 12, 2018 09:39",
-                    "updated_at": "March 12, 2018 09:39"
+                    "created_at": "March 12, 2018 15:23",
+                    "updated_at": "March 12, 2018 15:23"
                   }
                 ],
                 "meta": {
@@ -1100,8 +1100,8 @@
                   "discussing_enabled": true,
                   "student_content_enabled": true,
                   "status": "active",
-                  "created_at": "March 12, 2018 09:39",
-                  "updated_at": "March 12, 2018 09:39"
+                  "created_at": "March 12, 2018 15:23",
+                  "updated_at": "March 12, 2018 15:23"
                 }
               }
             }
@@ -1309,8 +1309,8 @@
                   "discussing_enabled": true,
                   "student_content_enabled": true,
                   "status": "active",
-                  "created_at": "March 12, 2018 09:39",
-                  "updated_at": "March 12, 2018 09:39"
+                  "created_at": "March 12, 2018 15:23",
+                  "updated_at": "March 12, 2018 15:23"
                 }
               }
             }
@@ -1668,13 +1668,13 @@
                 "courses": [
                   {
                     "id": 33,
-                    "title": "Becker Inc",
-                    "description": "drive user-centric infrastructures",
+                    "title": "Cassin Inc",
+                    "description": "strategize cross-platform bandwidth",
                     "image": "image.jpeg",
                     "user_id": 72,
                     "organization_id": 87,
-                    "created_at": "2018-03-12T09:39:58.027Z",
-                    "updated_at": "2018-03-12T09:39:58.027Z",
+                    "created_at": "2018-03-12T15:23:41.184Z",
+                    "updated_at": "2018-03-12T15:23:41.184Z",
                     "lessons_count": 0,
                     "group_ids": [
 
@@ -1861,15 +1861,15 @@
               "application/json": {
                 "course": {
                   "id": 41,
-                  "title": "Becker Inc",
-                  "description": "drive user-centric infrastructures",
+                  "title": "Cassin Inc",
+                  "description": "strategize cross-platform bandwidth",
                   "image": {
                     "url": null
                   },
                   "user_id": 87,
                   "organization_id": 101,
-                  "created_at": "March 12, 2018 09:39",
-                  "updated_at": "March 12, 2018 09:39",
+                  "created_at": "March 12, 2018 15:23",
+                  "updated_at": "March 12, 2018 15:23",
                   "lessons_count": 0,
                   "group_ids": [
 
@@ -2026,15 +2026,15 @@
               "application/json": {
                 "course": {
                   "id": 36,
-                  "title": "Becker Inc",
-                  "description": "drive user-centric infrastructures",
+                  "title": "Cassin Inc",
+                  "description": "strategize cross-platform bandwidth",
                   "image": {
                     "url": "/uploads/course/image/36/image.jpeg"
                   },
                   "user_id": 79,
                   "organization_id": 93,
-                  "created_at": "March 12, 2018 09:39",
-                  "updated_at": "March 12, 2018 09:39",
+                  "created_at": "March 12, 2018 15:23",
+                  "updated_at": "March 12, 2018 15:23",
                   "lessons_count": 0,
                   "group_ids": [
 
@@ -2204,15 +2204,15 @@
               "application/json": {
                 "course": {
                   "id": 44,
-                  "title": "Becker Inc",
-                  "description": "drive user-centric infrastructures",
+                  "title": "Cassin Inc",
+                  "description": "strategize cross-platform bandwidth",
                   "image": {
                     "url": "/uploads/course/image/44/image.jpeg"
                   },
                   "user_id": 96,
                   "organization_id": 109,
-                  "created_at": "March 12, 2018 09:40",
-                  "updated_at": "March 12, 2018 09:40",
+                  "created_at": "March 12, 2018 15:23",
+                  "updated_at": "March 12, 2018 15:23",
                   "lessons_count": 0,
                   "group_ids": [
 
@@ -2547,8 +2547,8 @@
                 "group_users": [
                   {
                     "id": 1,
-                    "first_name": "Marshall DuBuque",
-                    "last_name": "Otho Hayes",
+                    "first_name": "Desiree Hegmann",
+                    "last_name": "Abigale Hoeger",
                     "role": "admin",
                     "organization_id": 127
                   }
@@ -2716,11 +2716,11 @@
                   "id": 5,
                   "user_id": 119,
                   "group_id": 20,
-                  "created_at": "March 12, 2018 09:40",
-                  "updated_at": "March 12, 2018 09:40",
+                  "created_at": "March 12, 2018 15:23",
+                  "updated_at": "March 12, 2018 15:23",
                   "status": "active",
-                  "first_name": "Marshall DuBuque",
-                  "last_name": "Otho Hayes",
+                  "first_name": "Desiree Hegmann",
+                  "last_name": "Abigale Hoeger",
                   "role": "",
                   "organization_id": 130
                 }
@@ -2864,11 +2864,11 @@
                   "id": 8,
                   "user_id": 123,
                   "group_id": 24,
-                  "created_at": "March 12, 2018 09:40",
-                  "updated_at": "March 12, 2018 09:40",
+                  "created_at": "March 12, 2018 15:23",
+                  "updated_at": "March 12, 2018 15:23",
                   "status": "active",
-                  "first_name": "Marshall DuBuque",
-                  "last_name": "Otho Hayes",
+                  "first_name": "Desiree Hegmann",
+                  "last_name": "Abigale Hoeger",
                   "role": "admin",
                   "organization_id": 135
                 }
@@ -3351,26 +3351,11 @@
             "examples": {
               "application/json": {
                 "groups": [
-                  {
-                    "id": 36,
-                    "organization_id": 148,
-                    "title": "Thiel-Heathcote",
-                    "description": "optimize synergistic markets",
-                    "status": "active",
-                    "user_limit": 10,
-                    "visibility": "public",
-                    "created_at": "March 12, 2018 09:40",
-                    "updated_at": "March 12, 2018 09:40",
-                    "count_participants": null,
-                    "user_id": null,
-                    "user_ids": [
 
-                    ]
-                  }
                 ],
                 "meta": {
-                  "total_pages": 1,
-                  "size": 1,
+                  "total_pages": 0,
+                  "size": 0,
                   "limit_value": 20,
                   "current_page": 1
                 }
@@ -3569,13 +3554,13 @@
                 "group": {
                   "id": 44,
                   "organization_id": 155,
-                  "title": "Thiel-Heathcote",
-                  "description": "optimize synergistic markets",
+                  "title": "Walter-Hagenes",
+                  "description": "incentivize customized e-markets",
                   "status": "active",
                   "user_limit": 10,
                   "visibility": "public",
-                  "created_at": "March 12, 2018 09:40",
-                  "updated_at": "March 12, 2018 09:40",
+                  "created_at": "March 12, 2018 15:23",
+                  "updated_at": "March 12, 2018 15:23",
                   "count_participants": null,
                   "user_id": 147,
                   "user_ids": [
@@ -3740,13 +3725,13 @@
                 "group": {
                   "id": 39,
                   "organization_id": 151,
-                  "title": "Thiel-Heathcote",
-                  "description": "optimize synergistic markets",
+                  "title": "Walter-Hagenes",
+                  "description": "incentivize customized e-markets",
                   "status": "active",
                   "user_limit": 10,
                   "visibility": "public",
-                  "created_at": "March 12, 2018 09:40",
-                  "updated_at": "March 12, 2018 09:40",
+                  "created_at": "March 12, 2018 15:23",
+                  "updated_at": "March 12, 2018 15:23",
                   "count_participants": null,
                   "user_id": null,
                   "user_ids": [
@@ -3949,13 +3934,13 @@
                 "group": {
                   "id": 47,
                   "organization_id": 159,
-                  "title": "Thiel-Heathcote",
-                  "description": "optimize synergistic markets",
+                  "title": "Walter-Hagenes",
+                  "description": "incentivize customized e-markets",
                   "status": "active",
                   "user_limit": 10,
                   "visibility": "public",
-                  "created_at": "March 12, 2018 09:40",
-                  "updated_at": "March 12, 2018 09:40",
+                  "created_at": "March 12, 2018 15:23",
+                  "updated_at": "March 12, 2018 15:23",
                   "count_participants": null,
                   "user_id": null,
                   "user_ids": [
@@ -4261,13 +4246,13 @@
                 "lessons": [
                   {
                     "id": 1,
-                    "title": "Rice Group",
-                    "description": "synergize strategic web services",
+                    "title": "Cassin and Sons",
+                    "description": "seize clicks-and-mortar applications",
                     "status": "active",
                     "user_id": 161,
                     "course_id": 52,
-                    "created_at": "March 12, 2018 09:40",
-                    "updated_at": "March 12, 2018 09:40"
+                    "created_at": "March 12, 2018 15:23",
+                    "updated_at": "March 12, 2018 15:23"
                   }
                 ],
                 "meta": {
@@ -4439,13 +4424,13 @@
               "application/json": {
                 "lesson": {
                   "id": 5,
-                  "title": "Rice Group",
-                  "description": "synergize strategic web services",
+                  "title": "Cassin and Sons",
+                  "description": "seize clicks-and-mortar applications",
                   "status": "active",
                   "user_id": 168,
                   "course_id": 55,
-                  "created_at": "March 12, 2018 09:40",
-                  "updated_at": "March 12, 2018 09:40"
+                  "created_at": "March 12, 2018 15:23",
+                  "updated_at": "March 12, 2018 15:23"
                 }
               }
             }
@@ -4601,13 +4586,13 @@
               "application/json": {
                 "lesson": {
                   "id": 8,
-                  "title": "Rice Group",
-                  "description": "synergize strategic web services",
+                  "title": "Cassin and Sons",
+                  "description": "seize clicks-and-mortar applications",
                   "status": "active",
                   "user_id": 177,
                   "course_id": 59,
-                  "created_at": "March 12, 2018 09:40",
-                  "updated_at": "March 12, 2018 09:40"
+                  "created_at": "March 12, 2018 15:23",
+                  "updated_at": "March 12, 2018 15:23"
                 }
               }
             }
@@ -4875,6 +4860,7 @@
                       "type": "string",
                       "x-nullable": true,
                       "enum": [
+                        "simple",
                         "super_admin"
                       ]
                     },
@@ -4941,6 +4927,10 @@
                         }
                       }
                     },
+                    "roles": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
                     "group_ids": {
                       "type": "array",
                       "x-nullable": true,
@@ -4963,7 +4953,7 @@
                   "id": 212,
                   "first_name": null,
                   "last_name": null,
-                  "admin_role": "super_admin",
+                  "admin_role": "simple",
                   "phone_number": null,
                   "date_of_birth": null,
                   "address": null,
@@ -4971,10 +4961,10 @@
                   "state_id": null,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "March 12, 2018 09:40",
-                  "updated_at": "March 12, 2018 09:40",
-                  "email": "ruby@macejkovicpollich.name",
-                  "confirmation_token": "7RZs7JRR_N84m19UrJnw",
+                  "created_at": "March 12, 2018 15:23",
+                  "updated_at": "March 12, 2018 15:23",
+                  "email": "valerie_ruel@quigley.com",
+                  "confirmation_token": "n4Wm87cQwo8yS_87eNbz",
                   "unconfirmed_email": null,
                   "avatar": {
                     "url": null,
@@ -4988,6 +4978,7 @@
                   "organization_ids": [
 
                   ],
+                  "roles": null,
                   "group_ids": [
 
                   ]
@@ -5123,6 +5114,7 @@
                       "type": "string",
                       "x-nullable": true,
                       "enum": [
+                        "simple",
                         "super_admin"
                       ]
                     },
@@ -5189,6 +5181,10 @@
                         }
                       }
                     },
+                    "roles": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
                     "group_ids": {
                       "type": "array",
                       "x-nullable": true,
@@ -5209,9 +5205,9 @@
               "application/json": {
                 "user": {
                   "id": 216,
-                  "first_name": "Marshall DuBuque",
-                  "last_name": "Otho Hayes",
-                  "admin_role": "super_admin",
+                  "first_name": "Desiree Hegmann",
+                  "last_name": "Abigale Hoeger",
+                  "admin_role": "simple",
                   "phone_number": null,
                   "date_of_birth": null,
                   "address": null,
@@ -5219,9 +5215,9 @@
                   "state_id": 215,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "March 12, 2018 09:40",
-                  "updated_at": "March 12, 2018 09:40",
-                  "email": "annette@schmitteffertz.net",
+                  "created_at": "March 12, 2018 15:23",
+                  "updated_at": "March 12, 2018 15:23",
+                  "email": "felton.hartmann@bogisich.co",
                   "confirmation_token": null,
                   "unconfirmed_email": null,
                   "avatar": {
@@ -5236,11 +5232,12 @@
                   "organization_ids": [
                     220
                   ],
+                  "roles": null,
                   "group_ids": [
 
                   ]
                 },
-                "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MjE2LCJleHAiOjE1NTIzODM2MTAsInR5cGUiOiJ1c2VyIiwiZW1haWwiOiJhbm5ldHRlQHNjaG1pdHRlZmZlcnR6Lm5ldCJ9.paKhyw5PqYx1eIfk6vq4nmBfKbYnTFSYgtxUAOrod7o"
+                "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MjE2LCJleHAiOjE1NTI0MDQyMzMsInR5cGUiOiJ1c2VyIiwiZW1haWwiOiJmZWx0b24uaGFydG1hbm5AYm9naXNpY2guY28ifQ.FcvqEADxAKEOQizVPWkXgvsuo8qPTp__zVw_hWv2Oq8"
               }
             }
           },
@@ -5404,11 +5401,11 @@
                   {
                     "id": 1,
                     "action_type": "reading",
-                    "description": "Et officia dolores aut omnis. Est deserunt quidem maxime a. Et ut soluta temporibus corrupti magni cupiditate commodi. Impedit amet veniam placeat rem.",
+                    "description": "Optio nihil voluptatem pariatur dolore. Deleniti nulla est laboriosam. Vel hic aut provident quia voluptate excepturi nihil. Repudiandae atque maxime. Cum culpa et.",
                     "lesson_id": 16,
-                    "user_id": 238,
-                    "created_at": "March 12, 2018 09:40",
-                    "updated_at": "March 12, 2018 09:40"
+                    "user_id": 235,
+                    "created_at": "March 12, 2018 15:23",
+                    "updated_at": "March 12, 2018 15:23"
                   }
                 ],
                 "meta": {
@@ -5508,6 +5505,58 @@
                     "description": {
                       "type": "text",
                       "x-nullable": true
+                    },
+                    "attachments_attributes": {
+                      "type": "array",
+                      "x-nullable": true,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "description": {
+                            "type": "text",
+                            "x-nullable": true
+                          },
+                          "data": {
+                            "type": "object",
+                            "x-nullable": true
+                          },
+                          "title": {
+                            "type": "string",
+                            "x-nullable": true
+                          }
+                        }
+                      }
+                    },
+                    "videos_attributes": {
+                      "type": "array",
+                      "x-nullable": true,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "video": {
+                            "type": "object",
+                            "x-nullable": true
+                          },
+                          "video_link": {
+                            "type": "string",
+                            "x-nullable": true
+                          },
+                          "length": {
+                            "type": "integer",
+                            "x-nullable": true
+                          },
+                          "title": {
+                            "type": "string",
+                            "x-nullable": true
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -5581,11 +5630,11 @@
                 "task": {
                   "id": 9,
                   "action_type": "reading",
-                  "description": "Et officia dolores aut omnis. Est deserunt quidem maxime a. Et ut soluta temporibus corrupti magni cupiditate commodi. Impedit amet veniam placeat rem.",
+                  "description": "Optio nihil voluptatem pariatur dolore. Deleniti nulla est laboriosam. Vel hic aut provident quia voluptate excepturi nihil. Repudiandae atque maxime. Cum culpa et.",
                   "lesson_id": 23,
-                  "user_id": 272,
-                  "created_at": "March 12, 2018 09:40",
-                  "updated_at": "March 12, 2018 09:40"
+                  "user_id": 244,
+                  "created_at": "March 12, 2018 15:23",
+                  "updated_at": "March 12, 2018 15:23"
                 }
               }
             }
@@ -5729,11 +5778,11 @@
                 "task": {
                   "id": 4,
                   "action_type": "reading",
-                  "description": "Et officia dolores aut omnis. Est deserunt quidem maxime a. Et ut soluta temporibus corrupti magni cupiditate commodi. Impedit amet veniam placeat rem.",
+                  "description": "Optio nihil voluptatem pariatur dolore. Deleniti nulla est laboriosam. Vel hic aut provident quia voluptate excepturi nihil. Repudiandae atque maxime. Cum culpa et.",
                   "lesson_id": 19,
-                  "user_id": 254,
-                  "created_at": "March 12, 2018 09:40",
-                  "updated_at": "March 12, 2018 09:40"
+                  "user_id": 239,
+                  "created_at": "March 12, 2018 15:23",
+                  "updated_at": "March 12, 2018 15:23"
                 }
               }
             }
@@ -5857,6 +5906,58 @@
                     "description": {
                       "type": "text",
                       "x-nullable": true
+                    },
+                    "attachments_attributes": {
+                      "type": "array",
+                      "x-nullable": true,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "description": {
+                            "type": "text",
+                            "x-nullable": true
+                          },
+                          "data": {
+                            "type": "object",
+                            "x-nullable": true
+                          },
+                          "title": {
+                            "type": "string",
+                            "x-nullable": true
+                          }
+                        }
+                      }
+                    },
+                    "videos_attributes": {
+                      "type": "array",
+                      "x-nullable": true,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "video": {
+                            "type": "object",
+                            "x-nullable": true
+                          },
+                          "video_link": {
+                            "type": "string",
+                            "x-nullable": true
+                          },
+                          "length": {
+                            "type": "integer",
+                            "x-nullable": true
+                          },
+                          "title": {
+                            "type": "string",
+                            "x-nullable": true
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -5913,11 +6014,11 @@
                 "task": {
                   "id": 12,
                   "action_type": "reading",
-                  "description": "Et officia dolores aut omnis. Est deserunt quidem maxime a. Et ut soluta temporibus corrupti magni cupiditate commodi. Impedit amet veniam placeat rem.",
+                  "description": "Optio nihil voluptatem pariatur dolore. Deleniti nulla est laboriosam. Vel hic aut provident quia voluptate excepturi nihil. Repudiandae atque maxime. Cum culpa et.",
                   "lesson_id": 27,
-                  "user_id": 295,
-                  "created_at": "March 12, 2018 09:40",
-                  "updated_at": "March 12, 2018 09:40"
+                  "user_id": 251,
+                  "created_at": "March 12, 2018 15:23",
+                  "updated_at": "March 12, 2018 15:23"
                 }
               }
             }
@@ -6179,6 +6280,13 @@
             "type": "string",
             "required": false,
             "description": "term for searching by [:first_name, :last_name, :email]"
+          },
+          {
+            "name": "role",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "description": "filter by role(student, teacher)"
           }
         ],
         "responses": {
@@ -6207,6 +6315,7 @@
                         "type": "string",
                         "x-nullable": true,
                         "enum": [
+                          "simple",
                           "super_admin"
                         ]
                       },
@@ -6273,6 +6382,10 @@
                           }
                         }
                       },
+                      "roles": {
+                        "type": "string",
+                        "x-nullable": true
+                      },
                       "group_ids": {
                         "type": "array",
                         "x-nullable": true,
@@ -6294,20 +6407,20 @@
               "application/json": {
                 "users": [
                   {
-                    "id": 338,
-                    "first_name": "Marshall DuBuque",
-                    "last_name": "Otho Hayes",
-                    "admin_role": "super_admin",
+                    "id": 264,
+                    "first_name": "Desiree Hegmann",
+                    "last_name": "Abigale Hoeger",
+                    "admin_role": "simple",
                     "phone_number": null,
                     "date_of_birth": null,
                     "address": null,
-                    "country_id": 673,
-                    "state_id": 337,
+                    "country_id": 525,
+                    "state_id": 263,
                     "zip_code": null,
                     "status": "active",
-                    "created_at": "March 12, 2018 09:40",
-                    "updated_at": "March 12, 2018 09:40",
-                    "email": "seth@medhurst.biz",
+                    "created_at": "March 12, 2018 15:23",
+                    "updated_at": "March 12, 2018 15:23",
+                    "email": "octavia@ullrich.info",
                     "confirmation_token": null,
                     "unconfirmed_email": null,
                     "avatar": {
@@ -6320,8 +6433,9 @@
                       }
                     },
                     "organization_ids": [
-                      377
+                      265
                     ],
+                    "roles": null,
                     "group_ids": [
 
                     ]
@@ -6492,6 +6606,7 @@
                       "type": "string",
                       "x-nullable": true,
                       "enum": [
+                        "simple",
                         "super_admin"
                       ]
                     },
@@ -6558,6 +6673,10 @@
                         }
                       }
                     },
+                    "roles": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
                     "group_ids": {
                       "type": "array",
                       "x-nullable": true,
@@ -6577,20 +6696,20 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "id": 348,
-                  "first_name": "Marshall DuBuque",
-                  "last_name": "Otho Hayes",
-                  "admin_role": "super_admin",
+                  "id": 274,
+                  "first_name": "Desiree Hegmann",
+                  "last_name": "Abigale Hoeger",
+                  "admin_role": "simple",
                   "phone_number": null,
                   "date_of_birth": null,
                   "address": null,
-                  "country_id": 693,
-                  "state_id": 347,
+                  "country_id": 545,
+                  "state_id": 273,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "March 12, 2018 09:40",
-                  "updated_at": "March 12, 2018 09:40",
-                  "email": "kenneth@wehner.biz",
+                  "created_at": "March 12, 2018 15:23",
+                  "updated_at": "March 12, 2018 15:23",
+                  "email": "lacey@nienow.com",
                   "confirmation_token": null,
                   "unconfirmed_email": null,
                   "avatar": {
@@ -6605,6 +6724,7 @@
                   "organization_ids": [
 
                   ],
+                  "roles": null,
                   "group_ids": [
 
                   ]
@@ -6712,6 +6832,7 @@
                       "type": "string",
                       "x-nullable": true,
                       "enum": [
+                        "simple",
                         "super_admin"
                       ]
                     },
@@ -6778,6 +6899,10 @@
                         }
                       }
                     },
+                    "roles": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
                     "group_ids": {
                       "type": "array",
                       "x-nullable": true,
@@ -6797,20 +6922,20 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "id": 342,
-                  "first_name": "Marshall DuBuque",
-                  "last_name": "Otho Hayes",
-                  "admin_role": "super_admin",
+                  "id": 268,
+                  "first_name": "Desiree Hegmann",
+                  "last_name": "Abigale Hoeger",
+                  "admin_role": "simple",
                   "phone_number": null,
                   "date_of_birth": null,
                   "address": null,
-                  "country_id": 681,
-                  "state_id": 341,
+                  "country_id": 533,
+                  "state_id": 267,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "March 12, 2018 09:40",
-                  "updated_at": "March 12, 2018 09:40",
-                  "email": "chelsie@kuvalis.biz",
+                  "created_at": "March 12, 2018 15:23",
+                  "updated_at": "March 12, 2018 15:23",
+                  "email": "kendrick@okuneva.biz",
                   "confirmation_token": null,
                   "unconfirmed_email": null,
                   "avatar": {
@@ -6823,8 +6948,9 @@
                     }
                   },
                   "organization_ids": [
-                    380
+                    268
                   ],
+                  "roles": null,
                   "group_ids": [
 
                   ]
@@ -7099,22 +7225,22 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "id": 352,
-                  "first_name": "Marshall DuBuque",
-                  "last_name": "Otho Hayes",
-                  "admin_role": "super_admin",
+                  "id": 278,
+                  "first_name": "Desiree Hegmann",
+                  "last_name": "Abigale Hoeger",
+                  "admin_role": "simple",
                   "phone_number": null,
                   "date_of_birth": null,
                   "address": null,
-                  "country_id": 703,
-                  "state_id": 352,
+                  "country_id": 555,
+                  "state_id": 278,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "March 12, 2018 09:40",
-                  "updated_at": "March 12, 2018 09:40",
-                  "email": "ambrose@gusikowski.org",
-                  "confirmation_token": "5xxqvJfWTm6sr5dyyw2Y",
-                  "unconfirmed_email": "alivia@bayer.com",
+                  "created_at": "March 12, 2018 15:23",
+                  "updated_at": "March 12, 2018 15:23",
+                  "email": "annamarie@moriette.co",
+                  "confirmation_token": "mg3Tbpc5awShKrixQWyr",
+                  "unconfirmed_email": "gregoria@ohara.org",
                   "avatar": {
                     "url": null,
                     "small": {
@@ -7125,8 +7251,9 @@
                     }
                   },
                   "organization_ids": [
-                    387
+                    275
                   ],
+                  "roles": null,
                   "group_ids": [
 
                   ]
@@ -7547,6 +7674,18 @@
                       },
                       "updated_at": {
                         "type": "datetime"
+                      },
+                      "video_link": {
+                        "type": "string",
+                        "x-nullable": true
+                      },
+                      "status": {
+                        "type": "string",
+                        "x-nullable": true,
+                        "enum": [
+                          "pending",
+                          "active"
+                        ]
                       }
                     }
                   }
@@ -7561,17 +7700,19 @@
                 "videos": [
                   {
                     "id": 1,
-                    "title": "Beahan, Ritchie and Schulist",
+                    "title": "Hoeger Inc",
                     "length": 100,
                     "video": {
                       "url": "/uploads/video/video/1/video.jpeg"
                     },
-                    "organization_id": 399,
-                    "user_id": 367,
+                    "organization_id": 287,
+                    "user_id": 293,
                     "videoable_type": "Organization",
-                    "videoable_id": 399,
-                    "created_at": "March 12, 2018 09:40",
-                    "updated_at": "March 12, 2018 09:40"
+                    "videoable_id": 287,
+                    "created_at": "March 12, 2018 15:23",
+                    "updated_at": "March 12, 2018 15:23",
+                    "video_link": null,
+                    "status": "pending"
                   }
                 ],
                 "meta": {
@@ -7667,12 +7808,12 @@
                       "type": "string",
                       "x-nullable": true
                     },
-                    "description": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
                     "video": {
                       "type": "object",
+                      "x-nullable": true
+                    },
+                    "video_link": {
+                      "type": "string",
                       "x-nullable": true
                     },
                     "length": {
@@ -7749,6 +7890,18 @@
                     },
                     "updated_at": {
                       "type": "datetime"
+                    },
+                    "video_link": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "status": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "pending",
+                        "active"
+                      ]
                     }
                   }
                 }
@@ -7766,12 +7919,14 @@
                   "video": {
                     "url": "/uploads/video/video/5/video.jpeg"
                   },
-                  "organization_id": 402,
-                  "user_id": 371,
+                  "organization_id": 290,
+                  "user_id": 297,
                   "videoable_type": "Organization",
-                  "videoable_id": 402,
-                  "created_at": "March 12, 2018 09:40",
-                  "updated_at": "March 12, 2018 09:40"
+                  "videoable_id": 290,
+                  "created_at": "March 12, 2018 15:23",
+                  "updated_at": "March 12, 2018 15:23",
+                  "video_link": null,
+                  "status": "pending"
                 }
               }
             }
@@ -7868,12 +8023,12 @@
                       "type": "string",
                       "x-nullable": true
                     },
-                    "description": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
                     "video": {
                       "type": "object",
+                      "x-nullable": true
+                    },
+                    "video_link": {
+                      "type": "string",
                       "x-nullable": true
                     },
                     "length": {
@@ -7933,6 +8088,10 @@
                     "videoable_id": {
                       "type": "integer",
                       "x-nullable": true
+                    },
+                    "video_link": {
+                      "type": "string",
+                      "x-nullable": true
                     }
                   }
                 }
@@ -7945,17 +8104,19 @@
               "application/json": {
                 "video": {
                   "id": 8,
-                  "title": "Beahan, Ritchie and Schulist",
+                  "title": "Hoeger Inc",
                   "length": 100,
                   "video": {
                     "url": "/uploads/video/video/8/video.jpeg"
                   },
-                  "organization_id": 408,
-                  "user_id": 376,
+                  "organization_id": 296,
+                  "user_id": 302,
                   "videoable_type": "Organization",
-                  "videoable_id": 411,
-                  "created_at": "March 12, 2018 09:40",
-                  "updated_at": "March 12, 2018 09:40"
+                  "videoable_id": 299,
+                  "created_at": "March 12, 2018 15:23",
+                  "updated_at": "March 12, 2018 15:23",
+                  "video_link": null,
+                  "status": "pending"
                 }
               }
             }

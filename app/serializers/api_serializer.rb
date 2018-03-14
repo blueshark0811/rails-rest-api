@@ -23,7 +23,7 @@ module ApiSerializer
 
   def attributes(requested_attrs = nil, reload = false)
     @attributes = nil if reload
-    @attributes ||= self.class.base_attributes.each_with_object({}) do |(field), hash|
+    @attributes ||= (self.class._attributes_data.keys|self.class.base_attributes).each_with_object({}) do |(field), hash|
       attr = ActiveModel::Serializer::Attribute.new(field, {})
 
       next if attr.excluded?(self)
@@ -36,7 +36,7 @@ module ApiSerializer
     return ActiveModel::FieldUpgrade::ATTR_NOT_ACCEPTABLE if attr.is_a?(Hash)
 
     return send(attr) if respond_to?(attr)
-      
+
     return type_cast(attr) if available_fields.include?(attr)
 
     ActiveModel::FieldUpgrade::ATTR_NOT_ACCEPTABLE

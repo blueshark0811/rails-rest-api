@@ -1,4 +1,6 @@
 class BaseSerializer < ActiveModel::Serializer
+  delegate :url_helpers, to: "Rails.application.routes"
+
   def context
     view_context rescue nil
   end

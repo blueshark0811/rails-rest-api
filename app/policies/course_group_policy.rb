@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CourseGroupPolicy < ApplicationPolicy
+class CourseGroupPolicy < OrganizationEntityPolicy
   def permitted_attributes
     %i[complete_lesson_can discussing_enabled files_enabled precourse_id
        reports_enabled status student_content_enabled]

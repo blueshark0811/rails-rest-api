@@ -24,7 +24,14 @@ describe Api::V1::UsersController do
       type: :string,
       required: false,
       description: "term for searching by #{User::SEARCH_FIELDS}"
-    }]
+    }, {
+      name: :role,
+      in: :query,
+      type: :string,
+      required: false,
+      description: "filter by role(#{(OrganizationUser.roles.keys - ['admin']).join(', ')})"
+      }
+    ]
   )
 
   crud_show options

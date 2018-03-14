@@ -8,7 +8,9 @@ class Api::V1::UsersController < Api::V1::ApiController
 
     where = { organization_ids: current_organization.id }
 
-    where.merge!(group_ids: params[:group_id]) if params[:group_id]
+    where[:group_ids] = params[:group_id] if params[:group_id]
+
+    where[:cached_roles] = [current_organization.id, params[:role]].join('_') if params[:role]
 
     @users = User.search params[:term] || '*',
       where: where,

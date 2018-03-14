@@ -13,6 +13,9 @@ default: &settings
       token_days_live: 365
       secret: '9!}$69!}$692|:ME8,(v<;.cr]T/Ms+8m<njDb|:ME8,yW2693W'
       algorithm: HS256 
+  
+  sproutvideo:
+    token_minutes_live: 300
 
 test:
   <<: *settings

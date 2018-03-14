@@ -1,15 +1,21 @@
 require 'swagger_helper'
 
 describe Api::V1::TasksController do
-  let(:task) { create :task }
+  let(:current_user) { create :user }
+  let(:organization) { current_user.organizations.first }
+  let(:course) { create :course, organization: organization, user: current_user }
+  let(:lesson) { create :lesson, course_id: course.id, user: current_user }
+  let(:course_id) { course.id }
+  let(:lesson_id) { lesson.id }
+
+  let(:task) { create :task, lesson: lesson, user: current_user }
+  
   let!(:rswag_properties) do {
     current_user: current_user,
-    current_organization: current_user.organizations.first,
+    current_organization: organization,
     object: task
   }
   end
-  let(:course_id) { task.course.id }
-  let(:lesson_id) { task.lesson_id }
 
   options = {
     klass: Task,

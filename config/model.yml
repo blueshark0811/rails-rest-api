@@ -5,6 +5,7 @@ user:
     deleted: Deleted
 
   admin_roles:
+    simple: Simple
     super_admin: Super Admin
 
 organization_user:
@@ -61,3 +62,17 @@ course_user:
   statuses:
     active: Active
     pause: Pause
+
+video:
+  statuses:
+    draft: Draft
+    processing: Processing
+    ready: Ready
+    failed: Failed
+
+  sproutvideo:
+    states:
+      Deployed: ready
+      Processing: processing
+      Inspecting: draft
+      Failed: failed

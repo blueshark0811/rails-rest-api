@@ -7,6 +7,7 @@ module Tasks
       belongs_to :user
 
       has_one :course, through: :lesson
+      has_one :organization, through: :course
 
       has_many :attachments, as: :attachmentable, dependent: :destroy
       has_many :videos, as: :videoable, dependent: :destroy

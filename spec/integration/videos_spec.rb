@@ -7,7 +7,7 @@ describe Api::V1::VideosController do
   let!(:video) { create :video, videoable: videoable, user: current_user, organization: videoable }
   let(:rswag_properties) { { current_user: current_user, object: video } }
   let!(:videoable_id) { videoable.id }
-  let(:videoable_type) { videoable.class.name }
+  let!(:videoable_type) { videoable.class.name }
 
   options = {
     klass: Video,
