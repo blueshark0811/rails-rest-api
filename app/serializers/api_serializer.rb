@@ -76,6 +76,9 @@ module ApiSerializer
           res = res.ceil 2
         when :string
           res = res.to_s
+          if searchkickable_class.uploaders.has_key?(field.to_sym)
+            res = JSON.parse(res) rescue res
+          end
           #todo else
         end
       else

@@ -9,7 +9,8 @@ class Course < ApplicationRecord
   def search_data
     attributes.merge(
       group_ids: group_ids,
-      active_user_ids: active_users.pluck(:id)
+      active_user_ids: active_users.pluck(:id),
+      "image" => image.to_json
     )
   end
 
