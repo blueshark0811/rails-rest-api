@@ -2,7 +2,7 @@
 
 class Api::V1::VideosController < Api::V1::ApiController
   before_action :set_videoable
-  before_action :set_video, except: %i[index create]
+  before_action :set_video, except: %i[index create get_token]
 
   skip_before_action :authenticate_user!, only: [:sproutvideo]
   skip_before_action :authenticate_organization!, only: [:sproutvideo]
@@ -20,8 +20,27 @@ class Api::V1::VideosController < Api::V1::ApiController
   def create
     @video = @videoable.videos.new(
       user_id: current_user.id,
-      organization_id: current_organization.id
+      organization_id: current_organization.id,
+      mode: 'link'
     )
+
+    authorize @video
+
+    if @video.update permitted_attributes(@video)
+      render_result @video
+    else
+      render_error @video
+    end
+  end
+
+  def get_token
+    @video = @videoable.videos.new(
+      user_id: current_user.id,
+      organization_id: current_organization.id,
+      mode: 'sproutvideo'
+    )
+
+    authorize @video
 
     if @video.update permitted_attributes(@video)
       render_result @video

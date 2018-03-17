@@ -17,6 +17,8 @@ default: &settings
   sproutvideo:
     token_minutes_live: 300
 
+  google_api:
+    key: AIzaSyDjPPZbG6D8StmeqRUtI5rvSZRrwHlcEBk
 test:
   <<: *settings
 

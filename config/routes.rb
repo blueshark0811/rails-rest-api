@@ -49,6 +49,9 @@ Rails.application.routes.draw do
 
       scope ':videoable_type/:videoable_id' do
         resources :videos do
+          collection do
+            post :get_token
+          end
           member do
             post 'sproutvideo/:token', action: :sproutvideo, as: :sproutvideo
           end
