@@ -43,6 +43,7 @@ class Video < ApplicationRecord
 
     video = Yt::Video.new id: youtube_id(video_link)
     self.length = video.duration
+    self.embed_code = video.embed_html
   rescue Yt::Errors::NoItems => e
     self.errors.add :video_link, :invalid
   end
@@ -50,7 +51,7 @@ class Video < ApplicationRecord
   private
 
   def youtube_id(url)
-    regex = /(?:.be\/|\/watch\?v=|\/(?=p\/))([\w\/\-]+)/
+    regex = /(?:.be\/|embed\/|\/watch\?v=|\/(?=p\/))([\w\/\-]+)/
     url.match(regex)[1] rescue url
   end
 
@@ -67,8 +68,8 @@ class Video < ApplicationRecord
   def set_data
     self.status = 'ready' if video_link.present?
 
-    return if organization_id.present? || attachmentable.blank?
+    return if organization_id.present? || videoable.blank?
 
-    self.organization_id = attachmentable.try(:organization_id)
+    self.organization_id = videoable.try(:organization_id)
   end
 end
