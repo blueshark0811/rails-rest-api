@@ -1,7 +1,5 @@
-require "#{Rails.root}/lib/import/permissions.rb"
-
 class ApiResourceGenerator < Rails::Generators::NamedBase
-  ACTIONS = %w[controller serializer policy specs factory route permissions]
+  ACTIONS = %w[controller serializer policy specs factory route]
 
   class_option :actions, type: :string
   class_option :searchkick, type: :boolean, default: false

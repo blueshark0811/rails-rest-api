@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180314164011) do
+ActiveRecord::Schema.define(version: 20180320153018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_stat_statements"
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -50,6 +51,21 @@ ActiveRecord::Schema.define(version: 20180314164011) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["state_id"], name: "index_cities_on_state_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "commentable_id"
+    t.string "commentable_type"
+    t.string "title"
+    t.text "body"
+    t.integer "user_id", null: false
+    t.integer "root_id"
+    t.integer "main_root_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "tree_path", default: [], array: true
+    t.index ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "countries", force: :cascade do |t|
@@ -238,7 +254,6 @@ ActiveRecord::Schema.define(version: 20180314164011) do
   create_table "videos", force: :cascade do |t|
     t.string "title"
     t.integer "length"
-    t.string "sproutvideo_id"
     t.bigint "organization_id"
     t.bigint "user_id"
     t.string "videoable_type"
@@ -247,6 +262,7 @@ ActiveRecord::Schema.define(version: 20180314164011) do
     t.datetime "updated_at", null: false
     t.string "video_link"
     t.string "status"
+    t.string "sproutvideo_id"
     t.string "token"
     t.text "embed_code"
     t.index ["organization_id"], name: "index_videos_on_organization_id"

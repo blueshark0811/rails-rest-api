@@ -9,7 +9,6 @@ class Video < ApplicationRecord
 
   enumerate :status
 
-
   before_validation :set_data
   before_validation :set_token, on: :create
   before_validation :update_via_youtube, on: :create
@@ -39,13 +38,13 @@ class Video < ApplicationRecord
   def update_via_youtube
     return unless link?
 
-    return self.errors.add(:video_link, :blank) if video_link.blank?
+    return errors.add(:video_link, :blank) if video_link.blank?
 
     video = Yt::Video.new id: youtube_id(video_link)
     self.length = video.duration
     self.embed_code = video.embed_html
-  rescue Yt::Errors::NoItems => e
-    self.errors.add :video_link, :invalid
+  rescue Yt::Errors::NoItems
+    errors.add :video_link, :invalid
   end
 
   private

@@ -4,7 +4,6 @@ module ApiAttributes
   extend ActiveSupport::Concern
 
   def api_attributes_for_swagger(options)
-
     attrs = if options.fetch(:data_action, :return) == :return
               api_return_attributes options
             else

@@ -18,7 +18,9 @@ module EquipEngine
 end
 
 unless Rails.env.production?
-  RSpec.configure do |config|
-    config.swagger_dry_run = false
+  if defined? RSpec
+    RSpec.configure do |config|
+      config.swagger_dry_run = false
+    end
   end
 end

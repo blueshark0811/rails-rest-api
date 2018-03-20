@@ -1,8 +1,10 @@
 require 'resque/server'
 
 Rails.application.routes.draw do
-  mount Rswag::Ui::Engine => '/api-docs'
-  mount Rswag::Api::Engine => '/api-docs'
+  if defined? Rswag
+    mount Rswag::Ui::Engine => '/api-docs'
+    mount Rswag::Api::Engine => '/api-docs'
+  end
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
@@ -41,6 +43,10 @@ Rails.application.routes.draw do
         resources :lessons do
           resources :tasks
         end
+      end
+
+      scope ':commentable_type/:commentable_id' do
+        resources :comments
       end
 
       scope ':attachmentable_type/:attachmentable_id' do

@@ -3,6 +3,7 @@ require 'enumerable'
 class ApplicationRecord < ActiveRecord::Base
   include ApiAttributes
   include Enumerable
+  include Treeable
 
   self.abstract_class = true
 
