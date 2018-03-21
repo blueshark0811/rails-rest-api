@@ -9,7 +9,6 @@ module PunditController
   end
 
   def pundit_user
-    p current_organization, 'current_organization'
     UserContext.new(current_user, current_organization)
   end
 

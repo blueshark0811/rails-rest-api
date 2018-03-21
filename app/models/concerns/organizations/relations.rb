@@ -12,6 +12,7 @@ module Organizations
 
       has_many :videos, as: :videoable, dependent: :destroy
       has_many :attachments, as: :attachmentable, dependent: :destroy
+      has_many :chats, dependent: :destroy
     end
   end
 end

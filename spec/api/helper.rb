@@ -119,6 +119,8 @@ def crud_show(options = {})
   description = options[:description] || "Get #{klass.name} Details"
   tag = options[:tag] || klass.name.pluralize
   description_200 = options[:description_200] || 'returns as object'
+  check_not_aurhorized = options.fetch(:check_not_aurhorized, true)
+  check_not_found = options.fetch(:check_not_found, true)
 
   yield if block_given?
 
@@ -143,8 +145,8 @@ def crud_show(options = {})
         run_test!
       end
 
-      it_behaves_like 'not-aurhorized'
-      it_behaves_like 'not-found'
+      it_behaves_like('not-aurhorized') if check_not_aurhorized
+      it_behaves_like('not-found') if check_not_found
     end
   end
 end
@@ -180,11 +182,27 @@ def crud_create(options = {})
         end
 
         let(:body) do
-          {
+          res = {
             rswag_root => build(rswag_root).attributes.reject do |k, v|
               v.nil? || !@parameter[:schema][:properties][rswag_root][:properties].keys.include?(k)
             end
-          }.merge(additional_body)
+          }
+
+          additional_body = additional_body.each_with_object({}) do |(k, v), h|
+            h[k] = if v.is_a?(Hash)
+              v.each_with_object({}) do |(k2, v2), h2|
+                h2[k2] = if v2.is_a?(String) && (var = v2.scan(/\{:(.+)\}/).first&.first)
+                  send(var)
+                else
+                  v2
+                end
+              end
+            else
+              v
+            end
+          end
+
+          res.merge(additional_body)
         end
 
         run_test!

@@ -17,7 +17,6 @@ class Api::V1::<%= class_name.pluralize %>Controller < Api::V1::ApiController
     @<%= plural_name %> = policy_scope(<%= class_name %>).where(where).order(order)
       .page(current_page).per(current_count)
 <% end %>
-    authorize @<%= plural_name %>
 
     render_result @<%= plural_name %>
   end

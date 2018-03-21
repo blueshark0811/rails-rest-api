@@ -74,8 +74,24 @@ class ApplicationPolicy
       @scope = scope
     end
 
+    def condition
+      {}
+    end
+
+    def none
+      { id: -1 }
+    end
+
+    def resolve
+      scope.where(condition)
+    end
+
     def resolve
       scope
+    end
+    
+    def role
+      @role ||= user&.role(organization)
     end
   end
 end

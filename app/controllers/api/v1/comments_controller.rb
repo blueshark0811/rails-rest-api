@@ -21,7 +21,6 @@ class Api::V1::CommentsController < Api::V1::ApiController
   end
 
   def destroy
-    p '----',@comment
     @comment.destroy
 
     render_result success: @comment.destroyed?

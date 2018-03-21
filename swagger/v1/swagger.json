@@ -120,15 +120,15 @@
                 "attachments": [
                   {
                     "id": 1,
-                    "title": "Quitzon-Conn",
-                    "description": "morph sexy schemas",
+                    "title": "Hilpert LLC",
+                    "description": "iterate robust infomediaries",
                     "data": {
-                      "url": "/uploads/attachment/data/1/data.jpeg"
+                      "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/attachment/data/1/data.jpeg?X-Amz-Expires=600&X-Amz-Date=20180321T181349Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180321/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=847c8209a1d961894177cbec54b9dee1b4e4a6881e9020f10a55ed044ca73850"
                     },
                     "user_id": 1,
                     "organization_id": 1,
-                    "created_at": "March 17, 2018 17:05",
-                    "updated_at": "March 17, 2018 17:05",
+                    "created_at": "March 21, 2018 18:13",
+                    "updated_at": "March 21, 2018 18:13",
                     "attachmentable_type": "Organization",
                     "attachmentable_id": 1
                   }
@@ -326,12 +326,12 @@
                   "title": null,
                   "description": null,
                   "data": {
-                    "url": "/uploads/attachment/data/5/data.jpeg"
+                    "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/attachment/data/5/data.jpeg?X-Amz-Expires=600&X-Amz-Date=20180321T181400Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180321/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=99a0590195b0d89acfbbf16f327f6b42d8d30b54f3ef85aee9482fe03a26737d"
                   },
                   "user_id": 5,
                   "organization_id": 4,
-                  "created_at": "March 17, 2018 17:05",
-                  "updated_at": "March 17, 2018 17:05",
+                  "created_at": "March 21, 2018 18:13",
+                  "updated_at": "March 21, 2018 18:13",
                   "attachmentable_type": "Organization",
                   "attachmentable_id": 4
                 }
@@ -510,15 +510,15 @@
               "application/json": {
                 "attachment": {
                   "id": 8,
-                  "title": "Quitzon-Conn",
-                  "description": "morph sexy schemas",
+                  "title": "Hilpert LLC",
+                  "description": "iterate robust infomediaries",
                   "data": {
-                    "url": "/uploads/attachment/data/8/data.jpeg"
+                    "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/attachment/data/8/data.jpeg?X-Amz-Expires=600&X-Amz-Date=20180321T181405Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180321/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=1142c11319a5c41d716dabfa3f872c7b83427ad42f6a27e08b493f84ddde501d"
                   },
                   "user_id": 10,
                   "organization_id": 10,
-                  "created_at": "March 17, 2018 17:05",
-                  "updated_at": "March 17, 2018 17:05",
+                  "created_at": "March 21, 2018 18:14",
+                  "updated_at": "March 21, 2018 18:14",
                   "attachmentable_type": "Organization",
                   "attachmentable_id": 13
                 }
@@ -742,6 +742,1978 @@
         }
       }
     },
+    "/api/v1/chat_messages": {
+      "get": {
+        "summary": "List of ChatMessages",
+        "tags": [
+          "ChatMessages"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "organization_id",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "current_page",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "current_count",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns as array",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "chat_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "user_id": {
+                        "type": "integer",
+                        "x-nullable": true
+                      },
+                      "chat_id": {
+                        "type": "integer",
+                        "x-nullable": true
+                      },
+                      "message": {
+                        "type": "text",
+                        "x-nullable": true
+                      },
+                      "created_at": {
+                        "type": "datetime"
+                      },
+                      "updated_at": {
+                        "type": "datetime"
+                      }
+                    }
+                  }
+                }
+              },
+              "required": [
+                "chat_messages"
+              ]
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create ChatMessage",
+        "tags": [
+          "ChatMessages"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "chat_message": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "text",
+                      "x-nullable": true
+                    },
+                    "to_user_id": {
+                      "type": "string",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "chat_message"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns created object",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "chat_message": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "user_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "chat_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "message": {
+                      "type": "text",
+                      "x-nullable": true
+                    },
+                    "created_at": {
+                      "type": "datetime"
+                    },
+                    "updated_at": {
+                      "type": "datetime"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "chat_message"
+              ]
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/chat_messages/{id}": {
+      "get": {
+        "summary": "Details of ChatMessage",
+        "tags": [
+          "ChatMessages"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns as object",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "chat_message": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "user_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "chat_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "message": {
+                      "type": "text",
+                      "x-nullable": true
+                    },
+                    "created_at": {
+                      "type": "datetime"
+                    },
+                    "updated_at": {
+                      "type": "datetime"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "chat_message"
+              ]
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            }
+          },
+          "404": {
+            "description": "returns error if instance not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update details of ChatMessage",
+        "tags": [
+          "ChatMessages"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "chat_message": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "text",
+                      "x-nullable": true
+                    },
+                    "to_user_id": {
+                      "type": "string",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "chat_message"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns data",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "chat_message": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "text",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "chat_message"
+              ]
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            }
+          },
+          "404": {
+            "description": "returns error if instance not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete ChatMessage",
+        "tags": [
+          "ChatMessages"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "deleting ChatMessage account",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "value": true
+                }
+              },
+              "required": [
+                "success"
+              ]
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            }
+          },
+          "404": {
+            "description": "returns error if instance not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/chats/with_opponent/{opponent_id}": {
+      "get": {
+        "summary": "Get/Create Chat with opponent",
+        "tags": [
+          "Chats"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "opponent_id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns as object",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "chat": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "title": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "created_at": {
+                      "type": "datetime"
+                    },
+                    "updated_at": {
+                      "type": "datetime"
+                    },
+                    "organization_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "chat"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "chat": {
+                  "id": 22,
+                  "title": null,
+                  "created_at": "March 21, 2018 18:14",
+                  "updated_at": "March 21, 2018 18:14",
+                  "organization_id": 79
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/chats": {
+      "get": {
+        "summary": "List of Chats",
+        "tags": [
+          "Chats"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "organization_id",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "current_page",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "current_count",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns as array",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "chats": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "title": {
+                        "type": "string",
+                        "x-nullable": true
+                      },
+                      "created_at": {
+                        "type": "datetime"
+                      },
+                      "updated_at": {
+                        "type": "datetime"
+                      },
+                      "organization_id": {
+                        "type": "integer",
+                        "x-nullable": true
+                      }
+                    }
+                  }
+                }
+              },
+              "required": [
+                "chats"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "chats": [
+                  {
+                    "id": 25,
+                    "title": "Doloremque exercitationem consectetur aut vel et quis est.",
+                    "created_at": "March 21, 2018 18:14",
+                    "updated_at": "March 21, 2018 18:14",
+                    "organization_id": 82
+                  }
+                ],
+                "meta": {
+                  "total_pages": 1,
+                  "size": 1,
+                  "limit_value": 20,
+                  "current_page": 1
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/chats/{id}": {
+      "get": {
+        "summary": "Details of Chat",
+        "tags": [
+          "Chats"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns as object",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "chat": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "title": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "created_at": {
+                      "type": "datetime"
+                    },
+                    "updated_at": {
+                      "type": "datetime"
+                    },
+                    "organization_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "chat"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "chat": {
+                  "id": 28,
+                  "title": "Doloremque exercitationem consectetur aut vel et quis est.",
+                  "created_at": "March 21, 2018 18:14",
+                  "updated_at": "March 21, 2018 18:14",
+                  "organization_id": 85
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "returns error if instance not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": "",
+                "errors": [
+                  "Couldn't find Chat with 'id'=0"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update details of Chat",
+        "tags": [
+          "Chats"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "chat": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "chat"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns data",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "chat": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "chat"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "chat": {
+                  "id": 32,
+                  "title": "Doloremque exercitationem consectetur aut vel et quis est.",
+                  "created_at": "March 21, 2018 18:14",
+                  "updated_at": "March 21, 2018 18:14",
+                  "organization_id": 89
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "returns error if instance not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": "",
+                "errors": [
+                  "Couldn't find Chat with 'id'=0"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Chat",
+        "tags": [
+          "Chats"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "deleting Chat account",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "value": true
+                }
+              },
+              "required": [
+                "success"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "success": true
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "returns error if instance not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": "",
+                "errors": [
+                  "Couldn't find Chat with 'id'=0"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/{commentable_type}/{commentable_id}/comments": {
+      "get": {
+        "summary": "List of Comments as tree view by default",
+        "tags": [
+          "Comments"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "organization_id",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "current_page",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "current_count",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "commentable_id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "commentable_type",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "enum": [
+              "Group"
+            ]
+          },
+          {
+            "name": "only_roots",
+            "in": "query",
+            "type": "boolean",
+            "required": false,
+            "description": "returns only root comments"
+          },
+          {
+            "name": "root_id",
+            "in": "query",
+            "type": "integer",
+            "required": false,
+            "description": "returns comments under specific comment"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns as array",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "comments": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "commentable_id": {
+                        "type": "integer",
+                        "x-nullable": true
+                      },
+                      "commentable_type": {
+                        "type": "string",
+                        "x-nullable": true
+                      },
+                      "title": {
+                        "type": "string",
+                        "x-nullable": true
+                      },
+                      "body": {
+                        "type": "text",
+                        "x-nullable": true
+                      },
+                      "user_id": {
+                        "type": "integer"
+                      },
+                      "root_id": {
+                        "type": "integer",
+                        "x-nullable": true
+                      },
+                      "main_root_id": {
+                        "type": "integer",
+                        "x-nullable": true
+                      },
+                      "created_at": {
+                        "type": "datetime"
+                      },
+                      "updated_at": {
+                        "type": "datetime"
+                      },
+                      "tree_path": {
+                        "type": "text",
+                        "x-nullable": true
+                      }
+                    }
+                  }
+                }
+              },
+              "required": [
+                "comments"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "comments": [
+                  {
+                    "id": 1,
+                    "commentable_id": 1,
+                    "commentable_type": "Group",
+                    "title": "Vitae omnis velit et culpa quia.",
+                    "body": "Ut inventore minima possimus ut sed adipisci animi. Harum officia vitae quisquam. Qui non cumque in. Aliquid qui iste.",
+                    "user_id": 91,
+                    "root_id": null,
+                    "main_root_id": 1,
+                    "created_at": "March 21, 2018 18:14",
+                    "updated_at": "March 21, 2018 18:14",
+                    "tree_path": [
+                      "1"
+                    ]
+                  }
+                ],
+                "meta": {
+                  "total_pages": 1,
+                  "size": 1,
+                  "limit_value": 20,
+                  "current_page": 1
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create Comment",
+        "tags": [
+          "Comments"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "comment": {
+                  "type": "object",
+                  "properties": {
+                    "body": {
+                      "type": "text",
+                      "x-nullable": true
+                    },
+                    "subject": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "title": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "root_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "comment"
+              ]
+            }
+          },
+          {
+            "name": "commentable_id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "commentable_type",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "enum": [
+              "Group"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns created object",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "comment": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "commentable_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "commentable_type": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "title": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "body": {
+                      "type": "text",
+                      "x-nullable": true
+                    },
+                    "user_id": {
+                      "type": "integer"
+                    },
+                    "root_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "main_root_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "created_at": {
+                      "type": "datetime"
+                    },
+                    "updated_at": {
+                      "type": "datetime"
+                    },
+                    "tree_path": {
+                      "type": "text",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "comment"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "comment": {
+                  "id": 5,
+                  "commentable_id": 4,
+                  "commentable_type": "Group",
+                  "title": "Vitae omnis velit et culpa quia.",
+                  "body": "Ut inventore minima possimus ut sed adipisci animi. Harum officia vitae quisquam. Qui non cumque in. Aliquid qui iste.",
+                  "user_id": 97,
+                  "root_id": null,
+                  "main_root_id": null,
+                  "created_at": "March 21, 2018 18:14",
+                  "updated_at": "March 21, 2018 18:14",
+                  "tree_path": [
+
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/{commentable_type}/{commentable_id}/comments/{id}": {
+      "put": {
+        "summary": "Update details of Comment",
+        "tags": [
+          "Comments"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "comment": {
+                  "type": "object",
+                  "properties": {
+                    "body": {
+                      "type": "text",
+                      "x-nullable": true
+                    },
+                    "subject": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "title": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "root_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "comment"
+              ]
+            }
+          },
+          {
+            "name": "commentable_id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "commentable_type",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "enum": [
+              "Group"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns data",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "comment": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "body": {
+                      "type": "text",
+                      "x-nullable": true
+                    },
+                    "root_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "comment"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "comment": {
+                  "id": 8,
+                  "commentable_id": 8,
+                  "commentable_type": "Group",
+                  "title": "Vitae omnis velit et culpa quia.",
+                  "body": "Ut inventore minima possimus ut sed adipisci animi. Harum officia vitae quisquam. Qui non cumque in. Aliquid qui iste.",
+                  "user_id": 106,
+                  "root_id": null,
+                  "main_root_id": 8,
+                  "created_at": "March 21, 2018 18:14",
+                  "updated_at": "March 21, 2018 18:14",
+                  "tree_path": [
+                    "8"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "returns error if instance not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": "",
+                "errors": [
+                  "Couldn't find Comment with 'id'=0 [WHERE \"comments\".\"commentable_id\" = $1 AND \"comments\".\"commentable_type\" = $2]"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Comment",
+        "tags": [
+          "Comments"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "commentable_id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "commentable_type",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "enum": [
+              "Group"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "deleting Comment account",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "value": true
+                }
+              },
+              "required": [
+                "success"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "success": true
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "returns error if instance not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": "",
+                "errors": [
+                  "Couldn't find Comment with 'id'=0 [WHERE \"comments\".\"commentable_id\" = $1 AND \"comments\".\"commentable_type\" = $2]"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/groups/{group_id}/course_groups": {
       "get": {
         "summary": "Courses in group",
@@ -863,7 +2835,7 @@
                   {
                     "id": 1,
                     "course_id": 1,
-                    "group_id": 1,
+                    "group_id": 17,
                     "precourse_id": 2,
                     "complete_lesson_can": "all",
                     "reports_enabled": true,
@@ -871,8 +2843,8 @@
                     "discussing_enabled": true,
                     "student_content_enabled": true,
                     "status": "active",
-                    "created_at": "March 17, 2018 17:05",
-                    "updated_at": "March 17, 2018 17:05"
+                    "created_at": "March 21, 2018 18:14",
+                    "updated_at": "March 21, 2018 18:14"
                   }
                 ],
                 "meta": {
@@ -1092,7 +3064,7 @@
                 "course_group": {
                   "id": 5,
                   "course_id": 9,
-                  "group_id": 4,
+                  "group_id": 20,
                   "precourse_id": 10,
                   "complete_lesson_can": "all",
                   "reports_enabled": true,
@@ -1100,8 +3072,8 @@
                   "discussing_enabled": true,
                   "student_content_enabled": true,
                   "status": "active",
-                  "created_at": "March 17, 2018 17:05",
-                  "updated_at": "March 17, 2018 17:05"
+                  "created_at": "March 21, 2018 18:14",
+                  "updated_at": "March 21, 2018 18:14"
                 }
               }
             }
@@ -1301,7 +3273,7 @@
                 "course_group": {
                   "id": 8,
                   "course_id": 15,
-                  "group_id": 8,
+                  "group_id": 24,
                   "precourse_id": 18,
                   "complete_lesson_can": "all",
                   "reports_enabled": true,
@@ -1309,8 +3281,8 @@
                   "discussing_enabled": true,
                   "student_content_enabled": true,
                   "status": "active",
-                  "created_at": "March 17, 2018 17:05",
-                  "updated_at": "March 17, 2018 17:05"
+                  "created_at": "March 21, 2018 18:14",
+                  "updated_at": "March 21, 2018 18:15"
                 }
               }
             }
@@ -1668,15 +3640,15 @@
                 "courses": [
                   {
                     "id": 33,
-                    "title": "Ondricka and Sons",
-                    "description": "reintermediate intuitive applications",
+                    "title": "Cruickshank and Sons",
+                    "description": "deliver magnetic e-commerce",
                     "image": {
-                      "url": "/uploads/course/image/33/image.jpeg"
+                      "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/33/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180321T181532Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180321/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=5f5e663c32e7b036241d346dc211d04b22abb9c001c54556dcc39b26eea21b3d"
                     },
-                    "user_id": 72,
-                    "organization_id": 87,
-                    "created_at": "2018-03-17T17:05:47.886Z",
-                    "updated_at": "2018-03-17T17:05:47.886Z",
+                    "user_id": 175,
+                    "organization_id": 196,
+                    "created_at": "2018-03-21T18:15:28.612Z",
+                    "updated_at": "2018-03-21T18:15:28.612Z",
                     "lessons_count": 0,
                     "group_ids": [
 
@@ -1863,15 +3835,15 @@
               "application/json": {
                 "course": {
                   "id": 41,
-                  "title": "Ondricka and Sons",
-                  "description": "reintermediate intuitive applications",
+                  "title": "Cruickshank and Sons",
+                  "description": "deliver magnetic e-commerce",
                   "image": {
                     "url": null
                   },
-                  "user_id": 87,
-                  "organization_id": 101,
-                  "created_at": "March 17, 2018 17:05",
-                  "updated_at": "March 17, 2018 17:05",
+                  "user_id": 190,
+                  "organization_id": 210,
+                  "created_at": "March 21, 2018 18:15",
+                  "updated_at": "March 21, 2018 18:15",
                   "lessons_count": 0,
                   "group_ids": [
 
@@ -2028,15 +4000,15 @@
               "application/json": {
                 "course": {
                   "id": 36,
-                  "title": "Ondricka and Sons",
-                  "description": "reintermediate intuitive applications",
+                  "title": "Cruickshank and Sons",
+                  "description": "deliver magnetic e-commerce",
                   "image": {
-                    "url": "/uploads/course/image/36/image.jpeg"
+                    "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/36/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180321T181540Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180321/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=a177da894c63c953e908346be18839c3a5c94c06ebb6a8d1355aa75a1385e6db"
                   },
-                  "user_id": 79,
-                  "organization_id": 93,
-                  "created_at": "March 17, 2018 17:05",
-                  "updated_at": "March 17, 2018 17:05",
+                  "user_id": 182,
+                  "organization_id": 202,
+                  "created_at": "March 21, 2018 18:15",
+                  "updated_at": "March 21, 2018 18:15",
                   "lessons_count": 0,
                   "group_ids": [
 
@@ -2206,15 +4178,15 @@
               "application/json": {
                 "course": {
                   "id": 44,
-                  "title": "Ondricka and Sons",
-                  "description": "reintermediate intuitive applications",
+                  "title": "Cruickshank and Sons",
+                  "description": "deliver magnetic e-commerce",
                   "image": {
-                    "url": "/uploads/course/image/44/image.jpeg"
+                    "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/44/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180321T181553Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180321/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=b8f11f536ea83c5dfbedc3335079636da67e125d9411adf8d16a2ec37dded87c"
                   },
-                  "user_id": 96,
-                  "organization_id": 109,
-                  "created_at": "March 17, 2018 17:05",
-                  "updated_at": "March 17, 2018 17:05",
+                  "user_id": 199,
+                  "organization_id": 218,
+                  "created_at": "March 21, 2018 18:15",
+                  "updated_at": "March 21, 2018 18:15",
                   "lessons_count": 0,
                   "group_ids": [
 
@@ -2549,10 +4521,10 @@
                 "group_users": [
                   {
                     "id": 1,
-                    "first_name": "Vince Hartmann",
-                    "last_name": "Kiara Eichmann",
+                    "first_name": "Tevin Klein",
+                    "last_name": "Florida Hills",
                     "role": "admin",
-                    "organization_id": 127
+                    "organization_id": 236
                   }
                 ],
                 "meta": {
@@ -2716,15 +4688,15 @@
               "application/json": {
                 "group_user": {
                   "id": 5,
-                  "user_id": 119,
-                  "group_id": 20,
-                  "created_at": "March 17, 2018 17:05",
-                  "updated_at": "March 17, 2018 17:05",
+                  "user_id": 222,
+                  "group_id": 36,
+                  "created_at": "March 21, 2018 18:16",
+                  "updated_at": "March 21, 2018 18:16",
                   "status": "active",
-                  "first_name": "Vince Hartmann",
-                  "last_name": "Kiara Eichmann",
+                  "first_name": "Tevin Klein",
+                  "last_name": "Florida Hills",
                   "role": "",
-                  "organization_id": 130
+                  "organization_id": 239
                 }
               }
             }
@@ -2864,15 +4836,15 @@
               "application/json": {
                 "group_user": {
                   "id": 8,
-                  "user_id": 123,
-                  "group_id": 24,
-                  "created_at": "March 17, 2018 17:05",
-                  "updated_at": "March 17, 2018 17:05",
+                  "user_id": 226,
+                  "group_id": 40,
+                  "created_at": "March 21, 2018 18:16",
+                  "updated_at": "March 21, 2018 18:16",
                   "status": "active",
-                  "first_name": "Vince Hartmann",
-                  "last_name": "Kiara Eichmann",
+                  "first_name": "Tevin Klein",
+                  "last_name": "Florida Hills",
                   "role": "admin",
-                  "organization_id": 135
+                  "organization_id": 244
                 }
               }
             }
@@ -3354,15 +5326,15 @@
               "application/json": {
                 "groups": [
                   {
-                    "id": 36,
-                    "organization_id": 148,
-                    "title": "Olson Inc",
-                    "description": "matrix front-end web-readiness",
+                    "id": 52,
+                    "organization_id": 257,
+                    "title": "Metz LLC",
+                    "description": "reintermediate sexy relationships",
                     "status": "active",
                     "user_limit": 10,
                     "visibility": "public",
-                    "created_at": "March 17, 2018 17:05",
-                    "updated_at": "March 17, 2018 17:05",
+                    "created_at": "March 21, 2018 18:16",
+                    "updated_at": "March 21, 2018 18:16",
                     "count_participants": null,
                     "user_id": null,
                     "user_ids": [
@@ -3569,17 +5541,17 @@
             "examples": {
               "application/json": {
                 "group": {
-                  "id": 44,
-                  "organization_id": 155,
-                  "title": "Olson Inc",
-                  "description": "matrix front-end web-readiness",
+                  "id": 60,
+                  "organization_id": 264,
+                  "title": "Metz LLC",
+                  "description": "reintermediate sexy relationships",
                   "status": "active",
                   "user_limit": 10,
                   "visibility": "public",
-                  "created_at": "March 17, 2018 17:05",
-                  "updated_at": "March 17, 2018 17:05",
+                  "created_at": "March 21, 2018 18:16",
+                  "updated_at": "March 21, 2018 18:16",
                   "count_participants": null,
-                  "user_id": 147,
+                  "user_id": 250,
                   "user_ids": [
 
                   ]
@@ -3740,15 +5712,15 @@
             "examples": {
               "application/json": {
                 "group": {
-                  "id": 39,
-                  "organization_id": 151,
-                  "title": "Olson Inc",
-                  "description": "matrix front-end web-readiness",
+                  "id": 55,
+                  "organization_id": 260,
+                  "title": "Metz LLC",
+                  "description": "reintermediate sexy relationships",
                   "status": "active",
                   "user_limit": 10,
                   "visibility": "public",
-                  "created_at": "March 17, 2018 17:05",
-                  "updated_at": "March 17, 2018 17:05",
+                  "created_at": "March 21, 2018 18:16",
+                  "updated_at": "March 21, 2018 18:16",
                   "count_participants": null,
                   "user_id": null,
                   "user_ids": [
@@ -3949,15 +5921,15 @@
             "examples": {
               "application/json": {
                 "group": {
-                  "id": 47,
-                  "organization_id": 159,
-                  "title": "Olson Inc",
-                  "description": "matrix front-end web-readiness",
+                  "id": 63,
+                  "organization_id": 268,
+                  "title": "Metz LLC",
+                  "description": "reintermediate sexy relationships",
                   "status": "active",
                   "user_limit": 10,
                   "visibility": "public",
-                  "created_at": "March 17, 2018 17:05",
-                  "updated_at": "March 17, 2018 17:05",
+                  "created_at": "March 21, 2018 18:16",
+                  "updated_at": "March 21, 2018 18:16",
                   "count_participants": null,
                   "user_id": null,
                   "user_ids": [
@@ -4263,13 +6235,13 @@
                 "lessons": [
                   {
                     "id": 1,
-                    "title": "Rogahn-Ward",
-                    "description": "transform value-added content",
+                    "title": "Jerde Inc",
+                    "description": "harness interactive ROI",
                     "status": "active",
-                    "user_id": 161,
+                    "user_id": 264,
                     "course_id": 52,
-                    "created_at": "March 17, 2018 17:05",
-                    "updated_at": "March 17, 2018 17:05"
+                    "created_at": "March 21, 2018 18:16",
+                    "updated_at": "March 21, 2018 18:16"
                   }
                 ],
                 "meta": {
@@ -4441,13 +6413,13 @@
               "application/json": {
                 "lesson": {
                   "id": 5,
-                  "title": "Rogahn-Ward",
-                  "description": "transform value-added content",
+                  "title": "Jerde Inc",
+                  "description": "harness interactive ROI",
                   "status": "active",
-                  "user_id": 168,
+                  "user_id": 271,
                   "course_id": 55,
-                  "created_at": "March 17, 2018 17:05",
-                  "updated_at": "March 17, 2018 17:05"
+                  "created_at": "March 21, 2018 18:16",
+                  "updated_at": "March 21, 2018 18:16"
                 }
               }
             }
@@ -4603,13 +6575,13 @@
               "application/json": {
                 "lesson": {
                   "id": 8,
-                  "title": "Rogahn-Ward",
-                  "description": "transform value-added content",
+                  "title": "Jerde Inc",
+                  "description": "harness interactive ROI",
                   "status": "active",
-                  "user_id": 177,
+                  "user_id": 280,
                   "course_id": 59,
-                  "created_at": "March 17, 2018 17:05",
-                  "updated_at": "March 17, 2018 17:05"
+                  "created_at": "March 21, 2018 18:16",
+                  "updated_at": "March 21, 2018 18:16"
                 }
               }
             }
@@ -4818,6 +6790,249 @@
         }
       }
     },
+    "/api/v1/passwords": {
+      "post": {
+        "summary": "Send reset password token",
+        "tags": [
+          "Passwords"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "description": "user's email or id required"
+                },
+                "id": {
+                  "type": "integer",
+                  "description": "user's email or id required"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "value": true
+                }
+              },
+              "required": [
+                "success"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "success": true
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update password",
+        "tags": [
+          "Passwords"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "password": {
+                  "type": "string"
+                },
+                "password_confirmation": {
+                  "type": "string"
+                },
+                "reset_password_token": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "password changed",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "token": {
+                  "type": "string",
+                  "x-nullable": true
+                },
+                "user": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "first_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "last_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "phone_number": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "date_of_birth": {
+                      "type": "date",
+                      "x-nullable": true
+                    },
+                    "address": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "country_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "state_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "zip_code": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "status": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "active",
+                        "suspended",
+                        "deleted"
+                      ]
+                    },
+                    "created_at": {
+                      "type": "datetime"
+                    },
+                    "updated_at": {
+                      "type": "datetime"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "avatar": {
+                      "type": "object",
+                      "x-nullable": true
+                    },
+                    "organization_ids": {
+                      "type": "array",
+                      "x-nullable": true,
+                      "items": {
+                        "type": "integer",
+                        "properties": {
+                        }
+                      }
+                    },
+                    "roles": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "group_ids": {
+                      "type": "array",
+                      "x-nullable": true,
+                      "items": {
+                        "type": "integer",
+                        "properties": {
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "required": [
+                "user"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "user": {
+                  "id": 301,
+                  "first_name": "Tevin Klein",
+                  "last_name": "Florida Hills",
+                  "phone_number": null,
+                  "date_of_birth": null,
+                  "address": null,
+                  "country_id": 601,
+                  "state_id": 301,
+                  "zip_code": null,
+                  "status": "active",
+                  "created_at": "March 21, 2018 18:16",
+                  "updated_at": "March 21, 2018 18:16",
+                  "email": "clarabelle@vonmaggio.net",
+                  "avatar": {
+                    "url": null,
+                    "small": {
+                      "url": null
+                    },
+                    "middle": {
+                      "url": null
+                    }
+                  },
+                  "organization_ids": [
+                    312
+                  ],
+                  "roles": null,
+                  "group_ids": [
+
+                  ]
+                },
+                "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MzAxLCJleHAiOjE1NTMxOTIxOTcsInR5cGUiOiJ1c2VyIiwiZW1haWwiOiJjbGFyYWJlbGxlQHZvbm1hZ2dpby5uZXQifQ.xiDSMN3jrRK5o3AWC5xBFD56myWubsNuIh2eY-_mDB8"
+              }
+            }
+          },
+          "400": {
+            "description": "fail with wrong token",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": "",
+                "errors": [
+                  "invalid data"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/registrations": {
       "post": {
         "summary": "Sign up",
@@ -4951,7 +7166,7 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "id": 212,
+                  "id": 332,
                   "first_name": null,
                   "last_name": null,
                   "phone_number": null,
@@ -4961,9 +7176,9 @@
                   "state_id": null,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "March 17, 2018 17:06",
-                  "updated_at": "March 17, 2018 17:06",
-                  "email": "lavern@padbergwunsch.name",
+                  "created_at": "March 21, 2018 18:16",
+                  "updated_at": "March 21, 2018 18:16",
+                  "email": "anika@rodriguez.biz",
                   "avatar": {
                     "url": null,
                     "small": {
@@ -5186,19 +7401,19 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "id": 216,
-                  "first_name": "Vince Hartmann",
-                  "last_name": "Kiara Eichmann",
+                  "id": 336,
+                  "first_name": "Tevin Klein",
+                  "last_name": "Florida Hills",
                   "phone_number": null,
                   "date_of_birth": null,
                   "address": null,
-                  "country_id": 429,
-                  "state_id": 215,
+                  "country_id": 669,
+                  "state_id": 335,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "March 17, 2018 17:06",
-                  "updated_at": "March 17, 2018 17:06",
-                  "email": "ray@zulaufmckenzie.net",
+                  "created_at": "March 21, 2018 18:16",
+                  "updated_at": "March 21, 2018 18:16",
+                  "email": "malachi_schowalter@mcglynnjenkins.info",
                   "avatar": {
                     "url": null,
                     "small": {
@@ -5209,14 +7424,14 @@
                     }
                   },
                   "organization_ids": [
-                    220
+                    346
                   ],
                   "roles": null,
                   "group_ids": [
 
                   ]
                 },
-                "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MjE2LCJleHAiOjE1NTI4NDIzNjEsInR5cGUiOiJ1c2VyIiwiZW1haWwiOiJyYXlAenVsYXVmbWNrZW56aWUubmV0In0.cOqTgEzH9pFEPH7Eme1ypdgoYlqhmTuWIrojvzwWSQU"
+                "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MzM2LCJleHAiOjE1NTMxOTIxOTgsInR5cGUiOiJ1c2VyIiwiZW1haWwiOiJtYWxhY2hpX3NjaG93YWx0ZXJAbWNnbHlubmplbmtpbnMuaW5mbyJ9.PNzmdXqfZdICwsLXeTDO3V5YJJUPBf5voQiwZXhw4Z0"
               }
             }
           },
@@ -5380,11 +7595,11 @@
                   {
                     "id": 1,
                     "action_type": "reading",
-                    "description": "Nobis eius aut animi. Voluptatibus autem consequuntur perferendis voluptate fuga. Rerum eveniet iure facilis.",
+                    "description": "Autem nesciunt distinctio ratione tempora accusamus reiciendis similique. Debitis eius impedit voluptatem maxime in sequi. Maiores vero iure laudantium veniam dolores et quas. Aut culpa enim dolorum pariatur. Alias ipsa assumenda iste eum.",
                     "lesson_id": 16,
-                    "user_id": 235,
-                    "created_at": "March 17, 2018 17:06",
-                    "updated_at": "March 17, 2018 17:06"
+                    "user_id": 355,
+                    "created_at": "March 21, 2018 18:16",
+                    "updated_at": "March 21, 2018 18:16"
                   }
                 ],
                 "meta": {
@@ -5605,11 +7820,11 @@
                 "task": {
                   "id": 9,
                   "action_type": "reading",
-                  "description": "Nobis eius aut animi. Voluptatibus autem consequuntur perferendis voluptate fuga. Rerum eveniet iure facilis.",
+                  "description": "Autem nesciunt distinctio ratione tempora accusamus reiciendis similique. Debitis eius impedit voluptatem maxime in sequi. Maiores vero iure laudantium veniam dolores et quas. Aut culpa enim dolorum pariatur. Alias ipsa assumenda iste eum.",
                   "lesson_id": 23,
-                  "user_id": 244,
-                  "created_at": "March 17, 2018 17:06",
-                  "updated_at": "March 17, 2018 17:06"
+                  "user_id": 364,
+                  "created_at": "March 21, 2018 18:16",
+                  "updated_at": "March 21, 2018 18:16"
                 }
               }
             }
@@ -5753,11 +7968,11 @@
                 "task": {
                   "id": 4,
                   "action_type": "reading",
-                  "description": "Nobis eius aut animi. Voluptatibus autem consequuntur perferendis voluptate fuga. Rerum eveniet iure facilis.",
+                  "description": "Autem nesciunt distinctio ratione tempora accusamus reiciendis similique. Debitis eius impedit voluptatem maxime in sequi. Maiores vero iure laudantium veniam dolores et quas. Aut culpa enim dolorum pariatur. Alias ipsa assumenda iste eum.",
                   "lesson_id": 19,
-                  "user_id": 239,
-                  "created_at": "March 17, 2018 17:06",
-                  "updated_at": "March 17, 2018 17:06"
+                  "user_id": 359,
+                  "created_at": "March 21, 2018 18:16",
+                  "updated_at": "March 21, 2018 18:16"
                 }
               }
             }
@@ -5985,11 +8200,11 @@
                 "task": {
                   "id": 12,
                   "action_type": "reading",
-                  "description": "Nobis eius aut animi. Voluptatibus autem consequuntur perferendis voluptate fuga. Rerum eveniet iure facilis.",
+                  "description": "Autem nesciunt distinctio ratione tempora accusamus reiciendis similique. Debitis eius impedit voluptatem maxime in sequi. Maiores vero iure laudantium veniam dolores et quas. Aut culpa enim dolorum pariatur. Alias ipsa assumenda iste eum.",
                   "lesson_id": 27,
-                  "user_id": 251,
-                  "created_at": "March 17, 2018 17:06",
-                  "updated_at": "March 17, 2018 17:06"
+                  "user_id": 371,
+                  "created_at": "March 21, 2018 18:16",
+                  "updated_at": "March 21, 2018 18:16"
                 }
               }
             }
@@ -6362,19 +8577,19 @@
               "application/json": {
                 "users": [
                   {
-                    "id": 264,
-                    "first_name": "Vince Hartmann",
-                    "last_name": "Kiara Eichmann",
+                    "id": 384,
+                    "first_name": "Tevin Klein",
+                    "last_name": "Florida Hills",
                     "phone_number": null,
                     "date_of_birth": null,
                     "address": null,
-                    "country_id": 525,
-                    "state_id": 263,
+                    "country_id": 765,
+                    "state_id": 383,
                     "zip_code": null,
                     "status": "active",
-                    "created_at": "March 17, 2018 17:06",
-                    "updated_at": "March 17, 2018 17:06",
-                    "email": "benedict_fisher@kreiger.io",
+                    "created_at": "March 21, 2018 18:17",
+                    "updated_at": "March 21, 2018 18:17",
+                    "email": "camren.robel@runolfon.name",
                     "avatar": {
                       "url": null,
                       "small": {
@@ -6385,7 +8600,7 @@
                       }
                     },
                     "organization_ids": [
-                      265
+                      391
                     ],
                     "roles": null,
                     "group_ids": [
@@ -6632,19 +8847,19 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "id": 274,
-                  "first_name": "Vince Hartmann",
-                  "last_name": "Kiara Eichmann",
+                  "id": 394,
+                  "first_name": "Tevin Klein",
+                  "last_name": "Florida Hills",
                   "phone_number": null,
                   "date_of_birth": null,
                   "address": null,
-                  "country_id": 545,
-                  "state_id": 273,
+                  "country_id": 785,
+                  "state_id": 393,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "March 17, 2018 17:06",
-                  "updated_at": "March 17, 2018 17:06",
-                  "email": "aleandra@cristhintz.biz",
+                  "created_at": "March 21, 2018 18:17",
+                  "updated_at": "March 21, 2018 18:17",
+                  "email": "hertha.feeney@erdman.com",
                   "avatar": {
                     "url": null,
                     "small": {
@@ -6839,19 +9054,19 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "id": 268,
-                  "first_name": "Vince Hartmann",
-                  "last_name": "Kiara Eichmann",
+                  "id": 388,
+                  "first_name": "Tevin Klein",
+                  "last_name": "Florida Hills",
                   "phone_number": null,
                   "date_of_birth": null,
                   "address": null,
-                  "country_id": 533,
-                  "state_id": 267,
+                  "country_id": 773,
+                  "state_id": 387,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "March 17, 2018 17:06",
-                  "updated_at": "March 17, 2018 17:06",
-                  "email": "joseph.mosciski@larkin.name",
+                  "created_at": "March 21, 2018 18:17",
+                  "updated_at": "March 21, 2018 18:17",
+                  "email": "myrtie@haag.biz",
                   "avatar": {
                     "url": null,
                     "small": {
@@ -6862,7 +9077,7 @@
                     }
                   },
                   "organization_ids": [
-                    268
+                    394
                   ],
                   "roles": null,
                   "group_ids": [
@@ -7139,19 +9354,19 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "id": 278,
-                  "first_name": "Vince Hartmann",
-                  "last_name": "Kiara Eichmann",
+                  "id": 398,
+                  "first_name": "Tevin Klein",
+                  "last_name": "Florida Hills",
                   "phone_number": null,
                   "date_of_birth": null,
                   "address": null,
-                  "country_id": 555,
-                  "state_id": 278,
+                  "country_id": 795,
+                  "state_id": 398,
                   "zip_code": null,
                   "status": "active",
-                  "created_at": "March 17, 2018 17:06",
-                  "updated_at": "March 17, 2018 17:06",
-                  "email": "ubaldo.daugherty@okeefe.info",
+                  "created_at": "March 21, 2018 18:17",
+                  "updated_at": "March 21, 2018 18:17",
+                  "email": "chadd.ward@stehr.biz",
                   "avatar": {
                     "url": null,
                     "small": {
@@ -7162,7 +9377,7 @@
                     }
                   },
                   "organization_ids": [
-                    275
+                    401
                   ],
                   "roles": null,
                   "group_ids": [
@@ -7609,14 +9824,14 @@
                 "videos": [
                   {
                     "id": 1,
-                    "title": "Zulauf, Roberts and Torp",
+                    "title": "Walker, Botsford and Rowe",
                     "length": 3861,
-                    "organization_id": 287,
-                    "user_id": 293,
+                    "organization_id": 413,
+                    "user_id": 413,
                     "videoable_type": "Organization",
-                    "videoable_id": 287,
-                    "created_at": "March 17, 2018 17:06",
-                    "updated_at": "March 17, 2018 17:06",
+                    "videoable_id": 413,
+                    "created_at": "March 21, 2018 18:17",
+                    "updated_at": "March 21, 2018 18:17",
                     "video_link": "https://youtu.be/BL50xRTnHTQ",
                     "status": "ready"
                   }
@@ -7816,12 +10031,12 @@
                   "id": 5,
                   "title": null,
                   "length": 3861,
-                  "organization_id": 290,
-                  "user_id": 297,
+                  "organization_id": 416,
+                  "user_id": 417,
                   "videoable_type": "Organization",
-                  "videoable_id": 290,
-                  "created_at": "March 17, 2018 17:06",
-                  "updated_at": "March 17, 2018 17:06",
+                  "videoable_id": 416,
+                  "created_at": "March 21, 2018 18:17",
+                  "updated_at": "March 21, 2018 18:17",
                   "video_link": "https://youtu.be/BL50xRTnHTQ",
                   "status": "ready"
                 }
@@ -8016,16 +10231,16 @@
                   "id": 9,
                   "title": null,
                   "length": null,
-                  "sproutvideo_id": null,
-                  "organization_id": 296,
-                  "user_id": 302,
+                  "organization_id": 422,
+                  "user_id": 422,
                   "videoable_type": "Organization",
-                  "videoable_id": 296,
-                  "created_at": "March 17, 2018 17:06",
-                  "updated_at": "March 17, 2018 17:06",
+                  "videoable_id": 422,
+                  "created_at": "March 21, 2018 18:17",
+                  "updated_at": "March 21, 2018 18:17",
                   "video_link": null,
                   "status": "draft",
-                  "token": "a367f6de99e71e9aff3c957efea68931",
+                  "sproutvideo_id": null,
+                  "token": "951087e87c439655482ff94dff475dd5",
                   "embed_code": null
                 }
               }
@@ -8164,14 +10379,14 @@
               "application/json": {
                 "video": {
                   "id": 12,
-                  "title": "Zulauf, Roberts and Torp",
+                  "title": "Walker, Botsford and Rowe",
                   "length": 3861,
-                  "organization_id": 302,
-                  "user_id": 307,
+                  "organization_id": 428,
+                  "user_id": 427,
                   "videoable_type": "Organization",
-                  "videoable_id": 302,
-                  "created_at": "March 17, 2018 17:06",
-                  "updated_at": "March 17, 2018 17:06",
+                  "videoable_id": 428,
+                  "created_at": "March 21, 2018 18:17",
+                  "updated_at": "March 21, 2018 18:17",
                   "video_link": "https://youtu.be/BL50xRTnHTQ",
                   "status": "ready"
                 }

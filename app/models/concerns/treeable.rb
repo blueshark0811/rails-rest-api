@@ -18,7 +18,6 @@ module Treeable
               sc = sc.where("? = ANY(#{options[:tree_path_field]})", root_id.to_s)
                 .where.not(id: root_id)
             end
-          
           sc
         }
       end
@@ -30,7 +29,6 @@ module Treeable
         counter_cache: options.fetch(:counter_cache, false)
       )
       has_many :children, foreign_key: :root_id, class_name: name, dependent: :destroy
-      has_many :all_children, foreign_key: :main_root_id, class_name: name, dependent: :destroy
       scope :roots, -> { where root_id: nil }
 
       after_save do

@@ -1,6 +1,7 @@
 require 'resque/server'
 
 Rails.application.routes.draw do
+  mount ActionCable.server => '/cable'
   if defined? Rswag
     mount Rswag::Ui::Engine => '/api-docs'
     mount Rswag::Api::Engine => '/api-docs'
@@ -15,6 +16,12 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: "json" } do
     namespace :v1 do
+      resources :chats, except: %i[create] do
+        collection do
+          get 'with_opponent/:opponent_id', action: :with_opponent, as: :with_opponent
+        end
+        resources :chat_messages, only: %i[index create update destroy]
+      end
 
       resources :sessions, only: %i[create] do
         collection do
@@ -35,7 +42,7 @@ Rails.application.routes.draw do
       end
 
       resources :groups do
-        resources :course_groups, only: %i[index create update destroy] 
+        resources :course_groups, only: %i[index create update destroy]
 
         resources :group_users, only: %i[index create update destroy] do
           collection do

@@ -20,6 +20,10 @@ module Users
       has_many :files
       has_many :lessons
       has_many :videos
+
+      has_many :chat_users
+      has_many :chats, through: :chat_users
+      has_many :chat_messages
     end
 
     module ClassMethods

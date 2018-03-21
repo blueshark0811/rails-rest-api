@@ -17,7 +17,7 @@ class User < ApplicationRecord
       organization_ids: organization_ids,
       roles: cached_roles,
       group_ids: group_ids
-      )
+    )
   end
 
   before_validation :set_temp_passsword, on: :create

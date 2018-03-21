@@ -1,6 +1,14 @@
 class OrganizationEntityPolicy < ApplicationPolicy
+  class Scope < Scope
+    def condition
+      return none unless role
+
+      {organization_id: organization.id}
+    end
+  end
+
   def show?
-    record.user_id == user.id || record_accessible_in_organization?
+    record.try(:user_id) == user.id || record_accessible_in_organization?
   end
 
   def update?

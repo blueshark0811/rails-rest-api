@@ -21,6 +21,10 @@ class UserPolicy < ApplicationPolicy
     user.id == record.id
   end
 
+  def be_opponent?
+    !!record&.role(organization)
+  end
+
   def permitted_attributes_for_create
     %i[
       address avatar country_id state_id zip_code date_of_birth phone_number
