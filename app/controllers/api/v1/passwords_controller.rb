@@ -1,26 +1,22 @@
 class Api::V1::PasswordsController < Api::V1::ApiController
   skip_before_action :authenticate_user!
   skip_before_action :authenticate_organization!
+  before_action :set_user, only: %i[create]
 
   def create
     if @user
-      @user.send_reset_password_code!(app_id)
-      render json: { user_id: @user.id, :success => true }, status: 200
+      @user.send_reset_password_instructions
+      render_result success: true
     else
-      warden.custom_failure!
-      render_error 'Invalid login or email'
+      render_error('user is not exist', 400)
     end
   end
 
   def update
-    valid_code = @user.valid_reset_password_code?(params[:code])
-
-    if valid_code && @user && @user.update_attributes(permited_params)
+    if (@user = User.reset_password_by_token(permited_params)) && @user.errors.empty?
       render_result(@user, 201, @user.jwt_token, :token)
     else
-      valid_code ?
-          render_error('Invalid user params', 'invalid_user_params') :
-          render_error('Invalid code', 'invalid_sms_code')
+      render_error 'invalid data'
     end
   end
 
@@ -32,6 +28,6 @@ class Api::V1::PasswordsController < Api::V1::ApiController
   end
 
   def permited_params
-    params[:user].permit(:password, :password_confirmation)
+    params.permit(:password, :password_confirmation, :reset_password_token)
   end
 end

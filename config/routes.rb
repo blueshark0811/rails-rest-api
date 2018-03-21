@@ -28,7 +28,11 @@ Rails.application.routes.draw do
         end
       end
       resources :registrations, only: [:create]
-      resources :passwords, only: %i[create update]
+      resources :passwords, only: %i[create] do
+        collection do
+          put :update
+        end
+      end
 
       resources :groups do
         resources :course_groups, only: %i[index create update destroy] 
