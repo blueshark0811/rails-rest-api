@@ -8,4 +8,8 @@ class OrganizationPolicy < ApplicationPolicy
   # def permitted_attributes_for_create
 
   # end
+
+  def show?
+    !!role
+  end
 end

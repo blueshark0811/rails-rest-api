@@ -18,6 +18,12 @@ RSpec.configure do |config|
     end
   end
 
+  config.before(:each) do
+    if rswag_properties[:current_organization]
+      host! "#{rswag_properties[:current_organization].subdomain}.example.com"
+    end
+  end
+
   # Define one or more Swagger documents and provide global metadata for each one
   # When you run the 'rswag:specs:to_swagger' rake task, the complete Swagger will
   # be generated at the provided relative path under swagger_root

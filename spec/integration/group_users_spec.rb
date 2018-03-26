@@ -5,7 +5,12 @@ require 'swagger_helper'
 describe Api::V1::GroupUsersController do
   let!(:group) { create :group, :reindex, organization: current_user.organizations.first }
   let!(:group_user) { create :group_user, :reindex, group: group, user: current_user }
-  let(:rswag_properties) { { current_user: current_user, object: group_user } }
+  let(:rswag_properties) do {
+    current_user: current_user,
+    current_organization: current_user.organizations.first,
+    object: group_user
+    }
+  end
   let!(:group_id) { group.id }
 
   options = { 

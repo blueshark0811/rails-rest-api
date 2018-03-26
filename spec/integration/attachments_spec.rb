@@ -3,6 +3,7 @@
 require 'swagger_helper'
 
 describe Api::V1::AttachmentsController do
+  let(:current_user) { create :user }
   let!(:attachmentable) { current_user.organizations.first }
   let!(:attachment) {
     create :attachment,
@@ -10,7 +11,12 @@ describe Api::V1::AttachmentsController do
       user: current_user,
       organization: attachmentable
   }
-  let(:rswag_properties) { { current_user: current_user, object: attachment } }
+  let(:rswag_properties) do {
+    current_user: current_user,
+    current_organization: current_user.organizations.first,
+    object: attachment
+    }
+  end
   let!(:attachmentable_id) { attachmentable.id }
   let(:attachmentable_type) { attachmentable.class.name }
 

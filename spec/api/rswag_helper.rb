@@ -2,11 +2,14 @@
 # frozen_string_literal: true
 
 def rswag_properties
-  {
-    current_user: create(:user),
-    object: create(:user)
+  return @rswag_properties if @rswag_properties
+  user = create(:user, :reindex)
+  @rswag_properties ||= {
+    current_user: user,
+    current_organization: user.organizations.first,
+    object: user
   }
-  end
+end
 
 def rswag_class
   rswag_properties[:class] || rswag_properties[:object].class

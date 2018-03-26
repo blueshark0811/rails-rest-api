@@ -24,39 +24,41 @@ module SharedController
     SORT_FLAGS.first
   end
 
-  def sort_flag 
+  def sort_flag
     flag = params[:sort_flag].to_s.upcase
 
     SORT_FLAGS.include?(flag) ? flag : sort_default_flag
   end
 
-  def bparams *param
+  def bparams(*param)
     res = params.dig(*param)
     res == true || res == 'true'
   end
 
+  def base_domain?
+    request.domain == APP_CONFIG['host']
+  end
+
   def organization_subdomain
-    return unless request.domain == APP_CONFIG['host']
+    return unless base_domain?
 
     request.subdomain
   end
 
   def organization_domain
-    return if request.domain == APP_CONFIG['host']
+    return if base_domain?
 
     request.domain 10
   end
 
-  def current_organization # todo
+  def current_organization
     return @current_organization if @current_organization
 
     @current_organization = Organization.find_by(subdomain: organization_subdomain) if organization_subdomain
 
     @current_organization ||= Organization.find_by(domain: organization_domain) if organization_domain
 
-    @current_organization ||= Organization.find(params[:organization_id]) if params[:organization_id]
-
-    @current_organization ||= current_user&.organizations&.first
+    @current_organization
   end
 
   def debug(result)
@@ -65,6 +67,7 @@ module SharedController
       p 'method ->', request.method
       p 'params ->', params
       p 'Authorization ->', request.headers['Authorization']
+      p 'current organization ->', current_organization
       p '-' * 100
     end
 

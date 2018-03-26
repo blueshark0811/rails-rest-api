@@ -73,6 +73,14 @@ end
 
 def crud_index(options = {})
   additional_parameters = options.fetch(:additional_parameters, [])
+  exclude_parameters = options.fetch(:exclude_parameters, [])
+  parameters = [
+    { name: :authorization, in: :header, type: :string, required: true },
+    { name: :organization_id, in: :query, type: :integer, required: false },
+    { name: :current_page, in: :query, type: :integer, required: false },
+    { name: :current_count, in: :query, type: :integer, required: false }
+  ].reject { |pa| exclude_parameters.include?(pa[:name]) } + additional_parameters
+
   klass = options[:klass]
   slug = get_slug klass, options[:slug]
   url = options[:url] || "#{api_base_endpoint}#{slug}"
@@ -80,6 +88,7 @@ def crud_index(options = {})
   tag = options[:tag] || klass.name.pluralize
   description_200 = options[:description_200] || 'returns as array'
   as = options[:as] || :active_model
+  check_not_aurhorized = options.fetch(:check_not_aurhorized, true)
 
   yield if block_given?
 
@@ -88,10 +97,7 @@ def crud_index(options = {})
       tags tag
       consumes 'application/json'
 
-      parameter name: :authorization, in: :header, type: :string, required: true
-      parameter name: :organization_id, in: :query, type: :integer, required: false
-      parameter name: :current_page, in: :query, type: :integer, required: false
-      parameter name: :current_count, in: :query, type: :integer, required: false
+      parameters.each { |pa| parameter pa }
 
       response '200', description_200 do
         before do |example|
@@ -106,13 +112,19 @@ def crud_index(options = {})
         run_test!
       end
 
-      it_behaves_like 'not-aurhorized'
+      it_behaves_like 'not-aurhorized' if check_not_aurhorized
     end
   end
 end
 
 def crud_show(options = {})
   additional_parameters = options.fetch(:additional_parameters, [])
+  exclude_parameters = options.fetch(:exclude_parameters, [])
+  parameters = [
+    { name: :id, in: :path, type: :integer },
+    { name: :authorization, in: :header, type: :string, required: true }
+  ].reject { |pa| exclude_parameters.include?(pa[:name]) } + additional_parameters
+
   klass = options[:klass]
   slug = get_slug klass, options[:slug]
   url = options[:url] || "#{api_base_endpoint}#{slug}/{id}"
@@ -131,8 +143,7 @@ def crud_show(options = {})
       tags tag
       consumes 'application/json'
 
-      parameter name: :id, in: :path, type: :integer
-      parameter name: :authorization, in: :header, type: :string, required: true
+      parameters.each { |pa| parameter pa }
 
       response '200', description_200 do
         before do |example|
@@ -153,6 +164,11 @@ end
 
 def crud_create(options = {})
   additional_parameters = options.fetch(:additional_parameters, [])
+  exclude_parameters = options.fetch(:exclude_parameters, [])
+  parameters = [
+    { name: :authorization, in: :header, type: :string, required: true }
+  ].reject { |pa| exclude_parameters.include?(pa[:name]) } + additional_parameters
+
   additional_body = options.fetch(:additional_body, {})
   klass = options[:klass]
   slug = get_slug klass, options[:slug]
@@ -160,6 +176,7 @@ def crud_create(options = {})
   description = options[:description] || "Create #{klass.name}"
   tag = options[:tag] || klass.name.pluralize
   description_200 = options[:description_200] || 'returns created object'
+  check_not_aurhorized = options.fetch(:check_not_aurhorized, true)
 
   yield if block_given?
 
@@ -169,7 +186,8 @@ def crud_create(options = {})
     post description do
       tags tag
       consumes 'application/json'
-      parameter name: :authorization, in: :header, type: :string, required: true
+
+      parameters.each { |pa| parameter pa }
 
       response '200', description_200 do
         before do |example|
@@ -208,19 +226,27 @@ def crud_create(options = {})
         run_test!
       end
 
-      it_behaves_like 'not-aurhorized'
+      it_behaves_like('not-aurhorized') if check_not_aurhorized
     end
   end
 end
 
 def crud_update(options = {})
   additional_parameters = options.fetch(:additional_parameters, [])
+  exclude_parameters = options.fetch(:exclude_parameters, [])
+  parameters = [
+    { name: :id, in: :path, type: :integer },
+    { name: :authorization, in: :header, type: :string, required: true }
+  ].reject { |pa| exclude_parameters.include?(pa[:name]) } + additional_parameters
+
   klass = options[:klass]
   slug = get_slug klass, options[:slug]
   url = options[:url] || "#{api_base_endpoint}#{slug}/{id}"
   description = options[:description] || "Update #{klass.name} Details"
   tag = options[:tag] || klass.name.pluralize
   description_200 = options[:description_200] || 'returns data'
+  check_not_aurhorized = options.fetch(:check_not_aurhorized, true)
+  check_not_found = options.fetch(:check_not_found, true)
 
   yield if block_given?
 
@@ -230,8 +256,8 @@ def crud_update(options = {})
     put description do
       tags tag
       consumes 'application/json'
-      parameter name: :id, in: :path, type: :integer
-      parameter name: :authorization, in: :header, type: :string, required: true
+
+      parameters.each { |pa| parameter pa }
 
       response '200', description_200 do
         before do |example|
@@ -254,20 +280,28 @@ def crud_update(options = {})
         run_test!
       end
 
-      it_behaves_like 'not-aurhorized'
-      it_behaves_like 'not-found'
+      it_behaves_like 'not-aurhorized' if check_not_aurhorized
+      it_behaves_like 'not-found' if check_not_found
     end
   end
 end
 
 def crud_delete(options = {})
   additional_parameters = options.fetch(:additional_parameters, [])
+  exclude_parameters = options.fetch(:exclude_parameters, [])
+  parameters = [
+    { name: :id, in: :path, type: :integer },
+    { name: :authorization, in: :header, type: :string, required: true }
+  ].reject { |pa| exclude_parameters.include?(pa[:name]) } + additional_parameters
+
   klass = options[:klass]
   slug = get_slug klass, options[:slug]
   url = options[:url] || "#{api_base_endpoint}#{slug}/{id}"
   description = options[:description] || "Delete #{klass.name}"
   tag = options[:tag] || klass.name.pluralize
   description_200 = options[:description_200] || "deleting #{klass.name} account"
+  check_not_aurhorized = options.fetch(:check_not_aurhorized, true)
+  check_not_found = options.fetch(:check_not_found, true)
 
   yield if block_given?
 
@@ -278,8 +312,7 @@ def crud_delete(options = {})
       tags tag
       consumes 'application/json'
 
-      parameter name: :id, in: :path, type: :integer
-      parameter name: :authorization, in: :header, type: :string, required: true
+      parameters.each { |pa| parameter pa }
 
       response '200', description_200 do
         before do |example|
@@ -300,20 +333,27 @@ def crud_delete(options = {})
         end
       end
 
-      it_behaves_like 'not-aurhorized'
-      it_behaves_like 'not-found'
+      it_behaves_like 'not-aurhorized' if check_not_aurhorized
+      it_behaves_like 'not-found' if check_not_found
     end
   end
 end
 
 def batch_update(options = {})
   additional_parameters = options.fetch(:additional_parameters, [])
+  exclude_parameters = options.fetch(:exclude_parameters, [])
+  parameters = [
+    { name: :ids, in: :body, type: :array, items: { type: :integer } },
+    { name: :authorization, in: :header, type: :string, required: true }
+  ].reject { |pa| exclude_parameters.include?(pa[:name]) } + additional_parameters
+
   klass = options[:klass]
   slug = get_slug klass, options[:slug]
   url = options[:url] || "#{api_base_endpoint}#{get_slug klass, slug}/batch_update"
   description = options[:description] || "Batch update #{klass.name} Details"
   tag = options[:tag] || klass.name.pluralize
   description_200 = options[:description_200] || 'returns status and errors'
+  check_not_aurhorized = options.fetch(:check_not_aurhorized, true)
 
   yield if block_given?
 
@@ -323,8 +363,8 @@ def batch_update(options = {})
     put description do
       tags tag
       consumes 'application/json'
-      parameter name: :ids, in: :body, type: :array, items: { type: :integer }
-      parameter name: :authorization, in: :header, type: :string, required: true
+
+      parameters.each { |pa| parameter pa }
 
       response '200', description_200 do
         before do |example|
@@ -346,7 +386,7 @@ def batch_update(options = {})
         end
       end
 
-      it_behaves_like 'not-aurhorized'
+      it_behaves_like 'not-aurhorized' if check_not_aurhorized
     end
   end
 end

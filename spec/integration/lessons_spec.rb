@@ -5,7 +5,12 @@ require 'swagger_helper'
 describe Api::V1::LessonsController do
   let!(:course) { create :course, organization: current_user.organizations.first }
   let!(:lesson) { create :lesson, course: course, user: current_user }
-  let(:rswag_properties) { { current_user: current_user, object: lesson } }
+  let(:rswag_properties) do {
+    current_user: current_user,
+    current_organization: current_user.organizations.first,
+    object: lesson
+  }
+  end
   let!(:course_id) { course.id }
 
   options = {

@@ -9,12 +9,12 @@ describe Api::V1::TasksController do
   let(:lesson_id) { lesson.id }
 
   let(:task) { create :task, lesson: lesson, user: current_user }
-  
+
   let!(:rswag_properties) do {
-    current_user: current_user,
-    current_organization: organization,
-    object: task
-  }
+      current_user: current_user,
+      current_organization: organization,
+      object: task
+    }
   end
 
   options = {

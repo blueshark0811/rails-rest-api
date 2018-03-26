@@ -2,7 +2,12 @@ require 'swagger_helper'
 
 describe Api::V1::CoursesController do
   let!(:course) { create :course, organization: current_user.organizations.first }
-  let(:rswag_properties) { { current_user: current_user, object: course } }
+  let(:rswag_properties) do {
+    current_user: current_user,
+    current_organization: current_user.organizations.first,
+    object: course
+  }
+  end
 
   options = { klass: Course }
 

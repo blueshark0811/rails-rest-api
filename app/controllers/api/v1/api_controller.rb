@@ -104,7 +104,7 @@ class Api::V1::ApiController < ActionController::API
   end
 
   def authenticate_organization!
-    return true if current_organization
+    return true if current_organization && policy(current_organization).show?
 
     render_error('Organization is not determinated', nil, 428)
   end

@@ -1,6 +1,7 @@
 require 'swagger_helper'
 
 describe Api::V1::UsersController do
+  let(:current_user) { create :user, :reindex }
   let!(:rswag_properties) do {
       current_user: current_user,
       current_organization: current_user.organizations.first,

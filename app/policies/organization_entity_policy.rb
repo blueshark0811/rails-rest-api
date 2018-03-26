@@ -3,7 +3,7 @@ class OrganizationEntityPolicy < ApplicationPolicy
     def condition
       return none unless role
 
-      {organization_id: organization.id}
+      { organization_id: organization.id }
     end
   end
 

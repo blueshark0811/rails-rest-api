@@ -4,7 +4,13 @@ require 'swagger_helper'
 
 describe Api::V1::GroupsController do
   let!(:group) { create :group, organization: current_user.organizations.first }
-  let(:rswag_properties) { { current_user: current_user, object: group } }
+  let(:rswag_properties) do
+    {
+      current_user: current_user,
+      current_organization: current_user.organizations.first,
+      object: group
+    }
+  end
 
   options = { klass: Group }
 

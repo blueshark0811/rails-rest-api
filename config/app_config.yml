@@ -21,6 +21,7 @@ default: &settings
     key: AIzaSyDjPPZbG6D8StmeqRUtI5rvSZRrwHlcEBk
 test:
   <<: *settings
+  host: example.com
 
 development:
   <<: *settings

@@ -5,7 +5,12 @@ require 'swagger_helper'
 describe Api::V1::VideosController do
   let!(:videoable) { current_user.organizations.first }
   let!(:video) { create :video_link, videoable: videoable, user: current_user, organization: videoable }
-  let(:rswag_properties) { { current_user: current_user, object: video } }
+  let(:rswag_properties) do {
+      current_user: current_user,
+      current_organization: current_user.organizations.first,
+      object: video
+    }
+  end
   let!(:videoable_id) { videoable.id }
   let!(:videoable_type) { videoable.class.name }
 

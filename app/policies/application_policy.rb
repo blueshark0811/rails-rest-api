@@ -82,14 +82,40 @@ class ApplicationPolicy
       { id: -1 }
     end
 
-    def resolve
-      scope.where(condition)
+    def klass #todo optimize
+      scope.new.is_a?(ApplicationRecord) ? scope : scope.klass
+    rescue
+      scope.klass
+    rescue
+      nil
     end
 
     def resolve
-      scope
+      sc = scope
+
+      condition.each do |k, v|
+        if v.is_a?(Hash)
+          next unless klass.attributes.include?(k)
+          sc = case v.first.first
+          when :not
+            sc.where.not(k => v.first.last)
+          else
+            sc.where(k => v)
+          end
+        elsif k == :_or
+          sc = sc.where(v.shift)
+
+          v.each do |cond|
+            sc = sc.or(sc.where(cond))
+          end
+        elsif klass.attributes.include?(k)
+          sc = sc.where(k => v)
+        end
+      end
+
+      @scope = sc
     end
-    
+
     def role
       @role ||= user&.role(organization)
     end
