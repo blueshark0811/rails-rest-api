@@ -13,4 +13,12 @@ class OrganizationUser < ApplicationRecord
       { exclude_students_ids: { type: :array, null: true } }
     end
   end
+
+  def mesanger_access_enabled
+    !!super
+  end
+
+  def files_controll_enabled
+    !!super
+  end
 end

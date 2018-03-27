@@ -4,9 +4,7 @@ class Api::V1::GroupsController < Api::V1::ApiController
   def index
     where = { organization_id: current_organization.id }
 
-    if params[:my] && params[:my] != 'false'
-      where.merge!(user_ids: current_user.id)
-    end
+    where.merge!(user_ids: current_user.id) if bparams(:my)
 
     if Group.visibilities.include?(params[:visibility])
       where.merge!(visibility: params[:visibility])
@@ -18,7 +16,7 @@ class Api::V1::GroupsController < Api::V1::ApiController
 
     order = { title: sort_flag }
 
-    @groups = Group.search params[:term] || '*', 
+    @groups = Group.search params[:term] || '*',
       where: where,
       order: order,
       page: current_page,

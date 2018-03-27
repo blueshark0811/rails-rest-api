@@ -1,5 +1,6 @@
 class ApplicationPolicy
   include ApiPolicy
+  include PolicyHelper
 
   attr_reader :user_context, :user, :organization, :record
 
@@ -8,20 +9,6 @@ class ApplicationPolicy
     @user = user_context.user
     @organization = user_context.organization
     @record = record
-  end
-
-  def role
-    @role ||= user&.role(organization)
-  end
-
-  OrganizationUser.roles.keys.each do |rol|
-    define_method "#{rol}?" do
-      role == rol || rol == 'admin' && super_admin?
-    end
-  end
-
-  def super_admin?
-    user.super_admin?
   end
 
   def index?
@@ -65,6 +52,8 @@ class ApplicationPolicy
   end
 
   class Scope
+    include PolicyHelper
+
     attr_reader :user_context, :user, :organization, :scope
 
     def initialize(user_context, scope)
@@ -114,10 +103,6 @@ class ApplicationPolicy
       end
 
       @scope = sc
-    end
-
-    def role
-      @role ||= user&.role(organization)
     end
   end
 end

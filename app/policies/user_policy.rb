@@ -1,6 +1,14 @@
 # frozen_string_literal: true
 
 class UserPolicy < ApplicationPolicy
+  class Scope < Scope
+    def condition
+      return {} if super_admin?
+
+      { organization_ids: organization.id }
+    end
+  end
+
   def send_set_password_link?
     user.id == record.id || admin?
   end
@@ -30,6 +38,10 @@ class UserPolicy < ApplicationPolicy
       address avatar country_id state_id zip_code date_of_birth phone_number
       first_name last_name email password password_confirmation
     ]# << {group_ids: []}
+  end
+
+  def api_base_attributes
+    super + [:organization_settings]
   end
 
   def api_base_attributes_exclude

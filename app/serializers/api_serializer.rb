@@ -28,8 +28,12 @@ module ApiSerializer
 
       next if attr.excluded?(self)
       next unless requested_attrs.nil? || requested_attrs.include?(field)
-      hash[field] = attr.value(self)
+      hash[label_field(field)] = attr.value(self)
     end
+  end
+
+  def label_field(field)
+    object.class.column_of_attribute(field).try(:label) || field
   end
 
   def read_attribute_for_serialization(attr)
@@ -38,6 +42,9 @@ module ApiSerializer
     return send(attr) if respond_to?(attr)
 
     return type_cast(attr) if available_fields.include?(attr)
+
+    #associations
+    return object.read_attribute_for_serialization(attr) if self.class.serializable_class.reflect_on_association(attr)
 
     ActiveModel::FieldUpgrade::ATTR_NOT_ACCEPTABLE
   end
@@ -62,7 +69,7 @@ module ApiSerializer
     @available_fields[key]
   end
 
-  def type_cast field
+  def type_cast(field)
     res = nil
 
     res = object.send(field) if object.respond_to?(field)
@@ -82,7 +89,15 @@ module ApiSerializer
           #todo else
         end
       else
-        case object.class.column_of_attribute(field).type
+        col = object.class.column_of_attribute(field)
+        case col.type
+        when :association
+          if current_organization && col.try(:mode)  == :inside_current_organization
+            if object.respond_to?(col.association)#todo for array result, check serializer_params
+              res = object.send(col.association).find_by(organization_id: current_organization.id)
+              res = res.class.serializer_class_name.constantize.new(res, serializer_params).attributes
+            end
+          end
         when :datetime
           res = res.to_s(:long) if res
         end

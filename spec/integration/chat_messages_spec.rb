@@ -3,6 +3,12 @@ require 'swagger_helper'
 describe Api::V1::ChatMessagesController do
   let(:chat) { create :chat, organization: current_user.organizations.first }
   let(:chat_message) { create :chat_message, chat: chat }
+  let!(:attachment) do
+    create :attachment,
+      attachmentable: chat_message,
+      user: current_user,
+      organization: chat.organization
+  end
   let!(:rswag_properties) do {
     current_user: current_user,
     current_organization: current_user.organizations.first,
@@ -11,7 +17,7 @@ describe Api::V1::ChatMessagesController do
   end
   let(:chat_id) { chat.id }
 
-  options = { 
+  options = {
     klass: ChatMessage,
     slug: 'chats/{chat_id}/chat_messages',
     additional_parameters: [{
@@ -19,9 +25,8 @@ describe Api::V1::ChatMessagesController do
       in: :path,
       type: :integer,
       required: true
-    }] 
+    }]
   }
-  additional_parameters = []
 
   crud_index options.merge(description: 'List of Chat Messages')
   crud_create options.merge(description: 'Create Chat Message')

@@ -5,7 +5,21 @@ class Api::V1::AttachmentsController < Api::V1::ApiController
   before_action :set_attachment, except: %i[index create]
 
   def index
-    @attachments = @attachmentable.attachments.page(current_page).per(current_count)
+    order = if Attachment::SORT_FIELDS.include?(params[:sort_field])
+      { params[:sort_field] => sort_flag }
+    else
+      { file_name: sort_flag }
+    end
+
+    @attachments = Attachment.search params[:term] || '*',
+      where: {
+        attachmentable_id: @attachmentable.id,
+        attachmentable_type: @attachmentable.class.name
+      },
+      order: order,
+      page: current_page,
+      per_page: current_count,
+      match: :word_start
 
     render_result @attachments
   end

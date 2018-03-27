@@ -62,7 +62,8 @@ class Api::V1::ApiController < ActionController::API
       meta: meta || result_meta(json),
       meta_key: meta_key,
       serializer_params: {
-        currrent_user: current_user,
+        current_user: current_user,
+        current_organization: current_organization,
         params: { action: :show }
       }
     )

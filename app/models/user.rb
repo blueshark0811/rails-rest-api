@@ -26,6 +26,19 @@ class User < ApplicationRecord
 
   attr_accessor :current_organization
 
+  class << self
+    def additional_attributes
+      { organization_settings: {
+          type: :association,
+          association: :organization_users,
+          association_type: :object,
+          mode: :inside_current_organization,
+          null: true
+        }
+      }
+    end
+  end
+
   def cached_roles
     @cached_roles ||= organization_users.map{|ou| [ou.organization_id, ou.role].join('_')}
   end

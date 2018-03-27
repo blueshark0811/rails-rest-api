@@ -14,7 +14,7 @@ class Api::V1::CoursesController < Api::V1::ApiController
 
     where[:group_ids] = params[:group_id] if params[:group_id]
 
-    @courses = Course.search '*',
+    @courses = Course.search params[:term] || '*',
       where: where,
       order: order,
       load: false,

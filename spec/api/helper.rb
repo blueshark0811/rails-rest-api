@@ -103,10 +103,6 @@ def crud_index(options = {})
         before do |example|
           rswag_set_schema example, action: :index, type: :array, as: as
           sleep 1 if as == :searchkick
-
-          additional_parameters.each do |parametr|
-            rswag_parameter(example, parametr)
-          end
         end
 
         run_test!
@@ -148,9 +144,6 @@ def crud_show(options = {})
       response '200', description_200 do
         before do |example|
           rswag_set_schema example, action: :show
-          additional_parameters.each do |parametr|
-            rswag_parameter(example, parametr)
-          end
         end
 
         run_test!
@@ -193,10 +186,6 @@ def crud_create(options = {})
         before do |example|
           rswag_set_schema example, action: :show
           @parameter = rswag_set_parameter(example, action: :create)
-
-          additional_parameters.each do |parametr|
-            rswag_parameter(example, parametr)
-          end
         end
 
         let(:body) do
@@ -263,10 +252,6 @@ def crud_update(options = {})
         before do |example|
           rswag_set_schema example, action: :update
           @parameter = rswag_set_parameter(example, action: :update)
-
-          additional_parameters.each do |parametr|
-            rswag_parameter(example, parametr)
-          end
         end
 
         let(:body) do
@@ -315,11 +300,6 @@ def crud_delete(options = {})
       parameters.each { |pa| parameter pa }
 
       response '200', description_200 do
-        before do |example|
-          additional_parameters.each do |parametr|
-            rswag_parameter(example, parametr)
-          end
-        end
 
         schema type: :object,
                properties: {
@@ -367,11 +347,6 @@ def batch_update(options = {})
       parameters.each { |pa| parameter pa }
 
       response '200', description_200 do
-        before do |example|
-          additional_parameters.each do |parametr|
-            rswag_parameter(example, parametr)
-          end
-        end
 
         schema type: :object,
                properties: {

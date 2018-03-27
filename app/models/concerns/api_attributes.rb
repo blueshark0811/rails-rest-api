@@ -110,11 +110,19 @@ module ApiAttributes
     def api_prepare_attribute_for_swagger(field, options = {})
       col = column_of_attribute(field)
 
-      res = {}
+      res = { }
+
+      if description = col.try(:description).presence
+        res[:description] = description
+      end
 
       res[:type] = :object if uploaders.keys.include?(field)
 
       res[:type] ||= col.type
+
+      if res[:type] == :association
+        res[:type] = col.try :association_type
+      end
 
       unless res[:type]
         res[:type] = field.to_s.match(/_ids/) ? :array : :string
@@ -137,6 +145,7 @@ module ApiAttributes
   def api_base_attributes
     res = attributes.keys.map(&:to_sym)
     res += search_data.keys.map(&:to_sym) if respond_to?(:search_data)
+    # res += self.class.additional_attributes.keys.map(&:to_sym)
     res.uniq
   end
 

@@ -6,7 +6,7 @@ class Api::V1::UsersController < Api::V1::ApiController
   def index
     order = { first_name: sort_flag }
 
-    where = { organization_ids: current_organization.id }
+    where = policy_condition(User)
 
     where[:group_ids] = params[:group_id] if params[:group_id]
 

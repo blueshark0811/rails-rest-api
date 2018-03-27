@@ -26,3 +26,4 @@ yarn-error.log*
 Procfile
 dump.rdb
 .envrc
+.vscode

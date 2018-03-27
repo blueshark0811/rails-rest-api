@@ -13,14 +13,14 @@ describe Api::V1::GroupUsersController do
   end
   let!(:group_id) { group.id }
 
-  options = { 
-    klass: GroupUser, 
-    slug: 'groups/{group_id}/group_users', 
+  options = {
+    klass: GroupUser,
+    slug: 'groups/{group_id}/group_users',
     tag: 'Users vs Groups'
   }
 
   crud_index options.merge(
-    as: :searchkick, 
+    as: :searchkick,
     description: 'Users in group',
     additional_parameters: [{
       name: :group_id,

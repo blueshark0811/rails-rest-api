@@ -3,6 +3,7 @@ class Chat < ApplicationRecord
   has_many :users, through: :chat_users
   has_many :chat_messages
   belongs_to :organization
+  has_many :attachments, as: :attachmentable, dependent: :destroy
 
   scope :available_for_user, ->(user_id) {
     user_id = user_id.id if user_id.is_a?(User)
