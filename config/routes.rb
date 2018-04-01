@@ -59,6 +59,10 @@ Rails.application.routes.draw do
         end
       end
 
+      scope ':notifiable_type/:notifiable_id' do
+        resources :activities, only: %i[index update destroy]
+      end
+
       scope ':commentable_type/:commentable_id' do
         resources :comments
       end

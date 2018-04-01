@@ -7,6 +7,7 @@ module Courses
       belongs_to :organization
       has_many :attachments, as: :attachmentable, dependent: :destroy
       has_many :lessons, dependent: :destroy
+      has_many :lesson_users, through: :lessons
 
       has_many :course_groups, dependent: :destroy
       has_many :groups, through: :course_groups

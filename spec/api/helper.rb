@@ -71,7 +71,7 @@ shared_examples_for 'not-found' do
   end
 end
 
-def crud_index(options = {})
+def crud_index(options = {}, &block)
   additional_parameters = options.fetch(:additional_parameters, [])
   exclude_parameters = options.fetch(:exclude_parameters, [])
   parameters = [
@@ -90,8 +90,6 @@ def crud_index(options = {})
   as = options[:as] || :active_model
   check_not_aurhorized = options.fetch(:check_not_aurhorized, true)
 
-  yield if block_given?
-
   path url do
     get description do
       tags tag
@@ -102,6 +100,9 @@ def crud_index(options = {})
       response '200', description_200 do
         before do |example|
           rswag_set_schema example, action: :index, type: :array, as: as
+
+          example.instance_exec(&block) if block
+
           sleep 1 if as == :searchkick
         end
 
@@ -155,7 +156,7 @@ def crud_show(options = {})
   end
 end
 
-def crud_create(options = {})
+def crud_create(options = {}, &block)
   additional_parameters = options.fetch(:additional_parameters, [])
   exclude_parameters = options.fetch(:exclude_parameters, [])
   parameters = [
@@ -171,8 +172,6 @@ def crud_create(options = {})
   description_200 = options[:description_200] || 'returns created object'
   check_not_aurhorized = options.fetch(:check_not_aurhorized, true)
 
-  yield if block_given?
-
   path url do
     let(:id) { rswag_properties[:object].id }
 
@@ -186,6 +185,8 @@ def crud_create(options = {})
         before do |example|
           rswag_set_schema example, action: :show
           @parameter = rswag_set_parameter(example, action: :create)
+
+          example.instance_exec(&block) if block
         end
 
         let(:body) do

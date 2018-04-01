@@ -8,7 +8,7 @@ class OrganizationEntityPolicy < ApplicationPolicy
   end
 
   def show?
-    record.try(:user_id) == user.id || record_accessible_in_organization?
+    author? || record_accessible_in_organization?
   end
 
   def update?

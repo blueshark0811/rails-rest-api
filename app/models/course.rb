@@ -19,4 +19,29 @@ class Course < ApplicationRecord
   def active_users
     users.active
   end
+
+  class << self
+    def additional_attributes
+      { lesson_users_for_current_user: {
+          type: :association,
+          association: :lesson_users,
+          association_type: :array,
+          mode: :for_current_user,
+          param_conditions: {included_lesson_users_for_current_user: 'true'},
+          null: true,
+          items: { type: :object, properties: {} },
+          description: 'lesson_users instance(association for lesson in which user participated) for current user and course'
+        },
+        lesson_users: {
+          type: :association,
+          association: :lesson_users,
+          association_type: :array,
+          param_conditions: {included_lesson_users: 'true'},
+          null: true,
+          items: { type: :object, properties: {} },
+          description: 'lesson_users instance(association for lesson in which user participated) for course'
+        }
+      }
+    end
+  end
 end

@@ -32,7 +32,6 @@ module Treeable
       scope :roots, -> { where root_id: nil }
 
       after_save do
-        p saved_changes
         if saved_changes['root_id'].present? || saved_changes['id'].present?
           options.each_with_object(opts = {}) { |(v, k), h| h[v.to_s] = k.to_s; }
           TreeableJob.perform_later self, opts

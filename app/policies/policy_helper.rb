@@ -10,6 +10,6 @@ module PolicyHelper
   end
 
   def super_admin?
-    user.super_admin?
+    !!user&.super_admin?
   end
 end

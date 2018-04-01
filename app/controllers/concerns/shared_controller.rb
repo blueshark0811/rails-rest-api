@@ -67,6 +67,7 @@ module SharedController
       p 'method ->', request.method
       p 'params ->', params
       p 'Authorization ->', request.headers['Authorization']
+      p 'current user id ->', current_user&.id
       p 'current organization ->', current_organization
       p '-' * 100
     end

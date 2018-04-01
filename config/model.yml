@@ -76,3 +76,9 @@ video:
       Processing: processing
       Inspecting: draft
       Failed: failed
+
+activity:
+  statuses:
+    pending: In queue
+    sent: Sent
+    read: Read

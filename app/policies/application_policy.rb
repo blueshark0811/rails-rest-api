@@ -40,7 +40,7 @@ class ApplicationPolicy
   end
 
   def author?
-    user.id == record.try(:user_id)
+    user && user.id == record.try(:user_id)
   end
 
   def scope

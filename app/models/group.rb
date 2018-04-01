@@ -20,4 +20,22 @@ class Group < ApplicationRecord
   scope :participated_by, lambda { |user|
     joins(:group_users).where(group_users: { user_id: user.id })
   }
+
+  class << self
+    def additional_attributes
+      { participated: {
+          type: :association,
+          association: :group_users,
+          association_type: :object,
+          mode: :for_current_user,
+          null: true,
+          description: 'group_user instance for current user if he participated in group'
+        }
+      }
+    end
+  end
+
+  def count_participants
+    super.to_i
+  end
 end

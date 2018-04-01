@@ -33,7 +33,15 @@ module ApiSerializer
   end
 
   def label_field(field)
-    object.class.column_of_attribute(field).try(:label) || field
+    klass.column_of_attribute(field).try(:label) || field
+  end
+
+  def klass
+    if real_object.is_a?(Searchkick::HashWrapper) && searchkickable_class
+      searchkickable_class
+    else
+      real_object.class
+    end
   end
 
   def read_attribute_for_serialization(attr)
@@ -69,42 +77,77 @@ module ApiSerializer
     @available_fields[key]
   end
 
+  def real_object
+    return @real_object if @real_object
+
+    return object unless real_collection
+    return object unless object.is_a?(Searchkick::HashWrapper)
+
+    @real_object = real_collection[object.id] || object
+  end
+
   def type_cast(field)
     res = nil
+    col = klass.column_of_attribute(field)
+
+    if (conditions = col.try(:param_conditions)) && conditions.any?{ |k,v| params[k] != v }
+      return ActiveModel::FieldUpgrade::ATTR_NOT_ACCEPTABLE
+    end
 
     res = object.send(field) if object.respond_to?(field)
+    res = real_object.send(field) if res.nil? && real_object.respond_to?(field)
 
     begin
-      if object.is_a?(Searchkick::HashWrapper) && searchkickable_class
-        case searchkickable_class.column_of_attribute(field).type
-        when :integer
-          res = res.to_i
-        when :float
-          res = res.ceil 2
-        when :string
+      case col.type
+      when :integer
+        res = res.to_i
+
+      when :float
+        res = res.ceil 2
+
+      when :string
+        if klass.uploaders.has_key?(field.to_sym)
+          if res.is_a?(String)
+            res = JSON.parse(res.to_s) rescue res
+          end
+        else
           res = res.to_s
-          if searchkickable_class.uploaders.has_key?(field.to_sym)
-            res = JSON.parse(res) rescue res
-          end
-          #todo else
         end
-      else
-        col = object.class.column_of_attribute(field)
-        case col.type
-        when :association
-          if current_organization && col.try(:mode)  == :inside_current_organization
-            if object.respond_to?(col.association)#todo for array result, check serializer_params
-              res = object.send(col.association).find_by(organization_id: current_organization.id)
-              res = res.class.serializer_class_name.constantize.new(res, serializer_params).attributes
-            end
-          end
-        when :datetime
-          res = res.to_s(:long) if res
+      when :datetime
+        res = res.to_s(:long) if res && !res.is_a?(String)
+
+      when :association
+        return res unless real_object.respond_to?(col.association)
+
+        res = real_object.send(col.association)
+        cond = {}
+
+        case col.try(:mode)
+        when :inside_current_organization
+          cond = { organization_id: current_organization.id } if current_organization
+        when :for_current_user
+          cond = { user_id: current_user.id } if current_user
+        end
+
+        case col.try(:association_type)
+        when :object
+          res = res.find_by(cond)
+
+          res = res.class.serializer_class_name.constantize.new(res, serializer_params).attributes if res
+        when :array
+          res = res.where(cond)
+
+          kls = res.new.class.serializer_class_name.constantize
+
+          res = res.map{|r| kls.new(r, serializer_params).attributes }
+        else
+          #something, like array
         end
       end
     rescue => e
       p 'error', e
     end
+
     res
   end
 

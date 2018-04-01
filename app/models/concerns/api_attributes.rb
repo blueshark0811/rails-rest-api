@@ -125,11 +125,17 @@ module ApiAttributes
       end
 
       unless res[:type]
-        res[:type] = field.to_s.match(/_ids/) ? :array : :string
+        res[:type] = if field.to_s.match(/_ids\z/)
+          :array
+        elsif field.to_s.match(/_id\z/)
+          :integer
+        else
+          :string
+        end
       end
 
       if res[:type] == :array
-        return api_array_of_type(col.try(:items).try(:type), col.try(:items).try(:properties)||{})
+        return api_array_of_type(col.try(:items).try(:[], :type), col.try(:items).try(:[], :properties)||{})
       end
 
       res['x-nullable'] = true if col.null

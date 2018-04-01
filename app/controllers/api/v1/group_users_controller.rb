@@ -7,32 +7,28 @@ class Api::V1::GroupUsersController < Api::V1::ApiController
               { params[:sort_field] => sort_flag }
             else
               { first_name: sort_flag }
-    end
+            end
 
     @group_users = GroupUser.search '*',
-      where: { organization_id: current_organization.id },
+      where: policy_condition(GroupUser),
       order: order, load: false, page: current_page, per_page: current_count
 
     render_result @group_users
   end
 
   def create
-    @group_user = @group.group_users.new
-
+    @group_user = @group.group_users.new user_id: params[:group_user][:user_id]
+p @group_user
     authorize @group_user
 
     if @group_user.update permitted_attributes(@group_user)
-      render_result @group_user
-    else
-      render_error @group_user
+      render_result(@group_user) else render_error(@group_user)
     end
   end
 
   def update
     if @group_user.update permitted_attributes(@group_user)
-      render_result @group_user
-    else
-      render_error @group_user
+      render_result(@group_user) else render_error(@group_user)
     end
   end
 
@@ -63,6 +59,8 @@ class Api::V1::GroupUsersController < Api::V1::ApiController
 
   def set_group
     @group = current_organization.groups.find params[:group_id]
+
+    authorize @group, :show?
   end
 
   def set_group_user

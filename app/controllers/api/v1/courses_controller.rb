@@ -15,7 +15,7 @@ class Api::V1::CoursesController < Api::V1::ApiController
     where[:group_ids] = params[:group_id] if params[:group_id]
 
     @courses = Course.search params[:term] || '*',
-      where: where,
+      where: where.merge(policy_condition(Course)),
       order: order,
       load: false,
       page: current_page,
@@ -32,18 +32,16 @@ class Api::V1::CoursesController < Api::V1::ApiController
   def create
     @course = current_organization.courses.new user_id: current_user.id
 
+    authorize @course
+
     if @course.update permitted_attributes(@course)
-      render_result @course
-    else
-      render_error @course
+      render_result(@course) else render_error(@course)
     end
   end
 
   def update
     if @course.update_attributes permitted_attributes(@course)
-      render_result @course
-    else
-      render_error @course
+      render_result(@course) else render_error(@course)
     end
   end
 

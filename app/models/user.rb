@@ -39,8 +39,18 @@ class User < ApplicationRecord
     end
   end
 
+  def name
+    res = [first_name.presence, last_name.presence].compact.join ' '
+
+    res.presence || nickname
+  end
+
+  def nickname
+    email.split('@').first
+  end
+
   def cached_roles
-    @cached_roles ||= organization_users.map{|ou| [ou.organization_id, ou.role].join('_')}
+    @cached_roles ||= organization_users.map{ |ou| [ou.organization_id, ou.role].join('_') }
   end
 
   def current_organization_user(organization = nil)

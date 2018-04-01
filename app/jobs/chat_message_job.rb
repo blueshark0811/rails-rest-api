@@ -8,5 +8,7 @@ class ChatMessageJob < ApplicationJob
     )
 
     chat_message.set_chat_as_seen
+
+    chat_message.write_activity
   end
 end

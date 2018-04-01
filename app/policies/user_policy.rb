@@ -26,11 +26,15 @@ class UserPolicy < ApplicationPolicy
   end
 
   def author?
-    user.id == record.id
+    user && user.id == record.id
   end
 
   def be_opponent?
     !!record&.role(organization)
+  end
+
+  def show_activity?
+    author?
   end
 
   def permitted_attributes_for_create

@@ -4,6 +4,7 @@ require 'swagger_helper'
 
 describe Api::V1::GroupsController do
   let!(:group) { create :group, organization: current_user.organizations.first }
+  let!(:group_user) { create :group_user, group: group, user: current_user }
   let(:rswag_properties) do
     {
       current_user: current_user,

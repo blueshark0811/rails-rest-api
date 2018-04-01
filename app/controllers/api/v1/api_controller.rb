@@ -46,8 +46,18 @@ class Api::V1::ApiController < ActionController::API
     json.merge!(@additional_attrs_for_render) if @additional_attrs_for_render && json.respond_to?(:merge)
 
     res = {}
+    serializer_params = {
+      current_user: current_user,
+      current_organization: current_organization,
+      params: params.merge(action: :show)
+    }
 
     if json.is_a?(Searchkick::Results)
+      unless json.options[:load]
+        serializer_params[:real_collection] = json.klass.where(id: json.map(&:id))
+          .each_with_object({}){ |r, h| h[r.id] = r }
+      end
+
       res[:root] = json.klass.to_s.underscore
       res[:each_serializer] = ActiveModel::Serializer.serializer_for(json.klass, namespace: namespace_for_serializer)
     end
@@ -61,11 +71,7 @@ class Api::V1::ApiController < ActionController::API
       status: status,
       meta: meta || result_meta(json),
       meta_key: meta_key,
-      serializer_params: {
-        current_user: current_user,
-        current_organization: current_organization,
-        params: { action: :show }
-      }
+      serializer_params: serializer_params
     )
 
     debug res

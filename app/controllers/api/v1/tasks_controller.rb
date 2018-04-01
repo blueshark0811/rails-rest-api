@@ -41,7 +41,6 @@ class Api::V1::TasksController < Api::V1::ApiController
   private
 
   def set_lesson
-    p Lesson.all
     @lesson = Lesson.where(course_id: params[:course_id]).find params[:lesson_id]
   end
 

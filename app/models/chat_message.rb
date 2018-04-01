@@ -3,6 +3,7 @@ class ChatMessage < ApplicationRecord
   belongs_to :chat
   has_one :organization, through: :chat
   has_many :attachments, as: :attachmentable, dependent: :destroy
+  has_many :activities, as: :eventable
 
   validates :message, presence: true
 
@@ -14,7 +15,7 @@ class ChatMessage < ApplicationRecord
 
   class << self
     def additional_attributes#todo move description to config
-      { 
+      {
         to_user_id: {
           type: :integer,
           null: false,
@@ -34,7 +35,11 @@ class ChatMessage < ApplicationRecord
   end
 
   def chat_user_scope
-    chat.chat_users.where(user_id: user_id)
+    ChatUser.where(chat_id: chat_id, user_id: user_id)
+  end
+
+  def opponents
+    User.where(id: ChatUser.select(:user_id).where(chat_id: chat_id).where.not(user_id: user_id))
   end
 
   def chat_user
@@ -57,5 +62,20 @@ class ChatMessage < ApplicationRecord
     return unless (attachment = chat.attachments.find_by id: attachment_id, user_id: user_id)
 
     attachment.update_attributes attachmentable: self
+  end
+
+  def write_activity
+    opponents.each do |opponent|
+      activities.create(
+        notifiable: opponent, 
+        as_object: {
+          i18n: 'chat_message.created',
+          variables: { 
+            user: Activity.message_link(user),
+            chat: Activity.message_link({id: chat_id, object_type: 'Chat'})
+          }
+        }
+      )
+    end
   end
 end

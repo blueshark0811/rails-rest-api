@@ -13,6 +13,10 @@ class BaseSerializer < ActiveModel::Serializer
     serializer_params[:current_organization] || context&.current_organization
   end
 
+  def real_collection
+    serializer_params[:real_collection]
+  end
+
   def user_context
     UserContext.new current_user, current_organization
   end

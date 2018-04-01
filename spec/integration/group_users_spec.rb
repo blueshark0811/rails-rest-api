@@ -3,31 +3,35 @@
 require 'swagger_helper'
 
 describe Api::V1::GroupUsersController do
-  let!(:group) { create :group, :reindex, organization: current_user.organizations.first }
-  let!(:group_user) { create :group_user, :reindex, group: group, user: current_user }
-  let(:rswag_properties) do {
+  let!(:current_user) { create :user, role: 'student' }
+  let(:group) { create :group, :reindex, organization: current_user.organizations.first }
+  let(:group_user) { create :group_user, :reindex, group: group, user: current_user }
+  let!(:rswag_properties) do {
     current_user: current_user,
     current_organization: current_user.organizations.first,
     object: group_user
     }
   end
   let!(:group_id) { group.id }
+  let(:current_user_id) { current_user.id }
 
   options = {
     klass: GroupUser,
     slug: 'groups/{group_id}/group_users',
-    tag: 'Users vs Groups'
-  }
-
-  crud_index options.merge(
-    as: :searchkick,
-    description: 'Users in group',
+    tag: 'Users vs Groups',
     additional_parameters: [{
       name: :group_id,
       in: :path,
       type: :integer,
       required: true
-    }, {
+    }]
+  }
+
+  crud_index options.merge(
+    as: :searchkick,
+    description: 'Users in group',
+    additional_parameters: options[:additional_parameters] + [
+    {
       name: :sort_field,
       in: :query,
       type: :string,
@@ -44,44 +48,18 @@ describe Api::V1::GroupUsersController do
     }]
   )
 
-  crud_create options.merge(
-    description: 'Add User to group',
-    additional_parameters: [{
-      name: :group_id,
-      in: :path,
-      type: :integer,
-      required: true
-    }]
-  )
+  opt = { description: 'Add User to group', additional_body: { group_user: { user_id: '{:current_user_id}' } } }
+  crud_create options.merge(opt) do
+    GroupUser.delete_all
+  end
 
-  crud_update options.merge(
-    description: 'Change status of user in group',
-    additional_parameters: [{
-      name: :group_id,
-      in: :path,
-      type: :integer,
-      required: true
-    }]
-  )
-
-  crud_delete options.merge(
-    description: 'Delete user from group',
-    additional_parameters: [{
-      name: :group_id,
-      in: :path,
-      type: :integer,
-      required: true
-    }]
-   )
+  crud_update options.merge(description: 'Change status of user in group')
+  crud_delete options.merge(description: 'Delete user from group')
 
   batch_update options.merge(
     description: 'Change status of batch users in group',
-    additional_parameters: [{
-      name: :group_id,
-      in: :path,
-      type: :integer,
-      required: true
-    }, {
+    additional_parameters: options[:additional_parameters] + [
+    {
       name: :status,
       in: :body,
       type: :string,

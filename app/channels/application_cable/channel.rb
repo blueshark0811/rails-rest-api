@@ -12,5 +12,13 @@ module ApplicationCable
       @current_organization ||= current_user.organizations
         .find(params[:organization_id] || params[:data][:organization_id])
     end
+
+    def pundit_user
+      UserContext.new(current_user, current_organization)
+    end
+
+    def policy(object)
+      Pundit::PolicyFinder.new(object).policy.new(pundit_user, object)
+    end
   end
 end

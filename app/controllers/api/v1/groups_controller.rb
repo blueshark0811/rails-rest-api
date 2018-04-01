@@ -2,22 +2,18 @@ class Api::V1::GroupsController < Api::V1::ApiController
   before_action :set_group, except: [:index, :create]
 
   def index
-    where = { organization_id: current_organization.id }
+    where = {}
 
-    where.merge!(user_ids: current_user.id) if bparams(:my)
+    where[:user_ids] = current_user.id if bparams(:my)
 
-    if Group.visibilities.include?(params[:visibility])
-      where.merge!(visibility: params[:visibility])
-    end
+    where[:visibility] = params[:visibility] if Group.visibilities.include?(params[:visibility])
 
-    if Group.statuses.include?(params[:status])
-      where.merge!(status: params[:status])
-    end
+    where[:status] = params[:status] if Group.statuses.include?(params[:status])
 
     order = { title: sort_flag }
 
     @groups = Group.search params[:term] || '*',
-      where: where,
+      where: where.merge(policy_condition(Group)),
       order: order,
       page: current_page,
       per_page: current_count,
@@ -34,6 +30,8 @@ class Api::V1::GroupsController < Api::V1::ApiController
   def create
     @group = current_organization.groups.new user_id: current_user.id
 
+    authorize @group
+
     if @group.update permitted_attributes(@group)
       render_result @group
     else
@@ -43,9 +41,7 @@ class Api::V1::GroupsController < Api::V1::ApiController
 
   def update
     if @group.update_attributes permitted_attributes(@group)
-      render_result @group
-    else
-      render_error @group
+      render_result(@group) else render_error(@group)
     end
   end
 
