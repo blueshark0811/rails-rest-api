@@ -5,11 +5,11 @@
     "version": "v1"
   },
   "paths": {
-    "/api/v1/users": {
+    "/api/v1/courses": {
       "get": {
-        "summary": "Get Users inside organization",
+        "summary": "Get Courses inside organization",
         "tags": [
-          "Users"
+          "Admin - Course"
         ],
         "consumes": [
           "application/json"
@@ -44,21 +44,38 @@
             "in": "query",
             "type": "integer",
             "required": false,
-            "description": "get users from specific group"
+            "description": "get courses from specific group"
           },
           {
             "name": "term",
             "in": "query",
             "type": "string",
             "required": false,
-            "description": "term for searching by [:first_name, :last_name, :email]"
+            "description": "term for searching by [:title, :description]"
           },
           {
-            "name": "role",
+            "name": "sort_field",
             "in": "query",
             "type": "string",
             "required": false,
-            "description": "filter by role(student, teacher)"
+            "enum": [
+              "title",
+              "created_at",
+              "lessons_count",
+              "active_user_ids"
+            ],
+            "description": "field for sorting"
+          },
+          {
+            "name": "sort_flag",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "enum": [
+              "ASC",
+              "DESC"
+            ],
+            "description": "flag for sorting"
           }
         ],
         "responses": {
@@ -67,7 +84,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "users": {
+                "courses": {
                   "type": "array",
                   "items": {
                     "type": "object",
@@ -75,46 +92,25 @@
                       "id": {
                         "type": "integer"
                       },
-                      "first_name": {
+                      "title": {
                         "type": "string",
                         "x-nullable": true
                       },
-                      "last_name": {
-                        "type": "string",
+                      "description": {
+                        "type": "text",
                         "x-nullable": true
                       },
-                      "phone_number": {
-                        "type": "string",
+                      "image": {
+                        "type": "object",
                         "x-nullable": true
                       },
-                      "date_of_birth": {
-                        "type": "date",
-                        "x-nullable": true
-                      },
-                      "address": {
-                        "type": "string",
-                        "x-nullable": true
-                      },
-                      "country_id": {
+                      "user_id": {
                         "type": "integer",
                         "x-nullable": true
                       },
-                      "state_id": {
+                      "organization_id": {
                         "type": "integer",
                         "x-nullable": true
-                      },
-                      "zip_code": {
-                        "type": "string",
-                        "x-nullable": true
-                      },
-                      "status": {
-                        "type": "string",
-                        "x-nullable": true,
-                        "enum": [
-                          "active",
-                          "suspended",
-                          "deleted"
-                        ]
                       },
                       "created_at": {
                         "type": "datetime"
@@ -122,24 +118,8 @@
                       "updated_at": {
                         "type": "datetime"
                       },
-                      "email": {
-                        "type": "string"
-                      },
-                      "avatar": {
-                        "type": "object",
-                        "x-nullable": true
-                      },
-                      "organization_ids": {
-                        "type": "array",
-                        "x-nullable": true,
-                        "items": {
-                          "type": "integer",
-                          "properties": {
-                          }
-                        }
-                      },
-                      "roles": {
-                        "type": "string",
+                      "lessons_count": {
+                        "type": "integer",
                         "x-nullable": true
                       },
                       "group_ids": {
@@ -151,78 +131,52 @@
                           }
                         }
                       },
-                      "organization_users_in_current_organization": {
-                        "type": "association"
+                      "active_user_ids": {
+                        "type": "array",
+                        "x-nullable": true,
+                        "items": {
+                          "type": "integer",
+                          "properties": {
+                          }
+                        }
+                      },
+                      "course_for_current_user": {
+                        "description": "information about user's association to this course",
+                        "type": "object",
+                        "x-nullable": true
                       }
                     }
                   }
                 }
               },
               "required": [
-                "users"
+                "courses"
               ]
             },
             "examples": {
               "application/json": {
-                "users": [
+                "courses": [
                   {
                     "id": 1,
-                    "first_name": "Vivian Dooley",
-                    "last_name": "Clair Hirthe V",
-                    "phone_number": null,
-                    "date_of_birth": null,
-                    "address": null,
-                    "country_id": 1,
-                    "state_id": 1,
-                    "zip_code": null,
-                    "status": "active",
-                    "created_at": "March 27, 2018 12:26",
-                    "updated_at": "March 27, 2018 12:26",
-                    "email": "cletus_west@baumbachmarks.net",
-                    "avatar": {
-                      "url": null,
-                      "small": {
-                        "url": null
-                      },
-                      "middle": {
-                        "url": null
-                      }
+                    "title": "Gislason, Baumbach and Klein",
+                    "description": "unleash world-class networks",
+                    "image": {
+                      "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/1/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180407T092511Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180407/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=881843fa05c94382cc542a97a4e55c47bbfb5262dcf4e5075bd6196f3d1a35f5"
                     },
-                    "organization_ids": [
-                      1
-                    ],
-                    "roles": null,
+                    "user_id": 2,
+                    "organization_id": 1,
+                    "created_at": "2018-04-07T09:25:10.441Z",
+                    "updated_at": "2018-04-07T09:25:10.441Z",
+                    "lessons_count": 0,
                     "group_ids": [
 
                     ],
-                    "organization_users_in_current_organization": {
-                      "id": 1,
-                      "user_id": 1,
-                      "organization_id": 1,
-                      "role": "admin",
-                      "created_at": "March 27, 2018 12:26",
-                      "updated_at": "March 27, 2018 12:26",
-                      "status": "active",
-                      "exclude_students_ids": [
+                    "active_user_ids": [
 
-                      ],
-                      "files_controll_enabled": null,
-                      "mesanger_access_enabled": null
-                    },
-                    "country": {
-                      "id": 1,
-                      "code": "QA",
-                      "name": "Egypt",
-                      "phonecode": 268
-                    },
-                    "state": {
-                      "id": 1,
-                      "name": "Oregon",
-                      "country_id": 2,
-                      "code": "AK",
-                      "created_at": "March 27, 2018 12:26",
-                      "updated_at": "March 27, 2018 12:26"
-                    }
+                    ],
+                    "course_for_current_user": null,
+                    "user": null,
+                    "organization": null
                   }
                 ],
                 "meta": {
@@ -287,9 +241,9 @@
         }
       },
       "post": {
-        "summary": "Create User",
+        "summary": "Create Course",
         "tags": [
-          "Users"
+          "Admin - Course"
         ],
         "consumes": [
           "application/json"
@@ -307,53 +261,18 @@
             "schema": {
               "type": "object",
               "properties": {
-                "user": {
+                "course": {
                   "type": "object",
                   "properties": {
-                    "address": {
-                      "type": "string",
+                    "description": {
+                      "type": "text",
                       "x-nullable": true
                     },
-                    "avatar": {
+                    "image": {
                       "type": "object",
                       "x-nullable": true
                     },
-                    "country_id": {
-                      "type": "integer",
-                      "x-nullable": true
-                    },
-                    "state_id": {
-                      "type": "integer",
-                      "x-nullable": true
-                    },
-                    "zip_code": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "date_of_birth": {
-                      "type": "date",
-                      "x-nullable": true
-                    },
-                    "phone_number": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "first_name": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "last_name": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "email": {
-                      "type": "string"
-                    },
-                    "password": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "password_confirmation": {
+                    "title": {
                       "type": "string",
                       "x-nullable": true
                     }
@@ -361,7 +280,7 @@
                 }
               },
               "required": [
-                "user"
+                "course"
               ]
             }
           }
@@ -372,52 +291,31 @@
             "schema": {
               "type": "object",
               "properties": {
-                "user": {
+                "course": {
                   "type": "object",
                   "properties": {
                     "id": {
                       "type": "integer"
                     },
-                    "first_name": {
+                    "title": {
                       "type": "string",
                       "x-nullable": true
                     },
-                    "last_name": {
-                      "type": "string",
+                    "description": {
+                      "type": "text",
                       "x-nullable": true
                     },
-                    "phone_number": {
-                      "type": "string",
+                    "image": {
+                      "type": "object",
                       "x-nullable": true
                     },
-                    "date_of_birth": {
-                      "type": "date",
-                      "x-nullable": true
-                    },
-                    "address": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "country_id": {
+                    "user_id": {
                       "type": "integer",
                       "x-nullable": true
                     },
-                    "state_id": {
+                    "organization_id": {
                       "type": "integer",
                       "x-nullable": true
-                    },
-                    "zip_code": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "status": {
-                      "type": "string",
-                      "x-nullable": true,
-                      "enum": [
-                        "active",
-                        "suspended",
-                        "deleted"
-                      ]
                     },
                     "created_at": {
                       "type": "datetime"
@@ -425,24 +323,8 @@
                     "updated_at": {
                       "type": "datetime"
                     },
-                    "email": {
-                      "type": "string"
-                    },
-                    "avatar": {
-                      "type": "object",
-                      "x-nullable": true
-                    },
-                    "organization_ids": {
-                      "type": "array",
-                      "x-nullable": true,
-                      "items": {
-                        "type": "integer",
-                        "properties": {
-                        }
-                      }
-                    },
-                    "roles": {
-                      "type": "string",
+                    "lessons_count": {
+                      "type": "integer",
                       "x-nullable": true
                     },
                     "group_ids": {
@@ -454,62 +336,98 @@
                         }
                       }
                     },
-                    "organization_users_in_current_organization": {
-                      "type": "association"
+                    "active_user_ids": {
+                      "type": "array",
+                      "x-nullable": true,
+                      "items": {
+                        "type": "integer",
+                        "properties": {
+                        }
+                      }
+                    },
+                    "course_for_current_user": {
+                      "description": "information about user's association to this course",
+                      "type": "object",
+                      "x-nullable": true
                     }
                   }
                 }
               },
               "required": [
-                "user"
+                "course"
               ]
             },
             "examples": {
               "application/json": {
-                "user": {
-                  "id": 11,
-                  "first_name": "Vivian Dooley",
-                  "last_name": "Clair Hirthe V",
-                  "phone_number": null,
-                  "date_of_birth": null,
-                  "address": null,
-                  "country_id": 21,
-                  "state_id": 11,
-                  "zip_code": null,
-                  "status": "active",
-                  "created_at": "March 27, 2018 12:26",
-                  "updated_at": "March 27, 2018 12:26",
-                  "email": "evangeline@haley.io",
-                  "avatar": {
-                    "url": null,
-                    "small": {
-                      "url": null
-                    },
-                    "middle": {
-                      "url": null
-                    }
+                "course": {
+                  "id": 9,
+                  "title": "Gislason, Baumbach and Klein",
+                  "description": "unleash world-class networks",
+                  "image": {
+                    "url": null
                   },
-                  "organization_ids": [
-
-                  ],
-                  "roles": null,
+                  "user_id": 17,
+                  "organization_id": 15,
+                  "created_at": "April 07, 2018 09:25",
+                  "updated_at": "April 07, 2018 09:25",
+                  "lessons_count": 0,
                   "group_ids": [
 
                   ],
-                  "organization_users_in_current_organization": null,
-                  "country": {
-                    "id": 21,
-                    "code": "QA",
-                    "name": "Estonia",
-                    "phonecode": 268
+                  "active_user_ids": null,
+                  "course_for_current_user": null,
+                  "user": {
+                    "id": 17,
+                    "first_name": "Felton Rosenbaum",
+                    "last_name": "Dr. Seamus Huel",
+                    "phone_number": "",
+                    "date_of_birth": null,
+                    "address": "",
+                    "country_id": 33,
+                    "state_id": 17,
+                    "zip_code": "",
+                    "status": "active",
+                    "created_at": "April 07, 2018 09:25",
+                    "updated_at": "April 07, 2018 09:25",
+                    "email": "fermin_labadie@runte.com",
+                    "avatar": {
+                      "url": null,
+                      "small": {
+                        "url": null
+                      },
+                      "middle": {
+                        "url": null
+                      }
+                    },
+                    "organization_ids": [
+                      15
+                    ],
+                    "roles": null,
+                    "group_ids": [
+
+                    ],
+                    "organization_settings": {
+                      "id": 15,
+                      "user_id": 17,
+                      "organization_id": 15,
+                      "role": "admin",
+                      "created_at": "April 07, 2018 09:25",
+                      "updated_at": "April 07, 2018 09:25",
+                      "status": "active",
+                      "exclude_students_ids": [
+
+                      ],
+                      "files_controll_enabled": false,
+                      "mesanger_access_enabled": false
+                    }
                   },
-                  "state": {
-                    "id": 11,
-                    "name": "South Dakota",
-                    "country_id": 22,
-                    "code": "AK",
-                    "created_at": "March 27, 2018 12:26",
-                    "updated_at": "March 27, 2018 12:26"
+                  "organization": {
+                    "id": 15,
+                    "title": "Kulas, Beatty and Kunde",
+                    "subdomain": "beier15",
+                    "domain": "pbauchcummings.org",
+                    "created_at": "April 07, 2018 09:25",
+                    "updated_at": "April 07, 2018 09:25"
                   }
                 }
               }
@@ -568,11 +486,11 @@
         }
       }
     },
-    "/api/v1/users/{id}": {
+    "/api/v1/courses/{id}": {
       "get": {
-        "summary": "Get User Details",
+        "summary": "Get Course Details",
         "tags": [
-          "Users"
+          "Admin - Course"
         ],
         "consumes": [
           "application/json"
@@ -597,52 +515,31 @@
             "schema": {
               "type": "object",
               "properties": {
-                "user": {
+                "course": {
                   "type": "object",
                   "properties": {
                     "id": {
                       "type": "integer"
                     },
-                    "first_name": {
+                    "title": {
                       "type": "string",
                       "x-nullable": true
                     },
-                    "last_name": {
-                      "type": "string",
+                    "description": {
+                      "type": "text",
                       "x-nullable": true
                     },
-                    "phone_number": {
-                      "type": "string",
+                    "image": {
+                      "type": "object",
                       "x-nullable": true
                     },
-                    "date_of_birth": {
-                      "type": "date",
-                      "x-nullable": true
-                    },
-                    "address": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "country_id": {
+                    "user_id": {
                       "type": "integer",
                       "x-nullable": true
                     },
-                    "state_id": {
+                    "organization_id": {
                       "type": "integer",
                       "x-nullable": true
-                    },
-                    "zip_code": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "status": {
-                      "type": "string",
-                      "x-nullable": true,
-                      "enum": [
-                        "active",
-                        "suspended",
-                        "deleted"
-                      ]
                     },
                     "created_at": {
                       "type": "datetime"
@@ -650,24 +547,8 @@
                     "updated_at": {
                       "type": "datetime"
                     },
-                    "email": {
-                      "type": "string"
-                    },
-                    "avatar": {
-                      "type": "object",
-                      "x-nullable": true
-                    },
-                    "organization_ids": {
-                      "type": "array",
-                      "x-nullable": true,
-                      "items": {
-                        "type": "integer",
-                        "properties": {
-                        }
-                      }
-                    },
-                    "roles": {
-                      "type": "string",
+                    "lessons_count": {
+                      "type": "integer",
                       "x-nullable": true
                     },
                     "group_ids": {
@@ -679,75 +560,85 @@
                         }
                       }
                     },
-                    "organization_users_in_current_organization": {
-                      "type": "association"
+                    "active_user_ids": {
+                      "type": "array",
+                      "x-nullable": true,
+                      "items": {
+                        "type": "integer",
+                        "properties": {
+                        }
+                      }
+                    },
+                    "course_for_current_user": {
+                      "description": "information about user's association to this course",
+                      "type": "object",
+                      "x-nullable": true
                     }
                   }
                 }
               },
               "required": [
-                "user"
+                "course"
               ]
             },
             "examples": {
               "application/json": {
-                "user": {
-                  "id": 5,
-                  "first_name": "Vivian Dooley",
-                  "last_name": "Clair Hirthe V",
-                  "phone_number": null,
-                  "date_of_birth": null,
-                  "address": null,
-                  "country_id": 9,
-                  "state_id": 5,
-                  "zip_code": null,
-                  "status": "active",
-                  "created_at": "March 27, 2018 12:26",
-                  "updated_at": "March 27, 2018 12:26",
-                  "email": "eldridge@cartwright.org",
-                  "avatar": {
-                    "url": null,
-                    "small": {
-                      "url": null
-                    },
-                    "middle": {
-                      "url": null
-                    }
+                "course": {
+                  "id": 4,
+                  "title": "Gislason, Baumbach and Klein",
+                  "description": "unleash world-class networks",
+                  "image": {
+                    "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/4/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180407T092516Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180407/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=3af6391235aab7c9277bd2d3f0d4d1986edd7ebd2afd5cf66f650aacfc6f235e"
                   },
-                  "organization_ids": [
-                    4
-                  ],
-                  "roles": null,
+                  "user_id": 9,
+                  "organization_id": 7,
+                  "created_at": "April 07, 2018 09:25",
+                  "updated_at": "April 07, 2018 09:25",
+                  "lessons_count": 0,
                   "group_ids": [
 
                   ],
-                  "organization_users_in_current_organization": {
-                    "id": 4,
-                    "user_id": 5,
-                    "organization_id": 4,
-                    "role": "admin",
-                    "created_at": "March 27, 2018 12:26",
-                    "updated_at": "March 27, 2018 12:26",
+                  "active_user_ids": null,
+                  "course_for_current_user": null,
+                  "user": {
+                    "id": 9,
+                    "first_name": "Felton Rosenbaum",
+                    "last_name": "Dr. Seamus Huel",
+                    "phone_number": "",
+                    "date_of_birth": null,
+                    "address": "",
+                    "country_id": 17,
+                    "state_id": 9,
+                    "zip_code": "",
                     "status": "active",
-                    "exclude_students_ids": [
+                    "created_at": "April 07, 2018 09:25",
+                    "updated_at": "April 07, 2018 09:25",
+                    "email": "ryann_hartmann@purdyorn.com",
+                    "avatar": {
+                      "url": null,
+                      "small": {
+                        "url": null
+                      },
+                      "middle": {
+                        "url": null
+                      }
+                    },
+                    "organization_ids": [
+                      8
+                    ],
+                    "roles": null,
+                    "group_ids": [
 
                     ],
-                    "files_controll_enabled": null,
-                    "mesanger_access_enabled": null
+                    "organization_settings": null
                   },
-                  "country": {
-                    "id": 9,
-                    "code": "QA",
-                    "name": "Libyan Arab Jamahiriya",
-                    "phonecode": 268
-                  },
-                  "state": {
-                    "id": 5,
-                    "name": "Delaware",
-                    "country_id": 10,
-                    "code": "AK",
-                    "created_at": "March 27, 2018 12:26",
-                    "updated_at": "March 27, 2018 12:26"
+                  "organization": {
+                    "id": 7,
+                    "title": "Kulas, Beatty and Kunde",
+                    "subdomain": "wintheiser7",
+                    "domain": "hnicolasmueller.net",
+                    "created_at": "April 07, 2018 09:25",
+                    "updated_at": "April 07, 2018 09:25"
                   }
                 }
               }
@@ -823,7 +714,7 @@
               "application/json": {
                 "error_code": "",
                 "errors": [
-                  "Couldn't find User with 'id'=0"
+                  "Couldn't find Course with 'id'=0 [WHERE \"courses\".\"organization_id\" = $1]"
                 ]
               }
             }
@@ -831,9 +722,9 @@
         }
       },
       "put": {
-        "summary": "Update User Details",
+        "summary": "Update Course Details",
         "tags": [
-          "Users"
+          "Admin - Course"
         ],
         "consumes": [
           "application/json"
@@ -857,107 +748,26 @@
             "schema": {
               "type": "object",
               "properties": {
-                "user": {
+                "course": {
                   "type": "object",
                   "properties": {
-                    "address": {
-                      "type": "string",
+                    "description": {
+                      "type": "text",
                       "x-nullable": true
                     },
-                    "avatar": {
+                    "image": {
                       "type": "object",
                       "x-nullable": true
                     },
-                    "country_id": {
-                      "type": "integer",
-                      "x-nullable": true
-                    },
-                    "state_id": {
-                      "type": "integer",
-                      "x-nullable": true
-                    },
-                    "zip_code": {
+                    "title": {
                       "type": "string",
                       "x-nullable": true
-                    },
-                    "date_of_birth": {
-                      "type": "date",
-                      "x-nullable": true
-                    },
-                    "phone_number": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "first_name": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "last_name": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "email": {
-                      "type": "string"
-                    },
-                    "password": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "password_confirmation": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "organization_users_attributes": {
-                      "type": "array",
-                      "x-nullable": true,
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "integer"
-                          },
-                          "role": {
-                            "type": "string",
-                            "x-nullable": true,
-                            "enum": [
-                              "student",
-                              "teacher",
-                              "admin"
-                            ]
-                          },
-                          "status": {
-                            "type": "string",
-                            "x-nullable": true,
-                            "enum": [
-                              "active",
-                              "suspended"
-                            ]
-                          },
-                          "exclude_students_ids": {
-                            "type": "array",
-                            "x-nullable": true,
-                            "items": {
-                              "type": "integer",
-                              "properties": {
-                              }
-                            }
-                          },
-                          "files_controll_enabled": {
-                            "type": "boolean",
-                            "x-nullable": true
-                          },
-                          "mesanger_access_enabled": {
-                            "type": "boolean",
-                            "x-nullable": true
-                          }
-                        }
-                      }
                     }
                   }
                 }
               },
               "required": [
-                "user"
+                "course"
               ]
             }
           }
@@ -968,114 +778,95 @@
             "schema": {
               "type": "object",
               "properties": {
-                "user": {
+                "course": {
                   "type": "object",
                   "properties": {
-                    "first_name": {
+                    "title": {
                       "type": "string",
                       "x-nullable": true
                     },
-                    "last_name": {
-                      "type": "string",
+                    "description": {
+                      "type": "text",
                       "x-nullable": true
                     },
-                    "phone_number": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "date_of_birth": {
-                      "type": "date",
-                      "x-nullable": true
-                    },
-                    "address": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "country_id": {
-                      "type": "integer",
-                      "x-nullable": true
-                    },
-                    "state_id": {
-                      "type": "integer",
-                      "x-nullable": true
-                    },
-                    "zip_code": {
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "email": {
-                      "type": "string"
-                    },
-                    "avatar": {
+                    "image": {
                       "type": "object",
                       "x-nullable": true
+                    },
+                    "lesson_users": {
+                      "type": "array",
+                      "x-nullable": true,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                        }
+                      }
                     }
                   }
                 }
               },
               "required": [
-                "user"
+                "course"
               ]
             },
             "examples": {
               "application/json": {
-                "user": {
-                  "id": 15,
-                  "first_name": "Vivian Dooley",
-                  "last_name": "Clair Hirthe V",
-                  "phone_number": null,
-                  "date_of_birth": null,
-                  "address": null,
-                  "country_id": 31,
-                  "state_id": 16,
-                  "zip_code": null,
-                  "status": "active",
-                  "created_at": "March 27, 2018 12:26",
-                  "updated_at": "March 27, 2018 12:26",
-                  "email": "marcos@lebsackthompson.biz",
-                  "avatar": {
-                    "url": null,
-                    "small": {
-                      "url": null
-                    },
-                    "middle": {
-                      "url": null
-                    }
+                "course": {
+                  "id": 12,
+                  "title": "Gislason, Baumbach and Klein",
+                  "description": "unleash world-class networks",
+                  "image": {
+                    "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/12/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180407T092524Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180407/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=715ec270c70e3bc741ac127d69456444f913051272e37583be8d33b6aa492584"
                   },
-                  "organization_ids": [
-                    11
-                  ],
-                  "roles": null,
+                  "user_id": 26,
+                  "organization_id": 23,
+                  "created_at": "April 07, 2018 09:25",
+                  "updated_at": "April 07, 2018 09:25",
+                  "lessons_count": 0,
                   "group_ids": [
 
                   ],
-                  "organization_users_in_current_organization": {
-                    "id": 11,
-                    "user_id": 15,
-                    "organization_id": 11,
-                    "role": "admin",
-                    "created_at": "March 27, 2018 12:26",
-                    "updated_at": "March 27, 2018 12:26",
+                  "active_user_ids": null,
+                  "course_for_current_user": null,
+                  "user": {
+                    "id": 26,
+                    "first_name": "Felton Rosenbaum",
+                    "last_name": "Dr. Seamus Huel",
+                    "phone_number": "",
+                    "date_of_birth": null,
+                    "address": "",
+                    "country_id": 51,
+                    "state_id": 26,
+                    "zip_code": "",
                     "status": "active",
-                    "exclude_students_ids": [
+                    "created_at": "April 07, 2018 09:25",
+                    "updated_at": "April 07, 2018 09:25",
+                    "email": "scotty_crist@walterthompson.biz",
+                    "avatar": {
+                      "url": null,
+                      "small": {
+                        "url": null
+                      },
+                      "middle": {
+                        "url": null
+                      }
+                    },
+                    "organization_ids": [
+                      24
+                    ],
+                    "roles": null,
+                    "group_ids": [
 
                     ],
-                    "files_controll_enabled": null,
-                    "mesanger_access_enabled": null
+                    "organization_settings": null
                   },
-                  "country": {
-                    "id": 31,
-                    "code": "QA",
-                    "name": "Monaco",
-                    "phonecode": 268
-                  },
-                  "state": {
-                    "id": 16,
-                    "name": "Nevada",
-                    "country_id": 32,
-                    "code": "AK",
-                    "created_at": "March 27, 2018 12:26",
-                    "updated_at": "March 27, 2018 12:26"
+                  "organization": {
+                    "id": 23,
+                    "title": "Kulas, Beatty and Kunde",
+                    "subdomain": "feeney23",
+                    "domain": "xdibbert.com",
+                    "created_at": "April 07, 2018 09:25",
+                    "updated_at": "April 07, 2018 09:25"
                   }
                 }
               }
@@ -1151,7 +942,7 @@
               "application/json": {
                 "error_code": "",
                 "errors": [
-                  "Couldn't find User with 'id'=0"
+                  "Couldn't find Course with 'id'=0 [WHERE \"courses\".\"organization_id\" = $1]"
                 ]
               }
             }
@@ -1159,9 +950,9 @@
         }
       },
       "delete": {
-        "summary": "Delete User",
+        "summary": "Delete Course",
         "tags": [
-          "Users"
+          "Admin - Course"
         ],
         "consumes": [
           "application/json"
@@ -1182,7 +973,7 @@
         ],
         "responses": {
           "200": {
-            "description": "deleting User account",
+            "description": "deleting Course account",
             "schema": {
               "type": "object",
               "properties": {
@@ -1271,128 +1062,7 @@
               "application/json": {
                 "error_code": "",
                 "errors": [
-                  "Couldn't find User with 'id'=0"
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/users/{id}/send_set_password_link": {
-      "post": {
-        "summary": "Send set password link to user",
-        "tags": [
-          "Users"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "type": "integer",
-            "required": true
-          },
-          {
-            "name": "authorization",
-            "in": "header",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "returns result",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "success": {
-                  "type": "boolean"
-                }
-              },
-              "required": [
-                "success"
-              ]
-            },
-            "examples": {
-              "application/json": {
-                "success": true
-              }
-            }
-          },
-          "401": {
-            "description": "returns error You are not authorized",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "errors": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              },
-              "required": [
-                "errors"
-              ]
-            },
-            "examples": {
-              "application/json": {
-                "error_code": null,
-                "errors": [
-                  "You are not authorized"
-                ]
-              }
-            }
-          },
-          "428": {
-            "description": "returns error Organization is not determinated",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "errors": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              },
-              "required": [
-                "errors"
-              ]
-            },
-            "examples": {
-              "application/json": {
-                "error_code": null,
-                "errors": [
-                  "Organization is not determinated"
-                ]
-              }
-            }
-          },
-          "404": {
-            "description": "returns error if instance not found",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "errors": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              },
-              "required": [
-                "errors"
-              ]
-            },
-            "examples": {
-              "application/json": {
-                "error_code": "",
-                "errors": [
-                  "Couldn't find User with 'id'=0"
+                  "Couldn't find Course with 'id'=0 [WHERE \"courses\".\"organization_id\" = $1]"
                 ]
               }
             }

@@ -5,7 +5,7 @@ class GroupUserPolicy < OrganizationEntityPolicy
 
       res = { organization_id: organization.id }
 
-      res[:user_id] = user.id if role == 'student'
+      res[:user_id] = user.id if student? || teacher?
 
       res
     end

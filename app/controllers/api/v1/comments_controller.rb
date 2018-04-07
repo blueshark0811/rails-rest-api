@@ -3,13 +3,7 @@ class Api::V1::CommentsController < Api::V1::ApiController
   before_action :set_comment, except: %i[index create]
 
   def index
-    authorize @commentable, :comments_index?
-
-    @comments = if bparams(:only_roots)
-      @commentable.comments.root_comments
-    else
-      @commentable.comments.tree(params[:root_id])
-    end
+    @comments = bparams(:only_roots) ? scope.root_comments : scope.tree(params[:root_id])
 
     render_result @comments.page(current_page).per(current_count)
   end
@@ -27,7 +21,7 @@ class Api::V1::CommentsController < Api::V1::ApiController
   end
 
   def create
-    @comment = @commentable.comments.new user_id: current_user.id
+    @comment = scope.new user_id: current_user.id
     authorize @comment
 
     if @comment.update_attributes permitted_attributes(@comment)
@@ -44,11 +38,17 @@ class Api::V1::CommentsController < Api::V1::ApiController
     end
 
     @commentable = params[:commentable_type].constantize.find params[:commentable_id]
+
+    authorize @commentable, "comments_#{params[:action]}?"
   end
 
   def set_comment
-    @comment = @commentable.comments.find params[:id]
+    @comment = scope.find params[:id]
 
     authorize @comment
+  end
+
+  def scope
+    @commentable.comments
   end
 end

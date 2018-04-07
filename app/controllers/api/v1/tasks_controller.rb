@@ -1,15 +1,11 @@
 class Api::V1::TasksController < Api::V1::ApiController
+  before_action :set_group, only: %i[index show]
+  before_action :set_course
   before_action :set_lesson
   before_action :set_task, except: [:index, :create]
 
   def index
-    order = { id: sort_flag }
-
-    @tasks = @lesson.tasks
-
-    authorize @tasks
-
-    render_result @tasks.page(current_page).per(current_count)
+    render_result @lesson.tasks.page(current_page).per(current_count)
   end
 
   def show
@@ -40,8 +36,25 @@ class Api::V1::TasksController < Api::V1::ApiController
 
   private
 
+  def set_group
+    if params[:group_id].blank?
+      render_404 if current_role != 'admin'
+      return
+    end
+
+    @group = current_organization.groups.find params[:group_id]
+
+    authorize @group, :show?
+  end
+
+  def set_course
+    @course = (@group ? @group.courses : current_organization.courses).find params[:course_id]
+
+    authorize @course, :show?
+  end
+
   def set_lesson
-    @lesson = Lesson.where(course_id: params[:course_id]).find params[:lesson_id]
+    @lesson = @course.lessons.find params[:lesson_id]
   end
 
   def set_task

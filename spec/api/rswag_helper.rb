@@ -3,11 +3,11 @@
 
 def rswag_properties
   return @rswag_properties if @rswag_properties
-  user = create(:user, :reindex)
+
   @rswag_properties ||= {
-    current_user: user,
-    current_organization: user.organizations.first,
-    object: user
+    current_user: current_user,
+    current_organization: current_user.organizations.first,
+    object: current_user
   }
 end
 

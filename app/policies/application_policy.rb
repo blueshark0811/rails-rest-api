@@ -1,6 +1,6 @@
 class ApplicationPolicy
   include ApiPolicy
-  include PolicyHelper
+  include PolicyHelper::Base
 
   attr_reader :user_context, :user, :organization, :record
 

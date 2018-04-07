@@ -5,6 +5,19 @@ class AttachmentPolicy < OrganizationEntityPolicy
     end
   end
 
+  def create?
+    record_accessible_in_organization? && 
+        (admin? || %w[Chat ChatMessage].include?(record.attachmentable_type))
+  end
+
+  def update?
+    super_admin? || create?
+  end
+
+  def show?
+    author? || update?
+  end
+
   def permitted_attributes
     %i[attachmentable_id attachmentable_type] + self.class.permitted_attributes_shared
   end

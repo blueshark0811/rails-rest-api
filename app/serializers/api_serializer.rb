@@ -69,7 +69,7 @@ module ApiSerializer
     @available_fields[key] = if object.is_a?(self.class.serializable_class)
       object.policy_available_attribute(user_context, params[:action])
     else#in case searchkick
-      return [] unless pclass = self.class.serializable_class.policy_class
+      return [] unless pclass = self.class.serializable_class.policy_klass
 
       pclass.new(user_context, object).api_attributes(params[:action])
     end
@@ -90,7 +90,11 @@ module ApiSerializer
     res = nil
     col = klass.column_of_attribute(field)
 
-    if (conditions = col.try(:param_conditions)) && conditions.any?{ |k,v| params[k] != v }
+    if (conditions = col.try(:param_conditions)) && conditions.any? { |k, v| params[k] != v }
+      return ActiveModel::FieldUpgrade::ATTR_NOT_ACCEPTABLE
+    end
+
+    if (for_roles = col.try(:for_roles)) && Array(for_roles).none? { |role| for_roles == role }
       return ActiveModel::FieldUpgrade::ATTR_NOT_ACCEPTABLE
     end
 
@@ -139,7 +143,7 @@ module ApiSerializer
 
           kls = res.new.class.serializer_class_name.constantize
 
-          res = res.map{|r| kls.new(r, serializer_params).attributes }
+          res = res.map{ |r| kls.new(r, serializer_params).attributes }
         else
           #something, like array
         end

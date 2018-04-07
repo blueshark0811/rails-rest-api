@@ -7,7 +7,7 @@ def api_base_endpoint
 end
 
 def current_user
-  @current_user ||= create :user
+  @current_user ||= create :user, :reindex
 end
 
 def authorization(user = nil)

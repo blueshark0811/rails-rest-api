@@ -4,7 +4,7 @@ class Group < ApplicationRecord
   include Groups::Relations
   SEARCH_FIELDS = %i[description title]
 
-  has_many :comments, as: :commentable
+  has_many :comments, as: :commentable, dependent: :destroy
 
   searchkick callbacks: :async, word_start: SEARCH_FIELDS, searchable: SEARCH_FIELDS
   def search_data
@@ -32,6 +32,13 @@ class Group < ApplicationRecord
           description: 'group_user instance for current user if he participated in group'
         }
       }
+    end
+  end
+
+  def add_user_to_courses(user)
+    courses.each do |course|
+      course_group = course.course_groups.find_by(group_id: id)
+      course.course_users.create user: user, course_group: course_group
     end
   end
 

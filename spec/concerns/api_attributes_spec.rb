@@ -135,13 +135,13 @@ shared_examples_for 'apiattributable' do
     subject { object.policy_available_attribute user_context, :index }
 
     context 'when policy class is not found' do
-      before { allow(model).to receive(:policy_class).and_return(nil) }
+      before { allow(model).to receive(:policy_klass).and_return(nil) }
 
       it { is_expected.to eq [] }
     end
 
     context 'when policy class is exist' do
-      before { allow(model).to receive(:policy_class).and_return(ApplicationPolicy) }
+      before { allow(model).to receive(:policy_klass).and_return(ApplicationPolicy) }
 
       it 'gets from policy attirbutes' do
         expect(ApplicationPolicy).to receive_message_chain :new, :api_attributes
@@ -174,14 +174,14 @@ shared_examples_for 'apiattributable' do
     end
   end
 
-  describe '.policy_class' do
-    subject { model.policy_class }
+  describe '.policy_klass' do
+    subject { model.policy_klass }
 
-    it 'tries to require policy file' do
-      expect(File).to receive(:exist?).with model.policy_file
-      #expect(Kernel).to receive(:require)
-      subject
-    end
+    # it 'tries to require policy file' do
+    #   expect(File).to receive(:exist?).with model.policy_file
+    #   #expect(Kernel).to receive(:require)
+    #   subject
+    # end
 
     it 'returns child class of ApplicationPolicy' do
       expect(subject.ancestors).to include ApplicationPolicy
@@ -193,13 +193,13 @@ shared_examples_for 'apiattributable' do
     subject { model.policy_base_attributes }
 
     context 'when policy class is not found' do
-      before { allow(model).to receive(:policy_class).and_return(nil) }
+      before { allow(model).to receive(:policy_klass).and_return(nil) }
 
       it { is_expected.to eq [] }
     end
 
     context 'when policy class is exist' do
-      before { allow(model).to receive(:policy_class).and_return(ApplicationPolicy) }
+      before { allow(model).to receive(:policy_klass).and_return(ApplicationPolicy) }
 
       it 'gets from policy attirbutes' do
         expect(ApplicationPolicy).to receive_message_chain(:new, :api_attributes)

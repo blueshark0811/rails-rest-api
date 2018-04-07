@@ -51,24 +51,14 @@ module ApiAttributes
       Rails.root.join("app/policies/#{name.underscore}_policy.rb")
     end
 
-    def policy_class
-      return @policy_class if @policy_class
-
-      return unless File.exist?(policy_file)
-
-      require policy_file
-
-      klass = "#{name}Policy"
-
-      return unless Object.const_defined?(klass)
-
-      @policy_class = Object.const_get klass
+    def policy_klass
+      @policy_klass ||= Pundit::PolicyFinder.new(self).policy
     end
 
     def policy_base_attributes
-      return [] unless policy_class
+      return [] unless policy_klass
 
-      policy_class.new(UserContext.new, new).api_attributes
+      policy_klass.new(UserContext.new, new).api_attributes
     end
 
     def api_prepare_attributes_for_swagger(attrs, options)
@@ -156,7 +146,7 @@ module ApiAttributes
   end
 
   def policy_available_attribute(user_context, action)
-    return [] unless pclass = self.class.policy_class
+    return [] unless pclass = self.class.policy_klass
 
     pclass.new(user_context, self).api_attributes(action)
   end

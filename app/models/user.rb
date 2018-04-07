@@ -53,6 +53,36 @@ class User < ApplicationRecord
     @cached_roles ||= organization_users.map{ |ou| [ou.organization_id, ou.role].join('_') }
   end
 
+  def in_course?(course)
+    !!in_course(course)
+  end
+
+  def in_course(course)
+    @in_course ||= {}
+
+    return @in_course[course.id] unless @in_course[course.id].nil?
+
+    @in_course[course.id] = course_users.where(course_id: course.id).first
+  end
+
+  def in_group_of_course?(course)
+    @in_group_of_course ||= {}
+
+    return @in_group_of_course[course.id] unless @in_group_of_course[course.id].nil?
+
+    @in_group_of_course[course.id] = group_users.where(
+      group_id: course.course_groups.select(:group_id)
+      ).exists?
+  end
+
+  def in_group?(group)
+    @in_group ||= {}
+
+    return @in_group[group.id] unless @in_group[group.id].nil?
+
+    @in_group[group.id] = group_users.where(group_id: group.id).exists?
+  end
+
   def current_organization_user(organization = nil)
     return unless organization ||= current_organization
 

@@ -4,15 +4,11 @@ require 'swagger_helper'
 
 describe Api::V1::LessonsController do
   let(:organization) { create :organization }
-  let(:current_user) { create :user, role: 'student', organization: organization }
+  let(:current_user) { create :user, role: 'admin', organization: organization }
   let(:group) { create :group, organization: organization }
   let(:course) { create :course, organization: organization }
   let(:course_group) { create :course_group, course: course, group: group, precourse: nil }
   let(:lesson) { create :lesson, course: course }
-
-  let!(:course_user) { create :course_user, user: current_user, course: course, course_group: course_group }
-  let!(:group_user) { create :group_user, user: current_user, group: group }
-  let!(:lesson_user) { create :lesson_user, lesson: lesson, user: current_user, course_group: course_group }
 
   let(:rswag_properties) do {
     current_user: current_user,
@@ -21,20 +17,14 @@ describe Api::V1::LessonsController do
   }
   end
   let!(:course_id) { course.id }
-  let!(:group_id) { group.id }
   let!(:included_lesson_users_for_current_user){ true }
 
   options = {
     klass: Lesson,
-    slug: 'groups/{group_id}/courses/{course_id}/lessons',
-    tag: 'Lessons',
+    slug: 'courses/{course_id}/lessons',
+    tag: 'Admin - Lessons',
     additional_parameters: [{
       name: :course_id,
-      in: :path,
-      type: :integer,
-      required: true
-    }, {
-      name: :group_id,
       in: :path,
       type: :integer,
       required: true
@@ -42,6 +32,7 @@ describe Api::V1::LessonsController do
   }
 
   crud_index options.merge(description: 'Lessons for course')
+  crud_create options.merge(description: 'Add lesson to course')
   crud_show options.merge(description: 'Get info about lesson at specific course',
     additional_parameters: options[:additional_parameters] + [
     {
@@ -52,4 +43,6 @@ describe Api::V1::LessonsController do
       description: 'lesson_users for current user and courses will be included inside course instance in meta section'
     }]
   )
+  crud_update options.merge(description: 'Update attributes of lesson')
+  crud_delete options.merge(description: 'Delete lesson')
 end

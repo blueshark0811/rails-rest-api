@@ -56,12 +56,14 @@ lesson:
 lesson_user:
   statuses:
     active: Active
-    pause: Pause
+    pause: Pause ???
 
 course_user:
   statuses:
     active: Active
-    pause: Pause
+    disabled: Disabled
+    in_progress: In Progress
+    completed: Completed
 
 video:
   statuses:

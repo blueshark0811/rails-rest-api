@@ -9,8 +9,11 @@ module Users
       # as participant
       has_many :organization_users
       has_many :group_users
-      has_many :participated_groups, class_name: 'Group', through: :group_users
+      has_many :participated_groups, through: :group_users, source: :group
       has_many :organizations, through: :organization_users
+
+      has_many :course_users
+      has_many :participated_courses, through: :course_users, source: :course
 
       # as author
       has_many :tasks

@@ -18,10 +18,11 @@ class GroupUser < ApplicationRecord
 
   enumerate :status
 
-  validates :user_id, :group_id, presence: true
   validates :user_id, uniqueness: { scope: [:group_id] }
 
   validate :validate_limit_participants, on: :create
+
+  after_create_commit { GroupUserJob.perform_later self }
 
   delegate :first_name, :last_name, to: :user, allow_nil: true
 

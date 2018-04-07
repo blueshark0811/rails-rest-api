@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Api::V1::CoursesController < Api::V1::ApiController
+  before_action :set_group, only: %i[index show]
   before_action :set_course, except: %i[index create]
 
   def index
@@ -12,7 +13,7 @@ class Api::V1::CoursesController < Api::V1::ApiController
 
     where = { organization_id: current_organization.id }
 
-    where[:group_ids] = params[:group_id] if params[:group_id]
+    where[:group_ids] = @group.id if @group
 
     @courses = Course.search params[:term] || '*',
       where: where.merge(policy_condition(Course)),
@@ -53,8 +54,19 @@ class Api::V1::CoursesController < Api::V1::ApiController
 
   private
 
+  def set_group
+    if params[:group_id].blank?
+      render_404 if current_role != 'admin'
+      return
+    end
+
+    @group = current_organization.groups.find params[:group_id]
+
+    authorize @group, :show?
+  end
+
   def set_course
-    @course = current_organization.courses.find params[:id]
+    @course = (@group ? @group.courses : current_organization.courses).find params[:id]
 
     authorize @course
   end

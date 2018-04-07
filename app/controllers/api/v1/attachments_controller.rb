@@ -6,10 +6,10 @@ class Api::V1::AttachmentsController < Api::V1::ApiController
 
   def index
     order = if Attachment::SORT_FIELDS.include?(params[:sort_field])
-      { params[:sort_field] => sort_flag }
-    else
-      { file_name: sort_flag }
-    end
+              { params[:sort_field] => sort_flag }
+            else
+              { file_name: sort_flag }
+            end
 
     @attachments = Attachment.search params[:term] || '*',
       where: {
@@ -33,6 +33,8 @@ class Api::V1::AttachmentsController < Api::V1::ApiController
       user_id: current_user.id,
       organization_id: current_organization.id
     )
+
+    authorize @attachment
 
     if @attachment.update permitted_attributes(@attachment)
       render_result @attachment
@@ -64,6 +66,8 @@ class Api::V1::AttachmentsController < Api::V1::ApiController
     end
 
     @attachmentable = params[:attachmentable_type].constantize.find params[:attachmentable_id]
+
+    authorize @attachmentable, :show?
   end
 
   def set_attachment

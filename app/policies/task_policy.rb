@@ -1,4 +1,6 @@
 class TaskPolicy < OrganizationEntityPolicy
+  include PolicyHelper::Commentable
+
   def permitted_attributes
     attrs = %i[action_type description]
 

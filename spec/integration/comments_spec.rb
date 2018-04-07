@@ -12,7 +12,6 @@ describe Api::V1::CommentsController do
   let(:commentable_id) { commentable.id }
   let(:commentable_type) { commentable.class.name }
 
-
   options = {
     klass: Comment,
     slug: '{commentable_type}/{commentable_id}/comments',

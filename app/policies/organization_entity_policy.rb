@@ -8,11 +8,15 @@ class OrganizationEntityPolicy < ApplicationPolicy
   end
 
   def show?
-    author? || record_accessible_in_organization?
+    super_admin? || author? || record_accessible_in_organization?
   end
 
   def update?
     super_admin? || admin? && record_accessible_in_organization?
+  end
+
+  def create?
+    admin? && record_accessible_in_organization?
   end
 
   def edit?

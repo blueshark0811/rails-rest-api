@@ -10,16 +10,17 @@ class Api::V1::ApiController < ActionController::API
 
   #serialization_scope :view_context
 
-  before_action do
-    self.namespace_for_serializer = Api::V1
-  end
-
   rescue_from JWT::DecodeError do |exception|
     render_error exception.message, '', 401
   end
 
   rescue_from ActiveRecord::RecordNotFound do |exception|
-    render_error exception.message, '', 404
+    render_404 exception.message
+  end
+
+  # for serializer gem
+  def namespace_for_serializer
+    Api::V1
   end
 
   def set_current_time_zone
@@ -30,10 +31,14 @@ class Api::V1::ApiController < ActionController::API
   #   Time.zone = old_time_zone
   end
 
+  def render_404 msg = ''
+    render_error msg, '', 404
+  end
+
   def render_error(message = nil, error_code = '', status = 400, send_report = false, attrs = {})
     if send_report && message && !message.is_a?(String)
-      # Mailer.error_occurred(message, false, params.merge(current_user_id: current_user.try(:id), current_user_name: current_user.try(:name), request_host: request.host, request_path: request.path).to_json).deliver
-    end
+      # @todo airbrake?
+     end
 
     if message.is_a?(ApplicationRecord)
       render_result message, status, message.errors.details, :errors
@@ -42,24 +47,33 @@ class Api::V1::ApiController < ActionController::API
     end
   end
 
+  def serializer_params
+    {
+      current_user: current_user,
+      current_organization: current_organization,
+      current_role: current_role,
+      params: params.merge(action: :show)
+    }
+  end
+
+  def searializer_for(klass)
+    ActiveModel::Serializer.serializer_for(klass, namespace: namespace_for_serializer)
+  end
+
   def render_result(json, status = 200, meta = nil, meta_key = :meta)
     json.merge!(@additional_attrs_for_render) if @additional_attrs_for_render && json.respond_to?(:merge)
 
     res = {}
-    serializer_params = {
-      current_user: current_user,
-      current_organization: current_organization,
-      params: params.merge(action: :show)
-    }
+    @serializer_params = serializer_params
 
     if json.is_a?(Searchkick::Results)
       unless json.options[:load]
-        serializer_params[:real_collection] = json.klass.where(id: json.map(&:id))
+        @serializer_params[:real_collection] = json.klass.where(id: json.map(&:id))
           .each_with_object({}){ |r, h| h[r.id] = r }
       end
 
       res[:root] = json.klass.to_s.underscore
-      res[:each_serializer] = ActiveModel::Serializer.serializer_for(json.klass, namespace: namespace_for_serializer)
+      res[:each_serializer] = searializer_for(json.klass)
     end
 
     res[:root] ||= json.base_class.to_s.underscore rescue nil
@@ -71,7 +85,7 @@ class Api::V1::ApiController < ActionController::API
       status: status,
       meta: meta || result_meta(json),
       meta_key: meta_key,
-      serializer_params: serializer_params
+      serializer_params: @serializer_params
     )
 
     debug res
@@ -80,7 +94,7 @@ class Api::V1::ApiController < ActionController::API
   end
 
   def result_meta(obj)
-    meta = {}
+    meta = additional_meta || {}
     return meta if obj.is_a?(ApplicationRecord)
 
     meta[:total_pages] = obj.total_pages if obj.respond_to?(:total_pages)
@@ -88,6 +102,14 @@ class Api::V1::ApiController < ActionController::API
     meta[:limit_value] = obj.limit_value if obj.respond_to?(:limit_value)
     meta[:current_page] = obj.current_page if obj.respond_to?(:current_page)
     meta
+  end
+
+  # override it.. for example:
+  # def additional_meta
+  #   { course: searializer_for(Course).new(@course, serializer_params) }
+  # end
+  def additional_meta
+    {}
   end
 
   def set_locale

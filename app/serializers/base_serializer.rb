@@ -1,5 +1,5 @@
 class BaseSerializer < ActiveModel::Serializer
-  delegate :url_helpers, to: "Rails.application.routes"
+  delegate :url_helpers, to: 'Rails.application.routes'
 
   def context
     view_context rescue nil
@@ -7,6 +7,10 @@ class BaseSerializer < ActiveModel::Serializer
 
   def current_user
     serializer_params[:current_user] || context&.current_user
+  end
+
+  def current_role
+    @current_role ||= serializer_params[:current_role] || current_user&.role(current_organization)
   end
 
   def current_organization

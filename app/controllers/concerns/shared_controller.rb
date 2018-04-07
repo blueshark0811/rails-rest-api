@@ -61,6 +61,12 @@ module SharedController
     @current_organization
   end
 
+  def current_role
+    return if !current_user || !current_organization
+
+    @current_role ||= current_user.role(current_organization)
+  end
+
   def debug(result)
     if Rails.env.test?
       p '-' * 100

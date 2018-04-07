@@ -52,7 +52,16 @@ Rails.application.routes.draw do
             put :batch_update
           end
         end
+
+        #for student/teacher
+        resources :courses, only: %i[index show] do
+          resources :lessons, only: %i[index show] do
+            resources :tasks, only: %i[index show]
+          end
+        end
       end
+
+      #for admin...
       resources :courses do
         resources :lessons do
           resources :tasks

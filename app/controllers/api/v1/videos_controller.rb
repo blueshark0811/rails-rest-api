@@ -77,6 +77,8 @@ class Api::V1::VideosController < Api::V1::ApiController
     end
 
     @videoable = params[:videoable_type].constantize.find params[:videoable_id]
+
+    authorize @videoable, :show?
   end
 
   def set_video

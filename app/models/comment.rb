@@ -1,5 +1,5 @@
 class Comment < ApplicationRecord
-  COMMENTABLES = %w[Group]
+  COMMENTABLES = %w[Group Task]
 
   treeable main_root_foreign_key: :main_root_id, tree_path_field: :tree_path
 
@@ -27,7 +27,7 @@ class Comment < ApplicationRecord
         notifiable: opponent,
         as_object: {
           i18n: 'comment.noticeboard.for_user.created',
-          variables: { 
+          variables: {
             user: Activity.message_link(user),
             commentable: Activity.message_link(commentable)
           }
@@ -39,7 +39,7 @@ class Comment < ApplicationRecord
       notifiable: commentable,
       as_object: {
         i18n: 'comment.noticeboard.for_group.created',
-        variables: { 
+        variables: {
           user: Activity.message_link(user),
           commentable: Activity.message_link(commentable)
         }
