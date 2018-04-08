@@ -76,11 +76,15 @@ class User < ApplicationRecord
   end
 
   def in_group?(group)
+    return unless group
+
+    group_id = group.is_a?(Group) ? group.id : group
+
     @in_group ||= {}
 
-    return @in_group[group.id] unless @in_group[group.id].nil?
+    return @in_group[group_id] unless @in_group[group_id].nil?
 
-    @in_group[group.id] = group_users.where(group_id: group.id).exists?
+    @in_group[group_id] = group_users.where(group_id: group_id).exists?
   end
 
   def current_organization_user(organization = nil)

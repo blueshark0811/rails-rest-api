@@ -18,7 +18,7 @@ class Api::V1::GroupUsersController < Api::V1::ApiController
 
   def create
     @group_user = @group.group_users.new user_id: params[:group_user][:user_id]
-p @group_user
+
     authorize @group_user
 
     if @group_user.update permitted_attributes(@group_user)

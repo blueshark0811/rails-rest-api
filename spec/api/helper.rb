@@ -320,11 +320,11 @@ def crud_delete(options = {})
   end
 end
 
-def batch_update(options = {})
+def batch_update(options = {}, &block)
   additional_parameters = options.fetch(:additional_parameters, [])
   exclude_parameters = options.fetch(:exclude_parameters, [])
   parameters = [
-    { name: :ids, in: :body, type: :array, items: { type: :integer } },
+    { name: :ids, in: :body, type: :array, items: { type: :integer }, required: true },
     { name: :authorization, in: :header, type: :string, required: true }
   ].reject { |pa| exclude_parameters.include?(pa[:name]) } + additional_parameters
 
@@ -336,8 +336,6 @@ def batch_update(options = {})
   description_200 = options[:description_200] || 'returns status and errors'
   check_not_aurhorized = options.fetch(:check_not_aurhorized, true)
 
-  yield if block_given?
-
   path url do
     # let(:ids) { [ rswag_properties[:object].id ] }
 
@@ -348,6 +346,9 @@ def batch_update(options = {})
       parameters.each { |pa| parameter pa }
 
       response '200', description_200 do
+        before do |example|
+          example.instance_exec(&block) if block
+        end
 
         schema type: :object,
                properties: {

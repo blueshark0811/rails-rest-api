@@ -4,8 +4,6 @@ class Group < ApplicationRecord
   include Groups::Relations
   SEARCH_FIELDS = %i[description title]
 
-  has_many :comments, as: :commentable, dependent: :destroy
-
   searchkick callbacks: :async, word_start: SEARCH_FIELDS, searchable: SEARCH_FIELDS
   def search_data
     attributes.merge(

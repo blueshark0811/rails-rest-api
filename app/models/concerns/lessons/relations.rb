@@ -13,6 +13,8 @@ module Lessons
       has_many :users, through: :lesson_users
 
       has_many :tasks, dependent: :destroy
+
+      has_many :course_groups, through: :course
     end
   end
 end

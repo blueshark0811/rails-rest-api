@@ -3,12 +3,14 @@
 require 'swagger_helper'
 
 describe Api::V1::GroupUsersController do
-  let!(:current_user) { create :user, role: 'student' }
-  let(:group) { create :group, :reindex, organization: current_user.organizations.first }
-  let(:group_user) { create :group_user, :reindex, group: group, user: current_user }
+  let(:organization) { create :organization }
+  let(:current_user) { create :user, organization: organization, role: 'admin' }
+  let(:group) { create :group, :reindex, organization: organization }
+  let!(:group_current_user) { create :group_user, :reindex, group: group, user: current_user }
+  let(:group_user) { create :group_user, :reindex, group: group, user: create(:user) }
   let!(:rswag_properties) do {
     current_user: current_user,
-    current_organization: current_user.organizations.first,
+    current_organization: organization,
     object: group_user
     }
   end
@@ -56,6 +58,9 @@ describe Api::V1::GroupUsersController do
   crud_update options.merge(description: 'Change status of user in group')
   crud_delete options.merge(description: 'Delete user from group')
 
+  let(:ids) { [group.id] }
+  let(:status) { GroupUser.statuses.keys.first }
+
   batch_update options.merge(
     description: 'Change status of batch users in group',
     additional_parameters: options[:additional_parameters] + [
@@ -66,8 +71,5 @@ describe Api::V1::GroupUsersController do
       enum: GroupUser.statuses.keys,
       required: true
     }]
-  ) do
-     let(:ids) { [group.id] }
-     let(:status) { GroupUser.statuses.keys.first }
-  end
+  )
 end

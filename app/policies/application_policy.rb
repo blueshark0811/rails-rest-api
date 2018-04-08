@@ -52,7 +52,7 @@ class ApplicationPolicy
   end
 
   class Scope
-    include PolicyHelper
+    include PolicyHelper::Base
 
     attr_reader :user_context, :user, :organization, :scope
 

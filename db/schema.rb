@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180407063956) do
+ActiveRecord::Schema.define(version: 20180408141520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -159,6 +159,18 @@ ActiveRecord::Schema.define(version: 20180407063956) do
     t.index ["user_id"], name: "index_courses_on_user_id"
   end
 
+  create_table "group_threads", force: :cascade do |t|
+    t.string "title"
+    t.bigint "user_id"
+    t.bigint "group_id"
+    t.integer "comments_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "last_activity_at"
+    t.index ["group_id"], name: "index_group_threads_on_group_id"
+    t.index ["user_id"], name: "index_group_threads_on_user_id"
+  end
+
   create_table "group_users", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "group_id"
@@ -217,7 +229,7 @@ ActiveRecord::Schema.define(version: 20180407063956) do
     t.string "status"
     t.text "exclude_students_ids"
     t.boolean "files_controll_enabled"
-    t.boolean "mesanger_access_enabled"
+    t.boolean "messanger_access_enabled"
     t.index ["organization_id"], name: "index_organization_users_on_organization_id"
     t.index ["user_id"], name: "index_organization_users_on_user_id"
   end
@@ -331,6 +343,8 @@ ActiveRecord::Schema.define(version: 20180407063956) do
   add_foreign_key "course_users", "users"
   add_foreign_key "courses", "organizations"
   add_foreign_key "courses", "users"
+  add_foreign_key "group_threads", "groups"
+  add_foreign_key "group_threads", "users"
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"
   add_foreign_key "groups", "organizations"

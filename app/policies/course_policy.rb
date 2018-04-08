@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class CoursePolicy < OrganizationEntityPolicy
+  include PolicyHelper::Attachmentable
   class Scope < Scope
     def condition
       return none unless role

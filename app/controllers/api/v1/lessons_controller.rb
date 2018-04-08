@@ -1,19 +1,30 @@
 # frozen_string_literal: true
 
 class Api::V1::LessonsController < Api::V1::ApiController
-  before_action :set_group, only: %i[index show]
+  before_action :set_group, only: %i[index show complete]
   before_action :set_course
   before_action :set_lesson, except: %i[index create]
 
   def index
-    @lessons = policy_scope(@course.lessons).page(current_page).per(current_count)
-
-    render_result @lessons
+    render_result scope.page(current_page).per(current_count)
   end
 
   def show
-    @lesson.add_student(current_user, @group) if current_role == 'student'
+    authorize(@lesson, :easy_show?) # easy.. as we checking with course already
+
+    @lesson.add_student(current_user, @group) if student?
     render_result @lesson
+  end
+
+  def complete
+    @user = params[:user_id] ? User.find(params[:user_id]) : current_user
+    @lesson_user = @lesson.add_student(@user, @group)
+
+    authorize @lesson_user, :easy_complete? # easy.. as we checking with course already
+
+    if (bparams(:completed) ? @lesson_user.completed! : @lesson_user.active!)
+      render_result(success: true) else render_error(@lesson_user)
+    end
   end
 
   def create
@@ -40,9 +51,13 @@ class Api::V1::LessonsController < Api::V1::ApiController
 
   protected
 
+  def scope
+    policy_scope(@course.lessons)
+  end
+
   def set_group
     if params[:group_id].blank?
-      render_404 if current_role != 'admin'
+      render_404 unless admin?
       return
     end
 
@@ -58,8 +73,8 @@ class Api::V1::LessonsController < Api::V1::ApiController
   end
 
   def set_lesson
-    @lesson = policy_scope(@course.lessons).find params[:id]
+    @lesson = scope.find params[:id]
 
-    authorize @lesson
+    authorize(@lesson) unless %w(complete show).include?(params[:action])
   end
 end

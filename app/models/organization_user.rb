@@ -14,7 +14,7 @@ class OrganizationUser < ApplicationRecord
     end
   end
 
-  def mesanger_access_enabled
+  def messanger_access_enabled
     !!super
   end
 

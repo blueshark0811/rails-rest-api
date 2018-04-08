@@ -15,6 +15,9 @@ module Groups
       has_many :lessons, through: :courses
       has_many :attachments, as: :attachmentable, dependent: :destroy
       has_many :activities, as: :notifiable, dependent: :destroy
+
+      has_many :comments, as: :commentable, dependent: :destroy
+      has_many :group_threads, dependent: :destroy
     end
   end
 end

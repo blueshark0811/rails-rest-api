@@ -34,7 +34,7 @@ class Api::V1::AttachmentsController < Api::V1::ApiController
       organization_id: current_organization.id
     )
 
-    authorize @attachment
+   # authorize @attachment as we validate attachmentable
 
     if @attachment.update permitted_attributes(@attachment)
       render_result @attachment
@@ -67,7 +67,7 @@ class Api::V1::AttachmentsController < Api::V1::ApiController
 
     @attachmentable = params[:attachmentable_type].constantize.find params[:attachmentable_id]
 
-    authorize @attachmentable, :show?
+    authorize @attachmentable, "attachments_#{params[:action]}?"
   end
 
   def set_attachment

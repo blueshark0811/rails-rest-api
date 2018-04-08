@@ -1,9 +1,12 @@
 class LessonPolicy < OrganizationEntityPolicy
+  include PolicyHelper::Attachmentable
   class Scope < Scope
     def resolve
-      scope = scope.active if student?
+      sc = scope
 
-      scope
+      sc = sc.active if student?
+
+      sc
     end
   end
 
@@ -11,7 +14,19 @@ class LessonPolicy < OrganizationEntityPolicy
     %i[description status title]
   end
 
+  def api_base_attributes
+    super + [:course_settings]
+  end
+
   def show?
-    super && (!student? || record.active?)
+    course_policy.show? && easy_show?
+  end
+
+  def easy_show?
+    !student? || record.active?
+  end
+
+  def course_policy
+    @course_policy ||= CoursePolicy.new(user_context, record.course)
   end
 end

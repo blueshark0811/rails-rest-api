@@ -15,6 +15,9 @@ module Users
       has_many :course_users
       has_many :participated_courses, through: :course_users, source: :course
 
+      has_many :lesson_users
+      has_many :participated_lessons, through: :lesson_users, source: :lesson
+
       # as author
       has_many :tasks
       has_many :attachments

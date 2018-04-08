@@ -3,12 +3,27 @@
 require 'swagger_helper'
 
 describe Api::V1::AttachmentsController do
+  let(:organization) { create :organization }
+  let(:current_user) { create :user, role: :student, organization: organization }
   # let(:current_user) { create :user, role: :admin }
-  let(:current_user) { create :user, role: :teacher }
   # let(:current_user) { create :user, role: :student }
-  let(:organization) { current_user.organizations.first }
   # let!(:attachmentable) { create :course, organization: organization }
-  let(:attachmentable) { create :chat_message, chat: create(:chat, organization: organization) }
+  # let(:attachmentable) { create :chat_message, chat: create(:chat, organization: organization) }
+
+  #task ->
+  let(:group) { create :group, organization: organization }
+  let(:course) { create :course, organization: organization }
+  let(:course_group) { create :course_group, course: course, group: group, precourse: nil }
+  let(:lesson) { create :lesson, course: course }
+
+  let!(:course_user) { create :course_user, user: current_user, course: course, course_group: course_group }
+  let!(:group_user) { create :group_user, user: current_user, group: group }
+  let!(:lesson_user) { create :lesson_user, lesson: lesson, user: current_user, course_group: course_group }
+
+  let(:task) { create :task, action_type: 'question', lesson: lesson }
+  let(:attachmentable) { task }
+  ###
+
   let!(:attachment) do
     create :attachment,
       :reindex,

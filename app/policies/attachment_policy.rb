@@ -6,8 +6,8 @@ class AttachmentPolicy < OrganizationEntityPolicy
   end
 
   def create?
-    record_accessible_in_organization? && 
-        (admin? || %w[Chat ChatMessage].include?(record.attachmentable_type))
+    record_accessible_in_organization? &&
+      (admin? || %w[Chat ChatMessage Task].include?(record.attachmentable_type))
   end
 
   def update?

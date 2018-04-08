@@ -12,11 +12,11 @@ class OrganizationEntityPolicy < ApplicationPolicy
   end
 
   def update?
-    super_admin? || admin? && record_accessible_in_organization?
+    super_admin? || admin_of_record_org?
   end
 
   def create?
-    admin? && record_accessible_in_organization?
+    admin_of_record_org?
   end
 
   def edit?
@@ -32,6 +32,14 @@ class OrganizationEntityPolicy < ApplicationPolicy
   end
 
   protected
+
+  def admin_of_record_org?
+    admin? && record_accessible_in_organization?
+  end
+
+  def teacher_of_record_org?
+    admin? && record_accessible_in_organization?
+  end
 
   def record_accessible_in_organization?
     record.organization_id == organization.id && role

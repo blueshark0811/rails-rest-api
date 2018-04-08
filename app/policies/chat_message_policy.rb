@@ -1,4 +1,6 @@
 class ChatMessagePolicy < OrganizationEntityPolicy
+  include PolicyHelper::Attachmentable
+
   def permitted_attributes_for_create
     %i[message to_user_id attachment_id]
   end

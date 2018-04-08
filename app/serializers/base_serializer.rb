@@ -21,6 +21,14 @@ class BaseSerializer < ActiveModel::Serializer
     serializer_params[:real_collection]
   end
 
+  def current_deep
+    serializer_params[:current_deep] || 0
+  end
+
+  def too_deeply?
+    current_deep > 1
+  end
+
   def user_context
     UserContext.new current_user, current_organization
   end

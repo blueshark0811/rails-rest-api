@@ -26,8 +26,8 @@ class Course < ApplicationRecord
       {
         course_users_state: {
           null: true,
-          type: :array, 
-          items: { 
+          type: :array,
+          items: {
             type: :string
           },
           description: '[USER_ID-GROUP_ID-STATUS]'

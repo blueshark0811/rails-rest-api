@@ -1,5 +1,5 @@
 require 'swagger_helper'
-
+#for students and teachers
 describe Api::V1::TasksController do
   let(:organization) { create :organization }
   let(:current_user) { create :user, role: 'student', organization: organization }
@@ -11,17 +11,17 @@ describe Api::V1::TasksController do
   let!(:course_user) { create :course_user, user: current_user, course: course, course_group: course_group }
   let!(:group_user) { create :group_user, user: current_user, group: group }
   let!(:lesson_user) { create :lesson_user, lesson: lesson, user: current_user, course_group: course_group }
+  
+  let(:task) { create :task, lesson: lesson, user: current_user }
 
   let(:group_id) { group.id }
   let(:course_id) { course.id }
   let(:lesson_id) { lesson.id }
 
-  let(:task) { create :task, lesson: lesson, user: current_user }
-
   let!(:rswag_properties) do {
-      current_user: current_user,
-      current_organization: organization,
-      object: task
+    current_user: current_user,
+    current_organization: organization,
+    object: task
     }
   end
 

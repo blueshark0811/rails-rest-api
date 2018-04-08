@@ -31,7 +31,7 @@ class Api::V1::ApiController < ActionController::API
   #   Time.zone = old_time_zone
   end
 
-  def render_404 msg = ''
+  def render_404(msg = '')
     render_error msg, '', 404
   end
 
@@ -69,7 +69,7 @@ class Api::V1::ApiController < ActionController::API
     if json.is_a?(Searchkick::Results)
       unless json.options[:load]
         @serializer_params[:real_collection] = json.klass.where(id: json.map(&:id))
-          .each_with_object({}){ |r, h| h[r.id] = r }
+          .each_with_object({}) { |r, h| h[r.id] = r }
       end
 
       res[:root] = json.klass.to_s.underscore

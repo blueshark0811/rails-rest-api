@@ -2,6 +2,7 @@
 
 class GroupPolicy < OrganizationEntityPolicy
   include PolicyHelper::Commentable
+  include PolicyHelper::Attachmentable
 
   class Scope < Scope
     def condition

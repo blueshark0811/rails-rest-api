@@ -23,7 +23,12 @@ module ApiSerializer
 
   def attributes(requested_attrs = nil, reload = false)
     @attributes = nil if reload
-    @attributes ||= (self.class._attributes_data.keys|self.class.base_attributes).each_with_object({}) do |(field), hash|
+
+    return  @attributes if @attributes
+
+    attrs = (self.class._attributes_data.keys | self.class.base_attributes)
+
+    @attributes = attrs.each_with_object({}) do |(field), hash|
       attr = ActiveModel::Serializer::Attribute.new(field, {})
 
       next if attr.excluded?(self)
@@ -52,13 +57,19 @@ module ApiSerializer
     return type_cast(attr) if available_fields.include?(attr)
 
     #associations
-    return object.read_attribute_for_serialization(attr) if self.class.serializable_class.reflect_on_association(attr)
+    if assoc = self.class.serializable_class.reflect_on_association(attr)
+      if %i[belongs_to has_one].include?(assoc.macro) && !too_deeply?# @checkme
+        return type_cast_object(object.read_attribute_for_serialization(attr))
+      end
+
+      return object.read_attribute_for_serialization(attr)
+    end
 
     ActiveModel::FieldUpgrade::ATTR_NOT_ACCEPTABLE
   end
 
   def available_fields
-    key = params[:action]||:base
+    key = params[:action] || :base
 
     @available_fields ||= {}
 
@@ -120,36 +131,62 @@ module ApiSerializer
       when :datetime
         res = res.to_s(:long) if res && !res.is_a?(String)
 
+      when :object
+        res = type_cast_object(res)
       when :association
-        return res unless real_object.respond_to?(col.association)
-
-        res = real_object.send(col.association)
-        cond = {}
-
-        case col.try(:mode)
-        when :inside_current_organization
-          cond = { organization_id: current_organization.id } if current_organization
-        when :for_current_user
-          cond = { user_id: current_user.id } if current_user
-        end
-
-        case col.try(:association_type)
-        when :object
-          res = res.find_by(cond)
-
-          res = res.class.serializer_class_name.constantize.new(res, serializer_params).attributes if res
-        when :array
-          res = res.where(cond)
-
-          kls = res.new.class.serializer_class_name.constantize
-
-          res = res.map{ |r| kls.new(r, serializer_params).attributes }
-        else
-          #something, like array
-        end
+        res = type_cast_association(res, col)
       end
     rescue => e
       p 'error', e
+    end
+
+    res
+  end
+
+  def type_cast_object(res)
+    return unless res
+    res.class.serializer_class_name.constantize.new(
+      res,
+      serializer_params: serializer_params.merge(current_deep: current_deep + 1)
+      ).serializable_hash
+  end
+
+  def type_cast_association(res, col)
+    return res unless real_object.respond_to?(col.association)
+
+    res = real_object.send(col.association)
+    cond = {}
+
+    case col.try(:mode)
+    when :inside_current_organization
+      cond = { organization_id: current_organization.id } if current_organization
+    when :for_current_user
+      cond = { user_id: current_user.id } if current_user
+    end
+
+    if with_params = col.try(:with_params)
+      with_params.each do |param|
+        cond_key, param_key = param.is_a?(Hash) ? param.to_a : [param, param]
+
+        cond[cond_key] = params[param_key]
+      end
+    end
+
+    case col.try(:association_type)
+    when :object
+      res = cond.blank? ? res.last : res.find_by(cond)
+
+      res = type_cast_object(res)
+    when :array
+      res = res.where(cond) unless cond.blank?
+
+      kls = res.new.class.serializer_class_name.constantize
+
+      res = res.map { |r| 
+        kls.new(r, serializer_params: serializer_params.merge(current_deep: current_deep+1)).serializable_hash 
+      }
+    else
+      #something, like array
     end
 
     res

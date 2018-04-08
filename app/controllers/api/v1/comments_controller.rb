@@ -22,7 +22,7 @@ class Api::V1::CommentsController < Api::V1::ApiController
 
   def create
     @comment = scope.new user_id: current_user.id
-    authorize @comment
+    # authorize @comment as we have validation of commentable
 
     if @comment.update_attributes permitted_attributes(@comment)
       render_result(@comment) else render_error(@comment)

@@ -38,7 +38,7 @@ class Api::V1::TasksController < Api::V1::ApiController
 
   def set_group
     if params[:group_id].blank?
-      render_404 if current_role != 'admin'
+      render_404 unless admin?
       return
     end
 

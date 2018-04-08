@@ -16,4 +16,12 @@ class CourseGroup < ApplicationRecord
   def organization_id
     @organization_id ||= group&.organization_id
   end
+
+  def complete_lesson_can_student?
+    super || complete_lesson_can_all?
+  end
+
+  def complete_lesson_can_teacher?
+    super || complete_lesson_can_all?
+  end
 end

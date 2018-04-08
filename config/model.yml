@@ -56,7 +56,7 @@ lesson:
 lesson_user:
   statuses:
     active: Active
-    pause: Pause ???
+    completed: Completed
 
 course_user:
   statuses:

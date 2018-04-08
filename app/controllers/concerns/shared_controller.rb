@@ -67,6 +67,16 @@ module SharedController
     @current_role ||= current_user.role(current_organization)
   end
 
+  def super_admin?
+    curre_user&.super_admin?
+  end
+
+  OrganizationUser.roles.keys.each do |rol|
+    define_method "#{rol}?" do
+      current_role == rol || rol == 'admin' && super_admin?
+    end
+  end
+
   def debug(result)
     if Rails.env.test?
       p '-' * 100
