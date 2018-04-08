@@ -1,24 +1,25 @@
-# README
+# EquipEngine
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# prepare enviroment
+1. install ruby via rvm for example
+2. install redis server
+3. install postgres
+4. install elasticksearch
 
-Things you may want to cover:
+# install app
 
-* Ruby version
+in root directory:
 
-* System dependencies
+0. make settings for db in config/database.yml
 
-* Configuration
+1. $ bundle install
 
-* Database creation
+2. $ rake db:migrate
 
-* Database initialization
+3. $ rake db:seed
 
-* How to run the test suite
+# start app
 
-* Services (job queues, cache servers, search engines, etc.)
+1. $ foreman start
 
-* Deployment instructions
-
-* ...
+3. open 'server' side at browser localhost:4500
