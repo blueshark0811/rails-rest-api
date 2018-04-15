@@ -9,9 +9,15 @@ describe Api::V1::CoursesController do
   let(:course_group) { create :course_group, course: course, group: group, precourse: nil }
   let(:lesson) { create :lesson, course: course }
 
-  let!(:course_user) { create :course_user, user: current_user, course: course, course_group: course_group }
+  let!(:course_user) { create :course_user, user: current_user, course: course, course_group: course_group, position: 2 }
   let!(:group_user) { create :group_user, user: current_user, group: group }
   let!(:lesson_user) { create :lesson_user, lesson: lesson, user: current_user, course_group: course_group }
+
+  # check at index ordering
+  let(:course2) { create :course, organization: organization }
+  let(:course_group2) { create :course_group, course: course2, group: group, precourse: nil }
+  let!(:course_user2) { create :course_user, user: current_user, course: course2, course_group: course_group2, position: 1 }
+  ###
 
   let(:rswag_properties) do {
     current_user: current_user,

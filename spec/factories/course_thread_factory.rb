@@ -1,7 +1,7 @@
 FactoryBot.define do
-  factory :group_thread do
+  factory :course_thread do
     user
-    group
+    course_group
 
     title { Faker::Lorem.sentence }
   end

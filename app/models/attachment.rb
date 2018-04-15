@@ -1,7 +1,7 @@
 class Attachment < ApplicationRecord
-  ATTACHMENTABLES = %w[Task Course Group Lesson Organization Chat ChatMessage]
+  ATTACHMENTABLES = %w[Task TaskUser Course Group Lesson Organization Chat ChatMessage]
   SEARCH_FIELDS = %i[file_name title description]
-  SORT_FIELDS = %w[file_name created_at]
+  SORT_FIELDS = %w[file_name title created_at]
 
   belongs_to :user
   belongs_to :organization

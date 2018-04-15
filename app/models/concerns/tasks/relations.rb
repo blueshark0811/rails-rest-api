@@ -6,6 +6,10 @@ module Tasks
       belongs_to :lesson
       belongs_to :user
 
+      has_many :lesson_users, through: :lesson
+
+      has_many :task_users
+
       has_one :course, through: :lesson
       has_one :organization, through: :course
 

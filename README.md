@@ -5,6 +5,9 @@
 2. install redis server
 3. install postgres
 4. install elasticksearch
+5. create some subdomains at /etc/hosts , for ex.:
+    127.0.0.1   a.localhost
+    127.0.0.1   b.localhost
 
 # install app
 

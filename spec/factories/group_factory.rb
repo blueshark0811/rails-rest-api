@@ -7,6 +7,9 @@ FactoryBot.define do
     user_limit 10
     visibility 'public'
     status 'active'
+    noticeboard_enabled true
+    student_can_post true
+    student_can_comment true
 
     trait :reindex do
       after(:create) do |object, _evaluator|

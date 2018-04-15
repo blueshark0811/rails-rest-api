@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180408141520) do
+ActiveRecord::Schema.define(version: 20180414124906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,8 +40,21 @@ ActiveRecord::Schema.define(version: 20180408141520) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "task_id"
+    t.bigint "lesson_id"
+    t.bigint "course_id"
+    t.bigint "group_id"
+    t.bigint "organization_id"
+    t.bigint "user_id"
+    t.boolean "flagged", default: false
+    t.index ["course_id"], name: "index_activities_on_course_id"
     t.index ["eventable_type", "eventable_id"], name: "index_activities_on_eventable_type_and_eventable_id"
+    t.index ["group_id"], name: "index_activities_on_group_id"
+    t.index ["lesson_id"], name: "index_activities_on_lesson_id"
     t.index ["notifiable_type", "notifiable_id"], name: "index_activities_on_notifiable_type_and_notifiable_id"
+    t.index ["organization_id"], name: "index_activities_on_organization_id"
+    t.index ["task_id"], name: "index_activities_on_task_id"
+    t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
   create_table "attachments", force: :cascade do |t|
@@ -134,6 +147,18 @@ ActiveRecord::Schema.define(version: 20180408141520) do
     t.index ["precourse_id"], name: "index_course_groups_on_precourse_id"
   end
 
+  create_table "course_threads", force: :cascade do |t|
+    t.string "title"
+    t.bigint "user_id"
+    t.integer "comments_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "last_activity_at"
+    t.bigint "course_group_id"
+    t.index ["course_group_id"], name: "index_course_threads_on_course_group_id"
+    t.index ["user_id"], name: "index_course_threads_on_user_id"
+  end
+
   create_table "course_users", force: :cascade do |t|
     t.bigint "course_id"
     t.bigint "user_id"
@@ -141,6 +166,7 @@ ActiveRecord::Schema.define(version: 20180408141520) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "course_group_id"
+    t.integer "position", default: 0
     t.index ["course_group_id"], name: "index_course_users_on_course_group_id"
     t.index ["course_id"], name: "index_course_users_on_course_id"
     t.index ["user_id"], name: "index_course_users_on_user_id"
@@ -157,18 +183,6 @@ ActiveRecord::Schema.define(version: 20180408141520) do
     t.integer "lessons_count", default: 0
     t.index ["organization_id"], name: "index_courses_on_organization_id"
     t.index ["user_id"], name: "index_courses_on_user_id"
-  end
-
-  create_table "group_threads", force: :cascade do |t|
-    t.string "title"
-    t.bigint "user_id"
-    t.bigint "group_id"
-    t.integer "comments_count", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.datetime "last_activity_at"
-    t.index ["group_id"], name: "index_group_threads_on_group_id"
-    t.index ["user_id"], name: "index_group_threads_on_user_id"
   end
 
   create_table "group_users", force: :cascade do |t|
@@ -192,6 +206,7 @@ ActiveRecord::Schema.define(version: 20180408141520) do
     t.datetime "updated_at", null: false
     t.integer "count_participants"
     t.bigint "user_id"
+    t.jsonb "noticeboard_settings", default: {}, null: false
     t.index ["organization_id"], name: "index_groups_on_organization_id"
     t.index ["user_id"], name: "index_groups_on_user_id"
   end
@@ -262,6 +277,18 @@ ActiveRecord::Schema.define(version: 20180408141520) do
     t.index ["country_id"], name: "index_states_on_country_id"
   end
 
+  create_table "task_users", force: :cascade do |t|
+    t.bigint "task_id"
+    t.bigint "user_id"
+    t.bigint "course_group_id"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_group_id"], name: "index_task_users_on_course_group_id"
+    t.index ["task_id"], name: "index_task_users_on_task_id"
+    t.index ["user_id"], name: "index_task_users_on_user_id"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string "action_type"
     t.text "description"
@@ -327,6 +354,12 @@ ActiveRecord::Schema.define(version: 20180408141520) do
     t.index ["videoable_type", "videoable_id"], name: "index_videos_on_videoable_type_and_videoable_id"
   end
 
+  add_foreign_key "activities", "courses"
+  add_foreign_key "activities", "groups"
+  add_foreign_key "activities", "lessons"
+  add_foreign_key "activities", "organizations"
+  add_foreign_key "activities", "tasks"
+  add_foreign_key "activities", "users"
   add_foreign_key "attachments", "organizations"
   add_foreign_key "attachments", "users"
   add_foreign_key "chat_messages", "chats"
@@ -338,13 +371,12 @@ ActiveRecord::Schema.define(version: 20180408141520) do
   add_foreign_key "course_groups", "courses"
   add_foreign_key "course_groups", "courses", column: "precourse_id"
   add_foreign_key "course_groups", "groups"
+  add_foreign_key "course_threads", "users"
   add_foreign_key "course_users", "course_groups"
   add_foreign_key "course_users", "courses"
   add_foreign_key "course_users", "users"
   add_foreign_key "courses", "organizations"
   add_foreign_key "courses", "users"
-  add_foreign_key "group_threads", "groups"
-  add_foreign_key "group_threads", "users"
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"
   add_foreign_key "groups", "organizations"
@@ -356,6 +388,9 @@ ActiveRecord::Schema.define(version: 20180408141520) do
   add_foreign_key "organization_users", "organizations"
   add_foreign_key "organization_users", "users"
   add_foreign_key "states", "countries"
+  add_foreign_key "task_users", "course_groups"
+  add_foreign_key "task_users", "tasks"
+  add_foreign_key "task_users", "users"
   add_foreign_key "tasks", "lessons"
   add_foreign_key "tasks", "users"
   add_foreign_key "videos", "organizations"

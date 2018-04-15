@@ -2,12 +2,13 @@ class ApplicationPolicy
   include ApiPolicy
   include PolicyHelper::Base
 
-  attr_reader :user_context, :user, :organization, :record
+  attr_reader :user_context, :user, :organization, :record, :params
 
   def initialize(user_context, record)
     @user_context = user_context
     @user = user_context.user
     @organization = user_context.organization
+    @params = user_context.params || {}
     @record = record
   end
 
@@ -54,12 +55,13 @@ class ApplicationPolicy
   class Scope
     include PolicyHelper::Base
 
-    attr_reader :user_context, :user, :organization, :scope
+    attr_reader :user_context, :user, :organization, :scope, :params
 
     def initialize(user_context, scope)
       @user_context = user_context
       @user = user_context.user
       @organization = user_context.organization
+      @params = user_context.params || {}
       @scope = scope
     end
 

@@ -13,7 +13,7 @@ class CoursePolicy < OrganizationEntityPolicy
         res[:group_ids] = user.group_users.pluck(:group_id)
 
         if student? # removing disabled courses
-          res[:course_users_state] = {not: []}
+          res[:course_users_state] = { not: [] }
           res[:group_ids].each do |group_id|
             res[:course_users_state][:not] << CourseUser.to_index(user.id, group_id, 'disabled')
           end

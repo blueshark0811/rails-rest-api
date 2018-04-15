@@ -9,6 +9,8 @@ class Api::V1::TasksController < Api::V1::ApiController
   end
 
   def show
+    @task_user = @task.add_student(current_user, @group) if student?
+
     render_result @task
   end
 

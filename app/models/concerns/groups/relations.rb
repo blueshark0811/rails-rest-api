@@ -9,6 +9,7 @@ module Groups
       has_many :users, through: :group_users
 
       has_many :course_groups, dependent: :destroy
+      has_many :course_threads, through: :course_groups
       has_many :courses, through: :course_groups
       has_many :precourses, through: :course_groups
 
@@ -17,7 +18,6 @@ module Groups
       has_many :activities, as: :notifiable, dependent: :destroy
 
       has_many :comments, as: :commentable, dependent: :destroy
-      has_many :group_threads, dependent: :destroy
     end
   end
 end

@@ -7,10 +7,24 @@ class Activity < ApplicationRecord
   # what should be notify
   belongs_to :notifiable, polymorphic: true
 
+  # author of activity, for example: Peter wrote comment -> user:Peter eventable:Comment
+  belongs_to :user
+
+  # enviroment of activity, where it happened, for quick select...
+  belongs_to  :task, optional: true
+  belongs_to :lesson, optional: true
+  belongs_to :course, optional: true
+  belongs_to :group, optional: true
+  belongs_to :organization, optional: true
+  ###
+
+  before_validation :set_default_data, on: :create
+
   validates :message, presence: true
 
-  store_accessor :message, :plain, :as_object 
-  #as_object should contain i18n path and variables if should be passed to localization
+  # as_object should contain i18n path and variables if should be passed to localization
+  store_accessor :message, :plain, :as_object, :teachers
+  # teachers: [id, id....]
 
   enumerate :status
 
@@ -27,10 +41,10 @@ class Activity < ApplicationRecord
 
   class << self
     def channel(notifiable)
-      "#{notifiable_type.downcase}_#{notifiable_id}_channel"
+      [notifiable.class.name.downcase, notifiable.id, "activity_channel"].join('_')
     end
 
-    def message_link object, title = nil
+    def message_link(object, title = nil)
       object = OpenStruct.new(object) if object.is_a?(Hash)
       object_type = object.try(:object_type) || object.class.name
 
@@ -39,6 +53,22 @@ class Activity < ApplicationRecord
       title ||= object_type
 
       "<a href='#' data-object-id='#{object.id}' data-object-type='#{object_type}'>#{title}</a>"
+    end
+  end
+
+  protected
+
+  def set_default_data
+    self.lesson_id = task.lesson_id if lesson_id.blank? && task_id
+
+    if course_id.blank?
+      self.course_id = lesson.course_id if lesson_id
+      self.course_id ||= task.course_id if task_id
+    end
+
+    if organization_id.blank?
+      self.organization_id = group.organization_id if group_id
+      self.organization_id ||= course.organization_id if course_id
     end
   end
 end

@@ -118,7 +118,7 @@ module ApiSerializer
         res = res.to_i
 
       when :float
-        res = res.ceil 2
+        res = res ? res.ceil(2) : 0
 
       when :string
         if klass.uploaders.has_key?(field.to_sym)
@@ -151,17 +151,35 @@ module ApiSerializer
       ).serializable_hash
   end
 
+  def mode_condition(cond, mode)
+    case mode
+    when :inside_current_organization
+      cond[:organization_id] = current_organization ? current_organization.id : -1
+    when :for_current_user
+      cond[:user_id] = current_user ? current_user.id : -1
+    when :for_current_group
+      cond[:group_id] = current_group ? current_group.id : -1
+    when :for_current_course
+      cond[:course_id] = current_course ? current_course.id : -1
+    when :for_current_course_group
+      cond[:course_group_id] = current_course_group ? current_course_group.id : -1
+    end
+
+    cond
+  end
+
   def type_cast_association(res, col)
     return res unless real_object.respond_to?(col.association)
 
     res = real_object.send(col.association)
+
     cond = {}
 
-    case col.try(:mode)
-    when :inside_current_organization
-      cond = { organization_id: current_organization.id } if current_organization
-    when :for_current_user
-      cond = { user_id: current_user.id } if current_user
+    # remove later when will be moved all :mode => :modes
+    cond = mode_condition(cond, col.mode) if col.try(:mode)
+
+    if modes = col.try(:modes)
+      modes.each { |mode| cond = mode_condition(cond, mode) }
     end
 
     if with_params = col.try(:with_params)

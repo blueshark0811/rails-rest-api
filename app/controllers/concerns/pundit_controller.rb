@@ -9,7 +9,7 @@ module PunditController
   end
 
   def pundit_user
-    UserContext.new(current_user, current_organization)
+    UserContext.new(current_user, current_organization, params)
   end
 
   def policy_condition(scope)

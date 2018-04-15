@@ -26,15 +26,6 @@ class Lesson < ApplicationRecord
           association_type: :object,
           with_params: [:group_id]
         }
-        # user_settings: {
-        #   null: true,
-        #   type: :association,
-        #   description: 'lesson/course settings for current group and user',
-        #   association: :lesson_users,
-        #   association_type: :object,
-        #   mode: :for_current_user,
-        #   # with_params: [{ :course_groups: :group_id }]
-        # }
       }
     end
   end

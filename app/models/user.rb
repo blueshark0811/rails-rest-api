@@ -75,6 +75,10 @@ class User < ApplicationRecord
       ).exists?
   end
 
+  def in_course_group?(course_group)
+    course_group.course_users.where(user_id: id).exists?
+  end
+
   def in_group?(group)
     return unless group
 

@@ -17,6 +17,18 @@ class BaseSerializer < ActiveModel::Serializer
     serializer_params[:current_organization] || context&.current_organization
   end
 
+  def current_course_group
+    serializer_params[:current_course_group] || context&.current_course_group
+  end
+
+  def current_group
+    serializer_params[:current_group] || context&.current_group
+  end
+
+  def current_course
+    serializer_params[:current_course] || context&.current_course
+  end
+
   def real_collection
     serializer_params[:real_collection]
   end

@@ -23,12 +23,24 @@ class GroupPolicy < OrganizationEntityPolicy
     update? || user.in_group?(record)
   end
 
+  def comments_create?
+    root_comment = params.dig('comment', 'root_id').blank?
+
+    update? ||
+      user.in_group?(record) &&
+      (!student? ||
+        (root_comment && record.student_can_post ||
+          !root_comment && record.student_can_comment
+        )
+      )
+  end
+
   def show_activity?
     show?
   end
 
   def permitted_attributes
-    %i[description status title user_limit visibility]
+    %i[description status title user_limit visibility noticeboard_enabled student_can_post student_can_comment]
   end
 
   def api_base_attributes

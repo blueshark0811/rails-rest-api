@@ -45,8 +45,6 @@ Rails.application.routes.draw do
       end
 
       resources :groups do
-        resources :group_threads
-
         resources :course_groups, only: %i[index create update destroy]
 
         resources :group_users, only: %i[index create update destroy] do
@@ -57,6 +55,8 @@ Rails.application.routes.draw do
 
         #for student/teacher
         resources :courses, only: %i[index show] do
+          resources :course_threads
+
           resources :lessons, only: %i[index show] do
             resources :tasks, only: %i[index show]
             member do

@@ -17,6 +17,13 @@ class Course < ApplicationRecord
 
   validates :title, presence: true
 
+  scope :for_student, -> (student) {
+    joins(:course_users)
+      .where(course_users: { user_id: student.id })
+      .where.not(course_users: { status: 'disabled' })
+      .order('course_users.position ASC')
+  }
+
   def active_users
     course_users.in_work
   end
@@ -32,21 +39,21 @@ class Course < ApplicationRecord
           },
           description: '[USER_ID-GROUP_ID-STATUS]'
         },
-        course_for_current_user: {# todo add filter by current group
+        course_for_current_user: {
           type: :association,
           association: :course_users,
           association_type: :object,
-          mode: :for_current_user,
+          modes: [:for_current_course_group, :for_current_user],
           for_roles: 'student',
           null: true,
           items: { type: :object, properties: {} },
           description: "information about user's association to this course"
         },
-        lesson_users_for_current_user: {# todo add filter by current group
+        lesson_users_for_current_user: {
           type: :association,
           association: :lesson_users,
           association_type: :array,
-          mode: :for_current_user,
+          modes: [:for_current_course_group, :for_current_user],
           param_conditions: { included_lesson_users_for_current_user: 'true' },
           null: true,
           items: { type: :object, properties: {} },
@@ -56,6 +63,7 @@ class Course < ApplicationRecord
           type: :association,
           association: :lesson_users,
           association_type: :array,
+          modes: [:for_current_course_group],
           param_conditions: { included_lesson_users: 'true' },
           null: true,
           items: { type: :object, properties: {} },

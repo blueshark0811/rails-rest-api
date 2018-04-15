@@ -2,6 +2,12 @@ class Api::V1::ActivitiesController < Api::V1::ApiController
   before_action :set_notifiable
   before_action :set_activity, except: %i[index]
 
+  def submissions
+    @notifiable = current_user
+
+    @activities = policy_scope(@notifiable.activities)
+  end
+
   def index
     order = { created_at: sort_flag }
 

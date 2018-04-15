@@ -12,6 +12,7 @@ class Group < ApplicationRecord
   end
 
   enumerate :status, field: :visibility, prefix: true
+  store_accessor :noticeboard_settings, :noticeboard_enabled, :student_can_post, :student_can_comment
 
   validates :organization_id, :title, :status, :visibility, presence: true
 
@@ -21,7 +22,17 @@ class Group < ApplicationRecord
 
   class << self
     def additional_attributes
-      { participated: {
+      {
+        noticeboard_enabled: {
+          type: :boolean
+        },
+        student_can_post: {
+          type: :boolean
+        },
+        student_can_comment: {
+          type: :boolean
+        },
+        participated: {
           type: :association,
           association: :group_users,
           association_type: :object,
@@ -31,6 +42,14 @@ class Group < ApplicationRecord
         }
       }
     end
+  end
+
+  def student_can_post
+    noticeboard_enabled && super
+  end
+
+  def student_can_comment
+    noticeboard_enabled && super
   end
 
   def add_user_to_courses(user)

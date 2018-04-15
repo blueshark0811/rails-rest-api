@@ -9,7 +9,7 @@ class ChatMessage < ApplicationRecord
 
   before_validation :find_chat
   after_create_commit { ChatMessageJob.perform_later(self) }
-  after_create :move_attachment
+  after_save :move_attachment
 
   attr_accessor :to_user_id, :organization_id, :attachment_id
 

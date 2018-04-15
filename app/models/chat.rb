@@ -16,7 +16,7 @@ class Chat < ApplicationRecord
 
   class << self
     def channel(id)
-      "chat_#{id}_channel"
+      ['chat', id, 'channel'].join('_')
     end
 
     def find_or_create(organization, user_id1, user_id2, params = {})

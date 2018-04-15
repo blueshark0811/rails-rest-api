@@ -1,6 +1,6 @@
 class CourseUserPolicy < OrganizationEntityPolicy
   def permitted_attributes
-    [:status]
+    %i[status position]
   end
 
   def api_base_attributes

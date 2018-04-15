@@ -77,6 +77,38 @@ module SharedController
     end
   end
 
+  def current_group
+    return @current_group if @current_group
+
+    @current_group = @group
+
+    if !@current_group && current_organization && params[:group_id]
+      @current_group = current_organization.groups.find_by(id: params[:group_id])
+    end
+
+    @current_group
+  end
+
+  def current_course
+    return @current_course if @current_course
+
+    @current_course = @course
+
+    if !@current_course && current_group && params[:course_id]
+      @current_course = current_group.courses.find_by(id: params[:course_id])
+    end
+
+    @current_group
+  end
+
+  def current_course_group
+    return @current_course_group if @current_course_group
+
+    return if !current_group || !current_course
+
+    @current_course_group = current_group.course_groups.find_by(course_id: current_course.id)
+  end
+
   def debug(result)
     if Rails.env.test?
       p '-' * 100

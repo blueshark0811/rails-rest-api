@@ -2,6 +2,10 @@ en:
   activity:
     messages:
       comment:
+        course_thread:
+          created: '%{user} wrote something in %{thread}'
+        lesson_user:
+          created: '%{user} wrote something at task %{task} at lesson %{lesson}'
         noticeboard:
           for_user:
             created: '%{user} wrote something in the group discussion %{commentable}'
@@ -9,3 +13,7 @@ en:
             created: '%{user} wrote something in the group discussion %{commentable}'
       chat_message:
         created: '%{user} wrote something in chat'
+      lesson_user:
+        status:
+          completed: 'lesson %{lesson} completed for %{user}'
+          active: 'lesson %{lesson} activated for %{user}'
