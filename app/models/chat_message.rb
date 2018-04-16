@@ -67,7 +67,8 @@ class ChatMessage < ApplicationRecord
   def write_activity
     opponents.each do |opponent|
       activities.create(
-        notifiable: opponent, 
+        notifiable: opponent,
+        user: user,
         as_object: {
           i18n: 'chat_message.created',
           variables: { 

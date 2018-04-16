@@ -50,6 +50,7 @@ class Comment < ApplicationRecord
     opponents.each do |opponent|
       activities.create(
         notifiable: opponent,
+        user: user,
         as_object: {
           i18n: 'comment.noticeboard.for_user.created',
           variables: {
@@ -62,6 +63,7 @@ class Comment < ApplicationRecord
 
     activities.create(
       notifiable: commentable,
+      user: user,
       as_object: {
         i18n: 'comment.noticeboard.for_group.created',
         variables: {

@@ -38,6 +38,11 @@ task:
     question: Question
     watch: Watch
 
+task_user:
+  statuses:
+    active: Active
+    completed: Completed
+
 course_group:
   complete_lesson_cans:
     teacher: Teacher

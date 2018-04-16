@@ -8,6 +8,7 @@ class Attachment < ApplicationRecord
   belongs_to :attachmentable, polymorphic: true, optional: true
 
   mount_base64_uploader :data, FileUploader
+
   searchkick callbacks: :async, word_start: SEARCH_FIELDS, searchable: SEARCH_FIELDS
   def search_data
     attributes.merge(
@@ -19,6 +20,19 @@ class Attachment < ApplicationRecord
   validates :data, presence: true
 
   before_validation :set_data
+
+  after_create_commit { AttachmentJob.perform_later(self, 'created') }
+  after_destroy_commit { AttachmentJob.perform_later(attachmentable, 'destroyed') }
+
+  def attachmentable_callback
+    if attachmentable.respond_to?(:attachment_created_callback)
+      return attachmentable.attachment_created_callback(self)
+    end
+
+    return unless attachmentable.respond_to?(:attachments_count)
+
+    attachmentable.update_attribute(:attachments_count, attachmentable.attachments_count.to_i + 1)
+  end
 
   private
 

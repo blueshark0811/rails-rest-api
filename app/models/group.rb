@@ -44,6 +44,18 @@ class Group < ApplicationRecord
     end
   end
 
+  def students
+    users_at_organization.with_role('student')
+  end
+
+  def teachers
+    users_at_organization.with_role('teacher')
+  end
+
+  def admins
+    users_at_organization.with_role('admin')
+  end
+
   def student_can_post
     noticeboard_enabled && super
   end
@@ -55,7 +67,7 @@ class Group < ApplicationRecord
   def add_user_to_courses(user)
     courses.each do |course|
       course_group = course.course_groups.find_by(group_id: id)
-      course.course_users.create user: user, course_group: course_group
+      course.add_user user, course_group
     end
   end
 

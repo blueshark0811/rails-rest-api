@@ -36,4 +36,8 @@ class TaskPolicy < OrganizationEntityPolicy
   def attachments_create?
     record.question? && show? || update?
   end
+
+  def api_base_attributes
+    super + [:task_user]
+  end
 end

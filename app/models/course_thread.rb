@@ -24,6 +24,7 @@ class CourseThread < ApplicationRecord
 
     group.activities.create(
       eventable: commentable,
+      user: user,
       as_object: {
         i18n: 'comment.course_thread.created',
         variables: {

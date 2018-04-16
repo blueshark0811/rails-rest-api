@@ -1,6 +1,7 @@
 class Activity < ApplicationRecord
   EVENTABLES = %w[Comment ChatMessage]
   NOTIFIABLES = %w[User Group]
+  SORT_FIELDS = %w[created_at flagged status]
 
   # what trigger notification
   belongs_to :eventable, polymorphic: true
@@ -23,10 +24,20 @@ class Activity < ApplicationRecord
   validates :message, presence: true
 
   # as_object should contain i18n path and variables if should be passed to localization
-  store_accessor :message, :plain, :as_object, :teachers
-  # teachers: [id, id....]
+  store_accessor :message, :plain, :as_object, :teacher_ids
+  # teacher_ids: [id, id....]
 
   enumerate :status
+
+  def add_teacher!(user)
+    update teacher_ids: (Array(teacher_ids)+[user]).uniq
+  end
+
+  def teachers
+    return [] if teacher_ids.blank?
+
+    User.where id: teacher_ids
+  end
 
   def plain_message
     return plain if plain.presence
@@ -40,6 +51,20 @@ class Activity < ApplicationRecord
   end
 
   class << self
+    def additional_attributes
+      {
+        teachers: {
+          null: true,
+          type: :association,
+          description: 'teachers that answered to this activity',
+          association: :teachers,
+          association_type: :array,
+          items: { type: :object, properties: {} },
+          for_roles: 'teacher'
+        }
+      }
+    end
+
     def channel(notifiable)
       [notifiable.class.name.downcase, notifiable.id, "activity_channel"].join('_')
     end

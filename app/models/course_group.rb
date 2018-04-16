@@ -12,6 +12,7 @@ class CourseGroup < ApplicationRecord
 
   before_validation :set_default_data
   after_commit { course.reindex async: true }
+  after_create_commit { CourseGroupJob.perform_later self }
 
   validates :course_id, uniqueness: { scope: [:group_id] }
 

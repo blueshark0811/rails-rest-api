@@ -6,6 +6,8 @@ class OrganizationUser < ApplicationRecord
 
   serialize :exclude_students_ids, Array
 
+  store_accessor :activity_settings, :activity_course_ids, :activity_student_ids
+
   validates :user_id, :organization_id, :role, presence: true
 
   class << self

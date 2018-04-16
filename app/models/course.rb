@@ -28,6 +28,17 @@ class Course < ApplicationRecord
     course_users.in_work
   end
 
+  def add_user(user, course_group)
+    course_users.create user: user, course_group: course_group
+  end
+
+  def add_user_to_lessons(user, course_group)
+    lessons.each do |lesson|
+      lesson.lesson_users.create user: user, course_group: course_group
+      lesson.add_user_to_tasks user, course_group: course_group
+    end
+  end
+
   class << self
     def additional_attributes
       {

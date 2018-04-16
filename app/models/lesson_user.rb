@@ -31,6 +31,7 @@ class LessonUser < ApplicationRecord
 
     activities.create(
       eventable: comment,
+      user: commentable.user,
       as_object: {
         i18n: "lesson_user.status.#{status}",
         variables: {

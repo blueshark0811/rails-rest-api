@@ -1,5 +1,9 @@
 module PolicyHelper
   module Base
+    def current_organization_user
+      @current_organization_user ||= user&.current_organization_user(organization)
+    end
+
     def role
       @role ||= user&.role(organization)
     end
