@@ -13,12 +13,20 @@ class Api::V1::LessonsController < Api::V1::ApiController
     authorize(@lesson, :easy_show?) # easy.. as we checking with course already
 
     @lesson.add_student(current_user, @group) if student?
+    Activity.mark_as_read(current_user, @lesson) if teacher?
     render_result @lesson
   end
 
   def complete
-    @user = params[:user_id] ? User.find(params[:user_id]) : current_user
-    @lesson_user = @lesson.add_student(@user, @group)
+    if params[:student_id]
+      @current_student = current_organization.students.find(params[:student_id])
+    elsif student?
+      @current_student = current_user
+    else
+      return render_error('invalid student')
+    end
+
+    @lesson_user = @lesson.add_student(@current_student, @group)
 
     authorize @lesson_user, :easy_complete? # easy.. as we checking with course already
 

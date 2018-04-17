@@ -7,7 +7,7 @@ class CourseUser < ApplicationRecord
 
   enumerate :status
 
-  validates :course_id, uniqueness: { scope: [:user_id] }
+  validates :user_id, uniqueness: { scope: [:course_group_id] }
 
   after_commit { course.reindex async: true }
   after_create_commit { CourseUserJob.perform_later self }

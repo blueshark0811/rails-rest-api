@@ -15,6 +15,8 @@ en:
             created: '%{user} wrote something in the group discussion %{commentable}'
       chat_message:
         created: '%{user} wrote something in chat'
+      course_thread:
+        created: '%{user} created new discussion thread %{thread}'
       lesson_user:
         status:
           completed: 'lesson %{lesson} completed for %{user}'

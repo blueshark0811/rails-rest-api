@@ -9,6 +9,11 @@ class BaseSerializer < ActiveModel::Serializer
     serializer_params[:current_user] || context&.current_user
   end
 
+  def current_student
+    serializer_params[:current_student] || context&.current_student ||
+    current_role == 'student' && current_user
+  end
+
   def current_role
     @current_role ||= serializer_params[:current_role] || current_user&.role(current_organization)
   end

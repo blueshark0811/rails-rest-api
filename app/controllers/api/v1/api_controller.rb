@@ -55,6 +55,7 @@ class Api::V1::ApiController < ActionController::API
       current_course_group: current_course_group,
       current_course: current_course,
       current_group: current_group,
+      current_student: current_student,
       params: params.merge(action: :show)
     }
   end

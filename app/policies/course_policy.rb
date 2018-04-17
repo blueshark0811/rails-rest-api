@@ -38,6 +38,6 @@ class CoursePolicy < OrganizationEntityPolicy
   end
 
   def api_base_attributes
-    super + %i[lesson_users lesson_users_for_current_user course_for_current_user]
+    super + %i[lesson_users lesson_users_for_current_student course_for_current_student]
   end
 end

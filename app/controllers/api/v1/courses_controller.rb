@@ -1,12 +1,18 @@
 # frozen_string_literal: true
 
 class Api::V1::CoursesController < Api::V1::ApiController
-  before_action :set_group, only: %i[index show]
+  before_action :set_group, only: %i[index show switch]
   before_action :set_course, except: %i[index create]
 
   def index
-    @courses = if student?
-      Course.for_student(current_user).page(current_page).per(current_count)
+    @courses = if student? || teacher? && params[:student_id]
+      @current_student = if params[:student_id] 
+        current_organization.students.find(params[:student_id])
+      else
+        current_user
+      end
+      
+      Course.for_student(@current_student).page(current_page).per(current_count)
     else
       order = if Course::SORT_FIELDS.include?(params[:sort_field])
         { params[:sort_field] => sort_flag }
@@ -28,6 +34,17 @@ class Api::V1::CoursesController < Api::V1::ApiController
     end
 
     render_result @courses
+  end
+
+  def switch
+    @current_student = current_organization.students.find(params[:student_id])
+    @course_user = @course.add_student(@current_student, current_course_group)
+
+    authorize @course_user, :easy_switch? # easy.. as we checking with group already
+
+    if (bparams(:active) ? @course_user.active! : @course_user.disabled!)
+      render_result(success: true) else render_error(@course_user)
+    end
   end
 
   def show
@@ -72,6 +89,6 @@ class Api::V1::CoursesController < Api::V1::ApiController
   def set_course
     @course = (@group ? @group.courses : current_organization.courses).find params[:id]
 
-    authorize @course
+    authorize(@course) unless %w(switch).include?(params[:action])
   end
 end

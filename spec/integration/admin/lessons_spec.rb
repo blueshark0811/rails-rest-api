@@ -17,7 +17,7 @@ describe Api::V1::LessonsController do
   }
   end
   let!(:course_id) { course.id }
-  let!(:included_lesson_users_for_current_user){ true }
+  let!(:included_lesson_users_for_current_student){ true }
 
   options = {
     klass: Lesson,
@@ -36,7 +36,7 @@ describe Api::V1::LessonsController do
   crud_show options.merge(description: 'Get info about lesson at specific course',
     additional_parameters: options[:additional_parameters] + [
     {
-      name: :included_lesson_users_for_current_user,
+      name: :included_lesson_users_for_current_student,
       in: :query,
       type: :boolean,
       required: false,

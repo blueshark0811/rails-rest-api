@@ -157,6 +157,8 @@ module ApiSerializer
       cond[:organization_id] = current_organization ? current_organization.id : -1
     when :for_current_user
       cond[:user_id] = current_user ? current_user.id : -1
+    when :for_current_student
+      cond[:user_id] = current_student ? current_student.id : -1
     when :for_current_group
       cond[:group_id] = current_group ? current_group.id : -1
     when :for_current_course

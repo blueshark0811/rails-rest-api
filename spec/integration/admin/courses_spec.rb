@@ -16,7 +16,7 @@ describe Api::V1::CoursesController do
     }
   end
 
-  let!(:included_lesson_users_for_current_user){ true }
+  let!(:included_lesson_users_for_current_student){ true }
   let!(:included_lesson_users){ true }
 
   options = { klass: Course, tag: 'Admin - Course' }

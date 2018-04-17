@@ -15,7 +15,7 @@ class LessonUserPolicy < ApplicationPolicy
 
   def easy_complete?
     (author? && course_group.complete_lesson_can_student?) ||
-      (teacher? && course_group.complete_lesson_can_student?)
+      (teacher? && course_group.complete_lesson_can_teacher?)
   end
 
   def course_group

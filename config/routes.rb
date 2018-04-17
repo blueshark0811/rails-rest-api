@@ -55,6 +55,9 @@ Rails.application.routes.draw do
 
         #for student/teacher
         resources :courses, only: %i[index show] do
+          member do
+            put :switch
+          end
           resources :course_threads
 
           resources :lessons, only: %i[index show] do

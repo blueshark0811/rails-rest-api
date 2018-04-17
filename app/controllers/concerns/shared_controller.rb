@@ -109,6 +109,18 @@ module SharedController
     @current_course_group = current_group.course_groups.find_by(course_id: current_course.id)
   end
 
+  def current_student
+    return @current_student if @current_student
+
+    return unless current_organization
+
+    @current_student = if params[:student_id]
+      current_organization.students.find_by(id: params[:student_id])
+    elsif student?
+      current_user
+    end
+  end
+
   def debug(result)
     if Rails.env.test?
       p '-' * 100

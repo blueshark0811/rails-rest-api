@@ -6,4 +6,8 @@ class CourseUserPolicy < OrganizationEntityPolicy
   def api_base_attributes
     super + [:can_start]
   end
+
+  def easy_switch?
+    admin? || teacher?
+  end
 end

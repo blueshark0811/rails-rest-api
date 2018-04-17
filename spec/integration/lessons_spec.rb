@@ -23,7 +23,7 @@ describe Api::V1::LessonsController do
   end
   let!(:course_id) { course.id }
   let!(:group_id) { group.id }
-  let!(:included_lesson_users_for_current_user){ true }
+  let!(:included_lesson_users_for_current_student){ true }
   let!(:completed){ true }
 
 
@@ -48,7 +48,7 @@ describe Api::V1::LessonsController do
   crud_show options.merge(description: 'Get info about lesson at specific course',
     additional_parameters: options[:additional_parameters] + [
     {
-      name: :included_lesson_users_for_current_user,
+      name: :included_lesson_users_for_current_student,
       in: :query,
       type: :boolean,
       required: false,
@@ -73,7 +73,7 @@ describe Api::V1::LessonsController do
       )
 
       parameter(
-        name: :user_id,
+        name: :student_id,
         in: :query,
         type: :integer,
         required: false,

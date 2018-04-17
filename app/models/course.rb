@@ -29,8 +29,9 @@ class Course < ApplicationRecord
   end
 
   def add_user(user, course_group)
-    course_users.create user: user, course_group: course_group
+    course_users.find_or_create_by user: user, course_group: course_group
   end
+  alias_method :add_student, :add_user
 
   def add_user_to_lessons(user, course_group)
     lessons.each do |lesson|
@@ -50,22 +51,22 @@ class Course < ApplicationRecord
           },
           description: '[USER_ID-GROUP_ID-STATUS]'
         },
-        course_for_current_user: {
+        course_for_current_student: {
           type: :association,
           association: :course_users,
           association_type: :object,
-          modes: [:for_current_course_group, :for_current_user],
+          modes: [:for_current_course_group, :for_current_student],
           for_roles: 'student',
           null: true,
           items: { type: :object, properties: {} },
           description: "information about user's association to this course"
         },
-        lesson_users_for_current_user: {
+        lesson_users_for_current_student: {
           type: :association,
           association: :lesson_users,
           association_type: :array,
-          modes: [:for_current_course_group, :for_current_user],
-          param_conditions: { included_lesson_users_for_current_user: 'true' },
+          modes: [:for_current_course_group, :for_current_student],
+          param_conditions: { included_lesson_users_for_current_student: 'true' },
           null: true,
           items: { type: :object, properties: {} },
           description: 'lesson_users instance(association for lesson in which user participated) for current user and course'

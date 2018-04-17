@@ -21,6 +21,8 @@ class Activity < ApplicationRecord
 
   before_validation :set_default_data, on: :create
 
+  after_create_commit { ActivityJob.perform_later self }
+
   validates :message, presence: true
 
   # as_object should contain i18n path and variables if should be passed to localization
@@ -28,6 +30,26 @@ class Activity < ApplicationRecord
   # teacher_ids: [id, id....]
 
   enumerate :status
+
+  def excluded_from_broadcast?
+    return false unless organization_id
+
+    return false if notifiable_type != 'User'
+
+    organization_user = notifiable.organization_users.find_by(organization_id: organization_id)
+
+    return false unless organization_user
+
+    if !organization_user.activity_course_ids.blank? && course_id
+      return true unless organization_user.activity_course_ids.include?(course_id)
+    end
+
+    if !organization_user.activity_student_ids.blank? && user_id
+      return true unless organization_user.activity_student_ids.include?(user_id)
+    end
+
+    false
+  end
 
   def add_teacher!(user)
     update teacher_ids: (Array(teacher_ids)+[user]).uniq
@@ -51,6 +73,10 @@ class Activity < ApplicationRecord
   end
 
   class << self
+    def mark_as_read teacher, lesson
+      teacher.activities.where(lesson: lesson).update_all status: 'read'
+    end
+
     def additional_attributes
       {
         teachers: {
