@@ -35,7 +35,6 @@ module Enumerable
       before_validation :set_default_enum_fields
     end
 
-
     def enumeration_labels field
       if res = MODELS[name.underscore] && MODELS[name.underscore][field.to_s.pluralize]
         return res

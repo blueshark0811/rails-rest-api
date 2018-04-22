@@ -1,5 +1,5 @@
 module ApiPolicy
-  #for override
+  #for override, #dont use conditions with enviroment variables like admin? student?...
   def api_base_attributes_exclude
     []
   end

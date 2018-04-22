@@ -3,6 +3,9 @@ module Organizations
     extend ActiveSupport::Concern
 
     included do
+      belongs_to :country
+      belongs_to :state
+
       has_many :organization_users, dependent: :destroy
       has_many :users, through: :organization_users
 

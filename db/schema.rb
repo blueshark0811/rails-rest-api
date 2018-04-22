@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180416162518) do
+ActiveRecord::Schema.define(version: 20180420152356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -256,6 +256,20 @@ ActiveRecord::Schema.define(version: 20180416162518) do
     t.string "domain"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "description"
+    t.string "logo"
+    t.string "address"
+    t.string "zip_code"
+    t.string "website"
+    t.string "email"
+    t.string "phone"
+    t.string "language"
+    t.jsonb "notification_settings", default: {"notification_email"=>nil}
+    t.jsonb "display_settings", default: {"display_name"=>nil, "display_type"=>"display_name"}
+    t.bigint "country_id"
+    t.bigint "state_id"
+    t.index ["country_id"], name: "index_organizations_on_country_id"
+    t.index ["state_id"], name: "index_organizations_on_state_id"
   end
 
   create_table "pghero_query_stats", force: :cascade do |t|
@@ -388,6 +402,8 @@ ActiveRecord::Schema.define(version: 20180416162518) do
   add_foreign_key "lessons", "users"
   add_foreign_key "organization_users", "organizations"
   add_foreign_key "organization_users", "users"
+  add_foreign_key "organizations", "countries"
+  add_foreign_key "organizations", "states"
   add_foreign_key "states", "countries"
   add_foreign_key "task_users", "course_groups"
   add_foreign_key "task_users", "tasks"

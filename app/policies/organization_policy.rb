@@ -3,13 +3,14 @@
 class OrganizationPolicy < ApplicationPolicy
   include PolicyHelper::Videoable
   include PolicyHelper::Attachmentable
-  # def permitted_attributes_for_update
-  #   attrs = permitted_attributes_for_create
-  # end
 
-  # def permitted_attributes_for_create
-
-  # end
+  def permitted_attributes
+    %i[
+        address country_id description domain email language
+        logo phone state_id subdomain title website zip_code
+        notification_email display_name display_type
+      ]
+  end
 
   def update?
     super_admin? || author? || admin?

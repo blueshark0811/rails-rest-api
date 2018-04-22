@@ -4,6 +4,7 @@ default: &settings
   host: loc.my
   protocol: http
   port: 4500
+  ip: 127.0.0.1
   error_email: 'info@equipengine.com'
   admin_email: 'info@equipengine.com'
   from_email: 'noreply@equipengine.com'

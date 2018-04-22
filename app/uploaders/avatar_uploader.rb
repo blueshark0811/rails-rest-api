@@ -7,5 +7,4 @@ class AvatarUploader < ImageUploader
   version :middle do
     process resize_to_fill: [98, 98]
   end
-
 end

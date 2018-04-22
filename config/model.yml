@@ -8,6 +8,12 @@ user:
     simple: Simple
     super_admin: Super Admin
 
+organization:
+  languages:
+    en: English
+    ge: German
+    ru: Russian
+
 organization_user:
   roles:
     student: Student

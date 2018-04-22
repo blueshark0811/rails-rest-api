@@ -18,9 +18,11 @@ module Domainable
         define_method validate_method do
           return if !changes[field[:field].to_s] || send(field[:field]).blank?
 
-          if self.class.where(field[:field] => send(field[:field])).exists?
-            errors.add(field[:field], :taken)
-          end
+          scp = self.class.where(field[:field] => send(field[:field]))
+
+          scp = scp.where.not(id: id) unless new_record?
+
+          errors.add(field[:field], :taken) if scp.exists?
         end
       end
     end

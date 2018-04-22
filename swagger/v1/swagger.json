@@ -221,14 +221,14 @@
                     "notifiable_type": "User",
                     "notifiable_id": 1,
                     "message": {
-                      "plain_text": "Excepturi et est et et hic sequi.",
+                      "plain_text": "Magni sit nihil dignissimos aut.",
                       "teacher_ids": [
                         1
                       ]
                     },
                     "status": "pending",
-                    "created_at": "April 17, 2018 10:15",
-                    "updated_at": "April 17, 2018 10:15",
+                    "created_at": "April 22, 2018 09:10",
+                    "updated_at": "April 22, 2018 09:10",
                     "task_id": 1,
                     "lesson_id": 1,
                     "course_id": 1,
@@ -239,18 +239,18 @@
                     "teachers": [
                       {
                         "id": 1,
-                        "first_name": "Ms. Martine Murphy",
-                        "last_name": "Dashawn Kohler",
+                        "first_name": "Kitty Will",
+                        "last_name": "Saul Lakin",
                         "phone_number": "",
                         "date_of_birth": null,
                         "address": "",
-                        "country_id": 1,
-                        "state_id": 1,
+                        "country_id": 3,
+                        "state_id": 2,
                         "zip_code": "",
                         "status": "active",
-                        "created_at": "April 17, 2018 10:15",
-                        "updated_at": "April 17, 2018 10:15",
-                        "email": "leanna.mclaughlin@hickle.name",
+                        "created_at": "April 22, 2018 09:10",
+                        "updated_at": "April 22, 2018 09:10",
+                        "email": "brandy.beier@schaefer.com",
                         "avatar": {
                           "url": null,
                           "small": {
@@ -272,22 +272,15 @@
                           "user_id": 1,
                           "organization_id": 1,
                           "role": "teacher",
-                          "created_at": "April 17, 2018 10:15",
-                          "updated_at": "April 17, 2018 10:15",
+                          "created_at": "April 22, 2018 09:10",
+                          "updated_at": "April 22, 2018 09:10",
                           "status": "active",
                           "exclude_students_ids": [
 
                           ],
-                          "files_controll_enabled": false,
-                          "messanger_access_enabled": false,
-                          "activity_settings": {
-                            "activity_course_ids": [
-
-                            ],
-                            "activity_student_ids": [
-
-                            ]
-                          }
+                          "files_controll_enabled": true,
+                          "messanger_access_enabled": true,
+                          "activity_settings": null
                         }
                       }
                     ],
@@ -295,30 +288,30 @@
                       "id": 1,
                       "commentable_id": 2,
                       "commentable_type": "Group",
-                      "title": "Laudantium voluptate nulla est.",
-                      "body": "Velit adipisci dolores nemo et sed eum. Nihil suscipit dolores tenetur enim. A dolor aut iste corporis in ducimus. Modi vero placeat beatae.",
+                      "title": "Quia voluptas et ratione cum.",
+                      "body": "Sint minima illo in nulla. Est quis sequi. Eum laudantium doloribus quae magni. Sint ratione enim aspernatur sunt soluta aperiam.",
                       "user_id": 5,
                       "root_id": 0,
                       "main_root_id": 1,
-                      "created_at": "April 17, 2018 10:15",
-                      "updated_at": "April 17, 2018 10:15",
+                      "created_at": "April 22, 2018 09:10",
+                      "updated_at": "April 22, 2018 09:10",
                       "tree_path": [
                         "1"
                       ],
                       "user": {
                         "id": 5,
-                        "first_name": "Ms. Martine Murphy",
-                        "last_name": "Dashawn Kohler",
+                        "first_name": "Kitty Will",
+                        "last_name": "Saul Lakin",
                         "phone_number": "",
                         "date_of_birth": null,
                         "address": "",
-                        "country_id": 9,
-                        "state_id": 5,
+                        "country_id": 17,
+                        "state_id": 9,
                         "zip_code": "",
                         "status": "active",
-                        "created_at": "April 17, 2018 10:15",
-                        "updated_at": "April 17, 2018 10:15",
-                        "email": "gene_schultz@rogahnschuster.biz",
+                        "created_at": "April 22, 2018 09:10",
+                        "updated_at": "April 22, 2018 09:10",
+                        "email": "monique@okeefebogisich.net",
                         "avatar": {
                           "url": null,
                           "small": {
@@ -340,18 +333,18 @@
                     },
                     "notifiable": {
                       "id": 1,
-                      "first_name": "Ms. Martine Murphy",
-                      "last_name": "Dashawn Kohler",
+                      "first_name": "Kitty Will",
+                      "last_name": "Saul Lakin",
                       "phone_number": "",
                       "date_of_birth": null,
                       "address": "",
-                      "country_id": 1,
-                      "state_id": 1,
+                      "country_id": 3,
+                      "state_id": 2,
                       "zip_code": "",
                       "status": "active",
-                      "created_at": "April 17, 2018 10:15",
-                      "updated_at": "April 17, 2018 10:15",
-                      "email": "leanna.mclaughlin@hickle.name",
+                      "created_at": "April 22, 2018 09:10",
+                      "updated_at": "April 22, 2018 09:10",
+                      "email": "brandy.beier@schaefer.com",
                       "avatar": {
                         "url": null,
                         "small": {
@@ -373,56 +366,49 @@
                         "user_id": 1,
                         "organization_id": 1,
                         "role": "teacher",
-                        "created_at": "April 17, 2018 10:15",
-                        "updated_at": "April 17, 2018 10:15",
+                        "created_at": "April 22, 2018 09:10",
+                        "updated_at": "April 22, 2018 09:10",
                         "status": "active",
                         "exclude_students_ids": [
 
                         ],
-                        "files_controll_enabled": false,
-                        "messanger_access_enabled": false,
-                        "activity_settings": {
-                          "activity_course_ids": [
-
-                          ],
-                          "activity_student_ids": [
-
-                          ]
-                        }
+                        "files_controll_enabled": true,
+                        "messanger_access_enabled": true,
+                        "activity_settings": null
                       }
                     },
                     "lesson": {
                       "id": 1,
-                      "title": "Wehner LLC",
-                      "description": "embrace next-generation niches",
+                      "title": "Fisher-Batz",
+                      "description": "cultivate e-business channels",
                       "status": "active",
                       "user_id": 4,
                       "course_id": 1,
-                      "created_at": "April 17, 2018 10:15",
-                      "updated_at": "April 17, 2018 10:15",
+                      "created_at": "April 22, 2018 09:10",
+                      "updated_at": "April 22, 2018 09:10",
                       "course_settings": null
                     },
                     "task": {
                       "id": 1,
                       "action_type": "reading",
-                      "description": "Vel cupiditate assumenda reiciendis quisquam numquam qui. In enim quibusdam. Doloribus inventore esse aut quia id totam. Velit incidunt enim itaque temporibus laboriosam.",
+                      "description": "Architecto consequatur magni. Hic pariatur cupiditate reiciendis consequatur mollitia deserunt. Dolorem delectus quo in est at adipisci architecto. Illum dolores quaerat. Qui possimus ut ex eos nulla cumque voluptas.",
                       "lesson_id": 1,
                       "user_id": 1,
-                      "created_at": "April 17, 2018 10:15",
-                      "updated_at": "April 17, 2018 10:15",
+                      "created_at": "April 22, 2018 09:10",
+                      "updated_at": "April 22, 2018 09:10",
                       "task_user": null
                     },
                     "course": {
                       "id": 1,
-                      "title": "Bogisich and Sons",
-                      "description": "expedite ubiquitous infrastructures",
+                      "title": "Block, Tillman and Hudson",
+                      "description": "maximize innovative eyeballs",
                       "image": {
-                        "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/1/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180417T101541Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180417/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=20374e278832ae9694567e041fc20614050e54dc1839ebfff5f099e0f62e1ea9"
+                        "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/1/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091024Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=579749afd10fba56a9b18ac612004433838a7ed76789d75d046ae2f933f348a9"
                       },
                       "user_id": 3,
                       "organization_id": 1,
-                      "created_at": "April 17, 2018 10:15",
-                      "updated_at": "April 17, 2018 10:15",
+                      "created_at": "April 22, 2018 09:10",
+                      "updated_at": "April 22, 2018 09:10",
                       "lessons_count": 1,
                       "group_ids": [
                         1
@@ -434,13 +420,13 @@
                     "group": {
                       "id": 1,
                       "organization_id": 1,
-                      "title": "Wintheiser Group",
-                      "description": "implement real-time systems",
+                      "title": "Bernhard Group",
+                      "description": "generate B2B infrastructures",
                       "status": "active",
                       "user_limit": 10,
                       "visibility": "public",
-                      "created_at": "April 17, 2018 10:15",
-                      "updated_at": "April 17, 2018 10:15",
+                      "created_at": "April 22, 2018 09:10",
+                      "updated_at": "April 22, 2018 09:10",
                       "count_participants": 1,
                       "user_id": 0,
                       "noticeboard_settings": {
@@ -455,18 +441,18 @@
                     },
                     "user": {
                       "id": 2,
-                      "first_name": "Ms. Martine Murphy",
-                      "last_name": "Dashawn Kohler",
+                      "first_name": "Kitty Will",
+                      "last_name": "Saul Lakin",
                       "phone_number": "",
                       "date_of_birth": null,
                       "address": "",
-                      "country_id": 3,
-                      "state_id": 2,
+                      "country_id": 5,
+                      "state_id": 3,
                       "zip_code": "",
                       "status": "active",
-                      "created_at": "April 17, 2018 10:15",
-                      "updated_at": "April 17, 2018 10:15",
-                      "email": "jerry@paucek.com",
+                      "created_at": "April 22, 2018 09:10",
+                      "updated_at": "April 22, 2018 09:10",
+                      "email": "loren@kunde.org",
                       "avatar": {
                         "url": null,
                         "small": {
@@ -488,22 +474,15 @@
                         "user_id": 2,
                         "organization_id": 1,
                         "role": "student",
-                        "created_at": "April 17, 2018 10:15",
-                        "updated_at": "April 17, 2018 10:15",
+                        "created_at": "April 22, 2018 09:10",
+                        "updated_at": "April 22, 2018 09:10",
                         "status": "active",
                         "exclude_students_ids": [
 
                         ],
-                        "files_controll_enabled": false,
-                        "messanger_access_enabled": false,
-                        "activity_settings": {
-                          "activity_course_ids": [
-
-                          ],
-                          "activity_student_ids": [
-
-                          ]
-                        }
+                        "files_controll_enabled": true,
+                        "messanger_access_enabled": true,
+                        "activity_settings": null
                       }
                     }
                   }
@@ -737,14 +716,14 @@
                   "notifiable_type": "User",
                   "notifiable_id": 17,
                   "message": {
-                    "plain_text": "Eligendi qui necessitatibus beatae eveniet ab.",
+                    "plain_text": "Nesciunt dolores animi perspiciatis sed.",
                     "teacher_ids": [
                       17
                     ]
                   },
                   "status": "pending",
-                  "created_at": "April 17, 2018 10:15",
-                  "updated_at": "April 17, 2018 10:15",
+                  "created_at": "April 22, 2018 09:10",
+                  "updated_at": "April 22, 2018 09:10",
                   "task_id": 4,
                   "lesson_id": 4,
                   "course_id": 4,
@@ -755,18 +734,18 @@
                   "teachers": [
                     {
                       "id": 17,
-                      "first_name": "Ms. Martine Murphy",
-                      "last_name": "Dashawn Kohler",
+                      "first_name": "Kitty Will",
+                      "last_name": "Saul Lakin",
                       "phone_number": "",
                       "date_of_birth": null,
                       "address": "",
-                      "country_id": 33,
-                      "state_id": 17,
+                      "country_id": 65,
+                      "state_id": 33,
                       "zip_code": "",
                       "status": "active",
-                      "created_at": "April 17, 2018 10:15",
-                      "updated_at": "April 17, 2018 10:15",
-                      "email": "felton.blanda@herzoggottlieb.com",
+                      "created_at": "April 22, 2018 09:10",
+                      "updated_at": "April 22, 2018 09:10",
+                      "email": "dwight.stiedemann@parisian.org",
                       "avatar": {
                         "url": null,
                         "small": {
@@ -788,22 +767,15 @@
                         "user_id": 17,
                         "organization_id": 16,
                         "role": "teacher",
-                        "created_at": "April 17, 2018 10:15",
-                        "updated_at": "April 17, 2018 10:15",
+                        "created_at": "April 22, 2018 09:10",
+                        "updated_at": "April 22, 2018 09:10",
                         "status": "active",
                         "exclude_students_ids": [
 
                         ],
-                        "files_controll_enabled": false,
-                        "messanger_access_enabled": false,
-                        "activity_settings": {
-                          "activity_course_ids": [
-
-                          ],
-                          "activity_student_ids": [
-
-                          ]
-                        }
+                        "files_controll_enabled": true,
+                        "messanger_access_enabled": true,
+                        "activity_settings": null
                       }
                     }
                   ],
@@ -811,30 +783,30 @@
                     "id": 4,
                     "commentable_id": 8,
                     "commentable_type": "Group",
-                    "title": "Laudantium voluptate nulla est.",
-                    "body": "Velit adipisci dolores nemo et sed eum. Nihil suscipit dolores tenetur enim. A dolor aut iste corporis in ducimus. Modi vero placeat beatae.",
+                    "title": "Quia voluptas et ratione cum.",
+                    "body": "Sint minima illo in nulla. Est quis sequi. Eum laudantium doloribus quae magni. Sint ratione enim aspernatur sunt soluta aperiam.",
                     "user_id": 21,
                     "root_id": 0,
                     "main_root_id": 4,
-                    "created_at": "April 17, 2018 10:15",
-                    "updated_at": "April 17, 2018 10:15",
+                    "created_at": "April 22, 2018 09:10",
+                    "updated_at": "April 22, 2018 09:10",
                     "tree_path": [
                       "4"
                     ],
                     "user": {
                       "id": 21,
-                      "first_name": "Ms. Martine Murphy",
-                      "last_name": "Dashawn Kohler",
+                      "first_name": "Kitty Will",
+                      "last_name": "Saul Lakin",
                       "phone_number": "",
                       "date_of_birth": null,
                       "address": "",
-                      "country_id": 41,
-                      "state_id": 21,
+                      "country_id": 79,
+                      "state_id": 40,
                       "zip_code": "",
                       "status": "active",
-                      "created_at": "April 17, 2018 10:15",
-                      "updated_at": "April 17, 2018 10:15",
-                      "email": "lonzo@goldner.name",
+                      "created_at": "April 22, 2018 09:10",
+                      "updated_at": "April 22, 2018 09:10",
+                      "email": "ayana@huel.info",
                       "avatar": {
                         "url": null,
                         "small": {
@@ -856,18 +828,18 @@
                   },
                   "notifiable": {
                     "id": 17,
-                    "first_name": "Ms. Martine Murphy",
-                    "last_name": "Dashawn Kohler",
+                    "first_name": "Kitty Will",
+                    "last_name": "Saul Lakin",
                     "phone_number": "",
                     "date_of_birth": null,
                     "address": "",
-                    "country_id": 33,
-                    "state_id": 17,
+                    "country_id": 65,
+                    "state_id": 33,
                     "zip_code": "",
                     "status": "active",
-                    "created_at": "April 17, 2018 10:15",
-                    "updated_at": "April 17, 2018 10:15",
-                    "email": "felton.blanda@herzoggottlieb.com",
+                    "created_at": "April 22, 2018 09:10",
+                    "updated_at": "April 22, 2018 09:10",
+                    "email": "dwight.stiedemann@parisian.org",
                     "avatar": {
                       "url": null,
                       "small": {
@@ -889,56 +861,49 @@
                       "user_id": 17,
                       "organization_id": 16,
                       "role": "teacher",
-                      "created_at": "April 17, 2018 10:15",
-                      "updated_at": "April 17, 2018 10:15",
+                      "created_at": "April 22, 2018 09:10",
+                      "updated_at": "April 22, 2018 09:10",
                       "status": "active",
                       "exclude_students_ids": [
 
                       ],
-                      "files_controll_enabled": false,
-                      "messanger_access_enabled": false,
-                      "activity_settings": {
-                        "activity_course_ids": [
-
-                        ],
-                        "activity_student_ids": [
-
-                        ]
-                      }
+                      "files_controll_enabled": true,
+                      "messanger_access_enabled": true,
+                      "activity_settings": null
                     }
                   },
                   "lesson": {
                     "id": 4,
-                    "title": "Wehner LLC",
-                    "description": "embrace next-generation niches",
+                    "title": "Fisher-Batz",
+                    "description": "cultivate e-business channels",
                     "status": "active",
                     "user_id": 20,
                     "course_id": 4,
-                    "created_at": "April 17, 2018 10:15",
-                    "updated_at": "April 17, 2018 10:15",
+                    "created_at": "April 22, 2018 09:10",
+                    "updated_at": "April 22, 2018 09:10",
                     "course_settings": null
                   },
                   "task": {
                     "id": 4,
                     "action_type": "reading",
-                    "description": "Vel cupiditate assumenda reiciendis quisquam numquam qui. In enim quibusdam. Doloribus inventore esse aut quia id totam. Velit incidunt enim itaque temporibus laboriosam.",
+                    "description": "Architecto consequatur magni. Hic pariatur cupiditate reiciendis consequatur mollitia deserunt. Dolorem delectus quo in est at adipisci architecto. Illum dolores quaerat. Qui possimus ut ex eos nulla cumque voluptas.",
                     "lesson_id": 4,
                     "user_id": 17,
-                    "created_at": "April 17, 2018 10:15",
-                    "updated_at": "April 17, 2018 10:15",
+                    "created_at": "April 22, 2018 09:10",
+                    "updated_at": "April 22, 2018 09:10",
                     "task_user": null
                   },
                   "course": {
                     "id": 4,
-                    "title": "Bogisich and Sons",
-                    "description": "expedite ubiquitous infrastructures",
+                    "title": "Block, Tillman and Hudson",
+                    "description": "maximize innovative eyeballs",
                     "image": {
-                      "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/4/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180417T101545Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180417/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=b5528243f2a1dae7077e55cde511ac4e460b9946c6861c2979cc19194a6028df"
+                      "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/4/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091029Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=7e185de56d03e317d27641dd58c6f71ae4db0d88e49d91d2ee201def53709a68"
                     },
                     "user_id": 19,
                     "organization_id": 16,
-                    "created_at": "April 17, 2018 10:15",
-                    "updated_at": "April 17, 2018 10:15",
+                    "created_at": "April 22, 2018 09:10",
+                    "updated_at": "April 22, 2018 09:10",
                     "lessons_count": 1,
                     "group_ids": [
                       7
@@ -950,13 +915,13 @@
                   "group": {
                     "id": 7,
                     "organization_id": 16,
-                    "title": "Wintheiser Group",
-                    "description": "implement real-time systems",
+                    "title": "Bernhard Group",
+                    "description": "generate B2B infrastructures",
                     "status": "active",
                     "user_limit": 10,
                     "visibility": "public",
-                    "created_at": "April 17, 2018 10:15",
-                    "updated_at": "April 17, 2018 10:15",
+                    "created_at": "April 22, 2018 09:10",
+                    "updated_at": "April 22, 2018 09:10",
                     "count_participants": 1,
                     "user_id": 0,
                     "noticeboard_settings": {
@@ -971,18 +936,18 @@
                   },
                   "user": {
                     "id": 18,
-                    "first_name": "Ms. Martine Murphy",
-                    "last_name": "Dashawn Kohler",
+                    "first_name": "Kitty Will",
+                    "last_name": "Saul Lakin",
                     "phone_number": "",
                     "date_of_birth": null,
                     "address": "",
-                    "country_id": 35,
-                    "state_id": 18,
+                    "country_id": 67,
+                    "state_id": 34,
                     "zip_code": "",
                     "status": "active",
-                    "created_at": "April 17, 2018 10:15",
-                    "updated_at": "April 17, 2018 10:15",
-                    "email": "anabelle_boyle@murazik.biz",
+                    "created_at": "April 22, 2018 09:10",
+                    "updated_at": "April 22, 2018 09:10",
+                    "email": "sven@stracke.info",
                     "avatar": {
                       "url": null,
                       "small": {
@@ -1004,22 +969,15 @@
                       "user_id": 18,
                       "organization_id": 16,
                       "role": "student",
-                      "created_at": "April 17, 2018 10:15",
-                      "updated_at": "April 17, 2018 10:15",
+                      "created_at": "April 22, 2018 09:10",
+                      "updated_at": "April 22, 2018 09:10",
                       "status": "active",
                       "exclude_students_ids": [
 
                       ],
-                      "files_controll_enabled": false,
-                      "messanger_access_enabled": false,
-                      "activity_settings": {
-                        "activity_course_ids": [
-
-                        ],
-                        "activity_student_ids": [
-
-                        ]
-                      }
+                      "files_controll_enabled": true,
+                      "messanger_access_enabled": true,
+                      "activity_settings": null
                     }
                   }
                 }
@@ -1464,15 +1422,15 @@
                 "courses": [
                   {
                     "id": 12,
-                    "title": "Bogisich and Sons",
-                    "description": "expedite ubiquitous infrastructures",
+                    "title": "Block, Tillman and Hudson",
+                    "description": "maximize innovative eyeballs",
                     "image": {
-                      "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/12/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180417T101558Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180417/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=12ef865db5d98ed53b5a7531b426fd434be1aee8c6adc278c22715e54b332889"
+                      "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/12/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091042Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=46c88ea921decbb595bbd14e24352812d1ffde27049630b4e85e75ebfede07ba"
                     },
                     "user_id": 62,
                     "organization_id": 60,
-                    "created_at": "2018-04-17T10:15:55.197Z",
-                    "updated_at": "2018-04-17T10:15:55.197Z",
+                    "created_at": "2018-04-22T09:10:41.027Z",
+                    "updated_at": "2018-04-22T09:10:41.027Z",
                     "lessons_count": 0,
                     "group_ids": [
 
@@ -1677,15 +1635,15 @@
               "application/json": {
                 "course": {
                   "id": 20,
-                  "title": "Bogisich and Sons",
-                  "description": "expedite ubiquitous infrastructures",
+                  "title": "Block, Tillman and Hudson",
+                  "description": "maximize innovative eyeballs",
                   "image": {
                     "url": null
                   },
                   "user_id": 77,
                   "organization_id": 74,
-                  "created_at": "April 17, 2018 10:16",
-                  "updated_at": "April 17, 2018 10:16",
+                  "created_at": "April 22, 2018 09:10",
+                  "updated_at": "April 22, 2018 09:10",
                   "lessons_count": 0,
                   "group_ids": [
 
@@ -1858,15 +1816,15 @@
               "application/json": {
                 "course": {
                   "id": 15,
-                  "title": "Bogisich and Sons",
-                  "description": "expedite ubiquitous infrastructures",
+                  "title": "Block, Tillman and Hudson",
+                  "description": "maximize innovative eyeballs",
                   "image": {
-                    "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/15/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180417T101602Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180417/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=e3e4706b2bfbd6ebe6f09bd216ea8b04db54cf0c75d517f76422681b0ba687c6"
+                    "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/15/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091046Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=46a4497e771952c62150d6df3255df436bc2b5b3ec8f48de1dd5368c4b614314"
                   },
                   "user_id": 69,
                   "organization_id": 66,
-                  "created_at": "April 17, 2018 10:16",
-                  "updated_at": "April 17, 2018 10:16",
+                  "created_at": "April 22, 2018 09:10",
+                  "updated_at": "April 22, 2018 09:10",
                   "lessons_count": 0,
                   "group_ids": [
 
@@ -2047,15 +2005,15 @@
               "application/json": {
                 "course": {
                   "id": 23,
-                  "title": "Bogisich and Sons",
-                  "description": "expedite ubiquitous infrastructures",
+                  "title": "Block, Tillman and Hudson",
+                  "description": "maximize innovative eyeballs",
                   "image": {
-                    "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/23/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180417T101610Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180417/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=0e53330d82102afdef205a98c5ea22919d22c5cf8f53d9f6e7446c6a22766664"
+                    "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/23/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091054Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=1b429f2aa4b22dbd96e5e8d28e645788f5f54dd9f362a2052f9f58d3c108bd14"
                   },
                   "user_id": 86,
                   "organization_id": 82,
-                  "created_at": "April 17, 2018 10:16",
-                  "updated_at": "April 17, 2018 10:16",
+                  "created_at": "April 22, 2018 09:10",
+                  "updated_at": "April 22, 2018 09:10",
                   "lessons_count": 0,
                   "group_ids": [
 
@@ -2368,13 +2326,13 @@
                 "lessons": [
                   {
                     "id": 12,
-                    "title": "Wehner LLC",
-                    "description": "embrace next-generation niches",
+                    "title": "Fisher-Batz",
+                    "description": "cultivate e-business channels",
                     "status": "active",
                     "user_id": 106,
                     "course_id": 31,
-                    "created_at": "April 17, 2018 10:16",
-                    "updated_at": "April 17, 2018 10:16",
+                    "created_at": "April 22, 2018 09:11",
+                    "updated_at": "April 22, 2018 09:11",
                     "course_settings": null,
                     "tasks": [
 
@@ -2555,13 +2513,13 @@
               "application/json": {
                 "lesson": {
                   "id": 16,
-                  "title": "Wehner LLC",
-                  "description": "embrace next-generation niches",
+                  "title": "Fisher-Batz",
+                  "description": "cultivate e-business channels",
                   "status": "active",
                   "user_id": 114,
                   "course_id": 34,
-                  "created_at": "April 17, 2018 10:16",
-                  "updated_at": "April 17, 2018 10:16",
+                  "created_at": "April 22, 2018 09:11",
+                  "updated_at": "April 22, 2018 09:11",
                   "course_settings": null,
                   "tasks": [
 
@@ -2717,13 +2675,13 @@
               "application/json": {
                 "lesson": {
                   "id": 19,
-                  "title": "Wehner LLC",
-                  "description": "embrace next-generation niches",
+                  "title": "Fisher-Batz",
+                  "description": "cultivate e-business channels",
                   "status": "active",
                   "user_id": 128,
                   "course_id": 38,
-                  "created_at": "April 17, 2018 10:16",
-                  "updated_at": "April 17, 2018 10:16",
+                  "created_at": "April 22, 2018 09:11",
+                  "updated_at": "April 22, 2018 09:11",
                   "course_settings": null,
                   "tasks": [
 
@@ -2906,13 +2864,13 @@
               "application/json": {
                 "lesson": {
                   "id": 23,
-                  "title": "Wehner LLC",
-                  "description": "embrace next-generation niches",
+                  "title": "Fisher-Batz",
+                  "description": "cultivate e-business channels",
                   "status": "active",
                   "user_id": 141,
                   "course_id": 42,
-                  "created_at": "April 17, 2018 10:16",
-                  "updated_at": "April 17, 2018 10:16",
+                  "created_at": "April 22, 2018 09:11",
+                  "updated_at": "April 22, 2018 09:11",
                   "course_settings": null,
                   "tasks": [
 
@@ -3232,11 +3190,11 @@
                   {
                     "id": 12,
                     "action_type": "reading",
-                    "description": "Vel cupiditate assumenda reiciendis quisquam numquam qui. In enim quibusdam. Doloribus inventore esse aut quia id totam. Velit incidunt enim itaque temporibus laboriosam.",
+                    "description": "Architecto consequatur magni. Hic pariatur cupiditate reiciendis consequatur mollitia deserunt. Dolorem delectus quo in est at adipisci architecto. Illum dolores quaerat. Qui possimus ut ex eos nulla cumque voluptas.",
                     "lesson_id": 31,
                     "user_id": 167,
-                    "created_at": "April 17, 2018 10:16",
-                    "updated_at": "April 17, 2018 10:16",
+                    "created_at": "April 22, 2018 09:11",
+                    "updated_at": "April 22, 2018 09:11",
                     "task_user": null,
                     "attachments": [
 
@@ -3469,11 +3427,11 @@
                 "task": {
                   "id": 20,
                   "action_type": "reading",
-                  "description": "Vel cupiditate assumenda reiciendis quisquam numquam qui. In enim quibusdam. Doloribus inventore esse aut quia id totam. Velit incidunt enim itaque temporibus laboriosam.",
+                  "description": "Architecto consequatur magni. Hic pariatur cupiditate reiciendis consequatur mollitia deserunt. Dolorem delectus quo in est at adipisci architecto. Illum dolores quaerat. Qui possimus ut ex eos nulla cumque voluptas.",
                   "lesson_id": 38,
                   "user_id": 190,
-                  "created_at": "April 17, 2018 10:16",
-                  "updated_at": "April 17, 2018 10:16",
+                  "created_at": "April 22, 2018 09:11",
+                  "updated_at": "April 22, 2018 09:11",
                   "task_user": null,
                   "attachments": [
 
@@ -3629,11 +3587,11 @@
                 "task": {
                   "id": 15,
                   "action_type": "reading",
-                  "description": "Vel cupiditate assumenda reiciendis quisquam numquam qui. In enim quibusdam. Doloribus inventore esse aut quia id totam. Velit incidunt enim itaque temporibus laboriosam.",
+                  "description": "Architecto consequatur magni. Hic pariatur cupiditate reiciendis consequatur mollitia deserunt. Dolorem delectus quo in est at adipisci architecto. Illum dolores quaerat. Qui possimus ut ex eos nulla cumque voluptas.",
                   "lesson_id": 34,
                   "user_id": 177,
-                  "created_at": "April 17, 2018 10:16",
-                  "updated_at": "April 17, 2018 10:16",
+                  "created_at": "April 22, 2018 09:11",
+                  "updated_at": "April 22, 2018 09:11",
                   "task_user": null,
                   "attachments": [
 
@@ -3868,11 +3826,11 @@
                 "task": {
                   "id": 23,
                   "action_type": "reading",
-                  "description": "Vel cupiditate assumenda reiciendis quisquam numquam qui. In enim quibusdam. Doloribus inventore esse aut quia id totam. Velit incidunt enim itaque temporibus laboriosam.",
+                  "description": "Architecto consequatur magni. Hic pariatur cupiditate reiciendis consequatur mollitia deserunt. Dolorem delectus quo in est at adipisci architecto. Illum dolores quaerat. Qui possimus ut ex eos nulla cumque voluptas.",
                   "lesson_id": 42,
                   "user_id": 203,
-                  "created_at": "April 17, 2018 10:16",
-                  "updated_at": "April 17, 2018 10:16",
+                  "created_at": "April 22, 2018 09:11",
+                  "updated_at": "April 22, 2018 09:11",
                   "task_user": null,
                   "attachments": [
 
@@ -4246,26 +4204,26 @@
                 "attachments": [
                   {
                     "id": 1,
-                    "title": "Morissette LLC",
-                    "description": "seize real-time models",
+                    "title": "Schuster Inc",
+                    "description": "enable clicks-and-mortar functionalities",
                     "data": {
-                      "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/attachment/data/1/data.jpeg?X-Amz-Expires=600&X-Amz-Date=20180417T101707Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180417/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=27806bfd3e947eb813540d7c3659aea956cfcc8c0095417bd3ce3e89dfe53bf4"
+                      "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/attachment/data/1/data.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091152Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=b4ef6ce1bbaaad8984ffcb4507d43bb2ada185c445151b740a8f47053d5a8a72"
                     },
                     "user_id": 232,
                     "organization_id": 222,
-                    "created_at": "April 17, 2018 10:17",
-                    "updated_at": "April 17, 2018 10:17",
+                    "created_at": "April 22, 2018 09:11",
+                    "updated_at": "April 22, 2018 09:11",
                     "attachmentable_type": "Task",
                     "attachmentable_id": 31,
                     "file_name": null,
                     "attachmentable": {
                       "id": 31,
                       "action_type": "question",
-                      "description": "Vel cupiditate assumenda reiciendis quisquam numquam qui. In enim quibusdam. Doloribus inventore esse aut quia id totam. Velit incidunt enim itaque temporibus laboriosam.",
+                      "description": "Architecto consequatur magni. Hic pariatur cupiditate reiciendis consequatur mollitia deserunt. Dolorem delectus quo in est at adipisci architecto. Illum dolores quaerat. Qui possimus ut ex eos nulla cumque voluptas.",
                       "lesson_id": 51,
                       "user_id": 235,
-                      "created_at": "April 17, 2018 10:17",
-                      "updated_at": "April 17, 2018 10:17",
+                      "created_at": "April 22, 2018 09:11",
+                      "updated_at": "April 22, 2018 09:11",
                       "task_user": null,
                       "attachments": [
                         {
@@ -4477,23 +4435,23 @@
                   "title": "",
                   "description": null,
                   "data": {
-                    "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/attachment/data/5/data.jpeg?X-Amz-Expires=600&X-Amz-Date=20180417T101715Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180417/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=f221fc4dd03db2c1f43d647a3bc2d75623eedc044d4dca0af55fcb3f73d85b11"
+                    "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/attachment/data/5/data.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091202Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=b1b1ffa8ef01fde2e648caed496a67fc70df490b4752f28cae9e39b79233f214"
                   },
                   "user_id": 245,
                   "organization_id": 234,
-                  "created_at": "April 17, 2018 10:17",
-                  "updated_at": "April 17, 2018 10:17",
+                  "created_at": "April 22, 2018 09:12",
+                  "updated_at": "April 22, 2018 09:12",
                   "attachmentable_type": "Task",
                   "attachmentable_id": 34,
                   "file_name": null,
                   "attachmentable": {
                     "id": 34,
                     "action_type": "question",
-                    "description": "Vel cupiditate assumenda reiciendis quisquam numquam qui. In enim quibusdam. Doloribus inventore esse aut quia id totam. Velit incidunt enim itaque temporibus laboriosam.",
+                    "description": "Architecto consequatur magni. Hic pariatur cupiditate reiciendis consequatur mollitia deserunt. Dolorem delectus quo in est at adipisci architecto. Illum dolores quaerat. Qui possimus ut ex eos nulla cumque voluptas.",
                     "lesson_id": 54,
                     "user_id": 248,
-                    "created_at": "April 17, 2018 10:17",
-                    "updated_at": "April 17, 2018 10:17",
+                    "created_at": "April 22, 2018 09:11",
+                    "updated_at": "April 22, 2018 09:11",
                     "task_user": null,
                     "attachments": [
                       {
@@ -4684,25 +4642,30 @@
               "application/json": {
                 "attachment": {
                   "id": 8,
-                  "title": "Morissette LLC",
-                  "description": "seize real-time models",
+                  "title": "Schuster Inc",
+                  "description": "enable clicks-and-mortar functionalities",
                   "data": {
-                    "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/attachment/data/8/data.jpeg?X-Amz-Expires=600&X-Amz-Date=20180417T101722Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180417/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=d5f50d9fdc2084c414ff6b30016a4436ff4b8feb58fc2bd6d98bad5035867585"
+                    "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/attachment/data/8/data.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091208Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=20ba73556c51b9ae8c328d4b3b95b9dd832056132cde5c3b2e48e0fbd0a66876"
                   },
                   "user_id": 259,
                   "organization_id": 249,
-                  "created_at": "April 17, 2018 10:17",
-                  "updated_at": "April 17, 2018 10:17",
+                  "created_at": "April 22, 2018 09:12",
+                  "updated_at": "April 22, 2018 09:12",
                   "attachmentable_type": "Organization",
                   "attachmentable_id": 255,
                   "file_name": null,
                   "attachmentable": {
-                    "id": 255,
-                    "title": "Ratke-Heathcote",
-                    "subdomain": "colekeler255",
-                    "domain": "ivmcculloughcrona.name",
-                    "created_at": "April 17, 2018 10:17",
-                    "updated_at": "April 17, 2018 10:17"
+                    "title": "Crooks Inc",
+                    "subdomain": "lubowitz255",
+                    "domain": "ivbednar.net",
+                    "description": "Bahringer Group",
+                    "logo": "",
+                    "address": "Bergnaum-Bogan",
+                    "zip_code": "Sauer, O'Keefe and Rodriguez",
+                    "website": "mccullough.biz",
+                    "email": "eden_flatley@emard.co",
+                    "phone": "Hyatt, O'Hara and Graham",
+                    "language": "ru"
                   }
                 }
               }
@@ -5016,21 +4979,21 @@
                     "id": 1,
                     "user_id": 295,
                     "chat_id": 1,
-                    "message": "Dolorum vero iste aut omnis. Molestias tempora voluptas. Et aliquam nemo officia qui quo. Accusamus voluptatem doloremque debitis architecto vitae. Atque dolores amet repellat voluptatem beatae suscipit.",
-                    "created_at": "April 17, 2018 10:17",
-                    "updated_at": "April 17, 2018 10:17",
+                    "message": "Necessitatibus ut voluptas amet et et iusto. At odio minima fugit fugiat et nihil qui. Quisquam sed vel repudiandae magnam molestias. Tenetur deserunt molestiae laudantium possimus voluptas quia aut.",
+                    "created_at": "April 22, 2018 09:12",
+                    "updated_at": "April 22, 2018 09:12",
                     "attachments": [
                       {
                         "id": 16,
-                        "title": "Morissette LLC",
-                        "description": "seize real-time models",
+                        "title": "Schuster Inc",
+                        "description": "enable clicks-and-mortar functionalities",
                         "data": {
-                          "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/attachment/data/16/data.jpeg?X-Amz-Expires=600&X-Amz-Date=20180417T101739Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180417/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=f5d1a2cd2aacc8e427a1390ea5759a410828cd45a482c5b505f2f9d812bda61c"
+                          "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/attachment/data/16/data.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091224Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=461d0106254b90f51a23883045bd5a52e1f7de686b9fc7b9732163a2874b02bb"
                         },
                         "user_id": 294,
                         "organization_id": 284,
-                        "created_at": "April 17, 2018 10:17",
-                        "updated_at": "April 17, 2018 10:17",
+                        "created_at": "April 22, 2018 09:12",
+                        "updated_at": "April 22, 2018 09:12",
                         "attachmentable_type": "ChatMessage",
                         "attachmentable_id": 1,
                         "file_name": null
@@ -5193,9 +5156,9 @@
                   "id": 5,
                   "user_id": 301,
                   "chat_id": 4,
-                  "message": "Dolorum vero iste aut omnis. Molestias tempora voluptas. Et aliquam nemo officia qui quo. Accusamus voluptatem doloremque debitis architecto vitae. Atque dolores amet repellat voluptatem beatae suscipit.",
-                  "created_at": "April 17, 2018 10:17",
-                  "updated_at": "April 17, 2018 10:17",
+                  "message": "Necessitatibus ut voluptas amet et et iusto. At odio minima fugit fugiat et nihil qui. Quisquam sed vel repudiandae magnam molestias. Tenetur deserunt molestiae laudantium possimus voluptas quia aut.",
+                  "created_at": "April 22, 2018 09:12",
+                  "updated_at": "April 22, 2018 09:12",
                   "attachments": [
 
                   ]
@@ -5332,21 +5295,21 @@
                   "id": 8,
                   "user_id": 310,
                   "chat_id": 8,
-                  "message": "Dolorum vero iste aut omnis. Molestias tempora voluptas. Et aliquam nemo officia qui quo. Accusamus voluptatem doloremque debitis architecto vitae. Atque dolores amet repellat voluptatem beatae suscipit.",
-                  "created_at": "April 17, 2018 10:17",
-                  "updated_at": "April 17, 2018 10:17",
+                  "message": "Necessitatibus ut voluptas amet et et iusto. At odio minima fugit fugiat et nihil qui. Quisquam sed vel repudiandae magnam molestias. Tenetur deserunt molestiae laudantium possimus voluptas quia aut.",
+                  "created_at": "April 22, 2018 09:12",
+                  "updated_at": "April 22, 2018 09:12",
                   "attachments": [
                     {
                       "id": 22,
-                      "title": "Morissette LLC",
-                      "description": "seize real-time models",
+                      "title": "Schuster Inc",
+                      "description": "enable clicks-and-mortar functionalities",
                       "data": {
-                        "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/attachment/data/22/data.jpeg?X-Amz-Expires=600&X-Amz-Date=20180417T101745Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180417/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=2cf5b823ba514fc0c3ec99eb26b5c2fd6ca15a44829033bd31dc2ca2cfab418e"
+                        "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/attachment/data/22/data.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091231Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=bb8fa55a02913de171fb6f08f0c2479f153763f2542d0ef328c9c404d0b853cc"
                       },
                       "user_id": 309,
                       "organization_id": 298,
-                      "created_at": "April 17, 2018 10:17",
-                      "updated_at": "April 17, 2018 10:17",
+                      "created_at": "April 22, 2018 09:12",
+                      "updated_at": "April 22, 2018 09:12",
                       "attachmentable_type": "ChatMessage",
                       "attachmentable_id": 8,
                       "file_name": null
@@ -5627,77 +5590,24 @@
                 "chat": {
                   "id": 18,
                   "title": "",
-                  "created_at": "April 17, 2018 10:17",
-                  "updated_at": "April 17, 2018 10:17",
+                  "created_at": "April 22, 2018 09:12",
+                  "updated_at": "April 22, 2018 09:12",
                   "organization_id": 316,
                   "users": [
                     {
-                      "id": 329,
-                      "first_name": "Ms. Martine Murphy",
-                      "last_name": "Dashawn Kohler",
-                      "phone_number": "",
-                      "date_of_birth": null,
-                      "address": "",
-                      "country_id": 657,
-                      "state_id": 329,
-                      "zip_code": "",
-                      "status": "active",
-                      "created_at": "April 17, 2018 10:17",
-                      "updated_at": "April 17, 2018 10:17",
-                      "email": "aleandra_murazik@harris.net",
-                      "avatar": {
-                        "url": null,
-                        "small": {
-                          "url": null
-                        },
-                        "middle": {
-                          "url": null
-                        }
-                      },
-                      "organization_ids": [
-                        316
-                      ],
-                      "roles": null,
-                      "group_ids": [
-
-                      ],
-                      "organization_settings": {
-                        "id": 303,
-                        "user_id": 329,
-                        "organization_id": 316,
-                        "role": "admin",
-                        "created_at": "April 17, 2018 10:17",
-                        "updated_at": "April 17, 2018 10:17",
-                        "status": "active",
-                        "exclude_students_ids": [
-
-                        ],
-                        "files_controll_enabled": false,
-                        "messanger_access_enabled": false,
-                        "activity_settings": {
-                          "activity_course_ids": [
-
-                          ],
-                          "activity_student_ids": [
-
-                          ]
-                        }
-                      }
-                    },
-                    {
                       "id": 328,
-                      "first_name": "Ms. Martine Murphy",
-                      "last_name": "Dashawn Kohler",
+                      "first_name": "Kitty Will",
+                      "last_name": "Saul Lakin",
                       "phone_number": "",
                       "date_of_birth": null,
                       "address": "",
-                      "country_id": 655,
-                      "state_id": 328,
+                      "country_id": 1285,
+                      "state_id": 643,
                       "zip_code": "",
                       "status": "active",
-                      "created_at": "April 17, 2018 10:17",
-                      "updated_at": "April 17, 2018 10:17",
-                      "email": "german@funkkuphal.net",
+                      "created_at": "April 22, 2018 09:12",
+                      "updated_at": "April 22, 2018 09:12",
+                      "email": "gillian@ruelwalter.com",
                       "avatar": {
                         "url": null,
                         "small": {
@@ -5719,22 +5629,61 @@
                         "user_id": 328,
                         "organization_id": 316,
                         "role": "admin",
-                        "created_at": "April 17, 2018 10:17",
-                        "updated_at": "April 17, 2018 10:17",
+                        "created_at": "April 22, 2018 09:12",
+                        "updated_at": "April 22, 2018 09:12",
                         "status": "active",
                         "exclude_students_ids": [
 
                         ],
-                        "files_controll_enabled": false,
-                        "messanger_access_enabled": false,
-                        "activity_settings": {
-                          "activity_course_ids": [
-
-                          ],
-                          "activity_student_ids": [
-
-                          ]
+                        "files_controll_enabled": true,
+                        "messanger_access_enabled": true,
+                        "activity_settings": null
+                      }
+                    },
+                    {
+                      "id": 329,
+                      "first_name": "Kitty Will",
+                      "last_name": "Saul Lakin",
+                      "phone_number": "",
+                      "date_of_birth": null,
+                      "address": "",
+                      "country_id": 1289,
+                      "state_id": 645,
+                      "zip_code": "",
+                      "status": "active",
+                      "created_at": "April 22, 2018 09:12",
+                      "updated_at": "April 22, 2018 09:12",
+                      "email": "alaina_lang@rolfson.info",
+                      "avatar": {
+                        "url": null,
+                        "small": {
+                          "url": null
+                        },
+                        "middle": {
+                          "url": null
                         }
+                      },
+                      "organization_ids": [
+                        316
+                      ],
+                      "roles": null,
+                      "group_ids": [
+
+                      ],
+                      "organization_settings": {
+                        "id": 303,
+                        "user_id": 329,
+                        "organization_id": 316,
+                        "role": "admin",
+                        "created_at": "April 22, 2018 09:12",
+                        "updated_at": "April 22, 2018 09:12",
+                        "status": "active",
+                        "exclude_students_ids": [
+
+                        ],
+                        "files_controll_enabled": true,
+                        "messanger_access_enabled": true,
+                        "activity_settings": null
                       }
                     }
                   ]
@@ -5871,9 +5820,9 @@
                 "chats": [
                   {
                     "id": 21,
-                    "title": "Aspernatur et explicabo dolor rem dolore.",
-                    "created_at": "April 17, 2018 10:17",
-                    "updated_at": "April 17, 2018 10:17",
+                    "title": "Provident tempora impedit saepe ea ipsum dolorem aut.",
+                    "created_at": "April 22, 2018 09:12",
+                    "updated_at": "April 22, 2018 09:12",
                     "organization_id": 319,
                     "users": [
 
@@ -6002,9 +5951,9 @@
               "application/json": {
                 "chat": {
                   "id": 24,
-                  "title": "Aspernatur et explicabo dolor rem dolore.",
-                  "created_at": "April 17, 2018 10:17",
-                  "updated_at": "April 17, 2018 10:17",
+                  "title": "Provident tempora impedit saepe ea ipsum dolorem aut.",
+                  "created_at": "April 22, 2018 09:12",
+                  "updated_at": "April 22, 2018 09:12",
                   "organization_id": 322,
                   "users": [
 
@@ -6157,9 +6106,9 @@
               "application/json": {
                 "chat": {
                   "id": 28,
-                  "title": "Aspernatur et explicabo dolor rem dolore.",
-                  "created_at": "April 17, 2018 10:17",
-                  "updated_at": "April 17, 2018 10:17",
+                  "title": "Provident tempora impedit saepe ea ipsum dolorem aut.",
+                  "created_at": "April 22, 2018 09:12",
+                  "updated_at": "April 22, 2018 09:12",
                   "organization_id": 326,
                   "users": [
 
@@ -6430,22 +6379,22 @@
                 "cities": [
                   {
                     "id": 1,
-                    "name": "Lake Kamillefurt",
-                    "state_id": 355,
-                    "created_at": "April 17, 2018 10:17",
-                    "updated_at": "April 17, 2018 10:17",
+                    "name": "Wilkinsonbury",
+                    "state_id": 690,
+                    "created_at": "April 22, 2018 09:12",
+                    "updated_at": "April 22, 2018 09:12",
                     "state": {
-                      "id": 355,
-                      "name": "Virginia",
-                      "country_id": 710,
-                      "code": "MD",
-                      "created_at": "April 17, 2018 10:17",
-                      "updated_at": "April 17, 2018 10:17",
+                      "id": 690,
+                      "name": "Nebraska",
+                      "country_id": 1380,
+                      "code": "AL",
+                      "created_at": "April 22, 2018 09:12",
+                      "updated_at": "April 22, 2018 09:12",
                       "country": {
-                        "id": 710,
-                        "code": "GM",
-                        "name": "Philippines",
-                        "phonecode": 242
+                        "id": 1380,
+                        "code": "CG",
+                        "name": "Tuvalu",
+                        "phonecode": 896
                       }
                     }
                   }
@@ -6516,22 +6465,22 @@
               "application/json": {
                 "city": {
                   "id": 2,
-                  "name": "Leannonport",
-                  "state_id": 357,
-                  "created_at": "April 17, 2018 10:17",
-                  "updated_at": "April 17, 2018 10:17",
+                  "name": "New Maryam",
+                  "state_id": 693,
+                  "created_at": "April 22, 2018 09:12",
+                  "updated_at": "April 22, 2018 09:12",
                   "state": {
-                    "id": 357,
-                    "name": "Florida",
-                    "country_id": 714,
-                    "code": "MD",
-                    "created_at": "April 17, 2018 10:17",
-                    "updated_at": "April 17, 2018 10:17",
+                    "id": 693,
+                    "name": "Maryland",
+                    "country_id": 1386,
+                    "code": "AL",
+                    "created_at": "April 22, 2018 09:12",
+                    "updated_at": "April 22, 2018 09:12",
                     "country": {
-                      "id": 714,
-                      "code": "GM",
-                      "name": "Iran",
-                      "phonecode": 242
+                      "id": 1386,
+                      "code": "CG",
+                      "name": "Republic of Korea",
+                      "phonecode": 896
                     }
                   }
                 }
@@ -6698,30 +6647,30 @@
                     "id": 13,
                     "commentable_id": 39,
                     "commentable_type": "Group",
-                    "title": "Laudantium voluptate nulla est.",
-                    "body": "Velit adipisci dolores nemo et sed eum. Nihil suscipit dolores tenetur enim. A dolor aut iste corporis in ducimus. Modi vero placeat beatae.",
+                    "title": "Quia voluptas et ratione cum.",
+                    "body": "Sint minima illo in nulla. Est quis sequi. Eum laudantium doloribus quae magni. Sint ratione enim aspernatur sunt soluta aperiam.",
                     "user_id": 357,
                     "root_id": 0,
                     "main_root_id": 13,
-                    "created_at": "April 17, 2018 10:17",
-                    "updated_at": "April 17, 2018 10:17",
+                    "created_at": "April 22, 2018 09:12",
+                    "updated_at": "April 22, 2018 09:12",
                     "tree_path": [
                       "13"
                     ],
                     "user": {
                       "id": 357,
-                      "first_name": "Ms. Martine Murphy",
-                      "last_name": "Dashawn Kohler",
+                      "first_name": "Kitty Will",
+                      "last_name": "Saul Lakin",
                       "phone_number": "",
                       "date_of_birth": null,
                       "address": "",
-                      "country_id": 719,
-                      "state_id": 360,
+                      "country_id": 1395,
+                      "state_id": 698,
                       "zip_code": "",
                       "status": "active",
-                      "created_at": "April 17, 2018 10:17",
-                      "updated_at": "April 17, 2018 10:17",
-                      "email": "nettie.johnston@mills.name",
+                      "created_at": "April 22, 2018 09:12",
+                      "updated_at": "April 22, 2018 09:12",
+                      "email": "syble@dibbertgulgowski.name",
                       "avatar": {
                         "url": null,
                         "small": {
@@ -6743,22 +6692,15 @@
                         "user_id": 357,
                         "organization_id": 338,
                         "role": "student",
-                        "created_at": "April 17, 2018 10:17",
-                        "updated_at": "April 17, 2018 10:17",
+                        "created_at": "April 22, 2018 09:12",
+                        "updated_at": "April 22, 2018 09:12",
                         "status": "active",
                         "exclude_students_ids": [
 
                         ],
-                        "files_controll_enabled": false,
-                        "messanger_access_enabled": false,
-                        "activity_settings": {
-                          "activity_course_ids": [
-
-                          ],
-                          "activity_student_ids": [
-
-                          ]
-                        }
+                        "files_controll_enabled": true,
+                        "messanger_access_enabled": true,
+                        "activity_settings": null
                       }
                     }
                   }
@@ -6956,30 +6898,30 @@
                   "id": 17,
                   "commentable_id": 42,
                   "commentable_type": "Group",
-                  "title": "Laudantium voluptate nulla est.",
-                  "body": "Velit adipisci dolores nemo et sed eum. Nihil suscipit dolores tenetur enim. A dolor aut iste corporis in ducimus. Modi vero placeat beatae.",
+                  "title": "Quia voluptas et ratione cum.",
+                  "body": "Sint minima illo in nulla. Est quis sequi. Eum laudantium doloribus quae magni. Sint ratione enim aspernatur sunt soluta aperiam.",
                   "user_id": 361,
                   "root_id": 0,
                   "main_root_id": 0,
-                  "created_at": "April 17, 2018 10:17",
-                  "updated_at": "April 17, 2018 10:17",
+                  "created_at": "April 22, 2018 09:12",
+                  "updated_at": "April 22, 2018 09:12",
                   "tree_path": [
 
                   ],
                   "user": {
                     "id": 361,
-                    "first_name": "Ms. Martine Murphy",
-                    "last_name": "Dashawn Kohler",
+                    "first_name": "Kitty Will",
+                    "last_name": "Saul Lakin",
                     "phone_number": "",
                     "date_of_birth": null,
                     "address": "",
-                    "country_id": 727,
-                    "state_id": 364,
+                    "country_id": 1409,
+                    "state_id": 705,
                     "zip_code": "",
                     "status": "active",
-                    "created_at": "April 17, 2018 10:17",
-                    "updated_at": "April 17, 2018 10:17",
-                    "email": "faye@koelpinhane.info",
+                    "created_at": "April 22, 2018 09:12",
+                    "updated_at": "April 22, 2018 09:12",
+                    "email": "pamela@vonrueden.io",
                     "avatar": {
                       "url": null,
                       "small": {
@@ -7001,22 +6943,15 @@
                       "user_id": 361,
                       "organization_id": 341,
                       "role": "student",
-                      "created_at": "April 17, 2018 10:17",
-                      "updated_at": "April 17, 2018 10:17",
+                      "created_at": "April 22, 2018 09:12",
+                      "updated_at": "April 22, 2018 09:12",
                       "status": "active",
                       "exclude_students_ids": [
 
                       ],
-                      "files_controll_enabled": false,
-                      "messanger_access_enabled": false,
-                      "activity_settings": {
-                        "activity_course_ids": [
-
-                        ],
-                        "activity_student_ids": [
-
-                        ]
-                      }
+                      "files_controll_enabled": true,
+                      "messanger_access_enabled": true,
+                      "activity_settings": null
                     }
                   }
                 }
@@ -7187,30 +7122,30 @@
                   "id": 20,
                   "commentable_id": 46,
                   "commentable_type": "Group",
-                  "title": "Laudantium voluptate nulla est.",
-                  "body": "Velit adipisci dolores nemo et sed eum. Nihil suscipit dolores tenetur enim. A dolor aut iste corporis in ducimus. Modi vero placeat beatae.",
+                  "title": "Quia voluptas et ratione cum.",
+                  "body": "Sint minima illo in nulla. Est quis sequi. Eum laudantium doloribus quae magni. Sint ratione enim aspernatur sunt soluta aperiam.",
                   "user_id": 366,
                   "root_id": 0,
                   "main_root_id": 20,
-                  "created_at": "April 17, 2018 10:17",
-                  "updated_at": "April 17, 2018 10:17",
+                  "created_at": "April 22, 2018 09:12",
+                  "updated_at": "April 22, 2018 09:12",
                   "tree_path": [
                     "20"
                   ],
                   "user": {
                     "id": 366,
-                    "first_name": "Ms. Martine Murphy",
-                    "last_name": "Dashawn Kohler",
+                    "first_name": "Kitty Will",
+                    "last_name": "Saul Lakin",
                     "phone_number": "",
                     "date_of_birth": null,
                     "address": "",
-                    "country_id": 737,
-                    "state_id": 369,
+                    "country_id": 1429,
+                    "state_id": 715,
                     "zip_code": "",
                     "status": "active",
-                    "created_at": "April 17, 2018 10:17",
-                    "updated_at": "April 17, 2018 10:17",
-                    "email": "mariam_lang@altenwerth.biz",
+                    "created_at": "April 22, 2018 09:12",
+                    "updated_at": "April 22, 2018 09:12",
+                    "email": "santino.jakubowski@reichert.net",
                     "avatar": {
                       "url": null,
                       "small": {
@@ -7232,22 +7167,15 @@
                       "user_id": 366,
                       "organization_id": 346,
                       "role": "student",
-                      "created_at": "April 17, 2018 10:17",
-                      "updated_at": "April 17, 2018 10:17",
+                      "created_at": "April 22, 2018 09:12",
+                      "updated_at": "April 22, 2018 09:12",
                       "status": "active",
                       "exclude_students_ids": [
 
                       ],
-                      "files_controll_enabled": false,
-                      "messanger_access_enabled": false,
-                      "activity_settings": {
-                        "activity_course_ids": [
-
-                        ],
-                        "activity_student_ids": [
-
-                        ]
-                      }
+                      "files_controll_enabled": true,
+                      "messanger_access_enabled": true,
+                      "activity_settings": null
                     }
                   }
                 }
@@ -7530,27 +7458,39 @@
               "application/json": {
                 "countries": [
                   {
-                    "id": 759,
-                    "code": "GM",
-                    "name": "United States of America",
-                    "phonecode": 242
+                    "id": 1469,
+                    "code": "CG",
+                    "name": "Norway",
+                    "phonecode": 896
                   },
                   {
-                    "id": 760,
-                    "code": "GM",
-                    "name": "Iran",
-                    "phonecode": 242
+                    "id": 1470,
+                    "code": "CG",
+                    "name": "Cyprus",
+                    "phonecode": 896
                   },
                   {
-                    "id": 761,
-                    "code": "GM",
-                    "name": "Cocos (Keeling) Islands",
-                    "phonecode": 242
+                    "id": 1471,
+                    "code": "CG",
+                    "name": "Switzerland",
+                    "phonecode": 896
+                  },
+                  {
+                    "id": 1472,
+                    "code": "CG",
+                    "name": "Saint Pierre and Miquelon",
+                    "phonecode": 896
+                  },
+                  {
+                    "id": 1473,
+                    "code": "CG",
+                    "name": "Gambia",
+                    "phonecode": 896
                   }
                 ],
                 "meta": {
                   "total_pages": 1,
-                  "size": 3,
+                  "size": 5,
                   "limit_value": 20,
                   "current_page": 1
                 }
@@ -7611,10 +7551,10 @@
             "examples": {
               "application/json": {
                 "country": {
-                  "id": 764,
-                  "code": "GM",
-                  "name": "Somalia",
-                  "phonecode": 242
+                  "id": 1478,
+                  "code": "CG",
+                  "name": "Svalbard & Jan Mayen Islands",
+                  "phonecode": 896
                 }
               }
             }
@@ -7776,8 +7716,8 @@
                     "discussing_enabled": true,
                     "student_content_enabled": true,
                     "status": "active",
-                    "created_at": "April 17, 2018 10:18",
-                    "updated_at": "April 17, 2018 10:18"
+                    "created_at": "April 22, 2018 09:12",
+                    "updated_at": "April 22, 2018 09:12"
                   }
                 ],
                 "meta": {
@@ -8005,8 +7945,8 @@
                   "discussing_enabled": true,
                   "student_content_enabled": true,
                   "status": "active",
-                  "created_at": "April 17, 2018 10:18",
-                  "updated_at": "April 17, 2018 10:18"
+                  "created_at": "April 22, 2018 09:12",
+                  "updated_at": "April 22, 2018 09:12"
                 }
               }
             }
@@ -8214,8 +8154,8 @@
                   "discussing_enabled": true,
                   "student_content_enabled": true,
                   "status": "active",
-                  "created_at": "April 17, 2018 10:18",
-                  "updated_at": "April 17, 2018 10:18"
+                  "created_at": "April 22, 2018 09:13",
+                  "updated_at": "April 22, 2018 09:13"
                 }
               }
             }
@@ -8553,41 +8493,41 @@
                 "course_threads": [
                   {
                     "id": 1,
-                    "title": "Voluptatibus repudiandae cum nihil laudantium rerum.",
+                    "title": "Et voluptatem enim debitis qui vel.",
                     "user_id": 430,
                     "comments_count": 0,
-                    "created_at": "April 17, 2018 10:18",
-                    "updated_at": "April 17, 2018 10:18",
+                    "created_at": "April 22, 2018 09:13",
+                    "updated_at": "April 22, 2018 09:13",
                     "last_activity_at": null,
                     "course_group_id": 41,
                     "last_comment": {
                       "id": 28,
                       "commentable_id": 1,
                       "commentable_type": "CourseThread",
-                      "title": "Laudantium voluptate nulla est.",
-                      "body": "Velit adipisci dolores nemo et sed eum. Nihil suscipit dolores tenetur enim. A dolor aut iste corporis in ducimus. Modi vero placeat beatae.",
+                      "title": "Quia voluptas et ratione cum.",
+                      "body": "Sint minima illo in nulla. Est quis sequi. Eum laudantium doloribus quae magni. Sint ratione enim aspernatur sunt soluta aperiam.",
                       "user_id": 430,
                       "root_id": 0,
                       "main_root_id": 28,
-                      "created_at": "April 17, 2018 10:18",
-                      "updated_at": "April 17, 2018 10:18",
+                      "created_at": "April 22, 2018 09:13",
+                      "updated_at": "April 22, 2018 09:13",
                       "tree_path": [
                         "28"
                       ],
                       "user": {
                         "id": 430,
-                        "first_name": "Ms. Martine Murphy",
-                        "last_name": "Dashawn Kohler",
+                        "first_name": "Kitty Will",
+                        "last_name": "Saul Lakin",
                         "phone_number": "",
                         "date_of_birth": null,
                         "address": "",
-                        "country_id": 868,
-                        "state_id": 433,
+                        "country_id": 1718,
+                        "state_id": 858,
                         "zip_code": "",
                         "status": "active",
-                        "created_at": "April 17, 2018 10:18",
-                        "updated_at": "April 17, 2018 10:18",
-                        "email": "heloise@johnson.biz",
+                        "created_at": "April 22, 2018 09:13",
+                        "updated_at": "April 22, 2018 09:13",
+                        "email": "delphine@beatty.org",
                         "avatar": {
                           "url": null,
                           "small": {
@@ -8609,39 +8549,32 @@
                           "user_id": 430,
                           "organization_id": 425,
                           "role": "student",
-                          "created_at": "April 17, 2018 10:18",
-                          "updated_at": "April 17, 2018 10:18",
+                          "created_at": "April 22, 2018 09:13",
+                          "updated_at": "April 22, 2018 09:13",
                           "status": "active",
                           "exclude_students_ids": [
 
                           ],
-                          "files_controll_enabled": false,
-                          "messanger_access_enabled": false,
-                          "activity_settings": {
-                            "activity_course_ids": [
-
-                            ],
-                            "activity_student_ids": [
-
-                            ]
-                          }
+                          "files_controll_enabled": true,
+                          "messanger_access_enabled": true,
+                          "activity_settings": null
                         }
                       }
                     },
                     "user": {
                       "id": 430,
-                      "first_name": "Ms. Martine Murphy",
-                      "last_name": "Dashawn Kohler",
+                      "first_name": "Kitty Will",
+                      "last_name": "Saul Lakin",
                       "phone_number": "",
                       "date_of_birth": null,
                       "address": "",
-                      "country_id": 868,
-                      "state_id": 433,
+                      "country_id": 1718,
+                      "state_id": 858,
                       "zip_code": "",
                       "status": "active",
-                      "created_at": "April 17, 2018 10:18",
-                      "updated_at": "April 17, 2018 10:18",
-                      "email": "heloise@johnson.biz",
+                      "created_at": "April 22, 2018 09:13",
+                      "updated_at": "April 22, 2018 09:13",
+                      "email": "delphine@beatty.org",
                       "avatar": {
                         "url": null,
                         "small": {
@@ -8663,22 +8596,15 @@
                         "user_id": 430,
                         "organization_id": 425,
                         "role": "student",
-                        "created_at": "April 17, 2018 10:18",
-                        "updated_at": "April 17, 2018 10:18",
+                        "created_at": "April 22, 2018 09:13",
+                        "updated_at": "April 22, 2018 09:13",
                         "status": "active",
                         "exclude_students_ids": [
 
                         ],
-                        "files_controll_enabled": false,
-                        "messanger_access_enabled": false,
-                        "activity_settings": {
-                          "activity_course_ids": [
-
-                          ],
-                          "activity_student_ids": [
-
-                          ]
-                        }
+                        "files_controll_enabled": true,
+                        "messanger_access_enabled": true,
+                        "activity_settings": null
                       }
                     }
                   }
@@ -8846,28 +8772,28 @@
               "application/json": {
                 "course_thread": {
                   "id": 9,
-                  "title": "Reprehenderit voluptas tempora vel quisquam sit exercitationem occaecati ipsa.",
+                  "title": "Culpa sed corporis debitis.",
                   "user_id": 446,
                   "comments_count": 0,
-                  "created_at": "April 17, 2018 10:18",
-                  "updated_at": "April 17, 2018 10:18",
+                  "created_at": "April 22, 2018 09:13",
+                  "updated_at": "April 22, 2018 09:13",
                   "last_activity_at": null,
                   "course_group_id": 48,
                   "last_comment": null,
                   "user": {
                     "id": 446,
-                    "first_name": "Ms. Martine Murphy",
-                    "last_name": "Dashawn Kohler",
+                    "first_name": "Kitty Will",
+                    "last_name": "Saul Lakin",
                     "phone_number": "",
                     "date_of_birth": null,
                     "address": "",
-                    "country_id": 900,
-                    "state_id": 449,
+                    "country_id": 1778,
+                    "state_id": 888,
                     "zip_code": "",
                     "status": "active",
-                    "created_at": "April 17, 2018 10:18",
-                    "updated_at": "April 17, 2018 10:18",
-                    "email": "mallie.brekke@bogisich.info",
+                    "created_at": "April 22, 2018 09:13",
+                    "updated_at": "April 22, 2018 09:13",
+                    "email": "josiane@mertzdavis.biz",
                     "avatar": {
                       "url": null,
                       "small": {
@@ -8889,22 +8815,15 @@
                       "user_id": 446,
                       "organization_id": 439,
                       "role": "student",
-                      "created_at": "April 17, 2018 10:18",
-                      "updated_at": "April 17, 2018 10:18",
+                      "created_at": "April 22, 2018 09:13",
+                      "updated_at": "April 22, 2018 09:13",
                       "status": "active",
                       "exclude_students_ids": [
 
                       ],
-                      "files_controll_enabled": false,
-                      "messanger_access_enabled": false,
-                      "activity_settings": {
-                        "activity_course_ids": [
-
-                        ],
-                        "activity_student_ids": [
-
-                        ]
-                      }
+                      "files_controll_enabled": true,
+                      "messanger_access_enabled": true,
+                      "activity_settings": null
                     }
                   }
                 }
@@ -9052,41 +8971,41 @@
               "application/json": {
                 "course_thread": {
                   "id": 4,
-                  "title": "Dolores quis cumque est magnam.",
+                  "title": "Assumenda voluptas itaque ducimus laborum iusto.",
                   "user_id": 437,
                   "comments_count": 0,
-                  "created_at": "April 17, 2018 10:18",
-                  "updated_at": "April 17, 2018 10:18",
+                  "created_at": "April 22, 2018 09:13",
+                  "updated_at": "April 22, 2018 09:13",
                   "last_activity_at": null,
                   "course_group_id": 44,
                   "last_comment": {
                     "id": 31,
                     "commentable_id": 4,
                     "commentable_type": "CourseThread",
-                    "title": "Laudantium voluptate nulla est.",
-                    "body": "Velit adipisci dolores nemo et sed eum. Nihil suscipit dolores tenetur enim. A dolor aut iste corporis in ducimus. Modi vero placeat beatae.",
+                    "title": "Quia voluptas et ratione cum.",
+                    "body": "Sint minima illo in nulla. Est quis sequi. Eum laudantium doloribus quae magni. Sint ratione enim aspernatur sunt soluta aperiam.",
                     "user_id": 437,
                     "root_id": 0,
                     "main_root_id": 31,
-                    "created_at": "April 17, 2018 10:18",
-                    "updated_at": "April 17, 2018 10:18",
+                    "created_at": "April 22, 2018 09:13",
+                    "updated_at": "April 22, 2018 09:13",
                     "tree_path": [
                       "31"
                     ],
                     "user": {
                       "id": 437,
-                      "first_name": "Ms. Martine Murphy",
-                      "last_name": "Dashawn Kohler",
+                      "first_name": "Kitty Will",
+                      "last_name": "Saul Lakin",
                       "phone_number": "",
                       "date_of_birth": null,
                       "address": "",
-                      "country_id": 882,
-                      "state_id": 440,
+                      "country_id": 1744,
+                      "state_id": 871,
                       "zip_code": "",
                       "status": "active",
-                      "created_at": "April 17, 2018 10:18",
-                      "updated_at": "April 17, 2018 10:18",
-                      "email": "newton@goodwin.com",
+                      "created_at": "April 22, 2018 09:13",
+                      "updated_at": "April 22, 2018 09:13",
+                      "email": "felicity.wuckert@huelstreich.name",
                       "avatar": {
                         "url": null,
                         "small": {
@@ -9108,39 +9027,32 @@
                         "user_id": 437,
                         "organization_id": 431,
                         "role": "student",
-                        "created_at": "April 17, 2018 10:18",
-                        "updated_at": "April 17, 2018 10:18",
+                        "created_at": "April 22, 2018 09:13",
+                        "updated_at": "April 22, 2018 09:13",
                         "status": "active",
                         "exclude_students_ids": [
 
                         ],
-                        "files_controll_enabled": false,
-                        "messanger_access_enabled": false,
-                        "activity_settings": {
-                          "activity_course_ids": [
-
-                          ],
-                          "activity_student_ids": [
-
-                          ]
-                        }
+                        "files_controll_enabled": true,
+                        "messanger_access_enabled": true,
+                        "activity_settings": null
                       }
                     }
                   },
                   "user": {
                     "id": 437,
-                    "first_name": "Ms. Martine Murphy",
-                    "last_name": "Dashawn Kohler",
+                    "first_name": "Kitty Will",
+                    "last_name": "Saul Lakin",
                     "phone_number": "",
                     "date_of_birth": null,
                     "address": "",
-                    "country_id": 882,
-                    "state_id": 440,
+                    "country_id": 1744,
+                    "state_id": 871,
                     "zip_code": "",
                     "status": "active",
-                    "created_at": "April 17, 2018 10:18",
-                    "updated_at": "April 17, 2018 10:18",
-                    "email": "newton@goodwin.com",
+                    "created_at": "April 22, 2018 09:13",
+                    "updated_at": "April 22, 2018 09:13",
+                    "email": "felicity.wuckert@huelstreich.name",
                     "avatar": {
                       "url": null,
                       "small": {
@@ -9162,22 +9074,15 @@
                       "user_id": 437,
                       "organization_id": 431,
                       "role": "student",
-                      "created_at": "April 17, 2018 10:18",
-                      "updated_at": "April 17, 2018 10:18",
+                      "created_at": "April 22, 2018 09:13",
+                      "updated_at": "April 22, 2018 09:13",
                       "status": "active",
                       "exclude_students_ids": [
 
                       ],
-                      "files_controll_enabled": false,
-                      "messanger_access_enabled": false,
-                      "activity_settings": {
-                        "activity_course_ids": [
-
-                        ],
-                        "activity_student_ids": [
-
-                        ]
-                      }
+                      "files_controll_enabled": true,
+                      "messanger_access_enabled": true,
+                      "activity_settings": null
                     }
                   }
                 }
@@ -9340,41 +9245,41 @@
               "application/json": {
                 "course_thread": {
                   "id": 12,
-                  "title": "Illo et quibusdam molestiae ea aut rerum consequatur.",
+                  "title": "Ad delectus dolores odio recusandae voluptates eum.",
                   "user_id": 456,
                   "comments_count": 0,
-                  "created_at": "April 17, 2018 10:18",
-                  "updated_at": "April 17, 2018 10:18",
+                  "created_at": "April 22, 2018 09:13",
+                  "updated_at": "April 22, 2018 09:13",
                   "last_activity_at": null,
                   "course_group_id": 52,
                   "last_comment": {
                     "id": 38,
                     "commentable_id": 12,
                     "commentable_type": "CourseThread",
-                    "title": "Laudantium voluptate nulla est.",
-                    "body": "Velit adipisci dolores nemo et sed eum. Nihil suscipit dolores tenetur enim. A dolor aut iste corporis in ducimus. Modi vero placeat beatae.",
+                    "title": "Quia voluptas et ratione cum.",
+                    "body": "Sint minima illo in nulla. Est quis sequi. Eum laudantium doloribus quae magni. Sint ratione enim aspernatur sunt soluta aperiam.",
                     "user_id": 456,
                     "root_id": 0,
                     "main_root_id": 38,
-                    "created_at": "April 17, 2018 10:18",
-                    "updated_at": "April 17, 2018 10:18",
+                    "created_at": "April 22, 2018 09:13",
+                    "updated_at": "April 22, 2018 09:13",
                     "tree_path": [
                       "38"
                     ],
                     "user": {
                       "id": 456,
-                      "first_name": "Ms. Martine Murphy",
-                      "last_name": "Dashawn Kohler",
+                      "first_name": "Kitty Will",
+                      "last_name": "Saul Lakin",
                       "phone_number": "",
                       "date_of_birth": null,
                       "address": "",
-                      "country_id": 920,
-                      "state_id": 459,
+                      "country_id": 1822,
+                      "state_id": 910,
                       "zip_code": "",
                       "status": "active",
-                      "created_at": "April 17, 2018 10:18",
-                      "updated_at": "April 17, 2018 10:18",
-                      "email": "rebeka@brekke.biz",
+                      "created_at": "April 22, 2018 09:13",
+                      "updated_at": "April 22, 2018 09:13",
+                      "email": "shad@beerhane.org",
                       "avatar": {
                         "url": null,
                         "small": {
@@ -9396,39 +9301,32 @@
                         "user_id": 456,
                         "organization_id": 451,
                         "role": "student",
-                        "created_at": "April 17, 2018 10:18",
-                        "updated_at": "April 17, 2018 10:18",
+                        "created_at": "April 22, 2018 09:13",
+                        "updated_at": "April 22, 2018 09:13",
                         "status": "active",
                         "exclude_students_ids": [
 
                         ],
-                        "files_controll_enabled": false,
-                        "messanger_access_enabled": false,
-                        "activity_settings": {
-                          "activity_course_ids": [
-
-                          ],
-                          "activity_student_ids": [
-
-                          ]
-                        }
+                        "files_controll_enabled": true,
+                        "messanger_access_enabled": true,
+                        "activity_settings": null
                       }
                     }
                   },
                   "user": {
                     "id": 456,
-                    "first_name": "Ms. Martine Murphy",
-                    "last_name": "Dashawn Kohler",
+                    "first_name": "Kitty Will",
+                    "last_name": "Saul Lakin",
                     "phone_number": "",
                     "date_of_birth": null,
                     "address": "",
-                    "country_id": 920,
-                    "state_id": 459,
+                    "country_id": 1822,
+                    "state_id": 910,
                     "zip_code": "",
                     "status": "active",
-                    "created_at": "April 17, 2018 10:18",
-                    "updated_at": "April 17, 2018 10:18",
-                    "email": "rebeka@brekke.biz",
+                    "created_at": "April 22, 2018 09:13",
+                    "updated_at": "April 22, 2018 09:13",
+                    "email": "shad@beerhane.org",
                     "avatar": {
                       "url": null,
                       "small": {
@@ -9450,22 +9348,15 @@
                       "user_id": 456,
                       "organization_id": 451,
                       "role": "student",
-                      "created_at": "April 17, 2018 10:18",
-                      "updated_at": "April 17, 2018 10:18",
+                      "created_at": "April 22, 2018 09:13",
+                      "updated_at": "April 22, 2018 09:13",
                       "status": "active",
                       "exclude_students_ids": [
 
                       ],
-                      "files_controll_enabled": false,
-                      "messanger_access_enabled": false,
-                      "activity_settings": {
-                        "activity_course_ids": [
-
-                        ],
-                        "activity_student_ids": [
-
-                        ]
-                      }
+                      "files_controll_enabled": true,
+                      "messanger_access_enabled": true,
+                      "activity_settings": null
                     }
                   }
                 }
@@ -9864,15 +9755,15 @@
                 "courses": [
                   {
                     "id": 140,
-                    "title": "Bogisich and Sons",
-                    "description": "expedite ubiquitous infrastructures",
+                    "title": "Block, Tillman and Hudson",
+                    "description": "maximize innovative eyeballs",
                     "image": {
-                      "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/140/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180417T101903Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180417/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=cd32b9026cd2a103d9cc90ac9c617b102acc2e0dbeb22028181e9f45b223d1de"
+                      "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/140/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091347Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=a57ad314d553f3c2c2792a1a977086bcf550fda9f4ecf2e5ecf0011227d8e979"
                     },
                     "user_id": 481,
                     "organization_id": 473,
-                    "created_at": "April 17, 2018 10:19",
-                    "updated_at": "April 17, 2018 10:19",
+                    "created_at": "April 22, 2018 09:13",
+                    "updated_at": "April 22, 2018 09:13",
                     "lessons_count": 0,
                     "group_ids": [
                       91
@@ -9889,15 +9780,15 @@
                   },
                   {
                     "id": 139,
-                    "title": "Bogisich and Sons",
-                    "description": "expedite ubiquitous infrastructures",
+                    "title": "Block, Tillman and Hudson",
+                    "description": "maximize innovative eyeballs",
                     "image": {
-                      "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/139/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180417T101903Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180417/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=8b941dd06785c80ee64943e753c0a85e3254f98eb9c59141f84bd19580685862"
+                      "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/139/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091347Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=b790a9788229989b5bfa0a339aa866334c67aa98267a6d86c943882334c722f8"
                     },
                     "user_id": 478,
                     "organization_id": 473,
-                    "created_at": "April 17, 2018 10:19",
-                    "updated_at": "April 17, 2018 10:19",
+                    "created_at": "April 22, 2018 09:13",
+                    "updated_at": "April 22, 2018 09:13",
                     "lessons_count": 1,
                     "group_ids": [
                       91
@@ -10089,15 +9980,15 @@
               "application/json": {
                 "course": {
                   "id": 145,
-                  "title": "Bogisich and Sons",
-                  "description": "expedite ubiquitous infrastructures",
+                  "title": "Block, Tillman and Hudson",
+                  "description": "maximize innovative eyeballs",
                   "image": {
-                    "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/145/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180417T101911Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180417/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=8cca95db162e63614b9d327a364c2f63babb955f3831f6016a4324acfad92524"
+                    "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/145/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091509Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=3c299a72f6af4e7033a9354e5147e5f9bf5bf846c6cabecf8517546e5f689f9e"
                   },
                   "user_id": 494,
                   "organization_id": 485,
-                  "created_at": "April 17, 2018 10:19",
-                  "updated_at": "April 17, 2018 10:19",
+                  "created_at": "April 22, 2018 09:13",
+                  "updated_at": "April 22, 2018 09:13",
                   "lessons_count": 1,
                   "group_ids": [
                     94
@@ -10378,15 +10269,15 @@
                 "group_users": [
                   {
                     "id": 74,
-                    "first_name": "Ms. Martine Murphy",
-                    "last_name": "Dashawn Kohler",
+                    "first_name": "Kitty Will",
+                    "last_name": "Saul Lakin",
                     "role": "",
                     "organization_id": 505
                   },
                   {
                     "id": 75,
-                    "first_name": "Ms. Martine Murphy",
-                    "last_name": "Dashawn Kohler",
+                    "first_name": "Kitty Will",
+                    "last_name": "Saul Lakin",
                     "role": "admin",
                     "organization_id": 505
                   }
@@ -10554,11 +10445,11 @@
                   "id": 82,
                   "user_id": 526,
                   "group_id": 102,
-                  "created_at": "April 17, 2018 10:19",
-                  "updated_at": "April 17, 2018 10:19",
+                  "created_at": "April 22, 2018 09:15",
+                  "updated_at": "April 22, 2018 09:15",
                   "status": "active",
-                  "first_name": "Ms. Martine Murphy",
-                  "last_name": "Dashawn Kohler",
+                  "first_name": "Kitty Will",
+                  "last_name": "Saul Lakin",
                   "role": "admin",
                   "organization_id": 511
                 }
@@ -10702,11 +10593,11 @@
                   "id": 87,
                   "user_id": 535,
                   "group_id": 106,
-                  "created_at": "April 17, 2018 10:19",
-                  "updated_at": "April 17, 2018 10:19",
+                  "created_at": "April 22, 2018 09:15",
+                  "updated_at": "April 22, 2018 09:15",
                   "status": "active",
-                  "first_name": "Ms. Martine Murphy",
-                  "last_name": "Dashawn Kohler",
+                  "first_name": "Kitty Will",
+                  "last_name": "Saul Lakin",
                   "role": "",
                   "organization_id": 519
                 }
@@ -11201,13 +11092,13 @@
                   {
                     "id": 118,
                     "organization_id": 543,
-                    "title": "Wintheiser Group",
-                    "description": "implement real-time systems",
+                    "title": "Bernhard Group",
+                    "description": "generate B2B infrastructures",
                     "status": "active",
                     "user_limit": 10,
                     "visibility": "public",
-                    "created_at": "April 17, 2018 10:19",
-                    "updated_at": "April 17, 2018 10:19",
+                    "created_at": "April 22, 2018 09:15",
+                    "updated_at": "April 22, 2018 09:15",
                     "count_participants": 1,
                     "user_id": 0,
                     "noticeboard_settings": {
@@ -11222,11 +11113,11 @@
                       "id": 109,
                       "user_id": 560,
                       "group_id": 118,
-                      "created_at": "April 17, 2018 10:19",
-                      "updated_at": "April 17, 2018 10:19",
+                      "created_at": "April 22, 2018 09:15",
+                      "updated_at": "April 22, 2018 09:15",
                       "status": "active",
-                      "first_name": "Ms. Martine Murphy",
-                      "last_name": "Dashawn Kohler",
+                      "first_name": "Kitty Will",
+                      "last_name": "Saul Lakin",
                       "role": "admin",
                       "organization_id": 543
                     }
@@ -11450,13 +11341,13 @@
                 "group": {
                   "id": 126,
                   "organization_id": 550,
-                  "title": "Wintheiser Group",
-                  "description": "implement real-time systems",
+                  "title": "Bernhard Group",
+                  "description": "generate B2B infrastructures",
                   "status": "active",
                   "user_limit": 10,
                   "visibility": "public",
-                  "created_at": "April 17, 2018 10:19",
-                  "updated_at": "April 17, 2018 10:19",
+                  "created_at": "April 22, 2018 09:15",
+                  "updated_at": "April 22, 2018 09:15",
                   "count_participants": 0,
                   "user_id": 569,
                   "noticeboard_settings": {
@@ -11632,13 +11523,13 @@
                 "group": {
                   "id": 121,
                   "organization_id": 546,
-                  "title": "Wintheiser Group",
-                  "description": "implement real-time systems",
+                  "title": "Bernhard Group",
+                  "description": "generate B2B infrastructures",
                   "status": "active",
                   "user_limit": 10,
                   "visibility": "public",
-                  "created_at": "April 17, 2018 10:19",
-                  "updated_at": "April 17, 2018 10:19",
+                  "created_at": "April 22, 2018 09:15",
+                  "updated_at": "April 22, 2018 09:15",
                   "count_participants": 1,
                   "user_id": 0,
                   "noticeboard_settings": {
@@ -11653,11 +11544,11 @@
                     "id": 112,
                     "user_id": 564,
                     "group_id": 121,
-                    "created_at": "April 17, 2018 10:19",
-                    "updated_at": "April 17, 2018 10:19",
+                    "created_at": "April 22, 2018 09:15",
+                    "updated_at": "April 22, 2018 09:15",
                     "status": "active",
-                    "first_name": "Ms. Martine Murphy",
-                    "last_name": "Dashawn Kohler",
+                    "first_name": "Kitty Will",
+                    "last_name": "Saul Lakin",
                     "role": "admin",
                     "organization_id": 546
                   }
@@ -11867,13 +11758,13 @@
                 "group": {
                   "id": 129,
                   "organization_id": 554,
-                  "title": "Wintheiser Group",
-                  "description": "implement real-time systems",
+                  "title": "Bernhard Group",
+                  "description": "generate B2B infrastructures",
                   "status": "active",
                   "user_limit": 10,
                   "visibility": "public",
-                  "created_at": "April 17, 2018 10:19",
-                  "updated_at": "April 17, 2018 10:19",
+                  "created_at": "April 22, 2018 09:15",
+                  "updated_at": "April 22, 2018 09:15",
                   "count_participants": 1,
                   "user_id": 0,
                   "noticeboard_settings": {
@@ -11888,11 +11779,11 @@
                     "id": 119,
                     "user_id": 573,
                     "group_id": 129,
-                    "created_at": "April 17, 2018 10:19",
-                    "updated_at": "April 17, 2018 10:19",
+                    "created_at": "April 22, 2018 09:15",
+                    "updated_at": "April 22, 2018 09:15",
                     "status": "active",
-                    "first_name": "Ms. Martine Murphy",
-                    "last_name": "Dashawn Kohler",
+                    "first_name": "Kitty Will",
+                    "last_name": "Saul Lakin",
                     "role": "admin",
                     "organization_id": 554
                   }
@@ -12207,13 +12098,13 @@
                 "lessons": [
                   {
                     "id": 73,
-                    "title": "Wehner LLC",
-                    "description": "embrace next-generation niches",
+                    "title": "Fisher-Batz",
+                    "description": "cultivate e-business channels",
                     "status": "active",
                     "user_id": 585,
                     "course_id": 155,
-                    "created_at": "April 17, 2018 10:19",
-                    "updated_at": "April 17, 2018 10:19",
+                    "created_at": "April 22, 2018 09:15",
+                    "updated_at": "April 22, 2018 09:15",
                     "course_settings": {
                       "id": 77,
                       "course_id": 155,
@@ -12225,8 +12116,8 @@
                       "discussing_enabled": true,
                       "student_content_enabled": true,
                       "status": "active",
-                      "created_at": "April 17, 2018 10:19",
-                      "updated_at": "April 17, 2018 10:19"
+                      "created_at": "April 22, 2018 09:15",
+                      "updated_at": "April 22, 2018 09:15"
                     },
                     "tasks": [
 
@@ -12395,13 +12286,13 @@
               "application/json": {
                 "lesson": {
                   "id": 76,
-                  "title": "Wehner LLC",
-                  "description": "embrace next-generation niches",
+                  "title": "Fisher-Batz",
+                  "description": "cultivate e-business channels",
                   "status": "active",
                   "user_id": 595,
                   "course_id": 158,
-                  "created_at": "April 17, 2018 10:19",
-                  "updated_at": "April 17, 2018 10:19",
+                  "created_at": "April 22, 2018 09:15",
+                  "updated_at": "April 22, 2018 09:15",
                   "course_settings": {
                     "id": 80,
                     "course_id": 158,
@@ -12413,8 +12304,8 @@
                     "discussing_enabled": true,
                     "student_content_enabled": true,
                     "status": "active",
-                    "created_at": "April 17, 2018 10:19",
-                    "updated_at": "April 17, 2018 10:19"
+                    "created_at": "April 22, 2018 09:15",
+                    "updated_at": "April 22, 2018 09:15"
                   },
                   "tasks": [
 
@@ -12566,6 +12457,1015 @@
             "examples": {
               "application/json": {
                 "success": true
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/organization_users": {
+      "post": {
+        "summary": "Create OrganizationUser",
+        "tags": [
+          "OrganizationUsers"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "organization_user": {
+                  "type": "object",
+                  "properties": {
+                    "role": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "student",
+                        "teacher",
+                        "admin"
+                      ]
+                    },
+                    "status": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "active",
+                        "suspended"
+                      ]
+                    },
+                    "exclude_students_ids": {
+                      "type": "array",
+                      "x-nullable": true,
+                      "items": {
+                        "type": "integer",
+                        "properties": {
+                        }
+                      }
+                    },
+                    "files_controll_enabled": {
+                      "type": "boolean",
+                      "x-nullable": true
+                    },
+                    "messanger_access_enabled": {
+                      "type": "boolean",
+                      "x-nullable": true
+                    },
+                    "activity_course_ids": {
+                      "type": "array",
+                      "x-nullable": true,
+                      "items": {
+                        "type": "integer",
+                        "properties": {
+                        }
+                      }
+                    },
+                    "activity_student_ids": {
+                      "type": "array",
+                      "x-nullable": true,
+                      "items": {
+                        "type": "integer",
+                        "properties": {
+                        }
+                      }
+                    },
+                    "user_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "organization_user"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns created object",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "organization_user": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "user_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "organization_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "role": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "student",
+                        "teacher",
+                        "admin"
+                      ]
+                    },
+                    "created_at": {
+                      "type": "datetime"
+                    },
+                    "updated_at": {
+                      "type": "datetime"
+                    },
+                    "status": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "active",
+                        "suspended"
+                      ]
+                    },
+                    "exclude_students_ids": {
+                      "type": "array",
+                      "x-nullable": true,
+                      "items": {
+                        "type": "integer",
+                        "properties": {
+                        }
+                      }
+                    },
+                    "files_controll_enabled": {
+                      "type": "boolean",
+                      "x-nullable": true
+                    },
+                    "messanger_access_enabled": {
+                      "type": "boolean",
+                      "x-nullable": true
+                    },
+                    "activity_settings": {
+                      "type": "jsonb",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "organization_user"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "organization_user": {
+                  "id": 553,
+                  "user_id": 610,
+                  "organization_id": 587,
+                  "role": "admin",
+                  "created_at": "April 22, 2018 09:15",
+                  "updated_at": "April 22, 2018 09:15",
+                  "status": "active",
+                  "exclude_students_ids": [
+
+                  ],
+                  "files_controll_enabled": true,
+                  "messanger_access_enabled": true,
+                  "activity_settings": {
+                    "activity_course_ids": [
+
+                    ],
+                    "activity_student_ids": [
+
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/organization_users/{id}": {
+      "delete": {
+        "summary": "Delete OrganizationUser",
+        "tags": [
+          "OrganizationUsers"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "deleting OrganizationUser account",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "value": true
+                }
+              },
+              "required": [
+                "success"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "success": true
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "returns error if instance not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": "",
+                "errors": [
+                  "Couldn't find OrganizationUser with 'id'=0 [WHERE \"organization_users\".\"organization_id\" = $1]"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/organizations/{id}": {
+      "get": {
+        "summary": "Details of Organization",
+        "tags": [
+          "Organizations"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns as object",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "organization": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "title": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "subdomain": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "domain": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "created_at": {
+                      "type": "datetime"
+                    },
+                    "updated_at": {
+                      "type": "datetime"
+                    },
+                    "description": {
+                      "type": "text",
+                      "x-nullable": true
+                    },
+                    "logo": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "address": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "zip_code": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "website": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "email": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "phone": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "language": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "en",
+                        "ge",
+                        "ru"
+                      ]
+                    },
+                    "notification_settings": {
+                      "type": "jsonb",
+                      "x-nullable": true
+                    },
+                    "display_settings": {
+                      "type": "jsonb",
+                      "x-nullable": true
+                    },
+                    "country_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "state_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "organization"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "organization": {
+                  "id": 596,
+                  "title": "Crooks Inc",
+                  "subdomain": "gaylord596",
+                  "domain": "vypollich.co",
+                  "created_at": "2018-04-22T09:15:38.239Z",
+                  "updated_at": "2018-04-22T09:15:38.239Z",
+                  "description": "Bahringer Group",
+                  "logo": "",
+                  "address": "Bergnaum-Bogan",
+                  "zip_code": "Sauer, O'Keefe and Rodriguez",
+                  "website": "mccullough.biz",
+                  "email": "eden_flatley@emard.co",
+                  "phone": "Hyatt, O'Hara and Graham",
+                  "language": "ru",
+                  "notification_settings": {
+                    "notification_email": "alexys@hegmanntillman.org"
+                  },
+                  "display_settings": {
+                    "display_name": "Wisoky-Lueilwitz",
+                    "display_type": "display_name"
+                  },
+                  "country_id": 2436,
+                  "state_id": 1217
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "returns error if instance not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": "",
+                "errors": [
+                  "Couldn't find Organization with 'id'=0"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update details of Organization",
+        "tags": [
+          "Organizations"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "organization": {
+                  "type": "object",
+                  "properties": {
+                    "address": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "country_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "description": {
+                      "type": "text",
+                      "x-nullable": true
+                    },
+                    "domain": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "email": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "language": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "en",
+                        "ge",
+                        "ru"
+                      ]
+                    },
+                    "logo": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "phone": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "state_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "subdomain": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "title": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "website": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "zip_code": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "notification_email": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "display_name": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "display_type": {
+                      "type": "string",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "organization"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns data",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "organization": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "title": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "subdomain": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "domain": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "created_at": {
+                      "type": "datetime"
+                    },
+                    "updated_at": {
+                      "type": "datetime"
+                    },
+                    "description": {
+                      "type": "text",
+                      "x-nullable": true
+                    },
+                    "logo": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "address": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "zip_code": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "website": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "email": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "phone": {
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "language": {
+                      "type": "string",
+                      "x-nullable": true,
+                      "enum": [
+                        "en",
+                        "ge",
+                        "ru"
+                      ]
+                    },
+                    "notification_settings": {
+                      "type": "jsonb",
+                      "x-nullable": true
+                    },
+                    "display_settings": {
+                      "type": "jsonb",
+                      "x-nullable": true
+                    },
+                    "country_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    },
+                    "state_id": {
+                      "type": "integer",
+                      "x-nullable": true
+                    }
+                  }
+                }
+              },
+              "required": [
+                "organization"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "organization": {
+                  "id": 600,
+                  "title": "Crooks Inc",
+                  "subdomain": "ernser601",
+                  "domain": "wdmedhurst.info",
+                  "created_at": "2018-04-22T09:15:38.597Z",
+                  "updated_at": "2018-04-22T09:15:38.676Z",
+                  "description": "Bahringer Group",
+                  "logo": "",
+                  "address": "Bergnaum-Bogan",
+                  "zip_code": "Sauer, O'Keefe and Rodriguez",
+                  "website": "mccullough.biz",
+                  "email": "eden_flatley@emard.co",
+                  "phone": "Hyatt, O'Hara and Graham",
+                  "language": "ru",
+                  "notification_settings": {
+                    "notification_email": "gavin@dubuque.info"
+                  },
+                  "display_settings": {
+                    "display_name": "Corkery, Schuster and Graham",
+                    "display_type": "display_name"
+                  },
+                  "country_id": 2458,
+                  "state_id": 1228
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "returns error if instance not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": "",
+                "errors": [
+                  "Couldn't find Organization with 'id'=0"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Organization",
+        "tags": [
+          "Organizations"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "deleting Organization account",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "value": true
+                }
+              },
+              "required": [
+                "success"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "success": true
+              }
+            }
+          },
+          "401": {
+            "description": "returns error You are not authorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "You are not authorized"
+                ]
+              }
+            }
+          },
+          "428": {
+            "description": "returns error Organization is not determinated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": null,
+                "errors": [
+                  "Organization is not determinated"
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "returns error if instance not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "error_code": "",
+                "errors": [
+                  "Couldn't find Organization with 'id'=0"
+                ]
               }
             }
           }
@@ -12757,19 +13657,19 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "id": 612,
-                  "first_name": "Ms. Martine Murphy",
-                  "last_name": "Dashawn Kohler",
+                  "id": 637,
+                  "first_name": "Kitty Will",
+                  "last_name": "Saul Lakin",
                   "phone_number": "",
                   "date_of_birth": null,
                   "address": "",
-                  "country_id": 1232,
-                  "state_id": 615,
+                  "country_id": 2504,
+                  "state_id": 1251,
                   "zip_code": "",
                   "status": "active",
-                  "created_at": "April 17, 2018 10:19",
-                  "updated_at": "April 17, 2018 10:19",
-                  "email": "anabelle.eichmann@dach.co",
+                  "created_at": "April 22, 2018 09:15",
+                  "updated_at": "April 22, 2018 09:15",
+                  "email": "lindsay@mante.co",
                   "avatar": {
                     "url": null,
                     "small": {
@@ -12780,7 +13680,7 @@
                     }
                   },
                   "organization_ids": [
-                    590
+                    611
                   ],
                   "roles": null,
                   "group_ids": [
@@ -12788,7 +13688,7 @@
                   ],
                   "organization_settings": null
                 },
-                "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6NjEyLCJleHAiOjE1NTU0OTYzNzksInR5cGUiOiJ1c2VyIiwiZW1haWwiOiJhbmFiZWxsZS5laWNobWFubkBkYWNoLmNvIn0.fXTrrjpWatrwCiUFKsvdKOHskPciLIqzkI6_ido10go"
+                "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6NjM3LCJleHAiOjE1NTU5MjQ1NDAsInR5cGUiOiJ1c2VyIiwiZW1haWwiOiJsaW5kc2F5QG1hbnRlLmNvIn0.rTpXlGKheoXjJtmR2rrxUGgeabnGAsWzWBA14fsVWIs"
               }
             }
           },
@@ -12957,7 +13857,7 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "id": 617,
+                  "id": 642,
                   "first_name": "",
                   "last_name": "",
                   "phone_number": "",
@@ -12967,9 +13867,9 @@
                   "state_id": 0,
                   "zip_code": "",
                   "status": "active",
-                  "created_at": "April 17, 2018 10:19",
-                  "updated_at": "April 17, 2018 10:19",
-                  "email": "destany_ko@crona.org",
+                  "created_at": "April 22, 2018 09:15",
+                  "updated_at": "April 22, 2018 09:15",
+                  "email": "jalen_wisozk@kuhlman.biz",
                   "avatar": {
                     "url": null,
                     "small": {
@@ -13197,19 +14097,19 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "id": 623,
-                  "first_name": "Ms. Martine Murphy",
-                  "last_name": "Dashawn Kohler",
+                  "id": 648,
+                  "first_name": "Kitty Will",
+                  "last_name": "Saul Lakin",
                   "phone_number": "",
                   "date_of_birth": null,
                   "address": "",
-                  "country_id": 1252,
-                  "state_id": 625,
+                  "country_id": 2544,
+                  "state_id": 1271,
                   "zip_code": "",
                   "status": "active",
-                  "created_at": "April 17, 2018 10:19",
-                  "updated_at": "April 17, 2018 10:19",
-                  "email": "alejandra_hermiston@moriette.com",
+                  "created_at": "April 22, 2018 09:15",
+                  "updated_at": "April 22, 2018 09:15",
+                  "email": "cleveland@kuvalisgerhold.com",
                   "avatar": {
                     "url": null,
                     "small": {
@@ -13220,7 +14120,7 @@
                     }
                   },
                   "organization_ids": [
-                    600
+                    621
                   ],
                   "roles": null,
                   "group_ids": [
@@ -13228,7 +14128,7 @@
                   ],
                   "organization_settings": null
                 },
-                "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6NjIzLCJleHAiOjE1NTU0OTYzODAsInR5cGUiOiJ1c2VyIiwiZW1haWwiOiJhbGVqYW5kcmFfaGVybWlzdG9uQG1vcmlldHRlLmNvbSJ9.Iw2kdevo7ncspF8DdyNoa4z9gvpBeH6ZBNXKDAEcQjM"
+                "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6NjQ4LCJleHAiOjE1NTU5MjQ1NDAsInR5cGUiOiJ1c2VyIiwiZW1haWwiOiJjbGV2ZWxhbmRAa3V2YWxpc2dlcmhvbGQuY29tIn0.Zfh6wOnwrki4duWTjMvDHIFpORpTdRcNaLfigiRni28"
               }
             }
           },
@@ -13357,37 +14257,51 @@
               "application/json": {
                 "states": [
                   {
-                    "id": 633,
-                    "name": "West Virginia",
-                    "country_id": 1269,
-                    "code": "MD",
-                    "created_at": "April 17, 2018 10:19",
-                    "updated_at": "April 17, 2018 10:19",
+                    "id": 1287,
+                    "name": "Arkansas",
+                    "country_id": 2577,
+                    "code": "AL",
+                    "created_at": "April 22, 2018 09:15",
+                    "updated_at": "April 22, 2018 09:15",
                     "country": {
-                      "id": 1269,
-                      "code": "GM",
-                      "name": "Lesotho",
-                      "phonecode": 242
+                      "id": 2577,
+                      "code": "CG",
+                      "name": "Tajikistan",
+                      "phonecode": 896
                     }
                   },
                   {
-                    "id": 634,
-                    "name": "Idaho",
-                    "country_id": 1270,
-                    "code": "MD",
-                    "created_at": "April 17, 2018 10:19",
-                    "updated_at": "April 17, 2018 10:19",
+                    "id": 1288,
+                    "name": "Wisconsin",
+                    "country_id": 2579,
+                    "code": "AL",
+                    "created_at": "April 22, 2018 09:15",
+                    "updated_at": "April 22, 2018 09:15",
                     "country": {
-                      "id": 1270,
-                      "code": "GM",
-                      "name": "Burkina Faso",
-                      "phonecode": 242
+                      "id": 2579,
+                      "code": "CG",
+                      "name": "United Arab Emirates",
+                      "phonecode": 896
+                    }
+                  },
+                  {
+                    "id": 1289,
+                    "name": "Minnesota",
+                    "country_id": 2580,
+                    "code": "AL",
+                    "created_at": "April 22, 2018 09:15",
+                    "updated_at": "April 22, 2018 09:15",
+                    "country": {
+                      "id": 2580,
+                      "code": "CG",
+                      "name": "Andorra",
+                      "phonecode": 896
                     }
                   }
                 ],
                 "meta": {
                   "total_pages": 1,
-                  "size": 2,
+                  "size": 3,
                   "limit_value": 20,
                   "current_page": 1
                 }
@@ -13454,17 +14368,17 @@
             "examples": {
               "application/json": {
                 "state": {
-                  "id": 636,
-                  "name": "Kansas",
-                  "country_id": 1273,
-                  "code": "MD",
-                  "created_at": "April 17, 2018 10:19",
-                  "updated_at": "April 17, 2018 10:19",
+                  "id": 1292,
+                  "name": "New Mexico",
+                  "country_id": 2585,
+                  "code": "AL",
+                  "created_at": "April 22, 2018 09:15",
+                  "updated_at": "April 22, 2018 09:15",
                   "country": {
-                    "id": 1273,
-                    "code": "GM",
-                    "name": "South Georgia and the South Sandwich Islands",
-                    "phonecode": 242
+                    "id": 2585,
+                    "code": "CG",
+                    "name": "Greece",
+                    "phonecode": 896
                   }
                 }
               }
@@ -13611,19 +14525,19 @@
                   {
                     "id": 45,
                     "action_type": "reading",
-                    "description": "Vel cupiditate assumenda reiciendis quisquam numquam qui. In enim quibusdam. Doloribus inventore esse aut quia id totam. Velit incidunt enim itaque temporibus laboriosam.",
+                    "description": "Architecto consequatur magni. Hic pariatur cupiditate reiciendis consequatur mollitia deserunt. Dolorem delectus quo in est at adipisci architecto. Illum dolores quaerat. Qui possimus ut ex eos nulla cumque voluptas.",
                     "lesson_id": 81,
-                    "user_id": 634,
-                    "created_at": "April 17, 2018 10:19",
-                    "updated_at": "April 17, 2018 10:19",
+                    "user_id": 659,
+                    "created_at": "April 22, 2018 09:15",
+                    "updated_at": "April 22, 2018 09:15",
                     "task_user": {
                       "id": 12,
                       "task_id": 45,
-                      "user_id": 634,
+                      "user_id": 659,
                       "course_group_id": 85,
                       "status": "active",
-                      "created_at": "April 17, 2018 10:19",
-                      "updated_at": "April 17, 2018 10:19"
+                      "created_at": "April 22, 2018 09:15",
+                      "updated_at": "April 22, 2018 09:15"
                     },
                     "attachments": [
 
@@ -13792,19 +14706,19 @@
                 "task": {
                   "id": 48,
                   "action_type": "reading",
-                  "description": "Vel cupiditate assumenda reiciendis quisquam numquam qui. In enim quibusdam. Doloribus inventore esse aut quia id totam. Velit incidunt enim itaque temporibus laboriosam.",
+                  "description": "Architecto consequatur magni. Hic pariatur cupiditate reiciendis consequatur mollitia deserunt. Dolorem delectus quo in est at adipisci architecto. Illum dolores quaerat. Qui possimus ut ex eos nulla cumque voluptas.",
                   "lesson_id": 84,
-                  "user_id": 644,
-                  "created_at": "April 17, 2018 10:19",
-                  "updated_at": "April 17, 2018 10:19",
+                  "user_id": 669,
+                  "created_at": "April 22, 2018 09:15",
+                  "updated_at": "April 22, 2018 09:15",
                   "task_user": {
                     "id": 15,
                     "task_id": 48,
-                    "user_id": 644,
+                    "user_id": 669,
                     "course_group_id": 88,
                     "status": "active",
-                    "created_at": "April 17, 2018 10:19",
-                    "updated_at": "April 17, 2018 10:19"
+                    "created_at": "April 22, 2018 09:15",
+                    "updated_at": "April 22, 2018 09:15"
                   },
                   "attachments": [
 
@@ -14056,19 +14970,19 @@
               "application/json": {
                 "users": [
                   {
-                    "id": 657,
-                    "first_name": "Ms. Martine Murphy",
-                    "last_name": "Dashawn Kohler",
+                    "id": 682,
+                    "first_name": "Kitty Will",
+                    "last_name": "Saul Lakin",
                     "phone_number": "",
                     "date_of_birth": null,
                     "address": "",
-                    "country_id": 1323,
-                    "state_id": 662,
+                    "country_id": 2679,
+                    "state_id": 1340,
                     "zip_code": "",
                     "status": "active",
-                    "created_at": "April 17, 2018 10:19",
-                    "updated_at": "April 17, 2018 10:19",
-                    "email": "filiberto.bins@gleichnerjast.biz",
+                    "created_at": "April 22, 2018 09:15",
+                    "updated_at": "April 22, 2018 09:15",
+                    "email": "natalie_bayer@swaniawskipollich.name",
                     "avatar": {
                       "url": null,
                       "small": {
@@ -14079,33 +14993,26 @@
                       }
                     },
                     "organization_ids": [
-                      632
+                      653
                     ],
                     "roles": null,
                     "group_ids": [
 
                     ],
                     "organization_settings": {
-                      "id": 596,
-                      "user_id": 657,
-                      "organization_id": 632,
+                      "id": 617,
+                      "user_id": 682,
+                      "organization_id": 653,
                       "role": "admin",
-                      "created_at": "April 17, 2018 10:19",
-                      "updated_at": "April 17, 2018 10:19",
+                      "created_at": "April 22, 2018 09:15",
+                      "updated_at": "April 22, 2018 09:15",
                       "status": "active",
                       "exclude_students_ids": [
 
                       ],
-                      "files_controll_enabled": false,
-                      "messanger_access_enabled": false,
-                      "activity_settings": {
-                        "activity_course_ids": [
-
-                        ],
-                        "activity_student_ids": [
-
-                        ]
-                      }
+                      "files_controll_enabled": true,
+                      "messanger_access_enabled": true,
+                      "activity_settings": null
                     }
                   }
                 ],
@@ -14352,19 +15259,19 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "id": 667,
-                  "first_name": "Ms. Martine Murphy",
-                  "last_name": "Dashawn Kohler",
+                  "id": 692,
+                  "first_name": "Kitty Will",
+                  "last_name": "Saul Lakin",
                   "phone_number": "",
                   "date_of_birth": null,
                   "address": "",
-                  "country_id": 1343,
-                  "state_id": 672,
+                  "country_id": 2715,
+                  "state_id": 1358,
                   "zip_code": "",
                   "status": "active",
-                  "created_at": "April 17, 2018 10:19",
-                  "updated_at": "April 17, 2018 10:19",
-                  "email": "erich@powlowskigislason.net",
+                  "created_at": "April 22, 2018 09:15",
+                  "updated_at": "April 22, 2018 09:15",
+                  "email": "yeenia@smithheaney.name",
                   "avatar": {
                     "url": null,
                     "small": {
@@ -14564,19 +15471,19 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "id": 661,
-                  "first_name": "Ms. Martine Murphy",
-                  "last_name": "Dashawn Kohler",
+                  "id": 686,
+                  "first_name": "Kitty Will",
+                  "last_name": "Saul Lakin",
                   "phone_number": "",
                   "date_of_birth": null,
                   "address": "",
-                  "country_id": 1331,
-                  "state_id": 666,
+                  "country_id": 2693,
+                  "state_id": 1347,
                   "zip_code": "",
                   "status": "active",
-                  "created_at": "April 17, 2018 10:19",
-                  "updated_at": "April 17, 2018 10:19",
-                  "email": "christine@heidenreichsawayn.org",
+                  "created_at": "April 22, 2018 09:15",
+                  "updated_at": "April 22, 2018 09:15",
+                  "email": "tanner_sawayn@goodwin.io",
                   "avatar": {
                     "url": null,
                     "small": {
@@ -14587,33 +15494,26 @@
                     }
                   },
                   "organization_ids": [
-                    635
+                    656
                   ],
                   "roles": null,
                   "group_ids": [
 
                   ],
                   "organization_settings": {
-                    "id": 599,
-                    "user_id": 661,
-                    "organization_id": 635,
+                    "id": 620,
+                    "user_id": 686,
+                    "organization_id": 656,
                     "role": "admin",
-                    "created_at": "April 17, 2018 10:19",
-                    "updated_at": "April 17, 2018 10:19",
+                    "created_at": "April 22, 2018 09:15",
+                    "updated_at": "April 22, 2018 09:15",
                     "status": "active",
                     "exclude_students_ids": [
 
                     ],
-                    "files_controll_enabled": false,
-                    "messanger_access_enabled": false,
-                    "activity_settings": {
-                      "activity_course_ids": [
-
-                      ],
-                      "activity_student_ids": [
-
-                      ]
-                    }
+                    "files_controll_enabled": true,
+                    "messanger_access_enabled": true,
+                    "activity_settings": null
                   }
                 }
               }
@@ -14904,19 +15804,19 @@
             "examples": {
               "application/json": {
                 "user": {
-                  "id": 671,
-                  "first_name": "Ms. Martine Murphy",
-                  "last_name": "Dashawn Kohler",
+                  "id": 696,
+                  "first_name": "Kitty Will",
+                  "last_name": "Saul Lakin",
                   "phone_number": "",
                   "date_of_birth": null,
                   "address": "",
-                  "country_id": 1353,
-                  "state_id": 677,
+                  "country_id": 2731,
+                  "state_id": 1366,
                   "zip_code": "",
                   "status": "active",
-                  "created_at": "April 17, 2018 10:19",
-                  "updated_at": "April 17, 2018 10:19",
-                  "email": "raegan.watsica@dibbert.net",
+                  "created_at": "April 22, 2018 09:15",
+                  "updated_at": "April 22, 2018 09:15",
+                  "email": "patience@emard.biz",
                   "avatar": {
                     "url": null,
                     "small": {
@@ -14927,33 +15827,26 @@
                     }
                   },
                   "organization_ids": [
-                    642
+                    663
                   ],
                   "roles": null,
                   "group_ids": [
 
                   ],
                   "organization_settings": {
-                    "id": 606,
-                    "user_id": 671,
-                    "organization_id": 642,
+                    "id": 627,
+                    "user_id": 696,
+                    "organization_id": 663,
                     "role": "admin",
-                    "created_at": "April 17, 2018 10:19",
-                    "updated_at": "April 17, 2018 10:19",
+                    "created_at": "April 22, 2018 09:15",
+                    "updated_at": "April 22, 2018 09:15",
                     "status": "active",
                     "exclude_students_ids": [
 
                     ],
-                    "files_controll_enabled": false,
-                    "messanger_access_enabled": false,
-                    "activity_settings": {
-                      "activity_course_ids": [
-
-                      ],
-                      "activity_student_ids": [
-
-                      ]
-                    }
+                    "files_controll_enabled": true,
+                    "messanger_access_enabled": true,
+                    "activity_settings": null
                   }
                 }
               }
@@ -15396,24 +16289,24 @@
                 "videos": [
                   {
                     "id": 1,
-                    "title": "Yost, Tremblay and Gerhold",
+                    "title": "Buckridge Group",
                     "length": 3861,
-                    "organization_id": 654,
-                    "user_id": 686,
+                    "organization_id": 675,
+                    "user_id": 711,
                     "videoable_type": "Task",
                     "videoable_id": 52,
-                    "created_at": "April 17, 2018 10:19",
-                    "updated_at": "April 17, 2018 10:19",
+                    "created_at": "April 22, 2018 09:15",
+                    "updated_at": "April 22, 2018 09:15",
                     "video_link": "https://youtu.be/BL50xRTnHTQ",
                     "status": "ready",
                     "videoable": {
                       "id": 52,
                       "action_type": "reading",
-                      "description": "Vel cupiditate assumenda reiciendis quisquam numquam qui. In enim quibusdam. Doloribus inventore esse aut quia id totam. Velit incidunt enim itaque temporibus laboriosam.",
+                      "description": "Architecto consequatur magni. Hic pariatur cupiditate reiciendis consequatur mollitia deserunt. Dolorem delectus quo in est at adipisci architecto. Illum dolores quaerat. Qui possimus ut ex eos nulla cumque voluptas.",
                       "lesson_id": 88,
-                      "user_id": 689,
-                      "created_at": "April 17, 2018 10:19",
-                      "updated_at": "April 17, 2018 10:19",
+                      "user_id": 714,
+                      "created_at": "April 22, 2018 09:15",
+                      "updated_at": "April 22, 2018 09:15",
                       "task_user": null,
                       "attachments": [
 
@@ -15620,22 +16513,22 @@
                   "id": 5,
                   "title": "",
                   "length": 3861,
-                  "organization_id": 666,
-                  "user_id": 699,
+                  "organization_id": 687,
+                  "user_id": 724,
                   "videoable_type": "Task",
                   "videoable_id": 55,
-                  "created_at": "April 17, 2018 10:20",
-                  "updated_at": "April 17, 2018 10:20",
+                  "created_at": "April 22, 2018 09:16",
+                  "updated_at": "April 22, 2018 09:16",
                   "video_link": "https://youtu.be/BL50xRTnHTQ",
                   "status": "ready",
                   "videoable": {
                     "id": 55,
                     "action_type": "reading",
-                    "description": "Vel cupiditate assumenda reiciendis quisquam numquam qui. In enim quibusdam. Doloribus inventore esse aut quia id totam. Velit incidunt enim itaque temporibus laboriosam.",
+                    "description": "Architecto consequatur magni. Hic pariatur cupiditate reiciendis consequatur mollitia deserunt. Dolorem delectus quo in est at adipisci architecto. Illum dolores quaerat. Qui possimus ut ex eos nulla cumque voluptas.",
                     "lesson_id": 91,
-                    "user_id": 702,
-                    "created_at": "April 17, 2018 10:20",
-                    "updated_at": "April 17, 2018 10:20",
+                    "user_id": 727,
+                    "created_at": "April 22, 2018 09:16",
+                    "updated_at": "April 22, 2018 09:16",
                     "task_user": null,
                     "attachments": [
 
@@ -15839,25 +16732,25 @@
                   "id": 9,
                   "title": "",
                   "length": 0,
-                  "organization_id": 681,
-                  "user_id": 713,
+                  "organization_id": 702,
+                  "user_id": 738,
                   "videoable_type": "Task",
                   "videoable_id": 58,
-                  "created_at": "April 17, 2018 10:20",
-                  "updated_at": "April 17, 2018 10:20",
+                  "created_at": "April 22, 2018 09:16",
+                  "updated_at": "April 22, 2018 09:16",
                   "video_link": "",
                   "status": "draft",
                   "sproutvideo_id": null,
-                  "token": "c58d0d6f74c58defd7c5ae016b715f79",
+                  "token": "c78c9a2e79d2b98cc5c0dc2aa7c85779",
                   "embed_code": null,
                   "videoable": {
                     "id": 58,
                     "action_type": "reading",
-                    "description": "Vel cupiditate assumenda reiciendis quisquam numquam qui. In enim quibusdam. Doloribus inventore esse aut quia id totam. Velit incidunt enim itaque temporibus laboriosam.",
+                    "description": "Architecto consequatur magni. Hic pariatur cupiditate reiciendis consequatur mollitia deserunt. Dolorem delectus quo in est at adipisci architecto. Illum dolores quaerat. Qui possimus ut ex eos nulla cumque voluptas.",
                     "lesson_id": 94,
-                    "user_id": 716,
-                    "created_at": "April 17, 2018 10:20",
-                    "updated_at": "April 17, 2018 10:20",
+                    "user_id": 741,
+                    "created_at": "April 22, 2018 09:16",
+                    "updated_at": "April 22, 2018 09:16",
                     "task_user": null,
                     "attachments": [
 
@@ -16006,24 +16899,24 @@
               "application/json": {
                 "video": {
                   "id": 12,
-                  "title": "Yost, Tremblay and Gerhold",
+                  "title": "Buckridge Group",
                   "length": 3861,
-                  "organization_id": 696,
-                  "user_id": 727,
+                  "organization_id": 717,
+                  "user_id": 752,
                   "videoable_type": "Task",
                   "videoable_id": 61,
-                  "created_at": "April 17, 2018 10:20",
-                  "updated_at": "April 17, 2018 10:20",
+                  "created_at": "April 22, 2018 09:16",
+                  "updated_at": "April 22, 2018 09:16",
                   "video_link": "https://youtu.be/BL50xRTnHTQ",
                   "status": "ready",
                   "videoable": {
                     "id": 61,
                     "action_type": "reading",
-                    "description": "Vel cupiditate assumenda reiciendis quisquam numquam qui. In enim quibusdam. Doloribus inventore esse aut quia id totam. Velit incidunt enim itaque temporibus laboriosam.",
+                    "description": "Architecto consequatur magni. Hic pariatur cupiditate reiciendis consequatur mollitia deserunt. Dolorem delectus quo in est at adipisci architecto. Illum dolores quaerat. Qui possimus ut ex eos nulla cumque voluptas.",
                     "lesson_id": 97,
-                    "user_id": 730,
-                    "created_at": "April 17, 2018 10:20",
-                    "updated_at": "April 17, 2018 10:20",
+                    "user_id": 755,
+                    "created_at": "April 22, 2018 09:16",
+                    "updated_at": "April 22, 2018 09:16",
                     "task_user": null,
                     "attachments": [
 
