@@ -13,7 +13,9 @@ Trestle.resource(:organizations) do
 
   table do
     column :title
-    column(:url) { |organization| link_to organization.url, organization.url }
+    column(:url) do |organization|
+      link_to(organization.url, organization.url)
+    end
     column :created_at, align: :center
 
     actions
@@ -54,11 +56,17 @@ Trestle.resource(:organizations) do
       row do
         col(sm: 3) do 
           content_tag :div, class: "form-group" do
-            select_tag :user_id, options_from_collection_for_select(User.all, :id, :name), data: { enable_select2: true }, class: 'form-control', id: 'organization-user'
+            select_tag(
+              :user_id,
+              options_from_collection_for_select(User.all, :id, :name),
+              data: { enable_select2: true },
+              class: 'form-control',
+              id: 'organization-user'
+            )
           end
         end
 
-        col(sm: 3) do 
+        col(sm: 3) do
           link_to(
             'Add user',
             '#',
@@ -70,7 +78,9 @@ Trestle.resource(:organizations) do
       end
 
       table collection: -> { organization.admins }, admin: :users do
-        column :name { |user| link_to user.name, edit_users_admin_path(user) }
+        column(:name) do |user| 
+          link_to user.name, edit_users_admin_path(user)
+        end
         column :actions do |user|
           link_to(
             'Delete from organization',

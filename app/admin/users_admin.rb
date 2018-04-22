@@ -63,7 +63,7 @@ Trestle.resource(:users) do
               options_from_collection_for_select(Organization.all, :id, :title),
               data: { enable_select2: true },
               class: 'form-control',
-                id: 'organization-user'
+              id: 'organization-user'
             )
           end
         end
