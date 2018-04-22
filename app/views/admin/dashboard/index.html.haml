@@ -1,0 +1,21 @@
+- content_for(:title, 'Dashboard')
+= render "header"
+
+.main-content-area
+  .main-content-container
+    .main-content
+      %h4
+        = link_to users_admin_index_path do
+          Users: 
+          = User.count
+    .main-content
+      %h4
+        = link_to organizations_admin_index_path do
+          Organizations: 
+          = Organization.count
+    .main-content
+      %h4
+        = link_to courses_admin_index_path do
+          Courses:
+          = Course.count
+

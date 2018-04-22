@@ -11,16 +11,19 @@ gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'haml'
 gem 'uglifier', '>= 1.3.0'
-#gem 'webpacker'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-# gem 'react-rails'
 
 gem 'jwt'
-gem 'activeadmin'
 gem 'devise'
 gem 'pundit'
+
+# admin part
+gem 'trestle'
+gem 'trestle-search'
+gem 'trestle-tinymce'
+###
 
 gem 'awesome_print'
 gem "rack-cors", require: "rack/cors"

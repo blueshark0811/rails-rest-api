@@ -6,8 +6,8 @@ Rails.application.routes.draw do
     mount Rswag::Ui::Engine => '/api-docs'
     mount Rswag::Api::Engine => '/api-docs'
   end
-  devise_for :users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+   devise_for :users#, ActiveAdmin::Devise.config
+  # ActiveAdmin.routes(self)
 
   authenticate :user, -> (user) { user.super_admin? } do
     mount PgHero::Engine, at: "pghero"

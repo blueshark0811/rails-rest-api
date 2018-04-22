@@ -15,7 +15,7 @@ module Organizations
       has_many :teachers, -> { where(organization_users: {role: 'teacher'}) },
         source: :user, through: :organization_users
 
-      has_many :admins, -> { where(organization_users: {role: 'admin'}) },
+        has_many :admins, -> { where(organization_users: {role: 'admin'}) },
         source: :user, through: :organization_users
 
       has_many :groups, dependent: :destroy

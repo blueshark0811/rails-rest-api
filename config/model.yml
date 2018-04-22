@@ -13,6 +13,9 @@ organization:
     en: English
     ge: German
     ru: Russian
+  display_types:
+    display_name: Display Name
+    logo: Logo
 
 organization_user:
   roles:

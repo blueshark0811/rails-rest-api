@@ -3,7 +3,7 @@ module Courses
     extend ActiveSupport::Concern
 
     included do
-      belongs_to :user #author
+      belongs_to :user, optional: true #author
       belongs_to :organization
       has_many :attachments, as: :attachmentable, dependent: :destroy
       has_many :lessons, dependent: :destroy

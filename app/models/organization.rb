@@ -6,6 +6,8 @@ class Organization < ApplicationRecord
   domainable :subdomain, { field: :domain, required: false }
   enumerate :language
 
+  mount_base64_uploader :logo, LogoUploader
+
   validates :title, presence: true
 
   store_accessor :notification_settings, :notification_email
@@ -19,6 +21,16 @@ class Organization < ApplicationRecord
     false
   end
   alias_method :domain_linked, :domain_linked?
+
+  def url
+    ur = ["#{APP_CONFIG['protocol']}://"]
+
+    ur << (domain_linked? ? domain : "#{subdomain}.#{APP_CONFIG['host']}")
+
+    ur << ":#{APP_CONFIG['port']}" if APP_CONFIG['port'].to_i != 80
+
+    ur.join
+  end
 
   class << self
     def additional_attributes
