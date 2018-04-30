@@ -1,4 +1,4 @@
-class LessonPolicy < OrganizationEntityPolicy
+class LessonPolicy < OrganizationAddonEntityPolicy
   include PolicyHelper::Attachmentable
   class Scope < Scope
     def resolve

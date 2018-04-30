@@ -13,6 +13,8 @@ class TaskUser < ApplicationRecord
 
   enumerate :status
 
+  validates :user_id, uniqueness: { scope: [:task_id, :course_group_id] }
+
   def comment_created_callback(comment)
     attachment_comment_created_callback(comment)
   end

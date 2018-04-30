@@ -8,7 +8,8 @@ class OrganizationUser < ApplicationRecord
 
   store_accessor :activity_settings, :activity_course_ids, :activity_student_ids
 
-  validates :user_id, :organization_id, :role, presence: true
+  validates :role, presence: true
+  validates :user_id, uniqueness: { scope: [:organization_id] }
 
   class << self
     def additional_attributes

@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180420152356) do
+ActiveRecord::Schema.define(version: 20180430063621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "pg_stat_statements"
   enable_extension "hstore"
 
   create_table "active_admin_comments", force: :cascade do |t|
@@ -55,6 +54,31 @@ ActiveRecord::Schema.define(version: 20180420152356) do
     t.index ["organization_id"], name: "index_activities_on_organization_id"
     t.index ["task_id"], name: "index_activities_on_task_id"
     t.index ["user_id"], name: "index_activities_on_user_id"
+  end
+
+  create_table "addon_courses", force: :cascade do |t|
+    t.bigint "addon_id"
+    t.bigint "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["addon_id"], name: "index_addon_courses_on_addon_id"
+    t.index ["course_id"], name: "index_addon_courses_on_course_id"
+  end
+
+  create_table "addon_organizations", force: :cascade do |t|
+    t.bigint "addon_id"
+    t.bigint "organization_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["addon_id"], name: "index_addon_organizations_on_addon_id"
+    t.index ["organization_id"], name: "index_addon_organizations_on_organization_id"
+  end
+
+  create_table "addons", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "attachments", force: :cascade do |t|
@@ -353,6 +377,7 @@ ActiveRecord::Schema.define(version: 20180420152356) do
   create_table "videos", force: :cascade do |t|
     t.string "title"
     t.integer "length"
+    t.string "sproutvideo_id"
     t.bigint "organization_id"
     t.bigint "user_id"
     t.string "videoable_type"
@@ -361,7 +386,6 @@ ActiveRecord::Schema.define(version: 20180420152356) do
     t.datetime "updated_at", null: false
     t.string "video_link"
     t.string "status"
-    t.string "sproutvideo_id"
     t.string "token"
     t.text "embed_code"
     t.index ["organization_id"], name: "index_videos_on_organization_id"
@@ -375,6 +399,10 @@ ActiveRecord::Schema.define(version: 20180420152356) do
   add_foreign_key "activities", "organizations"
   add_foreign_key "activities", "tasks"
   add_foreign_key "activities", "users"
+  add_foreign_key "addon_courses", "addons"
+  add_foreign_key "addon_courses", "courses"
+  add_foreign_key "addon_organizations", "addons"
+  add_foreign_key "addon_organizations", "organizations"
   add_foreign_key "attachments", "organizations"
   add_foreign_key "attachments", "users"
   add_foreign_key "chat_messages", "chats"

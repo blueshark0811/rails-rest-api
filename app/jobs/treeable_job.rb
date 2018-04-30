@@ -25,7 +25,7 @@ class TreeableJob < ApplicationJob
 
       object.save
     elsif @options['main_root_foreign_key']
-      object.update_attributes(@options['main_root_foreign_key'] => object.main_root.id)
+      object.update(@options['main_root_foreign_key'] => object.main_root.id)
     end
   end
 end

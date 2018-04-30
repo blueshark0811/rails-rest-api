@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-class CoursePolicy < OrganizationEntityPolicy
+class CoursePolicy < OrganizationAddonEntityPolicy
   include PolicyHelper::Attachmentable
   class Scope < Scope
     def condition
       return none unless role
 
-      res = { organization_id: organization.id }
+      res = { organization_ids: organization.id }
 
       if student? || teacher?
         # checking for participating in group

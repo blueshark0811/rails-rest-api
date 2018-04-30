@@ -6,15 +6,15 @@ Rails.application.routes.draw do
     mount Rswag::Ui::Engine => '/api-docs'
     mount Rswag::Api::Engine => '/api-docs'
   end
-   devise_for :users#, ActiveAdmin::Devise.config
-  # ActiveAdmin.routes(self)
 
-  authenticate :user, -> (user) { user.super_admin? } do
-    mount PgHero::Engine, at: "pghero"
+  devise_for :users
+
+  authenticate :user, ->(user) { user.super_admin? } do
+    mount PgHero::Engine, at: 'pghero'
     mount Resque::Server, at: '/jobs'
   end
 
-  namespace :api, defaults: { format: "json" } do
+  namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
       resources :organizations, only: %i[show update destroy]
       resources :organization_users, only: %i[create destroy]
@@ -55,7 +55,7 @@ Rails.application.routes.draw do
           end
         end
 
-        #for student/teacher
+        # for student/teacher
         resources :courses, only: %i[index show] do
           member do
             put :switch
@@ -71,7 +71,7 @@ Rails.application.routes.draw do
         end
       end
 
-      #for admin...
+      # for admin...
       resources :courses do
         resources :lessons do
           resources :tasks

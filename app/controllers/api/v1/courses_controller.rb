@@ -52,7 +52,7 @@ class Api::V1::CoursesController < Api::V1::ApiController
   end
 
   def create
-    @course = current_organization.courses.new user_id: current_user.id
+    @course = Course.new user_id: current_user.id, organization_id: current_organization.id
 
     authorize @course
 
@@ -62,7 +62,7 @@ class Api::V1::CoursesController < Api::V1::ApiController
   end
 
   def update
-    if @course.update_attributes permitted_attributes(@course)
+    if @course.update permitted_attributes(@course)
       render_result(@course) else render_error(@course)
     end
   end
@@ -89,6 +89,6 @@ class Api::V1::CoursesController < Api::V1::ApiController
   def set_course
     @course = (@group ? @group.courses : current_organization.courses).find params[:id]
 
-    authorize(@course) unless %w(switch).include?(params[:action])
+    authorize(@course) unless %w[switch].include?(params[:action])
   end
 end

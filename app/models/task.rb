@@ -21,8 +21,8 @@ class Task < ApplicationRecord
     end
   end
 
-  def organization_id
-    @organization_id ||= course&.organization_id
+  def organization_ids
+    @organization_ids ||= course&.organization_ids
   end
 
   def add_student(user, group_or_course_group)

@@ -44,7 +44,7 @@ Trestle.resource(:organizations) do
       text_field :email
       text_field :website
     end
-   
+
     tab :other do
       select :language, MODELS['organization']['languages'].invert
       text_field :notification_email
@@ -53,42 +53,104 @@ Trestle.resource(:organizations) do
     end
 
     tab :admins do
-      row do
-        col(sm: 3) do 
-          content_tag :div, class: "form-group" do
-            select_tag(
-              :user_id,
-              options_from_collection_for_select(User.all, :id, :name),
-              data: { enable_select2: true },
-              class: 'form-control',
-              id: 'organization-user'
+      unless organization.new_record?
+        row do
+          col(sm: 3) do
+            content_tag :div, class: "form-group" do
+              select_tag(
+                :user_id,
+                options_from_collection_for_select(User.all, :id, :name),
+                data: { enable_select2: true },
+                class: 'form-control',
+                id: 'organization-user'
+              )
+            end
+          end
+
+          col(sm: 3) do
+            link_to(
+              'Add user',
+              '#',
+              'data-url': add_user_organizations_admin_path(organization),
+              class: "btn btn-success",
+              onclick: 'addUserToOrganization(this)'
             )
           end
         end
 
-        col(sm: 3) do
-          link_to(
-            'Add user',
-            '#',
-            'data-url': add_user_organizations_admin_path(organization),
-            class: "btn btn-success",
-            onclick: 'addUserToOrganization(this)'
-          )
+        table collection: -> { organization.admins }, admin: :users do
+          column(:name) do |user|
+            link_to user.name, edit_users_admin_path(user)
+          end
+          column :actions do |user|
+            link_to(
+              'Delete from organization',
+              delete_user_organizations_admin_path(organization, user_id: user.id),
+              method: :delete,
+              class: "btn btn-danger",
+              'data-confirm': 'Are you sure?'
+            )
+          end
+        end
+      else
+        row do
+          'Available at edit mode. Please create instance and come back here.'
         end
       end
+    end
 
-      table collection: -> { organization.admins }, admin: :users do
-        column(:name) do |user| 
-          link_to user.name, edit_users_admin_path(user)
+    tab 'Add-ons' do
+      unless organization.new_record?
+        row do
+          col(sm: 3) do
+            content_tag :div, class: 'form-group' do
+              select_tag(
+                :course_id,
+                options_from_collection_for_select(Addon.all, :id, :title),
+                data: { enable_select2: true },
+                class: 'form-control',
+                id: 'organization-addon'
+              )
+            end
+          end
+
+          col(sm: 3) do
+            link_to(
+              'Add to add-on',
+              '#',
+              'data-url': add_to_organization_addons_admin_path(
+                0,
+                organization_id: organization.id,
+                redirect: edit_organizations_admin_path(organization, anchor: '!tab-Add-ons')
+              ),
+              class: 'btn btn-success',
+              onclick: 'addAddonToOrganization(this)'
+            )
+          end
         end
-        column :actions do |user|
-          link_to(
-            'Delete from organization',
-            delete_user_organizations_admin_path(organization, user_id: user.id),
-            method: :delete,
-            class: "btn btn-danger",
-            'data-confirm': 'Are you sure?'
-          )
+
+        table collection: -> { organization.addons }, admin: :addons do
+          column :title do |addon|
+            link_to addon.title, edit_addons_admin_path(addon)
+          end
+
+          column :actions do |addon|
+            link_to(
+              'Delete organization from addon',
+              delete_from_organization_addons_admin_path(
+                addon,
+                organization_id: organization.id,
+                redirect: edit_organizations_admin_path(organization, anchor: '!tab-Add-ons')
+              ),
+              method: :delete,
+              class: 'btn btn-danger',
+              'data-confirm': 'Are you sure?'
+            )
+          end
+        end
+      else
+        row do
+          'Available at edit mode. Please create instance and come back here.'
         end
       end
     end

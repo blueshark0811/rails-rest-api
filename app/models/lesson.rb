@@ -3,8 +3,8 @@ class Lesson < ApplicationRecord
 
   enumerate :status
 
-  def organization_id
-    @organization_id ||= course&.organization_id
+  def organization_ids
+    @organization_ids ||= course&.organization_ids
   end
 
   def add_student(user, group_or_course_group)
@@ -15,7 +15,7 @@ class Lesson < ApplicationRecord
     lesson_users.find_or_create_by(user_id: user.id, course_group_id: group_or_course_group.id)
   end
 
-  def add_user_to_tasks user
+  def add_user_to_tasks(user)
     tasks.each do |task|
       task.task_users.create user: user
     end

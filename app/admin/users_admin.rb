@@ -55,51 +55,57 @@ Trestle.resource(:users) do
     end
 
     tab :organizations do
-      row do
-        col(sm: 3) do
-          content_tag :div, class: 'form-group' do
-            select_tag(
-              :organization_id,
-              options_from_collection_for_select(Organization.all, :id, :title),
-              data: { enable_select2: true },
-              class: 'form-control',
-              id: 'organization-user'
+      unless user.new_record?
+        row do
+          col(sm: 3) do
+            content_tag :div, class: 'form-group' do
+              select_tag(
+                :organization_id,
+                options_from_collection_for_select(Organization.all, :id, :title),
+                data: { enable_select2: true },
+                class: 'form-control',
+                id: 'organization-user'
+              )
+            end
+          end
+
+          col(sm: 3) do
+            link_to(
+              'Add organization',
+              '#',
+              'data-url': add_user_organizations_admin_path(
+                0,
+                user_id: user.id,
+                redirect: edit_users_admin_path(user, anchor: '!tab-organizations')
+              ),
+              class: 'btn btn-success',
+              onclick: 'addOrganizationToUser(this)'
             )
           end
         end
 
-        col(sm: 3) do
-          link_to(
-            'Add organization',
-            '#',
-            'data-url': add_user_organizations_admin_path(
-              0,
-              user_id: user.id,
-              redirect: edit_users_admin_path(user, anchor: '!tab-organizations')
-            ),
-            class: 'btn btn-success',
-            onclick: 'addOrganizationToUser(this)'
-          )
-        end
-      end
+        table collection: -> { user.organizations }, admin: :organizations do
+          column :title do |organization|
+            link_to organization.title, edit_organizations_admin_path(organization)
+          end
 
-      table collection: -> { user.organizations }, admin: :organizations do
-        column :title do |organization| 
-          link_to organization.title, edit_organizations_admin_path(organization)
+          column :actions do |organization|
+            link_to(
+              'Delete organization from user',
+              delete_user_organizations_admin_path(
+                organization,
+                user_id: user.id,
+                redirect: edit_users_admin_path(user, anchor: '!tab-organizations')
+              ),
+              method: :delete,
+              class: 'btn btn-danger',
+              'data-confirm': 'Are you sure?'
+            )
+          end
         end
-
-        column :actions do |organization|
-          link_to(
-            'Delete organization from user',
-            delete_user_organizations_admin_path(
-              organization,
-              user_id: user.id,
-              redirect: edit_users_admin_path(user, anchor: '!tab-organizations')
-            ),
-            method: :delete,
-            class: 'btn btn-danger',
-            'data-confirm': 'Are you sure?'
-          )
+      else
+        row do
+          'Available at edit mode. Please create instance and come back here.'
         end
       end
     end

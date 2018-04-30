@@ -6,6 +6,8 @@ class LessonUser < ApplicationRecord
 
   enumerate :status
 
+  validates :user_id, uniqueness: { scope: [:lesson_id, :course_group_id] }
+
   after_save :write_activity
 
   def course_settings

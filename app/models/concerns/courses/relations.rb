@@ -4,7 +4,12 @@ module Courses
 
     included do
       belongs_to :user, optional: true #author
-      belongs_to :organization
+      belongs_to :organization, optional: true #if created by admin of organization
+
+      has_many :addon_courses, dependent: :destroy
+      has_many :addons, through: :addon_courses
+      has_many :organizations_through_addons, through: :addons, source: :organizations
+
       has_many :attachments, as: :attachmentable, dependent: :destroy
       has_many :lessons, dependent: :destroy
       has_many :lesson_users, through: :lessons

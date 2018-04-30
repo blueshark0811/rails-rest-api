@@ -32,6 +32,15 @@ class Organization < ApplicationRecord
     ur.join
   end
 
+  def courses
+    return Course.none if new_record?
+
+    Course.where(organization_id: id)
+      .or(Course.where(id: AddonCourse.joins("INNER JOIN addon_organizations as ao ON 
+        (ao.addon_id = addon_courses.addon_id and ao.organization_id = #{id})").select(:course_id)
+      ))
+  end
+
   class << self
     def additional_attributes
       {

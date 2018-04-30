@@ -119,7 +119,7 @@ class Activity < ApplicationRecord
 
     if organization_id.blank?
       self.organization_id = group.organization_id if group_id
-      self.organization_id ||= course.organization_id if course_id
+      # self.organization_id ||= course.organization_id if course_id
     end
   end
 end

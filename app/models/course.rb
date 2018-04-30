@@ -9,20 +9,36 @@ class Course < ApplicationRecord
   def search_data
     attributes.merge(
       group_ids: group_ids,
+      organization_ids: organization_ids,
       active_user_ids: active_users.pluck(:id),
       course_users_state: course_users.map(&:to_index),
-      "image" => image.to_json
+      'image' => image.to_json
     )
   end
 
   validates :title, presence: true
 
-  scope :for_student, -> (student) {
+  scope :for_student, ->(student) {
     joins(:course_users)
       .where(course_users: { user_id: student.id })
       .where.not(course_users: { status: 'disabled' })
       .order('course_users.position ASC')
   }
+
+  def organizations
+    return Organization.where(id: organization_id) if new_record?
+
+    Organization.where("organizations.id IN 
+      (SELECT ao.organization_id FROM addon_organizations as ao
+        INNER JOIN addon_courses as ac ON 
+        (ao.addon_id = ac.addon_id AND ac.course_id = #{id}))
+      #{organization_id ? "OR organizations.id = #{organization_id.to_i}" : ''}"
+    )
+  end
+
+  def organization_ids
+    organizations.pluck(:id)
+  end
 
   def active_users
     course_users.in_work

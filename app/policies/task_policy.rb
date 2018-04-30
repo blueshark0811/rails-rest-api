@@ -1,4 +1,4 @@
-class TaskPolicy < OrganizationEntityPolicy
+class TaskPolicy < OrganizationAddonEntityPolicy
   include PolicyHelper::Commentable
   include PolicyHelper::Videoable
   include PolicyHelper::Attachmentable
