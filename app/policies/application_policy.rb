@@ -73,10 +73,8 @@ class ApplicationPolicy
       { id: -1 }
     end
 
-    def klass #todo optimize
-      scope.new.is_a?(ApplicationRecord) ? scope : scope.klass
-    rescue
-      scope.klass
+    def klass
+      scope.class == Class ? scope : scope.klass
     rescue
       nil
     end

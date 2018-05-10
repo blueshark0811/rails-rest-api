@@ -11,6 +11,8 @@ class OrganizationUser < ApplicationRecord
   validates :role, presence: true
   validates :user_id, uniqueness: { scope: [:organization_id] }
 
+  after_commit { user.reindex }
+
   class << self
     def additional_attributes
       { exclude_students_ids: { type: :array, null: true } }

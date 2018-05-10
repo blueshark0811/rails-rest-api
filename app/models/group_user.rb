@@ -24,6 +24,12 @@ class GroupUser < ApplicationRecord
 
   after_create_commit { GroupUserJob.perform_later self }
 
+  after_create_commit { user.reindex }
+  after_destroy_commit { user.reindex }
+
+  after_create_commit { group.reindex }
+  after_destroy_commit { group.reindex }
+
   delegate :first_name, :last_name, to: :user, allow_nil: true
 
   scope :order_by, ->(sort_field, sort_flag = SORT_FLAGS.first) do

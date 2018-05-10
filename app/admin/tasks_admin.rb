@@ -1,4 +1,20 @@
 Trestle.resource(:tasks) do
+  filter name: :lesson_id, remote_collection_url: '/admin/lessons/search', label: 'Lesson'
+  filter name: :action_type, collection: Task.action_types.keys, label: 'Action Type'
+
+  routes do
+    get :search, on: :collection
+  end
+
+  search do |query, params|
+    sc = Task.where('description ILIKE ?', "%#{query}%")
+
+    sc = sc.where(lesson_id: params[:lesson_id]) if params[:lesson_id].presence
+    sc = sc.where(action_type: params[:action_type]) if params[:action_type].presence
+
+    sc
+  end
+
   menu do
     item :tasks, icon: 'fa fa-pencil', group: :courses, priority: 2
   end

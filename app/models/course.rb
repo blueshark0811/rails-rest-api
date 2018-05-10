@@ -28,9 +28,9 @@ class Course < ApplicationRecord
   def organizations
     return Organization.where(id: organization_id) if new_record?
 
-    Organization.where("organizations.id IN 
+    Organization.where("organizations.id IN
       (SELECT ao.organization_id FROM addon_organizations as ao
-        INNER JOIN addon_courses as ac ON 
+        INNER JOIN addon_courses as ac ON
         (ao.addon_id = ac.addon_id AND ac.course_id = #{id}))
       #{organization_id ? "OR organizations.id = #{organization_id.to_i}" : ''}"
     )

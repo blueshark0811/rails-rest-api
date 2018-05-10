@@ -50,7 +50,7 @@ class User < ApplicationRecord
   end
 
   def cached_roles
-    @cached_roles ||= organization_users.map{ |ou| [ou.organization_id, ou.role].join('_') }
+    @cached_roles ||= organization_users.map { |ou| [ou.organization_id, ou.role].join('_') }
   end
 
   def in_course?(course)

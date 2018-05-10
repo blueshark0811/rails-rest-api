@@ -9,6 +9,9 @@
   </head>
 
   <body>
+    <%- %i[notice alert error].each do |fl| %>
+      <%= flash[fl] %>
+    <%- end %>
     <%= yield %>
   </body>
 </html>

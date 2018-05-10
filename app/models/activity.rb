@@ -31,6 +31,8 @@ class Activity < ApplicationRecord
 
   enumerate :status
 
+  scope :recent, ->{ order(created_at: :desc) }
+
   def excluded_from_broadcast?
     return false unless organization_id
 

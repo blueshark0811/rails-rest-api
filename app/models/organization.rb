@@ -25,18 +25,22 @@ class Organization < ApplicationRecord
   def url
     ur = ["#{APP_CONFIG['protocol']}://"]
 
-    ur << (domain_linked? ? domain : "#{subdomain}.#{APP_CONFIG['host']}")
+    ur << host
 
     ur << ":#{APP_CONFIG['port']}" if APP_CONFIG['port'].to_i != 80
 
     ur.join
   end
 
+  def host
+    domain_linked? ? domain : "#{subdomain}.#{APP_CONFIG['host']}"
+  end
+
   def courses
     return Course.none if new_record?
 
     Course.where(organization_id: id)
-      .or(Course.where(id: AddonCourse.joins("INNER JOIN addon_organizations as ao ON 
+      .or(Course.where(id: AddonCourse.joins("INNER JOIN addon_organizations as ao ON
         (ao.addon_id = addon_courses.addon_id and ao.organization_id = #{id})").select(:course_id)
       ))
   end

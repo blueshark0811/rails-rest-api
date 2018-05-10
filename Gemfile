@@ -21,7 +21,7 @@ gem 'pundit'
 
 # admin part
 gem 'trestle'
-gem 'trestle-search'
+gem 'trestle-search', github: 'sergeyustinov/trestle-search' #path: '../trestle-search'
 gem 'trestle-tinymce'
 ###
 

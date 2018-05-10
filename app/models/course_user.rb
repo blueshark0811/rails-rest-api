@@ -9,7 +9,7 @@ class CourseUser < ApplicationRecord
 
   validates :user_id, uniqueness: { scope: [:course_group_id] }
 
-  after_commit { course.reindex async: true }
+  after_commit { course.reindex }
   after_create_commit { CourseUserJob.perform_later self }
 
   scope :in_work, -> { where(status: %w(active in_progress)) }

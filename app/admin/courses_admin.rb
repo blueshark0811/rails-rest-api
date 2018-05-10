@@ -1,6 +1,32 @@
 Trestle.resource(:courses) do
+  filter name: :organization_id, remote_collection_url: '/admin/organizations/search', label: 'Organization'
+
   menu do
     item :courses, icon: 'fa fa-tasks', group: :courses, priority: 0
+  end
+
+  routes do
+    get :search, on: :collection
+  end
+
+  search do |query, params|
+    sc = if params[:organization_id].presence
+      @ornagization = Organization.find params[:organization_id]
+      @ornagization.courses
+    else
+      Course.all
+    end
+
+    sc = sc.where('title ILIKE ?', "%#{query}%")
+
+    sc
+  end
+
+  controller do
+    def search
+      render json: Course.where('title ILIKE ?', "%#{params[:term]}%")
+        .map { |l| { value: l.title, id: l.id } }.to_json
+    end
   end
 
   table do

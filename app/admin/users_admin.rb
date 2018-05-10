@@ -3,8 +3,20 @@ Trestle.resource(:users) do
     item :users, icon: 'fa fa-users'
   end
 
-  search do |query|
-    User.search query.presence || '*', fields: User::SEARCH_FIELDS, match: :word_start
+  filter name: :country_id, remote_collection_url: '/admin/organizations/search', label: 'Organization'
+
+  routes do
+    get :sign_in_as, on: :member
+  end
+
+  search do |query, params|
+    where = {}
+    where[:organization_ids] = params[:organization_id] if params[:organization_id].presence
+
+    User.search query.presence || '*',
+      where: where,
+      fields: User::SEARCH_FIELDS,
+      match: :word_start
   end
 
   table do
@@ -20,7 +32,13 @@ Trestle.resource(:users) do
     column :country
     column :created_at, align: :center
 
-    actions
+    column :actions do |user|
+      res = link_to('Sign in as', sign_in_as_users_admin_path(user)) + ' | '
+      res += link_to users_admin_path(user), class: 'btn-danger btn', 'data-toggle' => "confirm-delete", 'data-placement' => "left", 'data-method' => "delete" do
+        raw '<i class="fa fa-trash"></i>'
+      end
+      res
+    end
   end
 
   form do |user|
@@ -116,6 +134,11 @@ Trestle.resource(:users) do
       if params[:user] && params[:user][:password] && params[:user][:password].blank?
         params[:user].delete :password
       end
+    end
+
+    def sign_in_as
+      @user = User.find params[:id]
+      redirect_to "/?#{{ jwt_token: @user.jwt_token }.to_param}"
     end
   end
 end

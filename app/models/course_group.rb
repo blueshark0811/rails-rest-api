@@ -11,7 +11,8 @@ class CourseGroup < ApplicationRecord
   enumerate :status, { field: :complete_lesson_can, prefix: true }
 
   before_validation :set_default_data
-  after_commit { course.reindex async: true }
+  after_create_commit { course.reindex }
+  after_destroy_commit { course.reindex }
   after_create_commit { CourseGroupJob.perform_later self }
 
   validates :course_id, uniqueness: { scope: [:group_id] }

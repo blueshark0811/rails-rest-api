@@ -3,6 +3,12 @@ Trestle.resource(:organizations) do
     item :organizations, icon: 'fa fa-building'
   end
 
+  routes do
+    post :add_user, on: :member
+    delete :delete_user, on: :member
+    get :search, on: :collection
+  end
+
   search do |query|
     if query
       Organization.where("title ILIKE ?", "%#{query}%")
@@ -157,6 +163,11 @@ Trestle.resource(:organizations) do
   end
 
   controller do
+    def search
+      render json: Organization.where('title ILIKE ?', "%#{params[:term]}%")
+        .map { |l| { value: l.title, id: l.id } }.to_json
+    end
+
     def delete_user
       OrganizationUser.find_by!(organization_id: params[:id], user_id: params[:user_id]).destroy
       flash[:message] = "User deleted from organization"
@@ -179,10 +190,5 @@ Trestle.resource(:organizations) do
 
       redirect_to edit_organizations_admin_path(params[:id], anchor: '!tab-admins')
     end
-  end
-
-  routes do
-    post :add_user, on: :member
-    delete :delete_user, on: :member
   end
 end

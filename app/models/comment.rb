@@ -7,6 +7,7 @@ class Comment < ApplicationRecord
   belongs_to :user
   has_many :activities, as: :eventable
   has_many :attachments, as: :attachmentable, dependent: :destroy
+  has_one :organization, through: :commentable
 
   validates :body, presence: true
 

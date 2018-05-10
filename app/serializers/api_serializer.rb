@@ -202,9 +202,12 @@ module ApiSerializer
 
       kls = res.new.class.serializer_class_name.constantize
 
-      res = res.map { |r| 
-        kls.new(r, serializer_params: serializer_params.merge(current_deep: current_deep+1)).serializable_hash 
-      }
+      res = res.map { |r|
+        r.new_record? ? nil :
+          kls.new(r,
+            serializer_params: serializer_params.merge(current_deep: current_deep + 1)
+          ).serializable_hash
+      }.compact
     else
       #something, like array
     end
