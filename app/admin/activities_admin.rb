@@ -2,7 +2,7 @@ Trestle.resource(:activities, read_only: true) do
   filter name: :organization_id, remote_collection_url: '/admin/organizations/search', label: 'Organization'
 
   menu do
-    item :activities, icon: "fa fa-bell", priority: 2, group: :activity
+    item :activities, icon: 'fa fa-bell', priority: 2, group: :activity
   end
 
   scope :recent, default: true

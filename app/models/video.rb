@@ -1,9 +1,9 @@
 require 'sproutvideo'
 
 class Video < ApplicationRecord
-  VIDEOABLES = %w[Task Organization]
+  VIDEOABLES = %w[Task Lesson Organization]
 
-  belongs_to :organization
+  belongs_to :organization, optional: true
   belongs_to :user
   belongs_to :videoable, polymorphic: true, optional: true
 
@@ -12,6 +12,8 @@ class Video < ApplicationRecord
   before_validation :set_data
   before_validation :set_token, on: :create
   before_validation :update_via_youtube, on: :create
+
+  scope :without_draft, -> { where.not(status: 'draft') }
 
   attr_accessor :mode
 

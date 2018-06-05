@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180430063621) do
+ActiveRecord::Schema.define(version: 20180604113057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_stat_statements"
   enable_extension "hstore"
 
   create_table "active_admin_comments", force: :cascade do |t|
@@ -201,10 +202,10 @@ ActiveRecord::Schema.define(version: 20180430063621) do
     t.text "description"
     t.string "image"
     t.bigint "user_id"
-    t.bigint "organization_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "lessons_count", default: 0
+    t.bigint "organization_id"
     t.index ["organization_id"], name: "index_courses_on_organization_id"
     t.index ["user_id"], name: "index_courses_on_user_id"
   end
@@ -377,7 +378,6 @@ ActiveRecord::Schema.define(version: 20180430063621) do
   create_table "videos", force: :cascade do |t|
     t.string "title"
     t.integer "length"
-    t.string "sproutvideo_id"
     t.bigint "organization_id"
     t.bigint "user_id"
     t.string "videoable_type"
@@ -386,8 +386,11 @@ ActiveRecord::Schema.define(version: 20180430063621) do
     t.datetime "updated_at", null: false
     t.string "video_link"
     t.string "status"
+    t.string "sproutvideo_id"
     t.string "token"
     t.text "embed_code"
+    t.integer "size"
+    t.string "thumbnail_url"
     t.index ["organization_id"], name: "index_videos_on_organization_id"
     t.index ["user_id"], name: "index_videos_on_user_id"
     t.index ["videoable_type", "videoable_id"], name: "index_videos_on_videoable_type_and_videoable_id"
@@ -418,7 +421,6 @@ ActiveRecord::Schema.define(version: 20180430063621) do
   add_foreign_key "course_users", "course_groups"
   add_foreign_key "course_users", "courses"
   add_foreign_key "course_users", "users"
-  add_foreign_key "courses", "organizations"
   add_foreign_key "courses", "users"
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"

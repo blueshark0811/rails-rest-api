@@ -29,13 +29,23 @@ Trestle.resource(:tasks) do
     actions
   end
 
-  form do |task|
-    select :action_type, MODELS['task']['action_types'].invert
-    editor :description
-    select :lesson_id, Lesson.all
+  form class: 'dropzone' do |task|
+    tab :base do
+      select :action_type, MODELS['task']['action_types'].invert
+      editor :description
+      select :lesson_id, Lesson.all
 
-    if task.new_record?
-      hidden_field :user_id, value: current_user.id
+      if task.new_record?
+        hidden_field :user_id, value: current_user.id
+      end
+    end
+
+    tab :attachments do
+      render partial: 'admin/attachments/attachments', locals: { object: task }
+    end
+
+    tab :video do
+      render partial: 'admin/videos/videos', locals: { object: task }
     end
   end
 end

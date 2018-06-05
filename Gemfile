@@ -23,6 +23,7 @@ gem 'pundit'
 gem 'trestle'
 gem 'trestle-search', github: 'sergeyustinov/trestle-search' #path: '../trestle-search'
 gem 'trestle-tinymce'
+gem 'dropzonejs-rails'
 ###
 
 gem 'awesome_print'

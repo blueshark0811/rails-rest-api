@@ -8,6 +8,7 @@ module Lessons
       has_one :organization, through: :course
 
       has_many :attachments, as: :attachmentable, dependent: :destroy
+      has_many :videos, as: :videoable, dependent: :destroy
 
       has_many :lesson_users, dependent: :destroy
       has_many :users, through: :lesson_users

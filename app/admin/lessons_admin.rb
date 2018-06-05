@@ -28,14 +28,24 @@ Trestle.resource(:lessons) do
   end
 
   form do |lesson|
-    text_field :title
-    editor :description
-    select :status, MODELS['lesson']['statuses'].invert
+    tab :base do
+      text_field :title
+      editor :description
+      select :status, MODELS['lesson']['statuses'].invert
 
-    select :course_id, Course.all
+      select :course_id, Course.all
 
-    if lesson.new_record?
-      hidden_field :user_id, value: current_user.id
+      if lesson.new_record?
+        hidden_field :user_id, value: current_user.id
+      end
+    end
+
+    tab :attachments do
+      render partial: 'admin/attachments/attachments', locals: { object: lesson }
+    end
+
+    tab :video do
+      render partial: 'admin/videos/videos', locals: { object: lesson }
     end
   end
 

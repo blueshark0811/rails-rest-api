@@ -1,0 +1,22 @@
+- unless object.new_record?
+  .dropzone
+    .fallback
+      = button_tag "Attach",
+        type: 'button', 
+        class: "dropzone-video-field btn btn-success",
+        'data-path': videos_admin_index_path,
+        'data-previews': "#preview-video",
+        'data-token-url': "#{get_token_videos_admin_index_path(videoable_type: object.class.name, videoable_id: object.id)}",
+        'data-update-url': "#{videos_admin_index_path}",
+        'onclick': "getVideoToken('#{get_token_videos_admin_index_path(videoable_type: object.class.name, videoable_id: object.id)}')"
+
+    #preview-video
+
+  - object.videos.without_draft.each do |attachment|
+    .dropzone-video-files-uploaded.hidden{ 'data-name': attachment.title,
+      'data-size': attachment.size,
+      'data-url': attachment.thumbnail_url,
+      'data-id': attachment.id }
+
+- else
+  Available at edit mode. Please create instance and come back here.

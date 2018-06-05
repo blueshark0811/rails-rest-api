@@ -4,7 +4,7 @@ class Attachment < ApplicationRecord
   SORT_FIELDS = %w[file_name title created_at]
 
   belongs_to :user
-  belongs_to :organization
+  belongs_to :organization, optional: true
   belongs_to :attachmentable, polymorphic: true, optional: true
 
   mount_base64_uploader :data, FileUploader

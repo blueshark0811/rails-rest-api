@@ -1,0 +1,23 @@
+- unless object.new_record?
+  .dropzone
+    %input{name: "authenticity_token", type: "hidden", value: form_authenticity_token}
+    %input{name: "attachmentable_type", type: "hidden", value: object.class.name }
+    %input{name: "attachmentable_id", type: "hidden", value: object.id}
+    %input{name: "user_id", type: "hidden", value: current_user.id}
+    .fallback
+      = button_tag "Attach",
+        type: 'button', 
+        class: "dropzone-field btn btn-success",
+        'data-path': attachments_admin_index_path,
+        'data-previews': "#preview"
+
+    #preview
+
+  - object.attachments.each do |attachment|
+    .dropzone-files-uploaded.hidden{ 'data-name': attachment.data.path.split('/').last,
+      'data-size': attachment.data.size,
+      'data-url': attachment.data_url,
+      'data-id': attachment.id }
+
+- else
+  Available at edit mode. Please create instance and come back here.

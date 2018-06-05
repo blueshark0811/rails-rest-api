@@ -44,7 +44,7 @@ class Api::V1::AttachmentsController < Api::V1::ApiController
   end
 
   def update
-    if @attachment.update_attributes permitted_attributes(@attachment)
+    if @attachment.update permitted_attributes(@attachment)
       render_result(@attachment) else render_error(@attachment)
     end
   end

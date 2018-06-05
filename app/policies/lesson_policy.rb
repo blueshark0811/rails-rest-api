@@ -1,5 +1,7 @@
 class LessonPolicy < OrganizationAddonEntityPolicy
   include PolicyHelper::Attachmentable
+  include PolicyHelper::Videoable
+
   class Scope < Scope
     def resolve
       sc = scope
