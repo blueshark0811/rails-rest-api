@@ -32,5 +32,5 @@ staging:
 
 production:
   <<: *settings
-  host: equipengine.com
+  host: herokuapp.com
   port: 443
