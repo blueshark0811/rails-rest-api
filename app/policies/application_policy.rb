@@ -92,10 +92,12 @@ class ApplicationPolicy
             sc.where(k => v)
           end
         elsif k == :_or
-          sc = sc.where(v.shift)
+          base_sc = sc
+
+          sc = base_sc.where(v.shift)
 
           v.each do |cond|
-            sc = sc.or(sc.where(cond))
+            sc = sc.or(base_sc.where(cond))
           end
         elsif klass.attributes.include?(k)
           sc = sc.where(k => v)

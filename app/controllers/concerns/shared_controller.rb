@@ -52,6 +52,7 @@ module SharedController
   end
 
   def current_organization
+    p 'current_organization->', request.subdomain, request.domain
     return @current_organization if @current_organization
 
     @current_organization = Organization.find_by(subdomain: organization_subdomain) if organization_subdomain
