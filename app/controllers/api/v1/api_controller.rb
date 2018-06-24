@@ -137,21 +137,23 @@ class Api::V1::ApiController < ActionController::API
     session['token'] = token
   end
 
-  def authenticate_user!(_opts = {})
-    p current_user, '<-authenticate_user!'
-
+  def current_user
     token = (request.headers['Authorization'] || params[:authorization]).to_s.split(' ').last
 
-    return true if current_user && !token_changed?(token)
+    return @current_user if @current_user && !token_changed?(token)
 
     save_token(token)
 
-    if user = User.find_by_token(token)
-      p user, '<-user'
-      sign_in('user', user) && return
+    if @current_user = User.find_by_token(token)
+      p @current_user, '<-user'
+      sign_in('user', @current_user) && return
     end
 
-    render_error('You are not authorized', nil, 401)
+    @current_user
+  end
+
+  def authenticate_user!(_opts = {})
+    render_error('You are not authorized', nil, 401) unless current_user
   end
 
   def authenticate_organization!
