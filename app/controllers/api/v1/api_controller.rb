@@ -146,7 +146,7 @@ class Api::V1::ApiController < ActionController::API
 
     if @current_user = User.find_by_token(token)
       p @current_user, '<-user'
-      sign_in('user', @current_user) && return
+      sign_in('user', @current_user)
     end
 
     @current_user
