@@ -128,12 +128,24 @@ class Api::V1::ApiController < ActionController::API
 
   private
 
+  def token_changed?(token)
+    p session['token'], token, '<-token'
+    session['token'] != token
+  end
+
+  def save_token(token)
+    session['token'] = token
+  end
+
   def authenticate_user!(_opts = {})
     p current_user, '<-authenticate_user!'
-    return true if current_user
 
     token = (request.headers['Authorization'] || params[:authorization]).to_s.split(' ').last
-p token, '<-token'
+
+    return true if current_user && !token_changed?(token)
+
+    save_token(token)
+
     if user = User.find_by_token(token)
       p user, '<-user'
       sign_in('user', user) && return
