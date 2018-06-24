@@ -18,6 +18,10 @@ class Api::V1::ApiController < ActionController::API
     render_404 exception.message
   end
 
+  rescue_from ActionController::ParameterMissing do |exception|
+    render_error exception.message, '', 400
+  end
+
   # for serializer gem
   def namespace_for_serializer
     Api::V1

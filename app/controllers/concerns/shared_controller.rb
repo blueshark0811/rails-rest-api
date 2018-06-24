@@ -69,7 +69,7 @@ module SharedController
   end
 
   def super_admin?
-    curre_user&.super_admin?
+    current_user&.super_admin?
   end
 
   OrganizationUser.roles.keys.each do |rol|
