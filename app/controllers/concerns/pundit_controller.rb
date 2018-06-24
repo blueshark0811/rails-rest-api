@@ -3,7 +3,7 @@ module PunditController
   include Pundit
 
   included do
-    rescue_from Pundit::NotAuthorizedError do |exception|
+    rescue_from Pundit::NotAuthorizedError do |_exception|
       render_error 'not allowed', '', 401
     end
   end

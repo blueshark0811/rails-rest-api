@@ -8,7 +8,7 @@ class Api::V1::ApiController < ActionController::API
   before_action :set_current_time_zone
   before_action :set_locale
 
-  #serialization_scope :view_context
+  # serialization_scope :view_context
 
   rescue_from JWT::DecodeError do |exception|
     render_error exception.message, '', 401
@@ -129,11 +129,13 @@ class Api::V1::ApiController < ActionController::API
   private
 
   def authenticate_user!(_opts = {})
+    p current_user, '<-authenticate_user!'
     return true if current_user
 
     token = (request.headers['Authorization'] || params[:authorization]).to_s.split(' ').last
-
+p token, '<-token'
     if user = User.find_by_token(token)
+      p user, '<-user'
       sign_in('user', user) && return
     end
 

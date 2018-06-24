@@ -32,9 +32,9 @@ module Users
     end
 
     module ClassMethods
-      def find_by_token token
+      def find_by_token(token)
         return if token.blank?
-        
+
         begin
           attrs = JWT.decode token, APP_CONFIG['api']['jwt']['secret'], APP_CONFIG['api']['jwt']['algorithm']
         rescue JWT::DecodeError
