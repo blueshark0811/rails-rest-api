@@ -16,7 +16,8 @@ class GroupUserPolicy < OrganizationEntityPolicy
   end
 
   def create?
-    author? || super
+    # author? ||
+    super
   end
 
   def permitted_attributes

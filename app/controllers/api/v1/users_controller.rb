@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Api::V1::UsersController < Api::V1::ApiController
-  before_action :set_user, except: [:index, :create]
+  before_action :set_user, except: %i[index create]
 
   def index
     order = { first_name: sort_flag }
@@ -30,7 +30,7 @@ class Api::V1::UsersController < Api::V1::ApiController
   end
 
   def update
-    if @user.update_attributes permitted_attributes(@user)
+    if @user.update permitted_attributes(@user)
       render_result(@user) else render_error(@user)
     end
   end
