@@ -15,6 +15,7 @@ class Api::V1::ApiController < ActionController::API
   end
 
   rescue_from ActiveRecord::RecordNotFound do |exception|
+    p 'ActiveRecord::RecordNotFound'
     render_404 exception.message
   end
 
@@ -129,7 +130,6 @@ class Api::V1::ApiController < ActionController::API
   private
 
   def token_changed?(token)
-    p session['token'], token, '<-token'
     session['token'] != token
   end
 
@@ -145,7 +145,6 @@ class Api::V1::ApiController < ActionController::API
     save_token(token)
 
     if @current_user = User.find_by_token(token)
-      p @current_user, '<-user'
       sign_in('user', @current_user)
     end
 

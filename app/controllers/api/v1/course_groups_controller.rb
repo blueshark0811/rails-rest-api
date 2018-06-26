@@ -5,8 +5,6 @@ class Api::V1::CourseGroupsController < Api::V1::ApiController
   def index
     @course_groups = @group.course_groups
 
-    authorize @course_groups
-
     render_result @course_groups.page(current_page).per(current_count)
   end
 

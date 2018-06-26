@@ -15,7 +15,7 @@ class Api::V1::TasksController < Api::V1::ApiController
   end
 
   def update
-    if @task.update_attributes permitted_attributes(@task)
+    if @task.update permitted_attributes(@task)
       render_result(@task) else render_error(@task)
     end
   end
@@ -39,8 +39,9 @@ class Api::V1::TasksController < Api::V1::ApiController
   private
 
   def set_group
+    p current_user, admin?, '*'*100
     if params[:group_id].blank?
-      render_404 unless admin?
+      render_404('group_id should be sent') unless admin?
       return
     end
 

@@ -14,7 +14,7 @@ describe Api::V1::TasksController do
 
   let(:task) { create :task, lesson: lesson, user: current_user }
   let!(:task_user) { create :task_user, task: task, user: current_user, course_group: course_group }
-  
+
   let(:group_id) { group.id }
   let(:course_id) { course.id }
   let(:lesson_id) { lesson.id }

@@ -65,7 +65,7 @@ class Api::V1::LessonsController < Api::V1::ApiController
 
   def set_group
     if params[:group_id].blank?
-      render_404 unless admin?
+      render_404('group_id should be sent') unless admin?
       return
     end
 

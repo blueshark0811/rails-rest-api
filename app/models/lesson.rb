@@ -3,6 +3,8 @@ class Lesson < ApplicationRecord
 
   enumerate :status
 
+  validates :title, presence: true
+
   def organization_ids
     @organization_ids ||= course&.organization_ids
   end
