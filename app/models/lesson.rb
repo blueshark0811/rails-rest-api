@@ -17,9 +17,9 @@ class Lesson < ApplicationRecord
     lesson_users.find_or_create_by(user_id: user.id, course_group_id: group_or_course_group.id)
   end
 
-  def add_user_to_tasks(user)
+  def add_user_to_tasks(user, options = {})
     tasks.each do |task|
-      task.task_users.create user: user
+      task.task_users.create options.merge(user: user)
     end
   end
 

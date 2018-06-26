@@ -8,5 +8,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  url: redis://h:p973a3df62478a81c2b679ec549e53301c804c4c9664901d6eb91876a14038f49@ec2-34-196-167-183.compute-1.amazonaws.com:7709
   channel_prefix: EquipEngine_production

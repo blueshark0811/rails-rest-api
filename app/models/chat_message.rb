@@ -61,7 +61,7 @@ class ChatMessage < ApplicationRecord
 
     return unless (attachment = chat.attachments.find_by id: attachment_id, user_id: user_id)
 
-    attachment.update_attributes attachmentable: self
+    attachment.update attachmentable: self
   end
 
   def write_activity
