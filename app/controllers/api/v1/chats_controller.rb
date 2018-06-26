@@ -29,7 +29,7 @@ class Api::V1::ChatsController < Api::V1::ApiController
   end
 
   def update
-    if @chat.update_attributes permitted_attributes(@chat)
+    if @chat.update permitted_attributes(@chat)
       render_result(@chat) else render_error(@chat)
     end
   end

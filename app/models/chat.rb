@@ -26,7 +26,7 @@ class Chat < ApplicationRecord
       user_id1 = user_id1.id if user_id1.is_a?(User)
       user_id2 = user_id2.id if user_id2.is_a?(User)
 
-      chat = organization.chats.where('(SELECT COUNT(id) FROM chat_users 
+      chat = organization.chats.where('(SELECT COUNT(id) FROM chat_users
          WHERE (user_id = ? OR user_id = ?) AND chat_id = chats.id) = 2',
         user_id1, user_id2).first
 

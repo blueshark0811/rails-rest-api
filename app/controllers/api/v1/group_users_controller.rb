@@ -41,7 +41,7 @@ class Api::V1::GroupUsersController < Api::V1::ApiController
     @group.group_users.where(id: params[:ids]).each do |group_user|
       authorize group_user, :update?
 
-      unless group_user.update_attributes status: params[:status]
+      unless group_user.update status: params[:status]
         errors << { group_user.id => group_user.errors.details }
       end
     end

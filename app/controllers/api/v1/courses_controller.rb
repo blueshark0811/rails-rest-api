@@ -68,6 +68,11 @@ class Api::V1::CoursesController < Api::V1::ApiController
   end
 
   def destroy
+    # allow destroy only courses that created inside organization
+    @course = Course.where(organization_id: current_organization.id).find(params[:id])
+
+    authorize(@course)
+
     @course.destroy
 
     render_result success: @course.destroyed?

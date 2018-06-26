@@ -39,7 +39,6 @@ class Api::V1::TasksController < Api::V1::ApiController
   private
 
   def set_group
-    p current_user, admin?, '*'*100
     if params[:group_id].blank?
       render_404('group_id should be sent') unless admin?
       return

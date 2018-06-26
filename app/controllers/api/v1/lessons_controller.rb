@@ -46,7 +46,7 @@ class Api::V1::LessonsController < Api::V1::ApiController
   end
 
   def update
-    if @lesson.update_attributes permitted_attributes(@lesson)
+    if @lesson.update permitted_attributes(@lesson)
       render_result(@lesson) else render_error(@lesson)
     end
   end

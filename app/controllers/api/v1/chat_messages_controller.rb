@@ -24,7 +24,7 @@ class Api::V1::ChatMessagesController < Api::V1::ApiController
   end
 
   def update
-    if @chat_message.update_attributes permitted_attributes(@chat_message)
+    if @chat_message.update permitted_attributes(@chat_message)
       render_result(@chat_message) else render_error(@chat_message)
     end
   end

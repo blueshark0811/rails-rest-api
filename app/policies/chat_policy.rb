@@ -7,4 +7,8 @@ class ChatPolicy < OrganizationEntityPolicy
   def permitted_attributes_for_update
     %i[title]
   end
+
+  def show?
+    user && record.chat_user_ids.include?(user.id) || admin?
+  end
 end
