@@ -1,4 +1,5 @@
 class CourseThreadPolicy < OrganizationEntityPolicy
+  include PolicyHelper::Commentable
   def permitted_attributes
     %i[title]
   end
