@@ -16,6 +16,10 @@ class CourseThreadPolicy < OrganizationEntityPolicy
     super && record.course_group&.discussing_enabled?
   end
 
+  def comments_create?
+    show?
+  end
+
   def create?
     super || (
       user.in_course_group?(record.course_group) &&

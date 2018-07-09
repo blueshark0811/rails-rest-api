@@ -42,6 +42,6 @@ class OrganizationEntityPolicy < ApplicationPolicy
   end
 
   def record_accessible_in_organization?
-    record.organization_id == organization.id && role
+    record.organization_id == organization.id && !!role
   end
 end

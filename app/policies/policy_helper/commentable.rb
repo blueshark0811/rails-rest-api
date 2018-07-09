@@ -9,11 +9,11 @@ module PolicyHelper
     end
 
     def comments_update?
-      comments_create?
+      comments_create? && author?
     end
 
     def comments_destroy?
-      comments_create?
+      comments_update?
     end
   end
 end
