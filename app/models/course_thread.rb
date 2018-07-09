@@ -17,13 +17,13 @@ class CourseThread < ApplicationRecord
   end
 
   def comment_created_callback(comment)
-    self.comments_count += kount
+    self.comments_count += 1
     self.last_activity_at = Time.zone.now
 
     save(validate: false)
 
     group.activities.create(
-      eventable: commentable,
+      eventable: comment,
       user: user,
       as_object: {
         i18n: 'comment.course_thread.created',

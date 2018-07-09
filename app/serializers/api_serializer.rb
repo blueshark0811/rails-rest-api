@@ -134,10 +134,10 @@ module ApiSerializer
       when :object
         res = type_cast_object(res)
       when :association
-        res = type_cast_association(res, col)
+        res = res.is_a?(Array) && res.blank? ? res : type_cast_association(res, col)
       end
     rescue => e
-      p 'error', e
+      p 'error type_cast -> ', field, e
     end
 
     res

@@ -50,7 +50,6 @@ class TaskUser < ApplicationRecord
   end
 
   def attachment_comment_created_callback(attach_or_comment)
-
     if user.role(organization) == 'student'
       group.teachers.each do |teacher|
         notify_teacher(teacher, attach_or_comment)
