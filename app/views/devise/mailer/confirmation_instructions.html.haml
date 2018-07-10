@@ -1,0 +1,6 @@
+- scope = %w[emails confirmation]
+
+%p= t :welcome, scope: scope, email: @email
+%p= t :you_can_confirm, scope: scope
+%p= t :please_use, scope: scope, token: @token
+-# %p= link_to t(:confirm, scope: scope), client_url('/auth/confirmation', confirmation_token: @token)

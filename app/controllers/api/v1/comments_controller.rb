@@ -9,7 +9,7 @@ class Api::V1::CommentsController < Api::V1::ApiController
   end
 
   def update
-    if @comment.update_attributes permitted_attributes(@comment)
+    if @comment.update permitted_attributes(@comment)
       render_result(@comment) else render_error(@comment)
     end
   end

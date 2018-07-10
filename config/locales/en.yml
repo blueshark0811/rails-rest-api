@@ -1,4 +1,18 @@
 en:
+  emails:
+    confirmation:
+       welcome: 'Welcome %{email}!'
+       you_can_confirm: 'You can confirm your account email through the link below:'
+       confirm: Confirm my account
+       please_use: 'Please use this code to change password: %{token}'
+
+    password:
+      hello: 'Welcome %{email}!'
+      someone_has_requested: Someone has requested a link to change your password. 
+      please_use: 'Please use this code to change password: %{token}'
+      did_not_request: "If you didn't request this, please ignore this email."
+      your_password: "Your password won't change until you access the link above and create a new one."
+
   activity:
     messages:
       comment:

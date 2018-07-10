@@ -39,7 +39,13 @@ Rails.application.routes.draw do
           post :send_set_password_link
         end
       end
-      resources :registrations, only: [:create]
+      resources :registrations, only: [:create] do
+        collection do
+          post :send_instruction
+          post :confirm
+        end
+      end
+
       resources :passwords, only: %i[create] do
         collection do
           put :update
