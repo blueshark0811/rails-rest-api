@@ -55,7 +55,7 @@ class Api::V1::VideosController < Api::V1::ApiController
   end
 
   def update
-    if @video.update_attributes permitted_attributes(@video)
+    if @video.update permitted_attributes(@video)
       render_result @video
     else
       render_error @video

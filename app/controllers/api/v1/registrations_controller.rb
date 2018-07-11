@@ -13,7 +13,10 @@ class Api::V1::RegistrationsController < Api::V1::ApiController
   end
 
   def send_instruction
-    @user = User.find params[:user_id]
+    @user = User.find_by(id: params[:user_id]) if params[:user_id].present?
+    @user = User.find_by email: params[:email] if params[:email].present? && !@user
+
+    render_error('invalid user') && return unless @user
 
     @user.send_confirmation_instructions
 

@@ -5,7 +5,7 @@ default: &default
 
 development:
   <<: *default
-  database: equipengine
+  database: equ110718
   # username: equipengine
   # password: equipengine
 

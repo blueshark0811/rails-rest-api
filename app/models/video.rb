@@ -32,9 +32,9 @@ class Video < ApplicationRecord
   def update_via_sproutvideo!(params)
     return if params['token'] != token
 
-    update_attributes embed_code: params['embed_code'],
-                      length: params['duration'],
-                      status: MODELS.dig('video', 'sproutvideo', 'states', params[:state])
+    update embed_code: params['embed_code'],
+           length: params['duration'],
+           status: MODELS.dig('video', 'sproutvideo', 'states', params[:state])
   end
 
   def update_via_youtube
@@ -42,19 +42,18 @@ class Video < ApplicationRecord
 
     return errors.add(:video_link, :blank) if video_link.blank?
 
-    video = Yt::Video.new id: youtube_id(video_link)
+    video = Yt::Video.new id: youtube_id
     self.length = video.duration
     self.embed_code = video.embed_html
   rescue Yt::Errors::NoItems
     errors.add :video_link, :invalid
   end
 
-  private
-
-  def youtube_id(url)
-    regex = /(?:.be\/|embed\/|\/watch\?v=|\/(?=p\/))([\w\/\-]+)/
-    url.match(regex)[1] rescue url
+  def youtube_id
+    video_link.match(REGEXP[:youtube_id])[1] rescue video_link
   end
+
+  private
 
   def set_token
     return unless sproutvideo?

@@ -1,7 +1,7 @@
 class VideoPolicy < OrganizationEntityPolicy
   class << self
     def permitted_attributes_shared
-      %i[video_link title description]
+      %i[video_link title]
     end
   end
 
@@ -10,7 +10,7 @@ class VideoPolicy < OrganizationEntityPolicy
   end
 
   def permitted_attributes_for_update
-    %i[title]
+    %i[title sproutvideo_id embed_code status length size thumbnail_url]
   end
 
   def sproutvideo?
