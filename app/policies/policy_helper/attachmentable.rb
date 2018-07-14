@@ -8,6 +8,14 @@ module PolicyHelper
       update?
     end
 
+    def attachments_s3_data?
+      attachments_create?
+    end
+
+    def attachments_new?
+      attachments_create?
+    end
+
     def attachments_update?
       attachments_create?
     end

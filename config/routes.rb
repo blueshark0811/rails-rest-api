@@ -93,7 +93,11 @@ Rails.application.routes.draw do
       end
 
       scope ':attachmentable_type/:attachmentable_id' do
-        resources :attachments
+        resources :attachments do
+          collection do
+            get :s3_data
+          end
+        end
       end
 
       scope ':videoable_type/:videoable_id' do

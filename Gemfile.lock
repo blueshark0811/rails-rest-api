@@ -57,6 +57,14 @@ GEM
     autoprefixer-rails (8.4.1)
       execjs
     awesome_print (1.8.0)
+    aws-sdk (2.11.89)
+      aws-sdk-resources (= 2.11.89)
+    aws-sdk-core (2.11.89)
+      aws-sigv4 (~> 1.0)
+      jmespath (~> 1.0)
+    aws-sdk-resources (2.11.89)
+      aws-sdk-core (= 2.11.89)
+    aws-sigv4 (1.0.3)
     bcrypt (3.1.11)
     bindex (0.5.0)
     builder (3.2.3)
@@ -68,6 +76,9 @@ GEM
     carrierwave-base64 (2.7.0)
       carrierwave (>= 0.8.0)
       mime-types (~> 3.0)
+    carrierwave_direct (2.0.0)
+      carrierwave (>= 1.0.0)
+      fog-aws
     case_transform (0.2)
       activesupport
     chronic (0.10.2)
@@ -146,6 +157,7 @@ GEM
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    jmespath (1.4.0)
     json-schema (2.8.0)
       addressable (>= 2.4)
     jsonapi-renderer (0.2.0)
@@ -368,9 +380,11 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers
   awesome_print
+  aws-sdk (~> 2)
   byebug
   carrierwave (~> 1.0)
   carrierwave-base64
+  carrierwave_direct
   coffee-rails (~> 4.2)
   daemons
   database_cleaner

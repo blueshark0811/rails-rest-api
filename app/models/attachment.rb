@@ -17,7 +17,7 @@ class Attachment < ApplicationRecord
     )
   end
 
-  validates :data, presence: true
+  # validates :data, presence: true
 
   before_validation :set_data
 
@@ -31,7 +31,7 @@ class Attachment < ApplicationRecord
 
     return unless attachmentable.respond_to?(:attachments_count)
 
-    attachmentable.update_attribute(:attachments_count, attachmentable.attachments_count.to_i + 1)
+    attachmentable.update(:attachments_count, attachmentable.attachments_count.to_i + 1)
   end
 
   private

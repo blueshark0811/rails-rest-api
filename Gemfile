@@ -37,6 +37,8 @@ gem 'carrierwave', '~> 1.0'
 gem 'carrierwave-base64'
 gem "fog-aws"
 gem 'rmagick'
+gem 'aws-sdk', '~> 2'
+gem 'carrierwave_direct'
 
 gem 'resque'
 gem 'resque-scheduler'

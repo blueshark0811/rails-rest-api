@@ -1,7 +1,7 @@
 class AttachmentPolicy < OrganizationEntityPolicy
   class << self
     def permitted_attributes_shared
-      %i[description data title]
+      %i[description data title data_key]
     end
   end
 

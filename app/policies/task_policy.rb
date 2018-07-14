@@ -34,6 +34,7 @@ class TaskPolicy < OrganizationAddonEntityPolicy
   end
 
   def attachments_create?
+    p 'attachments_create?'*100, record.question?, show?, update?
     record.question? && show? || update?
   end
 
