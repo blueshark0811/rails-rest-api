@@ -18,16 +18,19 @@ class CourseUser < ApplicationRecord
     self.class.to_index user_id, group&.id, status
   end
 
+  def pre_course_user
+    CourseUser.find_by(user_id: user_id, course_id: course_group.precourse_id)
+  end
+
   def can_start?
-    (active? || in_progress?) && (
-      course_group.precourse_id.blank? ||
-      CourseUser.completed.where(user_id: user_id, course_id: course_group.precourse_id).exists?
-    )
+    (active? || in_progress?) && can_show?
   end
   alias_method :can_start, :can_start?
 
   def can_show?
-    can_start? # maybe some add here
+    !disabled? && (
+      course_group.precourse_id.blank? || pre_course_user&.completed?
+    )
   end
 
   class << self

@@ -33,6 +33,15 @@ class Lesson < ApplicationRecord
           association: :course_groups,
           association_type: :object,
           with_params: [:group_id]
+        },
+        lesson_user_for_current_student: {
+          type: :association,
+          association: :lesson_users,
+          association_type: :array,
+          modes: [:for_current_course_group, :for_current_student],
+          null: true,
+          items: { type: :object, properties: {} },
+          description: 'lesson_user instance(association for lesson in which user participated) for current user and course'
         }
       }
     end

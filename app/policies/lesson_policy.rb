@@ -17,7 +17,7 @@ class LessonPolicy < OrganizationAddonEntityPolicy
   end
 
   def api_base_attributes
-    super + [:course_settings]
+    super + [:course_settings, :lesson_user_for_current_student]
   end
 
   def show?
