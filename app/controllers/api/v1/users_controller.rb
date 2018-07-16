@@ -8,7 +8,7 @@ class Api::V1::UsersController < Api::V1::ApiController
 
     where = policy_condition(User)
 
-    where[:group_ids] = params[:group_id] if params[:group_id]
+    where[:participated_group_ids] = params[:group_id] if params[:group_id]
 
     where[:cached_roles] = [current_organization.id, params[:role]].join('_') if params[:role]
 
@@ -19,8 +19,6 @@ class Api::V1::UsersController < Api::V1::ApiController
       per_page: current_count,
       fields: User::SEARCH_FIELDS,
       match: :word_start
-
-    authorize @users
 
     render_result @users
   end

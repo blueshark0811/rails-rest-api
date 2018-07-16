@@ -16,7 +16,7 @@ class User < ApplicationRecord
       'first_name' => first_name || '',
       organization_ids: organization_ids,
       roles: cached_roles,
-      group_ids: group_ids
+      participated_group_ids: participated_group_ids
     )
   end
 

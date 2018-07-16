@@ -40,7 +40,7 @@ class Api::V1::GroupsController < Api::V1::ApiController
   end
 
   def update
-    if @group.update_attributes permitted_attributes(@group)
+    if @group.update permitted_attributes(@group)
       render_result(@group) else render_error(@group)
     end
   end

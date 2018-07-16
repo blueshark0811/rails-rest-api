@@ -22,7 +22,7 @@ module Users
       has_many :tasks
       has_many :attachments
       has_many :courses
-      has_many :groups
+      
       has_many :files
       has_many :lessons
       has_many :videos

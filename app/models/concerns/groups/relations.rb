@@ -8,7 +8,7 @@ module Groups
       has_many :group_users, dependent: :destroy
       has_many :users, through: :group_users
 
-      has_many :users_at_organization, -> (group) {
+      has_many :users_at_organization, ->(group) {
         joins(:organization_users).where(
           organization_users: {
             organization_id: group.organization_id
@@ -16,7 +16,7 @@ module Groups
         )
       }, through: :group_users, source: :user do
         def with_role(role)
-          self.where(organization_users: { role: role})
+          self.where(organization_users: { role: role })
         end
       end
 
