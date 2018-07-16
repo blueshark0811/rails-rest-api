@@ -106,7 +106,16 @@ class Api::V1::ApiController < ActionController::API
     meta = additional_meta || {}
     return meta if obj.is_a?(ApplicationRecord)
 
-    meta[:total_pages] = obj.total_pages if obj.respond_to?(:total_pages)
+    if obj.respond_to?(:total_pages) # good for searchkick and kaminari
+      meta[:total_pages] = obj.total_pages
+    end
+
+    meta[:total_count] = if obj.respond_to?(:total_count)
+      obj.total_count
+    else
+      obj.unscope(:limit).count rescue nil
+    end
+
     meta[:size] = obj.size if obj.respond_to?(:size)
     meta[:limit_value] = obj.limit_value if obj.respond_to?(:limit_value)
     meta[:current_page] = obj.current_page if obj.respond_to?(:current_page)
