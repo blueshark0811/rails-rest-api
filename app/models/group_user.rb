@@ -9,6 +9,9 @@ class GroupUser < ApplicationRecord
       first_name: first_name || '',
       last_name: last_name || '',
       role: role || '',
+      status: status || '',
+      user_id: user_id,
+      date_added: created_at,
       organization_id: organization_id
     }
   end
