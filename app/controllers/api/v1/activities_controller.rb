@@ -17,10 +17,11 @@ class Api::V1::ActivitiesController < Api::V1::ApiController
     where[:user_id] = params[:user_id] if params[:user_id]
     where[:lesson_id] = params[:lesson_id] if params[:lesson_id]
     where[:course_id] = params[:course_id] if params[:course_id]
+    where[:group_id] = params[:group_id] if params[:group_id]
 
     @activities = policy_scope(scope)
-    # .where(where).order(order)
-      # .page(current_page).per(current_count)
+      .where(where).order(order)
+      .page(current_page).per(current_count)
 
     render_result @activities
   end
