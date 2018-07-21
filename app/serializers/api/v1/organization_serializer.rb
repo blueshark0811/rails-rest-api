@@ -8,5 +8,10 @@ class Api::V1::OrganizationSerializer < BaseSerializer
       object.send field
     end
   end
-  
+
+  %i[display_settings display_name display_type].each do |field|
+    define_method field do
+      object.send field
+    end
+  end
 end

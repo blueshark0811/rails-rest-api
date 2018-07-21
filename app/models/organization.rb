@@ -60,13 +60,11 @@ class Organization < ApplicationRecord
         },
         display_name: {
           type: :string,
-          null: true,
-          for_roles: ['admin']
+          null: true
         },
         display_type: {
           type: :string,
-          null: true,
-          for_roles: ['admin']
+          null: true
         }
       }
     end
