@@ -10,6 +10,8 @@ class User < ApplicationRecord
 
   mount_base64_uploader :avatar, AvatarUploader
 
+  store_accessor :email_notifications, :notify_on_private_message, :notify_on_course_response, :notify_on_group_discussion_response, :get_weekly_activity_summary
+
   searchkick callbacks: :async, word_start: SEARCH_FIELDS
   def search_data
     attributes.merge(
@@ -26,6 +28,22 @@ class User < ApplicationRecord
 
   attr_accessor :current_organization
 
+  def notify_on_private_message
+    notify_on_private_message
+  end
+
+  def notify_on_course_response
+    notify_on_course_response
+  end
+
+  def notify_on_group_discussion_response
+    notify_on_group_discussion_response
+  end
+
+  def get_weekly_activity_summary
+    get_weekly_activity_summary
+  end
+
   class << self
     def additional_attributes
       { organization_settings: {
@@ -34,7 +52,19 @@ class User < ApplicationRecord
           association_type: :object,
           mode: :inside_current_organization,
           null: true
-        }
+        },
+        notify_on_private_message: {
+          type: :boolean
+        },
+        notify_on_course_response: {
+          type: :boolean
+        },
+        notify_on_group_discussion_response: {
+          type: :boolean
+        },
+        get_weekly_activity_summary: {
+          type: :boolean
+        },
       }
     end
   end

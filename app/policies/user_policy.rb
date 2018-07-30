@@ -40,7 +40,7 @@ class UserPolicy < ApplicationPolicy
   def permitted_attributes_for_create
     %i[
       address avatar country_id state_id zip_code date_of_birth phone_number
-      first_name last_name email password password_confirmation
+      first_name last_name email password password_confirmation enable_email_notifications notify_on_private_message notify_on_course_response notify_on_group_discussion_response get_weekly_activity_summary
     ]# << {group_ids: []}
   end
 

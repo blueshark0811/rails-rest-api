@@ -7,7 +7,9 @@ class Group < ApplicationRecord
   searchkick callbacks: :async, word_start: SEARCH_FIELDS, searchable: SEARCH_FIELDS
   def search_data
     attributes.merge(
-      user_ids: user_ids
+      user_ids: user_ids,
+      completed: completed || '',
+      incomplet: incomplet || ''
     )
   end
 
@@ -39,9 +41,26 @@ class Group < ApplicationRecord
           mode: :for_current_user,
           null: true,
           description: 'group_user instance for current user if he participated in group'
-        }
+        },
+        completed: {type: :integer},
+        incomplet: {type: :integer}
       }
     end
+  end
+
+
+  def completed
+    @completed_lesson ||= LessonUser.where(
+      user_id: user_ids,
+      status: 'completed'
+      ).count
+  end 
+
+  def incomplet
+    @incompleted_lesson ||= LessonUser.where(
+      user_id: user_ids,
+      status: 'active'
+      ).count
   end
 
   def students

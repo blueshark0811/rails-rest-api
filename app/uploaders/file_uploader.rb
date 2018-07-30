@@ -1,3 +1,3 @@
 class FileUploader < CarrierWave::Uploader::Base
-  include CarrierWaveDirect::Uploader
+  # include CarrierWaveDirect::Uploader
 end
