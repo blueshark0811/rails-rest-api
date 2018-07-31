@@ -9,7 +9,7 @@ class Group < ApplicationRecord
     attributes.merge(
       user_ids: user_ids,
       completed: completed || '',
-      incomplet: incomplet || ''
+      incomplete: incomplete || ''
     )
   end
 
@@ -43,7 +43,7 @@ class Group < ApplicationRecord
           description: 'group_user instance for current user if he participated in group'
         },
         completed: {type: :integer},
-        incomplet: {type: :integer}
+        incomplete: {type: :integer}
       }
     end
   end
@@ -56,7 +56,7 @@ class Group < ApplicationRecord
       ).count
   end 
 
-  def incomplet
+  def incomplete
     @incompleted_lesson ||= LessonUser.where(
       user_id: user_ids,
       status: 'active'
