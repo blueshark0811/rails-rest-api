@@ -19,6 +19,8 @@ class Attachment < ApplicationRecord
 
   # validates :data, presence: true
 
+  after_commit { Attachment.reindex }
+
   before_validation :set_data
 
   after_create_commit { AttachmentJob.perform_later(self, 'created') }
