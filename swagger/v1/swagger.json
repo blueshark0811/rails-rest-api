@@ -227,8 +227,8 @@
                       ]
                     },
                     "status": "pending",
-                    "created_at": "April 22, 2018 09:10",
-                    "updated_at": "April 22, 2018 09:10",
+                    "created_at": "2018-04-22T09:10:00.000+00:00",
+                    "updated_at": "2018-04-22T09:10:00.000+00:00",
                     "task_id": 1,
                     "lesson_id": 1,
                     "course_id": 1,
@@ -248,8 +248,8 @@
                         "state_id": 2,
                         "zip_code": "",
                         "status": "active",
-                        "created_at": "April 22, 2018 09:10",
-                        "updated_at": "April 22, 2018 09:10",
+                        "created_at": "2018-04-22T09:10:00.000+00:00",
+                        "updated_at": "2018-04-22T09:10:00.000+00:00",
                         "email": "brandy.beier@schaefer.com",
                         "avatar": {
                           "url": null,
@@ -272,8 +272,8 @@
                           "user_id": 1,
                           "organization_id": 1,
                           "role": "teacher",
-                          "created_at": "April 22, 2018 09:10",
-                          "updated_at": "April 22, 2018 09:10",
+                          "created_at": "2018-04-22T09:10:00.000+00:00",
+                          "updated_at": "2018-04-22T09:10:00.000+00:00",
                           "status": "active",
                           "exclude_students_ids": [
 
@@ -293,8 +293,8 @@
                       "user_id": 5,
                       "root_id": 0,
                       "main_root_id": 1,
-                      "created_at": "April 22, 2018 09:10",
-                      "updated_at": "April 22, 2018 09:10",
+                      "created_at": "2018-04-22T09:10:00.000+00:00",
+                      "updated_at": "2018-04-22T09:10:00.000+00:00",
                       "tree_path": [
                         "1"
                       ],
@@ -309,8 +309,8 @@
                         "state_id": 9,
                         "zip_code": "",
                         "status": "active",
-                        "created_at": "April 22, 2018 09:10",
-                        "updated_at": "April 22, 2018 09:10",
+                        "created_at": "2018-04-22T09:10:00.000+00:00",
+                        "updated_at": "2018-04-22T09:10:00.000+00:00",
                         "email": "monique@okeefebogisich.net",
                         "avatar": {
                           "url": null,
@@ -342,8 +342,8 @@
                       "state_id": 2,
                       "zip_code": "",
                       "status": "active",
-                      "created_at": "April 22, 2018 09:10",
-                      "updated_at": "April 22, 2018 09:10",
+                      "created_at": "2018-04-22T09:10:00.000+00:00",
+                      "updated_at": "2018-04-22T09:10:00.000+00:00",
                       "email": "brandy.beier@schaefer.com",
                       "avatar": {
                         "url": null,
@@ -366,8 +366,8 @@
                         "user_id": 1,
                         "organization_id": 1,
                         "role": "teacher",
-                        "created_at": "April 22, 2018 09:10",
-                        "updated_at": "April 22, 2018 09:10",
+                        "created_at": "2018-04-22T09:10:00.000+00:00",
+                        "updated_at": "2018-04-22T09:10:00.000+00:00",
                         "status": "active",
                         "exclude_students_ids": [
 
@@ -384,8 +384,8 @@
                       "status": "active",
                       "user_id": 4,
                       "course_id": 1,
-                      "created_at": "April 22, 2018 09:10",
-                      "updated_at": "April 22, 2018 09:10",
+                      "created_at": "2018-04-22T09:10:00.000+00:00",
+                      "updated_at": "2018-04-22T09:10:00.000+00:00",
                       "course_settings": null
                     },
                     "task": {
@@ -394,8 +394,8 @@
                       "description": "Architecto consequatur magni. Hic pariatur cupiditate reiciendis consequatur mollitia deserunt. Dolorem delectus quo in est at adipisci architecto. Illum dolores quaerat. Qui possimus ut ex eos nulla cumque voluptas.",
                       "lesson_id": 1,
                       "user_id": 1,
-                      "created_at": "April 22, 2018 09:10",
-                      "updated_at": "April 22, 2018 09:10",
+                      "created_at": "2018-04-22T09:10:00.000+00:00",
+                      "updated_at": "2018-04-22T09:10:00.000+00:00",
                       "task_user": null
                     },
                     "course": {
@@ -407,8 +407,8 @@
                       },
                       "user_id": 3,
                       "organization_id": 1,
-                      "created_at": "April 22, 2018 09:10",
-                      "updated_at": "April 22, 2018 09:10",
+                      "created_at": "2018-04-22T09:10:00.000+00:00",
+                      "updated_at": "2018-04-22T09:10:00.000+00:00",
                       "lessons_count": 1,
                       "group_ids": [
                         1
@@ -425,8 +425,8 @@
                       "status": "active",
                       "user_limit": 10,
                       "visibility": "public",
-                      "created_at": "April 22, 2018 09:10",
-                      "updated_at": "April 22, 2018 09:10",
+                      "created_at": "2018-04-22T09:10:00.000+00:00",
+                      "updated_at": "2018-04-22T09:10:00.000+00:00",
                       "count_participants": 1,
                       "user_id": 0,
                       "noticeboard_settings": {
@@ -450,8 +450,8 @@
                       "state_id": 3,
                       "zip_code": "",
                       "status": "active",
-                      "created_at": "April 22, 2018 09:10",
-                      "updated_at": "April 22, 2018 09:10",
+                      "created_at": "2018-04-22T09:10:00.000+00:00",
+                      "updated_at": "2018-04-22T09:10:00.000+00:00",
                       "email": "loren@kunde.org",
                       "avatar": {
                         "url": null,
@@ -474,8 +474,8 @@
                         "user_id": 2,
                         "organization_id": 1,
                         "role": "student",
-                        "created_at": "April 22, 2018 09:10",
-                        "updated_at": "April 22, 2018 09:10",
+                        "created_at": "2018-04-22T09:10:00.000+00:00",
+                        "updated_at": "2018-04-22T09:10:00.000+00:00",
                         "status": "active",
                         "exclude_students_ids": [
 
@@ -722,8 +722,8 @@
                     ]
                   },
                   "status": "pending",
-                  "created_at": "April 22, 2018 09:10",
-                  "updated_at": "April 22, 2018 09:10",
+                  "created_at": "2018-04-22T09:10:00.000+00:00",
+                  "updated_at": "2018-04-22T09:10:00.000+00:00",
                   "task_id": 4,
                   "lesson_id": 4,
                   "course_id": 4,
@@ -743,8 +743,8 @@
                       "state_id": 33,
                       "zip_code": "",
                       "status": "active",
-                      "created_at": "April 22, 2018 09:10",
-                      "updated_at": "April 22, 2018 09:10",
+                      "created_at": "2018-04-22T09:10:00.000+00:00",
+                      "updated_at": "2018-04-22T09:10:00.000+00:00",
                       "email": "dwight.stiedemann@parisian.org",
                       "avatar": {
                         "url": null,
@@ -767,8 +767,8 @@
                         "user_id": 17,
                         "organization_id": 16,
                         "role": "teacher",
-                        "created_at": "April 22, 2018 09:10",
-                        "updated_at": "April 22, 2018 09:10",
+                        "created_at": "2018-04-22T09:10:00.000+00:00",
+                        "updated_at": "2018-04-22T09:10:00.000+00:00",
                         "status": "active",
                         "exclude_students_ids": [
 
@@ -788,8 +788,8 @@
                     "user_id": 21,
                     "root_id": 0,
                     "main_root_id": 4,
-                    "created_at": "April 22, 2018 09:10",
-                    "updated_at": "April 22, 2018 09:10",
+                    "created_at": "2018-04-22T09:10:00.000+00:00",
+                    "updated_at": "2018-04-22T09:10:00.000+00:00",
                     "tree_path": [
                       "4"
                     ],
@@ -804,8 +804,8 @@
                       "state_id": 40,
                       "zip_code": "",
                       "status": "active",
-                      "created_at": "April 22, 2018 09:10",
-                      "updated_at": "April 22, 2018 09:10",
+                      "created_at": "2018-04-22T09:10:00.000+00:00",
+                      "updated_at": "2018-04-22T09:10:00.000+00:00",
                       "email": "ayana@huel.info",
                       "avatar": {
                         "url": null,
@@ -837,8 +837,8 @@
                     "state_id": 33,
                     "zip_code": "",
                     "status": "active",
-                    "created_at": "April 22, 2018 09:10",
-                    "updated_at": "April 22, 2018 09:10",
+                    "created_at": "2018-04-22T09:10:00.000+00:00",
+                    "updated_at": "2018-04-22T09:10:00.000+00:00",
                     "email": "dwight.stiedemann@parisian.org",
                     "avatar": {
                       "url": null,
@@ -861,8 +861,8 @@
                       "user_id": 17,
                       "organization_id": 16,
                       "role": "teacher",
-                      "created_at": "April 22, 2018 09:10",
-                      "updated_at": "April 22, 2018 09:10",
+                      "created_at": "2018-04-22T09:10:00.000+00:00",
+                      "updated_at": "2018-04-22T09:10:00.000+00:00",
                       "status": "active",
                       "exclude_students_ids": [
 
@@ -879,8 +879,8 @@
                     "status": "active",
                     "user_id": 20,
                     "course_id": 4,
-                    "created_at": "April 22, 2018 09:10",
-                    "updated_at": "April 22, 2018 09:10",
+                    "created_at": "2018-04-22T09:10:00.000+00:00",
+                    "updated_at": "2018-04-22T09:10:00.000+00:00",
                     "course_settings": null
                   },
                   "task": {
@@ -889,8 +889,8 @@
                     "description": "Architecto consequatur magni. Hic pariatur cupiditate reiciendis consequatur mollitia deserunt. Dolorem delectus quo in est at adipisci architecto. Illum dolores quaerat. Qui possimus ut ex eos nulla cumque voluptas.",
                     "lesson_id": 4,
                     "user_id": 17,
-                    "created_at": "April 22, 2018 09:10",
-                    "updated_at": "April 22, 2018 09:10",
+                    "created_at": "2018-04-22T09:10:00.000+00:00",
+                    "updated_at": "2018-04-22T09:10:00.000+00:00",
                     "task_user": null
                   },
                   "course": {
@@ -902,8 +902,8 @@
                     },
                     "user_id": 19,
                     "organization_id": 16,
-                    "created_at": "April 22, 2018 09:10",
-                    "updated_at": "April 22, 2018 09:10",
+                    "created_at": "2018-04-22T09:10:00.000+00:00",
+                    "updated_at": "2018-04-22T09:10:00.000+00:00",
                     "lessons_count": 1,
                     "group_ids": [
                       7
@@ -920,8 +920,8 @@
                     "status": "active",
                     "user_limit": 10,
                     "visibility": "public",
-                    "created_at": "April 22, 2018 09:10",
-                    "updated_at": "April 22, 2018 09:10",
+                    "created_at": "2018-04-22T09:10:00.000+00:00",
+                    "updated_at": "2018-04-22T09:10:00.000+00:00",
                     "count_participants": 1,
                     "user_id": 0,
                     "noticeboard_settings": {
@@ -945,8 +945,8 @@
                     "state_id": 34,
                     "zip_code": "",
                     "status": "active",
-                    "created_at": "April 22, 2018 09:10",
-                    "updated_at": "April 22, 2018 09:10",
+                    "created_at": "2018-04-22T09:10:00.000+00:00",
+                    "updated_at": "2018-04-22T09:10:00.000+00:00",
                     "email": "sven@stracke.info",
                     "avatar": {
                       "url": null,
@@ -969,8 +969,8 @@
                       "user_id": 18,
                       "organization_id": 16,
                       "role": "student",
-                      "created_at": "April 22, 2018 09:10",
-                      "updated_at": "April 22, 2018 09:10",
+                      "created_at": "2018-04-22T09:10:00.000+00:00",
+                      "updated_at": "2018-04-22T09:10:00.000+00:00",
                       "status": "active",
                       "exclude_students_ids": [
 
@@ -1642,8 +1642,8 @@
                   },
                   "user_id": 77,
                   "organization_id": 74,
-                  "created_at": "April 22, 2018 09:10",
-                  "updated_at": "April 22, 2018 09:10",
+                  "created_at": "2018-04-22T09:10:00.000+00:00",
+                  "updated_at": "2018-04-22T09:10:00.000+00:00",
                   "lessons_count": 0,
                   "group_ids": [
 
@@ -1823,8 +1823,8 @@
                   },
                   "user_id": 69,
                   "organization_id": 66,
-                  "created_at": "April 22, 2018 09:10",
-                  "updated_at": "April 22, 2018 09:10",
+                  "created_at": "2018-04-22T09:10:00.000+00:00",
+                  "updated_at": "2018-04-22T09:10:00.000+00:00",
                   "lessons_count": 0,
                   "group_ids": [
 
@@ -2012,8 +2012,8 @@
                   },
                   "user_id": 86,
                   "organization_id": 82,
-                  "created_at": "April 22, 2018 09:10",
-                  "updated_at": "April 22, 2018 09:10",
+                  "created_at": "2018-04-22T09:10:00.000+00:00",
+                  "updated_at": "2018-04-22T09:10:00.000+00:00",
                   "lessons_count": 0,
                   "group_ids": [
 
@@ -15147,6 +15147,26 @@
                     "password_confirmation": {
                       "type": "string",
                       "x-nullable": true
+                    },
+                    "enable_email_notifications": {
+                     "type": "boolean",
+                      "x-nullable": true
+                    },
+                    "notify_on_course_response":{ 
+                      "type": "boolean",
+                      "x-nullable": true
+                    },
+                    "notify_on_private_message": {
+                      "type": "boolean",
+                      "x-nullable": true
+                    },
+                    "get_weekly_activity_summary": {
+                      "type": "boolean",
+                      "x-nullable": false
+                    },
+                    "notify_on_group_discussion_response": {
+                      "type": "boolean",
+                      "x-nullable": false
                     }
                   }
                 }

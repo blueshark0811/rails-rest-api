@@ -129,7 +129,7 @@ module ApiSerializer
           res = res.to_s
         end
       when :datetime
-        res = res.to_s(:long) if res && !res.is_a?(String)
+        res = DateTime.parse(res.to_s).iso8601(3) if res && !res.is_a?(String)
 
       when :object
         res = type_cast_object(res)
