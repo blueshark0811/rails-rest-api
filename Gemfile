@@ -37,6 +37,12 @@ gem "daemons"
 gem 'active_model_serializers'#, path: './lib/active_model_serializers'
 gem 'carrierwave', '~> 1.0'
 gem 'carrierwave-base64'
+ gem 'mini_magick'
+gem 'rmagick'
+gem 'mime-types'
+gem 'carrierwave-video'
+gem 'carrierwave-video-thumbnailer'
+gem 'carrierwave-ffmpeg'
 gem "fog-aws"
 gem 'rmagick'
 gem 'aws-sdk', '~> 2'
