@@ -1,3 +1,4 @@
+require 'carrierwave/storage/fog'
 class FileUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
   storage :fog
