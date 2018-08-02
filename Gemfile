@@ -64,6 +64,8 @@ group :development, :test do
   # gem 'selenium-webdriver'
 
   gem 'faker'
+  gem 'pry','=0.10'
+  gem 'pry-nav', '~> 0.2.4'
 end
 
 group :development do
