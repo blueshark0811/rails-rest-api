@@ -1,3 +1,4 @@
+require 'mime-types'
 class Attachment < ApplicationRecord
   ATTACHMENTABLES = %w[Task TaskUser Course Group Lesson Organization Chat ChatMessage]
   SEARCH_FIELDS = %i[file_name title description]

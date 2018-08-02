@@ -13,7 +13,9 @@ class Course < ApplicationRecord
       organization_ids: organization_ids,
       active_user_ids: active_users.pluck(:id),
       course_users_state: course_users.map(&:to_index),
-      'image' => image.to_json
+      'image' => image.to_json,
+      completed: completed || '',
+      incomplete: incomplete || '',
     )
   end
 
@@ -43,6 +45,14 @@ class Course < ApplicationRecord
 
   def active_users
     course_users.in_work
+  end
+
+  def completed
+    lesson_users.where(status: "completed").count
+  end
+
+  def incomplete
+    lesson_users.where(status: "active").count
   end
 
   def add_user(user, course_group)
@@ -97,7 +107,9 @@ class Course < ApplicationRecord
           null: true,
           items: { type: :object, properties: {} },
           description: 'lesson_users instance(association for lesson in which user participated) for course'
-        }
+        },
+        completed: {type: :integer},
+        incomplete: {type: :integer}
       }
     end
   end

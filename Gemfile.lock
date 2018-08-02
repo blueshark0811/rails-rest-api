@@ -76,6 +76,14 @@ GEM
     carrierwave-base64 (2.7.0)
       carrierwave (>= 0.8.0)
       mime-types (~> 3.0)
+    carrierwave-ffmpeg (1.0.0)
+      carrierwave
+      streamio-ffmpeg
+    carrierwave-video (0.6.0)
+      carrierwave
+      streamio-ffmpeg
+    carrierwave-video-thumbnailer (0.1.4)
+      carrierwave
     carrierwave_direct (2.0.0)
       carrierwave (>= 1.0.0)
       fog-aws
@@ -188,6 +196,7 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
+    mini_magick (4.8.0)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
@@ -338,6 +347,8 @@ GEM
     sproutvideo-rb (1.6.0)
       multi_json
       rest-client
+    streamio-ffmpeg (3.0.2)
+      multi_json (~> 1.8)
     temple (0.8.0)
     thor (0.19.4)
     thread_safe (0.3.6)
@@ -392,6 +403,9 @@ DEPENDENCIES
   byebug
   carrierwave (~> 1.0)
   carrierwave-base64
+  carrierwave-ffmpeg
+  carrierwave-video
+  carrierwave-video-thumbnailer
   carrierwave_direct
   coffee-rails (~> 4.2)
   daemons
@@ -406,6 +420,8 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jwt
   listen (>= 3.0.5, < 3.2)
+  mime-types
+  mini_magick
   pg (~> 0.20)
   pg_query (>= 0.9.0)
   pghero
