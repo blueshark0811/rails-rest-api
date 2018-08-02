@@ -4,6 +4,7 @@ class Course < ApplicationRecord
   SEARCH_FIELDS = %i[title description]
 
   mount_base64_uploader :image, ImageUploader
+  mount_base64_uploader :banner_image, ImageUploader
 
   searchkick callbacks: :async, word_start: SEARCH_FIELDS, searchable: SEARCH_FIELDS
   def search_data

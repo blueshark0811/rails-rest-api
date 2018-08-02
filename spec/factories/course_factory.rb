@@ -9,6 +9,7 @@ FactoryBot.define do
     title Faker::Company.name
     description Faker::Company.bs
     image FakeFile.file
+    banner_image FakeFile.file
 
     after(:create) do |object, evaluator|
       if evaluator.with_organization
