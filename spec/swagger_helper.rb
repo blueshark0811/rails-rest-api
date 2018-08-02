@@ -11,7 +11,9 @@ RSpec.configure do |config|
 
   config.after do |example|
     if respond_to?(:response) && response
-      p '-'*100, 'response ->', JSON.parse(response.body, symbolize_names: true), '-'*100
+      if ENV['debug']
+        p '-'*100, 'response ->', JSON.parse(response.body, symbolize_names: true), '-'*100
+      end
       example.metadata[:response][:examples] = {
        'application/json' => JSON.parse(response.body, symbolize_names: true)
       }
