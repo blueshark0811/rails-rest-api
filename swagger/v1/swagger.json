@@ -8,9 +8,7 @@
     "group": {
       "type": "object",
       "properties": {
-        "id": {
-          "type": "integer"
-        },
+        "id": {"type": "integer"},
         "organization_id": {
           "type": "integer",
           "x-nullable": true
@@ -269,9 +267,7 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "id": {
-                        "type": "integer"
-                      },
+                      "id": {"type": "integer"},
                       "eventable_type": {
                         "type": "string",
                         "x-nullable": true
@@ -585,9 +581,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -608,9 +602,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -1014,9 +1006,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -1037,9 +1027,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -1060,9 +1048,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -1204,9 +1190,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -1227,9 +1211,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -1250,9 +1232,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -1353,9 +1333,7 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "id": {
-                        "type": "integer"
-                      },
+                      "id": {"type": "integer"},
                       "title": {
                         "type": "string",
                         "x-nullable": true
@@ -1446,9 +1424,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -1469,9 +1445,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -1543,9 +1517,7 @@
                 "course": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "title": {
                       "type": "string",
                       "x-nullable": true
@@ -1627,9 +1599,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -1650,9 +1620,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -1701,9 +1669,7 @@
                 "course": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "title": {
                       "type": "string",
                       "x-nullable": true
@@ -1785,9 +1751,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -1808,9 +1772,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -1831,9 +1793,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -1953,9 +1913,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -1976,9 +1934,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -1999,9 +1955,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -2065,9 +2019,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -2088,9 +2040,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -2111,9 +2061,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -2182,9 +2130,7 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "id": {
-                        "type": "integer"
-                      },
+                      "id": {"type": "integer"},
                       "title": {
                         "type": "string",
                         "x-nullable": true
@@ -2258,9 +2204,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -2281,9 +2225,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -2361,9 +2303,7 @@
                 "lesson": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "title": {
                       "type": "string",
                       "x-nullable": true
@@ -2429,9 +2369,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -2452,9 +2390,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -2516,9 +2452,7 @@
                 "lesson": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "title": {
                       "type": "string",
                       "x-nullable": true
@@ -2583,9 +2517,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -2606,9 +2538,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -2629,9 +2559,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -2760,9 +2688,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -2783,9 +2709,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -2806,9 +2730,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -2878,9 +2800,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -2901,9 +2821,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -2924,9 +2842,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -3001,9 +2917,7 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "id": {
-                        "type": "integer"
-                      },
+                      "id": {"type": "integer"},
                       "action_type": {
                         "type": "string",
                         "x-nullable": true,
@@ -3074,9 +2988,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -3097,9 +3009,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -3170,9 +3080,7 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "id": {
-                            "type": "integer"
-                          },
+                          "id": {"type": "integer"},
                           "description": {
                             "type": "text",
                             "x-nullable": true
@@ -3194,9 +3102,7 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "id": {
-                            "type": "integer"
-                          },
+                          "id": {"type": "integer"},
                           "video_link": {
                             "type": "string",
                             "x-nullable": true
@@ -3228,9 +3134,7 @@
                 "task": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "action_type": {
                       "type": "string",
                       "x-nullable": true,
@@ -3292,9 +3196,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -3315,9 +3217,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -3378,9 +3278,7 @@
                 "task": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "action_type": {
                       "type": "string",
                       "x-nullable": true,
@@ -3442,9 +3340,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -3465,9 +3361,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -3488,9 +3382,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -3567,9 +3459,7 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "id": {
-                            "type": "integer"
-                          },
+                          "id": {"type": "integer"},
                           "description": {
                             "type": "text",
                             "x-nullable": true
@@ -3591,9 +3481,7 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "id": {
-                            "type": "integer"
-                          },
+                          "id": {"type": "integer"},
                           "video_link": {
                             "type": "string",
                             "x-nullable": true
@@ -3667,9 +3555,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -3690,9 +3576,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -3713,9 +3597,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -3791,9 +3673,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -3814,9 +3694,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -3837,9 +3715,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [
@@ -3956,9 +3832,7 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "id": {
-                        "type": "integer"
-                      },
+                      "id": {"type": "integer"},
                       "title": {
                         "type": "string",
                         "x-nullable": true
@@ -4054,9 +3928,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -4077,9 +3949,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -4177,9 +4047,7 @@
                 "attachment": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "title": {
                       "type": "string",
                       "x-nullable": true
@@ -4265,9 +4133,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -4288,9 +4154,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -4461,9 +4325,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -4484,9 +4346,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -4507,9 +4367,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -4595,9 +4453,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -4618,9 +4474,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -4641,9 +4495,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -4712,9 +4564,7 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "id": {
-                        "type": "integer"
-                      },
+                      "id": {"type": "integer"},
                       "user_id": {
                         "type": "integer",
                         "x-nullable": true
@@ -4784,9 +4634,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -4807,9 +4655,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -4883,9 +4729,7 @@
                 "chat_message": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "user_id": {
                       "type": "integer",
                       "x-nullable": true
@@ -4930,9 +4774,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -4953,9 +4795,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -5075,9 +4915,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -5098,9 +4936,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -5121,9 +4957,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -5193,9 +5027,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -5216,9 +5048,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -5239,9 +5069,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -5296,9 +5124,7 @@
                 "chat": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "title": {
                       "type": "string",
                       "x-nullable": true
@@ -5423,9 +5249,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -5446,9 +5270,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -5511,9 +5333,7 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "id": {
-                        "type": "integer"
-                      },
+                      "id": {"type": "integer"},
                       "title": {
                         "type": "string",
                         "x-nullable": true
@@ -5562,9 +5382,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -5585,9 +5403,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -5636,9 +5452,7 @@
                 "chat": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "title": {
                       "type": "string",
                       "x-nullable": true
@@ -5678,9 +5492,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -5701,9 +5513,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -5724,9 +5534,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -5821,9 +5629,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -5844,9 +5650,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -5867,9 +5671,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -5933,9 +5735,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -5956,9 +5756,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -5979,9 +5777,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -6032,9 +5828,7 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "id": {
-                        "type": "integer"
-                      },
+                      "id": {"type": "integer"},
                       "name": {
                         "type": "string",
                         "x-nullable": true
@@ -6118,9 +5912,7 @@
                 "city": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "name": {
                       "type": "string",
                       "x-nullable": true
@@ -6173,9 +5965,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -6269,9 +6059,7 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "id": {
-                        "type": "integer"
-                      },
+                      "id": {"type": "integer"},
                       "commentable_id": {
                         "type": "integer",
                         "x-nullable": true
@@ -6288,9 +6076,7 @@
                         "type": "text",
                         "x-nullable": true
                       },
-                      "user_id": {
-                        "type": "integer"
-                      },
+                      "user_id": {"type": "integer"},
                       "root_id": {
                         "type": "integer",
                         "x-nullable": true
@@ -6392,9 +6178,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -6415,9 +6199,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -6510,9 +6292,7 @@
                 "comment": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "commentable_id": {
                       "type": "integer",
                       "x-nullable": true
@@ -6529,9 +6309,7 @@
                       "type": "text",
                       "x-nullable": true
                     },
-                    "user_id": {
-                      "type": "integer"
-                    },
+                    "user_id": {"type": "integer"},
                     "root_id": {
                       "type": "integer",
                       "x-nullable": true
@@ -6622,9 +6400,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -6645,9 +6421,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -6834,9 +6608,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -6857,9 +6629,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -6880,9 +6650,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -6963,9 +6731,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -6986,9 +6752,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -7009,9 +6773,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -7062,9 +6824,7 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "id": {
-                        "type": "integer"
-                      },
+                      "id": {"type": "integer"},
                       "code": {
                         "type": "string",
                         "x-nullable": true
@@ -7155,9 +6915,7 @@
                 "country": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "code": {
                       "type": "string",
                       "x-nullable": true
@@ -7193,9 +6951,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -7265,9 +7021,7 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "id": {
-                        "type": "integer"
-                      },
+                      "id": {"type": "integer"},
                       "course_id": {
                         "type": "integer",
                         "x-nullable": true
@@ -7359,9 +7113,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -7382,9 +7134,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -7488,9 +7238,7 @@
                 "course_group": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "course_id": {
                       "type": "integer",
                       "x-nullable": true
@@ -7573,9 +7321,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -7596,9 +7342,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -7774,9 +7518,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -7797,9 +7539,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -7820,9 +7560,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -7893,9 +7631,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -7916,9 +7652,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -7939,9 +7673,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -8040,9 +7772,7 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "id": {
-                        "type": "integer"
-                      },
+                      "id": {"type": "integer"},
                       "title": {
                         "type": "string",
                         "x-nullable": true
@@ -8208,9 +7938,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -8231,9 +7959,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -8305,9 +8031,7 @@
                 "course_thread": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "title": {
                       "type": "string",
                       "x-nullable": true
@@ -8408,9 +8132,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -8431,9 +8153,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -8494,9 +8214,7 @@
                 "course_thread": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "title": {
                       "type": "string",
                       "x-nullable": true
@@ -8653,9 +8371,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -8676,9 +8392,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -8699,9 +8413,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -8909,9 +8621,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -8932,9 +8642,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -8955,9 +8663,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -9033,9 +8739,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -9056,9 +8760,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -9079,9 +8781,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -9202,9 +8902,7 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "id": {
-                        "type": "integer"
-                      },
+                      "id": {"type": "integer"},
                       "title": {
                         "type": "string",
                         "x-nullable": true
@@ -9295,9 +8993,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -9318,9 +9014,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -9375,9 +9069,7 @@
                 "course": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "title": {
                       "type": "string",
                       "x-nullable": true
@@ -9459,9 +9151,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -9482,9 +9172,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -9505,9 +9193,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -9663,9 +9349,7 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "id": {
-                        "type": "integer"
-                      },
+                      "id": {"type": "integer"},
                       "user_id": {
                         "type": "integer",
                         "x-nullable": true
@@ -9688,18 +9372,10 @@
                           "pause"
                         ]
                       },
-                      "first_name": {
-                        "type": "string"
-                      },
-                      "last_name": {
-                        "type": "string"
-                      },
-                      "role": {
-                        "type": "string"
-                      },
-                      "organization_id": {
-                        "type": "integer"
-                      }
+                      "first_name": {"type": "string"},
+                      "last_name": {"type": "string"},
+                      "role": {"type": "string"},
+                      "organization_id": {"type": "integer"}
                     }
                   }
                 }
@@ -9740,9 +9416,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -9763,9 +9437,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -9831,9 +9503,7 @@
                 "group_user": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "user_id": {
                       "type": "integer",
                       "x-nullable": true
@@ -9856,18 +9526,10 @@
                         "pause"
                       ]
                     },
-                    "first_name": {
-                      "type": "string"
-                    },
-                    "last_name": {
-                      "type": "string"
-                    },
-                    "role": {
-                      "type": "string"
-                    },
-                    "organization_id": {
-                      "type": "integer"
-                    }
+                    "first_name": {"type": "string"},
+                    "last_name": {"type": "string"},
+                    "role": {"type": "string"},
+                    "organization_id": {"type": "integer"}
                   }
                 }
               },
@@ -9897,9 +9559,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -9920,9 +9580,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -10037,9 +9695,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -10060,9 +9716,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -10083,9 +9737,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -10155,9 +9807,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -10178,9 +9828,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -10201,9 +9849,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -10234,9 +9880,7 @@
             "name": "ids",
             "in": "body",
             "type": "array",
-            "items": {
-              "type": "integer"
-            },
+            "items": {"type": "integer"},
             "required": true
           },
           {
@@ -10272,9 +9916,7 @@
                   "type": "boolean",
                   "value": true
                 },
-                "errors": {
-                  "type": "array"
-                }
+                "errors": {"type": "array"}
               },
               "required": [ "success" ]
             },
@@ -10292,9 +9934,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -10315,9 +9955,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -10416,9 +10054,7 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "id": {
-                        "type": "integer"
-                      },
+                      "id": {"type": "integer"},
                       "organization_id": {
                         "type": "integer",
                         "x-nullable": true
@@ -10540,9 +10176,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -10563,9 +10197,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -10625,9 +10257,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ] }, "examples": {
@@ -10644,9 +10274,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ] }, "examples": {
@@ -10705,9 +10333,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -10728,9 +10354,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -10751,9 +10375,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -10819,9 +10441,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -10842,9 +10462,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -10865,9 +10483,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -10931,9 +10547,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -10954,9 +10568,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -10977,9 +10589,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -11054,9 +10664,7 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "id": {
-                        "type": "integer"
-                      },
+                      "id": {"type": "integer"},
                       "title": {
                         "type": "string",
                         "x-nullable": true
@@ -11143,9 +10751,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -11166,9 +10772,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -11236,9 +10840,7 @@
                 "lesson": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "title": {
                       "type": "string",
                       "x-nullable": true
@@ -11316,9 +10918,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -11339,9 +10939,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -11362,9 +10960,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -11544,9 +11140,7 @@
                 "organization_user": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "user_id": {
                       "type": "integer",
                       "x-nullable": true
@@ -11631,9 +11225,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -11654,9 +11246,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -11722,9 +11312,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -11745,9 +11333,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -11768,9 +11354,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -11819,9 +11403,7 @@
                 "organization": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "title": {
                       "type": "string",
                       "x-nullable": true
@@ -11935,9 +11517,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -11958,9 +11538,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -11981,9 +11559,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -12114,9 +11690,7 @@
                 "organization": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "title": {
                       "type": "string",
                       "x-nullable": true
@@ -12230,9 +11804,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -12253,9 +11825,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -12276,9 +11846,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -12342,9 +11910,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -12365,9 +11931,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -12388,9 +11952,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -12471,15 +12033,9 @@
             "schema": {
               "type": "object",
               "properties": {
-                "password": {
-                  "type": "string"
-                },
-                "password_confirmation": {
-                  "type": "string"
-                },
-                "reset_password_token": {
-                  "type": "string"
-                }
+                "password": {"type": "string"},
+                "password_confirmation": {"type": "string"},
+                "reset_password_token": {"type": "string"}
               }
             }
           }
@@ -12497,9 +12053,7 @@
                 "user": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "first_name": {
                       "type": "string",
                       "x-nullable": true
@@ -12547,9 +12101,7 @@
                     "updated_at": {
                       "type": "datetime"
                     },
-                    "email": {
-                      "type": "string"
-                    },
+                    "email": {"type": "string"},
                     "avatar": {
                       "type": "object",
                       "x-nullable": true
@@ -12626,9 +12178,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -12664,12 +12214,8 @@
                 "user": {
                   "type": "object",
                   "properties": {
-                    "email": {
-                      "type": "string"
-                    },
-                    "password": {
-                      "type": "string"
-                    }
+                    "email": {"type": "string"},
+                    "password": {"type": "string"}
                   }
                 }
               }
@@ -12689,9 +12235,7 @@
                 "user": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "first_name": {
                       "type": "string",
                       "x-nullable": true
@@ -12739,9 +12283,7 @@
                     "updated_at": {
                       "type": "datetime"
                     },
-                    "email": {
-                      "type": "string"
-                    },
+                    "email": {"type": "string"},
                     "avatar": {
                       "type": "object",
                       "x-nullable": true
@@ -12894,12 +12436,8 @@
             "schema": {
               "type": "object",
               "properties": {
-                "email": {
-                  "type": "string"
-                },
-                "password": {
-                  "type": "string"
-                }
+                "email": {"type": "string"},
+                "password": {"type": "string"}
               }
             }
           }
@@ -12917,9 +12455,7 @@
                 "user": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "first_name": {
                       "type": "string",
                       "x-nullable": true
@@ -12967,9 +12503,7 @@
                     "updated_at": {
                       "type": "datetime"
                     },
-                    "email": {
-                      "type": "string"
-                    },
+                    "email": {"type": "string"},
                     "avatar": {
                       "type": "object",
                       "x-nullable": true
@@ -13046,9 +12580,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -13127,9 +12659,7 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "id": {
-                        "type": "integer"
-                      },
+                      "id": {"type": "integer"},
                       "name": {
                         "type": "string",
                         "x-nullable": true
@@ -13238,9 +12768,7 @@
                 "state": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "name": {
                       "type": "string",
                       "x-nullable": true
@@ -13290,9 +12818,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -13373,9 +12899,7 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "id": {
-                        "type": "integer"
-                      },
+                      "id": {"type": "integer"},
                       "action_type": {
                         "type": "string",
                         "x-nullable": true,
@@ -13454,9 +12978,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -13477,9 +12999,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -13546,9 +13066,7 @@
                 "task": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "action_type": {
                       "type": "string",
                       "x-nullable": true,
@@ -13618,9 +13136,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -13641,9 +13157,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -13664,9 +13178,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -13750,9 +13262,7 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "id": {
-                        "type": "integer"
-                      },
+                      "id": {"type": "integer"},
                       "first_name": {
                         "type": "string",
                         "x-nullable": true
@@ -13800,9 +13310,7 @@
                       "updated_at": {
                         "type": "datetime"
                       },
-                      "email": {
-                        "type": "string"
-                      },
+                      "email": {"type": "string"},
                       "avatar": {
                         "type": "object",
                         "x-nullable": true
@@ -13899,9 +13407,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -13922,9 +13428,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -14000,9 +13504,7 @@
                       "type": "string",
                       "x-nullable": true
                     },
-                    "email": {
-                      "type": "string"
-                    },
+                    "email": {"type": "string"},
                     "password": {
                       "type": "string",
                       "x-nullable": true
@@ -14047,9 +13549,7 @@
                 "user": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "first_name": {
                       "type": "string",
                       "x-nullable": true
@@ -14097,9 +13597,7 @@
                     "updated_at": {
                       "type": "datetime"
                     },
-                    "email": {
-                      "type": "string"
-                    },
+                    "email": {"type": "string"},
                     "avatar": {
                       "type": "object",
                       "x-nullable": true
@@ -14173,9 +13671,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -14196,9 +13692,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -14247,9 +13741,7 @@
                 "user": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "first_name": {
                       "type": "string",
                       "x-nullable": true
@@ -14297,9 +13789,7 @@
                     "updated_at": {
                       "type": "datetime"
                     },
-                    "email": {
-                      "type": "string"
-                    },
+                    "email": {"type": "string"},
                     "avatar": {
                       "type": "object",
                       "x-nullable": true
@@ -14387,9 +13877,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -14410,9 +13898,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -14433,9 +13919,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -14517,9 +14001,7 @@
                       "type": "string",
                       "x-nullable": true
                     },
-                    "email": {
-                      "type": "string"
-                    },
+                    "email": {"type": "string"},
                     "password": {
                       "type": "string",
                       "x-nullable": true
@@ -14534,9 +14016,7 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "id": {
-                            "type": "integer"
-                          },
+                          "id": {"type": "integer"},
                           "role": {
                             "type": "string",
                             "x-nullable": true,
@@ -14637,9 +14117,7 @@
                       "type": "string",
                       "x-nullable": true
                     },
-                    "email": {
-                      "type": "string"
-                    },
+                    "email": {"type": "string"},
                     "avatar": {
                       "type": "object",
                       "x-nullable": true
@@ -14703,9 +14181,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -14726,9 +14202,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -14749,9 +14223,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -14815,9 +14287,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -14838,9 +14308,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -14861,9 +14329,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -14928,9 +14394,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -14951,9 +14415,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -14974,9 +14436,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -15051,9 +14511,7 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "id": {
-                        "type": "integer"
-                      },
+                      "id": {"type": "integer"},
                       "title": {
                         "type": "string",
                         "x-nullable": true
@@ -15151,9 +14609,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -15174,9 +14630,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -15264,9 +14718,7 @@
                 "video": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "title": {
                       "type": "string",
                       "x-nullable": true
@@ -15356,9 +14808,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -15379,9 +14829,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -15471,9 +14919,7 @@
                 "video": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
+                    "id": {"type": "integer"},
                     "title": {
                       "type": "string",
                       "x-nullable": true
@@ -15563,9 +15009,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -15586,9 +15030,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -15716,9 +15158,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -15739,9 +15179,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -15762,9 +15200,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -15838,7 +15274,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": { "type": "string" }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -15857,7 +15293,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": { "type": "string" }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
@@ -15876,7 +15312,7 @@
               "properties": {
                 "errors": {
                   "type": "array",
-                  "items": { "type": "string" }
+                  "items": {"type": "string"}
                 }
               },
               "required": [ "errors" ]
