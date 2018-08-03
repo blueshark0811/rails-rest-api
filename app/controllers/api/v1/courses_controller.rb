@@ -5,33 +5,34 @@ class Api::V1::CoursesController < Api::V1::ApiController
   before_action :set_course, except: %i[index create]
 
   def index
-    @courses = if student? || teacher? && params[:student_id]
-      @current_student = if params[:student_id] 
-        current_organization.students.find(params[:student_id])
-      else
-        current_user
-      end
-      
-      Course.for_student(@current_student).page(current_page).per(current_count)
+    # @courses = if student? || teacher?
+    #   @current_student = if teacher? && params[:student_id]
+    #     current_organization.students.find(params[:student_id])
+    #   else
+    #     current_user
+    #   end
+    #
+    #   Course.for_student(@current_student).page(current_page).per(current_count)
+    # else
+
+    order = if Course::SORT_FIELDS.include?(params[:sort_field])
+      { params[:sort_field] => sort_flag }
     else
-      order = if Course::SORT_FIELDS.include?(params[:sort_field])
-        { params[:sort_field] => sort_flag }
-      else
-        { title: sort_flag }
-      end
-
-      where = { organization_id: current_organization.id }
-
-      where[:group_ids] = @group.id if @group
-
-      Course.search params[:term] || '*',
-        where: where.merge(policy_condition(Course)),
-        order: order,
-        load: false,
-        page: current_page,
-        per_page: current_count,
-        match: :word_start
+      { title: sort_flag }
     end
+
+    where = { organization_id: current_organization.id }
+
+    where[:group_ids] = @group.id if @group
+
+
+    @courses = Course.search params[:term] || '*',
+      where: where.merge(policy_condition(Course)),
+      order: order,
+      load: false,
+      page: current_page,
+      per_page: current_count,
+      match: :word_start
 
     render_result @courses
   end
