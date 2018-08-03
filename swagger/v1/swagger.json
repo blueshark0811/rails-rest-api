@@ -101,9 +101,7 @@
         "tags": [
           "Activities"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -540,9 +538,7 @@
         "tags": [
           "Activities"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -978,9 +974,7 @@
         "tags": [
           "Activities"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -1164,9 +1158,7 @@
         "tags": [
           "Admin - Course"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -1347,9 +1339,7 @@
         "tags": [
           "Admin - Course"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -1488,9 +1478,7 @@
         "tags": [
           "Admin - Course"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -1631,9 +1619,7 @@
         "tags": [
           "Admin - Course"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -1777,9 +1763,7 @@
         "tags": [
           "Admin - Course"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -1885,9 +1869,7 @@
         "tags": [
           "Admin - Lessons"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -2028,9 +2010,7 @@
         "tags": [
           "Admin - Lessons"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -2168,9 +2148,7 @@
         "tags": [
           "Admin - Lessons"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -2316,9 +2294,7 @@
         "tags": [
           "Admin - Lessons"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -2471,9 +2447,7 @@
         "tags": [
           "Admin - Lessons"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -2585,9 +2559,7 @@
         "tags": [
           "Admin - Tasks"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -2734,9 +2706,7 @@
         "tags": [
           "Admin - Tasks"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -2907,9 +2877,7 @@
         "tags": [
           "Admin - Tasks"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -3054,9 +3022,7 @@
         "tags": [
           "Admin - Tasks"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -3243,9 +3209,7 @@
         "tags": [
           "Admin - Tasks"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -3365,9 +3329,7 @@
         "tags": [
           "Attachments"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -3569,9 +3531,7 @@
         "tags": [
           "Attachments"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -3737,9 +3697,7 @@
         "tags": [
           "Attachments"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -3922,9 +3880,7 @@
         "tags": [
           "Attachments"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -4052,9 +4008,7 @@
         "tags": [
           "ChatMessages"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -4197,9 +4151,7 @@
         "tags": [
           "ChatMessages"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -4323,9 +4275,7 @@
         "tags": [
           "ChatMessages"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -4477,9 +4427,7 @@
         "tags": [
           "ChatMessages"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -4591,9 +4539,7 @@
         "tags": [
           "Chats"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -4782,9 +4728,7 @@
         "tags": [
           "Chats"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -4905,9 +4849,7 @@
         "tags": [
           "Chats"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -5024,9 +4966,7 @@
         "tags": [
           "Chats"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -5155,9 +5095,7 @@
         "tags": [
           "Chats"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -5263,9 +5201,7 @@
         "tags": [
           "Cities"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "current_page",
@@ -5345,9 +5281,7 @@
         "tags": [
           "Cities"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -5431,9 +5365,7 @@
         "tags": [
           "Comments"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -5638,9 +5570,7 @@
         "tags": [
           "Comments"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -5825,9 +5755,7 @@
         "tags": [
           "Comments"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -6031,9 +5959,7 @@
         "tags": [
           "Comments"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -6156,9 +6082,7 @@
         "tags": [
           "Countries"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "current_page",
@@ -6246,9 +6170,7 @@
         "tags": [
           "Countries"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -6316,9 +6238,7 @@
         "tags": [
           "Courses vs Groups"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -6476,9 +6396,7 @@
         "tags": [
           "Courses vs Groups"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -6651,9 +6569,7 @@
         "tags": [
           "Courses vs Groups"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -6845,9 +6761,7 @@
         "tags": [
           "Courses vs Groups"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -6960,9 +6874,7 @@
         "tags": [
           "CourseThreads"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -7226,9 +7138,7 @@
         "tags": [
           "CourseThreads"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -7401,9 +7311,7 @@
         "tags": [
           "CourseThreads"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -7641,9 +7549,7 @@
         "tags": [
           "CourseThreads"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -7885,9 +7791,7 @@
         "tags": [
           "CourseThreads"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -8005,9 +7909,7 @@
         "tags": [
           "Courses"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -8210,9 +8112,7 @@
         "tags": [
           "Courses"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -8361,9 +8261,7 @@
         "tags": [
           "Courses"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -8421,9 +8319,7 @@
         "tags": [
           "Users vs Groups"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -8589,9 +8485,7 @@
         "tags": [
           "Users vs Groups"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -8719,9 +8613,7 @@
         "tags": [
           "Users vs Groups"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -8870,9 +8762,7 @@
         "tags": [
           "Users vs Groups"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -8984,9 +8874,7 @@
         "tags": [
           "Users vs Groups"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "ids",
@@ -9090,9 +8978,7 @@
         "tags": [
           "Groups"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -9301,9 +9187,7 @@
         "tags": [
           "Groups"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -9376,9 +9260,7 @@
         "tags": [
           "Groups"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -9479,9 +9361,7 @@
         "tags": [
           "Groups"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -9587,9 +9467,7 @@
         "tags": [
           "Groups"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -9695,9 +9573,7 @@
         "tags": [
           "Lessons"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -9859,9 +9735,7 @@
         "tags": [
           "Lessons"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -10028,9 +9902,7 @@
         "tags": [
           "Lessons"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -10095,9 +9967,7 @@
         "tags": [
           "OrganizationUsers"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -10278,9 +10148,7 @@
         "tags": [
           "OrganizationUsers"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -10386,9 +10254,7 @@
         "tags": [
           "Organizations"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -10545,9 +10411,7 @@
         "tags": [
           "Organizations"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -10741,9 +10605,7 @@
         "tags": [
           "Organizations"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -10849,9 +10711,7 @@
         "tags": [
           "Passwords"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "body",
@@ -10893,9 +10753,7 @@
         "tags": [
           "Passwords"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "body",
@@ -11031,9 +10889,7 @@
         "tags": [
           "Sign up"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "body",
@@ -11179,9 +11035,7 @@
         "tags": [
           "Session"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -11216,9 +11070,7 @@
         "tags": [
           "Session"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "body",
@@ -11381,9 +11233,7 @@
         "tags": [
           "States"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "current_page",
@@ -11485,9 +11335,7 @@
         "tags": [
           "States"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -11565,9 +11413,7 @@
         "tags": [
           "Tasks"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -11730,9 +11576,7 @@
         "tags": [
           "Tasks"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -11893,9 +11737,7 @@
         "tags": [
           "Users"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -12104,9 +11946,7 @@
         "tags": [
           "Users"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -12301,9 +12141,7 @@
         "tags": [
           "Users"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -12489,9 +12327,7 @@
         "tags": [
           "Users"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -12729,9 +12565,7 @@
         "tags": [
           "Users"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -12837,9 +12671,7 @@
         "tags": [
           "Users"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -12942,9 +12774,7 @@
         "tags": [
           "Videos"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -13107,9 +12937,7 @@
         "tags": [
           "Videos"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -13266,9 +13094,7 @@
         "tags": [
           "Videos"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "authorization",
@@ -13425,9 +13251,7 @@
         "tags": [
           "Videos"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
@@ -13587,9 +13411,7 @@
         "tags": [
           "Videos"
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "parameters": [
           {
             "name": "id",
