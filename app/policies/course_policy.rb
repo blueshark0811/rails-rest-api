@@ -34,7 +34,7 @@ class CoursePolicy < OrganizationAddonEntityPolicy
   end
 
   def permitted_attributes
-    %i[description image title]
+    %i[description image title banner_image]
   end
 
   def api_base_attributes
