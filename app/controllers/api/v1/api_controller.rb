@@ -15,7 +15,7 @@ class Api::V1::ApiController < ActionController::API
   end
 
   rescue_from ActiveRecord::RecordNotFound do |exception|
-    p 'ActiveRecord::RecordNotFound'
+    p 'ActiveRecord::RecordNotFound' if ENV['debug']
     render_404 exception.message
   end
 

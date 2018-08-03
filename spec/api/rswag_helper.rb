@@ -24,7 +24,9 @@ def rswag_root
 end
 
 def rswag_set_schema(example, options = {})
- p example.metadata[:response][:schema] = rswag_get_schema(options.merge(data_action: :return))
+ example.metadata[:response][:schema] = rswag_get_schema(options.merge(data_action: :return))
+ p example.metadata[:response][:schema] if ENV['debug']
+ example.metadata[:response][:schema]
 end
 
 def rswag_set_error_schema(example, _options = {})

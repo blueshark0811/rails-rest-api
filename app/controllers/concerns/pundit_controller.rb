@@ -4,7 +4,7 @@ module PunditController
 
   included do
     rescue_from Pundit::NotAuthorizedError do |_exception|
-      p _exception
+      p _exception if ENV['debug']
       render_error 'not allowed', '', 401
     end
   end

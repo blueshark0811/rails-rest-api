@@ -4,6 +4,7 @@ class Course < ApplicationRecord
   SEARCH_FIELDS = %i[title description]
 
   mount_base64_uploader :image, ImageUploader
+  mount_base64_uploader :banner_image, ImageUploader
 
   searchkick callbacks: :async, word_start: SEARCH_FIELDS, searchable: SEARCH_FIELDS
   def search_data
@@ -13,8 +14,8 @@ class Course < ApplicationRecord
       active_user_ids: active_users.pluck(:id),
       course_users_state: course_users.map(&:to_index),
       'image' => image.to_json,
-      completed: completed || '',
-      incomplete: incomplete || '',
+      completed_lessons: completed_lessons || '',
+      incompleted_lessons: incompleted_lessons || '',
     )
   end
 
@@ -46,12 +47,13 @@ class Course < ApplicationRecord
     course_users.in_work
   end
 
-  def completed
+  def completed_lessons
     lesson_users.where(status: "completed").count
   end
 
-  def incomplete
-    lesson_users.where(status: "active").count
+  def incompleted_lessons
+    lessons_count - completed_lessons
+    # lesson_users.where(status: "active").count
   end
 
   def add_user(user, course_group)
@@ -107,8 +109,8 @@ class Course < ApplicationRecord
           items: { type: :object, properties: {} },
           description: 'lesson_users instance(association for lesson in which user participated) for course'
         },
-        completed: {type: :integer},
-        incomplete: {type: :integer}
+        completed_lessons: {type: :integer},
+        incompleted_lesson: {type: :integer}
       }
     end
   end

@@ -1,3 +1,5 @@
+require_relative "file_factory"
+
 FactoryBot.define do
   factory :attachment do
     organization

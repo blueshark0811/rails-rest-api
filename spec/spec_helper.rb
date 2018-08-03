@@ -1,4 +1,5 @@
 require 'pundit/rspec'
+require_relative "support/request_helper"
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -18,6 +19,8 @@ RSpec.configure do |config|
   #   # and disable callbacks
   #   Searchkick.disable_callbacks
   end
+
+  config.include RequestHelper, type: :request
 
   # config.around(:each, search: true) do |example|
   #   Searchkick.enable_callbacks

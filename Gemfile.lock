@@ -90,6 +90,7 @@ GEM
     case_transform (0.2)
       activesupport
     chronic (0.10.2)
+    coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -191,7 +192,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.0)
       mini_mime (>= 0.1.1)
-    method_source (0.9.0)
+    method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
@@ -212,6 +213,12 @@ GEM
     pg_query (1.0.2)
     pghero (2.1.1)
       activerecord
+    pry (0.10.0)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-nav (0.2.4)
+      pry (>= 0.9.10, < 0.11.0)
     public_suffix (3.0.2)
     puma (3.11.4)
     pundit (1.1.0)
@@ -324,6 +331,7 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.1)
       tilt (~> 2.0)
+    slop (3.6.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -417,6 +425,8 @@ DEPENDENCIES
   pg (~> 0.20)
   pg_query (>= 0.9.0)
   pghero
+  pry (= 0.10)
+  pry-nav (~> 0.2.4)
   puma (~> 3.7)
   pundit
   rack-cors

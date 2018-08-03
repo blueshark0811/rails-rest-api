@@ -122,6 +122,7 @@ module SharedController
   end
 
   def debug(result)
+    return if !ENV['debug']
     if Rails.env.test?
       p '-' * 100
       p 'method ->', request.method

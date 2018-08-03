@@ -30,8 +30,16 @@ FactoryBot.define do
       end
     end
 
-    factory :admin_user do
-      user role: 'admin_user'
+    factory :admin do
+      role 'admin'
+    end
+
+    factory :teacher do
+      role 'teacher'
+    end
+
+    factory :student do
+      role 'student'
     end
   end
 end

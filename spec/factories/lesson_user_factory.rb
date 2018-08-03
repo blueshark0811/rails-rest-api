@@ -3,5 +3,10 @@ FactoryBot.define do
     user
     lesson
     course_group
+
+    trait :completed do
+      status :completed
+    end
+
   end
 end
