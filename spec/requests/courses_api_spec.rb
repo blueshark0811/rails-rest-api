@@ -78,17 +78,37 @@ RSpec.describe "Courses", type: :request do
   context "student" do
     let(:current_user) { create :student, organization: organization }
     let!(:group) { create :group, organization: organization }
+    let!(:course_group) { create :course_group, course: course, group: group, precourse: nil }
+    let!(:group_user) { create :group_user, user: current_user, group: group }
 
     describe "can view courses" do
-      let!(:course_group) { create :course_group, course: course, group: group, precourse: nil }
       let!(:course) { create :course, organization_id: organization.id, with_organization: false, title: new_title }
-      let!(:group_user) { create :group_user, user: current_user, group: group }
       let(:new_title) { "Algebra #5" }
 
       it do
         get "/api/v1/groups/#{group.id}/courses/#{course.id}", params: { authorization: auth_token_for(current_user) }
         expect(response.status).to eq(200)
         expect(json_response["course"]["title"]).to eq(new_title)
+      end
+    end
+
+
+    describe "with lessons" do
+      let(:lessons) { create_list :lesson, 5, course: course }
+      let(:course) { create :course, organization_id: organization.id, with_organization: false }
+
+      before do
+        create(:lesson_user, :completed, user: current_user, lesson: lessons[0])
+        create(:lesson_user, user: current_user, lesson: lessons[1])
+        create(:lesson_user, :completed, user: current_user, lesson: lessons[2])
+      end
+
+      it do
+        get "/api/v1/groups/#{group.id}/courses/#{course.id}", params: { authorization: auth_token_for(current_user) }
+        expect(response.status).to eq(200)
+        expect(json_response["course"]["completed_lessons"]).to eq(2)
+        expect(json_response["course"]["incompleted_lessons"]).to eq(3)
+        expect(json_response["course"]["lessons_count"]).to eq(5)
       end
     end
   end

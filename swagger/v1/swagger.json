@@ -4,6 +4,32 @@
     "title": "API V1",
     "version": "v1"
   },
+  "examples" : {
+    "course" : {
+      "id": 4,
+      "title": "Block, Tillman and Hudson",
+      "description": "maximize innovative eyeballs",
+      "image": {
+        "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/4/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091029Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=7e185de56d03e317d27641dd58c6f71ae4db0d88e49d91d2ee201def53709a68"
+      },
+      "banner_image": {
+        "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/1/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091024Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=579749afd10fba56a9b18ac612004433838a7ed76789d75d046ae2f933f348a9"
+      },
+      "user_id": 19,
+      "organization_id": 16,
+      "created_at": "2018-04-22T09:10:00.000+00:00",
+      "updated_at": "2018-04-22T09:10:00.000+00:00",
+      "lessons_count": 10,
+      "completed_lessons": 3,
+      "incompleted_lessons": 7,
+      "group_ids": [
+        7
+      ],
+      "active_user_ids": null,
+      "course_users_state": null,
+      "course_for_current_student": null
+    }
+  },
   "paths": {
     "/api/v1/{notifiable_type}/{notifiable_id}/activities": {
       "get": {
@@ -398,28 +424,7 @@
                       "updated_at": "2018-04-22T09:10:00.000+00:00",
                       "task_user": null
                     },
-                    "course": {
-                      "id": 1,
-                      "title": "Block, Tillman and Hudson",
-                      "description": "maximize innovative eyeballs",
-                      "image": {
-                        "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/1/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091024Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=579749afd10fba56a9b18ac612004433838a7ed76789d75d046ae2f933f348a9"
-                      },
-                      "banner_image": {
-                        "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/1/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091024Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=579749afd10fba56a9b18ac612004433838a7ed76789d75d046ae2f933f348a9"
-                      },
-                      "user_id": 3,
-                      "organization_id": 1,
-                      "created_at": "2018-04-22T09:10:00.000+00:00",
-                      "updated_at": "2018-04-22T09:10:00.000+00:00",
-                      "lessons_count": 1,
-                      "group_ids": [
-                        1
-                      ],
-                      "active_user_ids": null,
-                      "course_users_state": null,
-                      "course_for_current_student": null
-                    },
+                    "course": { "$ref": "#/examples/course" },
                     "group": {
                       "id": 1,
                       "organization_id": 1,
@@ -896,28 +901,7 @@
                     "updated_at": "2018-04-22T09:10:00.000+00:00",
                     "task_user": null
                   },
-                  "course": {
-                    "id": 4,
-                    "title": "Block, Tillman and Hudson",
-                    "description": "maximize innovative eyeballs",
-                    "image": {
-                      "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/4/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091029Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=7e185de56d03e317d27641dd58c6f71ae4db0d88e49d91d2ee201def53709a68"
-                    },
-                    "banner_image": {
-                      "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/1/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091024Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=579749afd10fba56a9b18ac612004433838a7ed76789d75d046ae2f933f348a9"
-                    },
-                    "user_id": 19,
-                    "organization_id": 16,
-                    "created_at": "2018-04-22T09:10:00.000+00:00",
-                    "updated_at": "2018-04-22T09:10:00.000+00:00",
-                    "lessons_count": 1,
-                    "group_ids": [
-                      7
-                    ],
-                    "active_user_ids": null,
-                    "course_users_state": null,
-                    "course_for_current_student": null
-                  },
+                  "course": { "$ref": "#/examples/course" },
                   "group": {
                     "id": 7,
                     "organization_id": 16,
@@ -1430,32 +1414,7 @@
             "examples": {
               "application/json": {
                 "courses": [
-                  {
-                    "id": 12,
-                    "title": "Block, Tillman and Hudson",
-                    "description": "maximize innovative eyeballs",
-                    "image": {
-                      "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/12/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091042Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=46c88ea921decbb595bbd14e24352812d1ffde27049630b4e85e75ebfede07ba"
-                    },
-                    "banner_image": {
-                      "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/12/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091042Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=46c88ea921decbb595bbd14e24352812d1ffde27049630b4e85e75ebfede07ba"
-                    },
-                    "user_id": 62,
-                    "organization_id": 60,
-                    "created_at": "2018-04-22T09:10:41.027Z",
-                    "updated_at": "2018-04-22T09:10:41.027Z",
-                    "lessons_count": 0,
-                    "group_ids": [
-
-                    ],
-                    "active_user_ids": [
-
-                    ],
-                    "course_users_state": [
-
-                    ],
-                    "course_for_current_student": null
-                  }
+                  { "$ref": "#/examples/course" }
                 ],
                 "meta": {
                   "total_pages": 1,
@@ -1654,28 +1613,7 @@
             },
             "examples": {
               "application/json": {
-                "course": {
-                  "id": 20,
-                  "title": "Block, Tillman and Hudson",
-                  "description": "maximize innovative eyeballs",
-                  "image": {
-                    "url": null
-                  },
-                  "banner_image": {
-                    "url": null
-                  },
-                  "user_id": 77,
-                  "organization_id": 74,
-                  "created_at": "2018-04-22T09:10:00.000+00:00",
-                  "updated_at": "2018-04-22T09:10:00.000+00:00",
-                  "lessons_count": 0,
-                  "group_ids": [
-
-                  ],
-                  "active_user_ids": null,
-                  "course_users_state": null,
-                  "course_for_current_student": null
-                }
+                "course": { "$ref": "#/examples/course" }
               }
             }
           },
@@ -1842,28 +1780,7 @@
             },
             "examples": {
               "application/json": {
-                "course": {
-                  "id": 15,
-                  "title": "Block, Tillman and Hudson",
-                  "description": "maximize innovative eyeballs",
-                  "image": {
-                    "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/15/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091046Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=46a4497e771952c62150d6df3255df436bc2b5b3ec8f48de1dd5368c4b614314"
-                  },
-                  "banner_image": {
-                    "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/15/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091046Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=46a4497e771952c62150d6df3255df436bc2b5b3ec8f48de1dd5368c4b614314"
-                  },
-                  "user_id": 69,
-                  "organization_id": 66,
-                  "created_at": "2018-04-22T09:10:00.000+00:00",
-                  "updated_at": "2018-04-22T09:10:00.000+00:00",
-                  "lessons_count": 0,
-                  "group_ids": [
-
-                  ],
-                  "active_user_ids": null,
-                  "course_users_state": null,
-                  "course_for_current_student": null
-                }
+                "course": { "$ref": "#/examples/course" }
               }
             }
           },
@@ -2042,28 +1959,7 @@
             },
             "examples": {
               "application/json": {
-                "course": {
-                  "id": 23,
-                  "title": "Block, Tillman and Hudson",
-                  "description": "maximize innovative eyeballs",
-                  "image": {
-                    "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/23/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091054Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=1b429f2aa4b22dbd96e5e8d28e645788f5f54dd9f362a2052f9f58d3c108bd14"
-                  },
-                  "banner_image": {
-                    "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/23/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091054Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=1b429f2aa4b22dbd96e5e8d28e645788f5f54dd9f362a2052f9f58d3c108bd14"
-                  },
-                  "user_id": 86,
-                  "organization_id": 82,
-                  "created_at": "2018-04-22T09:10:00.000+00:00",
-                  "updated_at": "2018-04-22T09:10:00.000+00:00",
-                  "lessons_count": 0,
-                  "group_ids": [
-
-                  ],
-                  "active_user_ids": null,
-                  "course_users_state": null,
-                  "course_for_current_student": null
-                }
+                "course": { "$ref": "#/examples/course" }
               }
             }
           },
@@ -9799,62 +9695,7 @@
             "examples": {
               "application/json": {
                 "courses": [
-                  {
-                    "id": 140,
-                    "title": "Block, Tillman and Hudson",
-                    "description": "maximize innovative eyeballs",
-                    "image": {
-                      "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/140/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091347Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=a57ad314d553f3c2c2792a1a977086bcf550fda9f4ecf2e5ecf0011227d8e979"
-                    },
-                    "banner_image": {
-                      "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/140/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091347Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=a57ad314d553f3c2c2792a1a977086bcf550fda9f4ecf2e5ecf0011227d8e979"
-                    },
-                    "user_id": 481,
-                    "organization_id": 473,
-                    "created_at": "April 22, 2018 09:13",
-                    "updated_at": "April 22, 2018 09:13",
-                    "lessons_count": 0,
-                    "group_ids": [
-                      91
-                    ],
-                    "active_user_ids": null,
-                    "course_users_state": null,
-                    "lesson_users": [
-
-                    ],
-                    "lesson_users_for_current_student": [
-
-                    ],
-                    "course_for_current_student": null
-                  },
-                  {
-                    "id": 139,
-                    "title": "Block, Tillman and Hudson",
-                    "description": "maximize innovative eyeballs",
-                    "image": {
-                      "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/139/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091347Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=b790a9788229989b5bfa0a339aa866334c67aa98267a6d86c943882334c722f8"
-                    },
-                    "banner_image": {
-                      "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/139/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091347Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=b790a9788229989b5bfa0a339aa866334c67aa98267a6d86c943882334c722f8"
-                    },
-                    "user_id": 478,
-                    "organization_id": 473,
-                    "created_at": "April 22, 2018 09:13",
-                    "updated_at": "April 22, 2018 09:13",
-                    "lessons_count": 1,
-                    "group_ids": [
-                      91
-                    ],
-                    "active_user_ids": null,
-                    "course_users_state": null,
-                    "lesson_users": [
-
-                    ],
-                    "lesson_users_for_current_student": [
-
-                    ],
-                    "course_for_current_student": null
-                  }
+                  { "$ref": "#/examples/course" }
                 ],
                 "meta": {
                   "total_pages": 1,
@@ -10034,28 +9875,7 @@
             },
             "examples": {
               "application/json": {
-                "course": {
-                  "id": 145,
-                  "title": "Block, Tillman and Hudson",
-                  "description": "maximize innovative eyeballs",
-                  "image": {
-                    "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/145/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091509Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=3c299a72f6af4e7033a9354e5147e5f9bf5bf846c6cabecf8517546e5f689f9e"
-                  },
-                  "banner_image": {
-                    "url": "https://equipengine-dev.s3-eu-west-2.amazonaws.com/uploads/course/image/145/image.jpeg?X-Amz-Expires=600&X-Amz-Date=20180422T091509Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ4HLSQCUSVYCXNUA/20180422/eu-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=3c299a72f6af4e7033a9354e5147e5f9bf5bf846c6cabecf8517546e5f689f9e"
-                  },
-                  "user_id": 494,
-                  "organization_id": 485,
-                  "created_at": "April 22, 2018 09:13",
-                  "updated_at": "April 22, 2018 09:13",
-                  "lessons_count": 1,
-                  "group_ids": [
-                    94
-                  ],
-                  "active_user_ids": null,
-                  "course_users_state": null,
-                  "course_for_current_student": null
-                }
+                "course": { "$ref": "#/examples/course" }
               }
             }
           },
