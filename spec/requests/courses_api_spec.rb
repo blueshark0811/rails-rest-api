@@ -35,13 +35,13 @@ RSpec.describe "Courses", type: :request do
     end
 
     describe "can view courses" do
-      let(:course) { create :course, organization_id: organization.id, with_organization: false, title: new_title }
-      let(:new_title) { "Algebra #5" }
+      let(:course) { create :course, organization_id: organization.id, with_organization: false, title: title }
+      let(:title) { "Algebra #5" }
 
       it do
         get "/api/v1/courses/#{course.id}", params: { authorization: auth_token_for(current_user) }
         expect(response.status).to eq(200)
-        expect(json_response["course"]["title"]).to eq(new_title)
+        expect(json_response["course"]["title"]).to eq(title)
       end
     end
 
