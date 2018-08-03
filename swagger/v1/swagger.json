@@ -403,9 +403,7 @@
                           1
                         ],
                         "roles": null,
-                        "group_ids": [
-
-                        ],
+                        "group_ids": [],
                         "organization_settings": {
                           "id": 1,
                           "user_id": 1,
@@ -414,9 +412,7 @@
                           "created_at": "2018-04-22T09:10:00.000+00:00",
                           "updated_at": "2018-04-22T09:10:00.000+00:00",
                           "status": "active",
-                          "exclude_students_ids": [
-
-                          ],
+                          "exclude_students_ids": [],
                           "files_controll_enabled": true,
                           "messanger_access_enabled": true,
                           "activity_settings": null
@@ -464,9 +460,7 @@
                           5
                         ],
                         "roles": null,
-                        "group_ids": [
-
-                        ],
+                        "group_ids": [],
                         "organization_settings": null
                       }
                     },
@@ -497,9 +491,7 @@
                         1
                       ],
                       "roles": null,
-                      "group_ids": [
-
-                      ],
+                      "group_ids": [],
                       "organization_settings": {
                         "id": 1,
                         "user_id": 1,
@@ -508,9 +500,7 @@
                         "created_at": "2018-04-22T09:10:00.000+00:00",
                         "updated_at": "2018-04-22T09:10:00.000+00:00",
                         "status": "active",
-                        "exclude_students_ids": [
-
-                        ],
+                        "exclude_students_ids": [],
                         "files_controll_enabled": true,
                         "messanger_access_enabled": true,
                         "activity_settings": null
@@ -566,9 +556,7 @@
                         1
                       ],
                       "roles": null,
-                      "group_ids": [
-
-                      ],
+                      "group_ids": [],
                       "organization_settings": {
                         "id": 2,
                         "user_id": 2,
@@ -577,9 +565,7 @@
                         "created_at": "2018-04-22T09:10:00.000+00:00",
                         "updated_at": "2018-04-22T09:10:00.000+00:00",
                         "status": "active",
-                        "exclude_students_ids": [
-
-                        ],
+                        "exclude_students_ids": [],
                         "files_controll_enabled": true,
                         "messanger_access_enabled": true,
                         "activity_settings": null
@@ -851,9 +837,7 @@
                         16
                       ],
                       "roles": null,
-                      "group_ids": [
-
-                      ],
+                      "group_ids": [],
                       "organization_settings": {
                         "id": 16,
                         "user_id": 17,
@@ -862,9 +846,7 @@
                         "created_at": "2018-04-22T09:10:00.000+00:00",
                         "updated_at": "2018-04-22T09:10:00.000+00:00",
                         "status": "active",
-                        "exclude_students_ids": [
-
-                        ],
+                        "exclude_students_ids": [],
                         "files_controll_enabled": true,
                         "messanger_access_enabled": true,
                         "activity_settings": null
@@ -912,9 +894,7 @@
                         20
                       ],
                       "roles": null,
-                      "group_ids": [
-
-                      ],
+                      "group_ids": [],
                       "organization_settings": null
                     }
                   },
@@ -945,9 +925,7 @@
                       16
                     ],
                     "roles": null,
-                    "group_ids": [
-
-                    ],
+                    "group_ids": [],
                     "organization_settings": {
                       "id": 16,
                       "user_id": 17,
@@ -956,9 +934,7 @@
                       "created_at": "2018-04-22T09:10:00.000+00:00",
                       "updated_at": "2018-04-22T09:10:00.000+00:00",
                       "status": "active",
-                      "exclude_students_ids": [
-
-                      ],
+                      "exclude_students_ids": [],
                       "files_controll_enabled": true,
                       "messanger_access_enabled": true,
                       "activity_settings": null
@@ -1014,9 +990,7 @@
                       16
                     ],
                     "roles": null,
-                    "group_ids": [
-
-                    ],
+                    "group_ids": [],
                     "organization_settings": {
                       "id": 17,
                       "user_id": 18,
@@ -1025,9 +999,7 @@
                       "created_at": "2018-04-22T09:10:00.000+00:00",
                       "updated_at": "2018-04-22T09:10:00.000+00:00",
                       "status": "active",
-                      "exclude_students_ids": [
-
-                      ],
+                      "exclude_students_ids": [],
                       "files_controll_enabled": true,
                       "messanger_access_enabled": true,
                       "activity_settings": null
@@ -2279,9 +2251,7 @@
                     "created_at": "April 22, 2018 09:11",
                     "updated_at": "April 22, 2018 09:11",
                     "course_settings": null,
-                    "tasks": [
-
-                    ]
+                    "tasks": []
                   }
                 ],
                 "meta": {
@@ -2459,9 +2429,7 @@
                   "created_at": "April 22, 2018 09:11",
                   "updated_at": "April 22, 2018 09:11",
                   "course_settings": null,
-                  "tasks": [
-
-                  ]
+                  "tasks": []
                 }
               }
             }
@@ -2615,9 +2583,7 @@
                   "created_at": "April 22, 2018 09:11",
                   "updated_at": "April 22, 2018 09:11",
                   "course_settings": null,
-                  "tasks": [
-
-                  ]
+                  "tasks": []
                 }
               }
             }
@@ -2794,9 +2760,7 @@
                   "created_at": "April 22, 2018 09:11",
                   "updated_at": "April 22, 2018 09:11",
                   "course_settings": null,
-                  "tasks": [
-
-                  ]
+                  "tasks": []
                 }
               }
             }
@@ -3102,12 +3066,8 @@
                     "created_at": "April 22, 2018 09:11",
                     "updated_at": "April 22, 2018 09:11",
                     "task_user": null,
-                    "attachments": [
-
-                    ],
-                    "videos": [
-
-                    ]
+                    "attachments": [],
+                    "videos": []
                   }
                 ],
                 "meta": {
@@ -3331,12 +3291,8 @@
                   "created_at": "April 22, 2018 09:11",
                   "updated_at": "April 22, 2018 09:11",
                   "task_user": null,
-                  "attachments": [
-
-                  ],
-                  "videos": [
-
-                  ]
+                  "attachments": [],
+                  "videos": []
                 }
               }
             }
@@ -3485,12 +3441,8 @@
                   "created_at": "April 22, 2018 09:11",
                   "updated_at": "April 22, 2018 09:11",
                   "task_user": null,
-                  "attachments": [
-
-                  ],
-                  "videos": [
-
-                  ]
+                  "attachments": [],
+                  "videos": []
                 }
               }
             }
@@ -3714,12 +3666,8 @@
                   "created_at": "April 22, 2018 09:11",
                   "updated_at": "April 22, 2018 09:11",
                   "task_user": null,
-                  "attachments": [
-
-                  ],
-                  "videos": [
-
-                  ]
+                  "attachments": [],
+                  "videos": []
                 }
               }
             }
@@ -4099,9 +4047,7 @@
                         {
                         }
                       ],
-                      "videos": [
-
-                      ]
+                      "videos": []
                     }
                   }
                 ],
@@ -4321,9 +4267,7 @@
                       {
                       }
                     ],
-                    "videos": [
-
-                    ]
+                    "videos": []
                   }
                 }
               }
@@ -4989,9 +4933,7 @@
                   "message": "Necessitatibus ut voluptas amet et et iusto. At odio minima fugit fugiat et nihil qui. Quisquam sed vel repudiandae magnam molestias. Tenetur deserunt molestiae laudantium possimus voluptas quia aut.",
                   "created_at": "April 22, 2018 09:12",
                   "updated_at": "April 22, 2018 09:12",
-                  "attachments": [
-
-                  ]
+                  "attachments": []
                 }
               }
             }
@@ -5427,9 +5369,7 @@
                         316
                       ],
                       "roles": null,
-                      "group_ids": [
-
-                      ],
+                      "group_ids": [],
                       "organization_settings": {
                         "id": 302,
                         "user_id": 328,
@@ -5438,9 +5378,7 @@
                         "created_at": "April 22, 2018 09:12",
                         "updated_at": "April 22, 2018 09:12",
                         "status": "active",
-                        "exclude_students_ids": [
-
-                        ],
+                        "exclude_students_ids": [],
                         "files_controll_enabled": true,
                         "messanger_access_enabled": true,
                         "activity_settings": null
@@ -5473,9 +5411,7 @@
                         316
                       ],
                       "roles": null,
-                      "group_ids": [
-
-                      ],
+                      "group_ids": [],
                       "organization_settings": {
                         "id": 303,
                         "user_id": 329,
@@ -5484,9 +5420,7 @@
                         "created_at": "April 22, 2018 09:12",
                         "updated_at": "April 22, 2018 09:12",
                         "status": "active",
-                        "exclude_students_ids": [
-
-                        ],
+                        "exclude_students_ids": [],
                         "files_controll_enabled": true,
                         "messanger_access_enabled": true,
                         "activity_settings": null
@@ -5624,9 +5558,7 @@
                     "created_at": "April 22, 2018 09:12",
                     "updated_at": "April 22, 2018 09:12",
                     "organization_id": 319,
-                    "users": [
-
-                    ]
+                    "users": []
                   }
                 ],
                 "meta": {
@@ -5749,9 +5681,7 @@
                   "created_at": "April 22, 2018 09:12",
                   "updated_at": "April 22, 2018 09:12",
                   "organization_id": 322,
-                  "users": [
-
-                  ]
+                  "users": []
                 }
               }
             }
@@ -5894,9 +5824,7 @@
                   "created_at": "April 22, 2018 09:12",
                   "updated_at": "April 22, 2018 09:12",
                   "organization_id": 326,
-                  "users": [
-
-                  ]
+                  "users": []
                 }
               }
             }
@@ -6446,9 +6374,7 @@
                         338
                       ],
                       "roles": null,
-                      "group_ids": [
-
-                      ],
+                      "group_ids": [],
                       "organization_settings": {
                         "id": 326,
                         "user_id": 357,
@@ -6457,9 +6383,7 @@
                         "created_at": "April 22, 2018 09:12",
                         "updated_at": "April 22, 2018 09:12",
                         "status": "active",
-                        "exclude_students_ids": [
-
-                        ],
+                        "exclude_students_ids": [],
                         "files_controll_enabled": true,
                         "messanger_access_enabled": true,
                         "activity_settings": null
@@ -6659,9 +6583,7 @@
                   "main_root_id": 0,
                   "created_at": "April 22, 2018 09:12",
                   "updated_at": "April 22, 2018 09:12",
-                  "tree_path": [
-
-                  ],
+                  "tree_path": [],
                   "user": {
                     "id": 361,
                     "first_name": "Kitty Will",
@@ -6689,9 +6611,7 @@
                       341
                     ],
                     "roles": null,
-                    "group_ids": [
-
-                    ],
+                    "group_ids": [],
                     "organization_settings": {
                       "id": 329,
                       "user_id": 361,
@@ -6700,9 +6620,7 @@
                       "created_at": "April 22, 2018 09:12",
                       "updated_at": "April 22, 2018 09:12",
                       "status": "active",
-                      "exclude_students_ids": [
-
-                      ],
+                      "exclude_students_ids": [],
                       "files_controll_enabled": true,
                       "messanger_access_enabled": true,
                       "activity_settings": null
@@ -6905,9 +6823,7 @@
                       346
                     ],
                     "roles": null,
-                    "group_ids": [
-
-                    ],
+                    "group_ids": [],
                     "organization_settings": {
                       "id": 333,
                       "user_id": 366,
@@ -6916,9 +6832,7 @@
                       "created_at": "April 22, 2018 09:12",
                       "updated_at": "April 22, 2018 09:12",
                       "status": "active",
-                      "exclude_students_ids": [
-
-                      ],
+                      "exclude_students_ids": [],
                       "files_controll_enabled": true,
                       "messanger_access_enabled": true,
                       "activity_settings": null
@@ -8233,9 +8147,7 @@
                           425
                         ],
                         "roles": null,
-                        "group_ids": [
-
-                        ],
+                        "group_ids": [],
                         "organization_settings": {
                           "id": 391,
                           "user_id": 430,
@@ -8244,9 +8156,7 @@
                           "created_at": "April 22, 2018 09:13",
                           "updated_at": "April 22, 2018 09:13",
                           "status": "active",
-                          "exclude_students_ids": [
-
-                          ],
+                          "exclude_students_ids": [],
                           "files_controll_enabled": true,
                           "messanger_access_enabled": true,
                           "activity_settings": null
@@ -8280,9 +8190,7 @@
                         425
                       ],
                       "roles": null,
-                      "group_ids": [
-
-                      ],
+                      "group_ids": [],
                       "organization_settings": {
                         "id": 391,
                         "user_id": 430,
@@ -8291,9 +8199,7 @@
                         "created_at": "April 22, 2018 09:13",
                         "updated_at": "April 22, 2018 09:13",
                         "status": "active",
-                        "exclude_students_ids": [
-
-                        ],
+                        "exclude_students_ids": [],
                         "files_controll_enabled": true,
                         "messanger_access_enabled": true,
                         "activity_settings": null
@@ -8491,9 +8397,7 @@
                       439
                     ],
                     "roles": null,
-                    "group_ids": [
-
-                    ],
+                    "group_ids": [],
                     "organization_settings": {
                       "id": 405,
                       "user_id": 446,
@@ -8502,9 +8406,7 @@
                       "created_at": "April 22, 2018 09:13",
                       "updated_at": "April 22, 2018 09:13",
                       "status": "active",
-                      "exclude_students_ids": [
-
-                      ],
+                      "exclude_students_ids": [],
                       "files_controll_enabled": true,
                       "messanger_access_enabled": true,
                       "activity_settings": null
@@ -8697,9 +8599,7 @@
                         431
                       ],
                       "roles": null,
-                      "group_ids": [
-
-                      ],
+                      "group_ids": [],
                       "organization_settings": {
                         "id": 397,
                         "user_id": 437,
@@ -8708,9 +8608,7 @@
                         "created_at": "April 22, 2018 09:13",
                         "updated_at": "April 22, 2018 09:13",
                         "status": "active",
-                        "exclude_students_ids": [
-
-                        ],
+                        "exclude_students_ids": [],
                         "files_controll_enabled": true,
                         "messanger_access_enabled": true,
                         "activity_settings": null
@@ -8744,9 +8642,7 @@
                       431
                     ],
                     "roles": null,
-                    "group_ids": [
-
-                    ],
+                    "group_ids": [],
                     "organization_settings": {
                       "id": 397,
                       "user_id": 437,
@@ -8755,9 +8651,7 @@
                       "created_at": "April 22, 2018 09:13",
                       "updated_at": "April 22, 2018 09:13",
                       "status": "active",
-                      "exclude_students_ids": [
-
-                      ],
+                      "exclude_students_ids": [],
                       "files_controll_enabled": true,
                       "messanger_access_enabled": true,
                       "activity_settings": null
@@ -8961,9 +8855,7 @@
                         451
                       ],
                       "roles": null,
-                      "group_ids": [
-
-                      ],
+                      "group_ids": [],
                       "organization_settings": {
                         "id": 414,
                         "user_id": 456,
@@ -8972,9 +8864,7 @@
                         "created_at": "April 22, 2018 09:13",
                         "updated_at": "April 22, 2018 09:13",
                         "status": "active",
-                        "exclude_students_ids": [
-
-                        ],
+                        "exclude_students_ids": [],
                         "files_controll_enabled": true,
                         "messanger_access_enabled": true,
                         "activity_settings": null
@@ -9008,9 +8898,7 @@
                       451
                     ],
                     "roles": null,
-                    "group_ids": [
-
-                    ],
+                    "group_ids": [],
                     "organization_settings": {
                       "id": 414,
                       "user_id": 456,
@@ -9019,9 +8907,7 @@
                       "created_at": "April 22, 2018 09:13",
                       "updated_at": "April 22, 2018 09:13",
                       "status": "active",
-                      "exclude_students_ids": [
-
-                      ],
+                      "exclude_students_ids": [],
                       "files_controll_enabled": true,
                       "messanger_access_enabled": true,
                       "activity_settings": null
@@ -10415,9 +10301,7 @@
             },
             "examples": {
               "application/json": {
-                "errors": [
-
-                ],
+                "errors": [],
                 "success": true
               }
             }
@@ -11262,9 +11146,7 @@
                       "created_at": "April 22, 2018 09:15",
                       "updated_at": "April 22, 2018 09:15"
                     },
-                    "tasks": [
-
-                    ]
+                    "tasks": []
                   }
                 ],
                 "meta": {
@@ -11444,9 +11326,7 @@
                     "created_at": "April 22, 2018 09:15",
                     "updated_at": "April 22, 2018 09:15"
                   },
-                  "tasks": [
-
-                  ]
+                  "tasks": []
                 }
               }
             }
@@ -11759,18 +11639,12 @@
                   "created_at": "April 22, 2018 09:15",
                   "updated_at": "April 22, 2018 09:15",
                   "status": "active",
-                  "exclude_students_ids": [
-
-                  ],
+                  "exclude_students_ids": [],
                   "files_controll_enabled": true,
                   "messanger_access_enabled": true,
                   "activity_settings": {
-                    "activity_course_ids": [
-
-                    ],
-                    "activity_student_ids": [
-
-                    ]
+                    "activity_course_ids": [],
+                    "activity_student_ids": []
                   }
                 }
               }
@@ -12766,9 +12640,7 @@
                     611
                   ],
                   "roles": null,
-                  "group_ids": [
-
-                  ],
+                  "group_ids": [],
                   "organization_settings": null
                 },
                 "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6NjM3LCJleHAiOjE1NTU5MjQ1NDAsInR5cGUiOiJ1c2VyIiwiZW1haWwiOiJsaW5kc2F5QG1hbnRlLmNvIn0.rTpXlGKheoXjJtmR2rrxUGgeabnGAsWzWBA14fsVWIs"
@@ -12958,13 +12830,9 @@
                       "url": null
                     }
                   },
-                  "organization_ids": [
-
-                  ],
+                  "organization_ids": [],
                   "roles": null,
-                  "group_ids": [
-
-                  ],
+                  "group_ids": [],
                   "organization_settings": null
                 }
               }
@@ -13196,9 +13064,7 @@
                     621
                   ],
                   "roles": null,
-                  "group_ids": [
-
-                  ],
+                  "group_ids": [],
                   "organization_settings": null
                 },
                 "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6NjQ4LCJleHAiOjE1NTU5MjQ1NDAsInR5cGUiOiJ1c2VyIiwiZW1haWwiOiJjbGV2ZWxhbmRAa3V2YWxpc2dlcmhvbGQuY29tIn0.Zfh6wOnwrki4duWTjMvDHIFpORpTdRcNaLfigiRni28"
@@ -13600,12 +13466,8 @@
                       "created_at": "April 22, 2018 09:15",
                       "updated_at": "April 22, 2018 09:15"
                     },
-                    "attachments": [
-
-                    ],
-                    "videos": [
-
-                    ]
+                    "attachments": [],
+                    "videos": []
                   }
                 ],
                 "meta": {
@@ -13775,12 +13637,8 @@
                     "created_at": "April 22, 2018 09:15",
                     "updated_at": "April 22, 2018 09:15"
                   },
-                  "attachments": [
-
-                  ],
-                  "videos": [
-
-                  ]
+                  "attachments": [],
+                  "videos": []
                 }
               }
             }
@@ -14043,9 +13901,7 @@
                       653
                     ],
                     "roles": null,
-                    "group_ids": [
-
-                    ],
+                    "group_ids": [],
                     "organization_settings": {
                       "id": 617,
                       "user_id": 682,
@@ -14054,9 +13910,7 @@
                       "created_at": "April 22, 2018 09:15",
                       "updated_at": "April 22, 2018 09:15",
                       "status": "active",
-                      "exclude_students_ids": [
-
-                      ],
+                      "exclude_students_ids": [],
                       "files_controll_enabled": true,
                       "messanger_access_enabled": true,
                       "activity_settings": null
@@ -14340,13 +14194,9 @@
                       "url": null
                     }
                   },
-                  "organization_ids": [
-
-                  ],
+                  "organization_ids": [],
                   "roles": null,
-                  "group_ids": [
-
-                  ],
+                  "group_ids": [],
                   "organization_settings": null
                 }
               }
@@ -14550,9 +14400,7 @@
                     656
                   ],
                   "roles": null,
-                  "group_ids": [
-
-                  ],
+                  "group_ids": [],
                   "organization_settings": {
                     "id": 620,
                     "user_id": 686,
@@ -14561,9 +14409,7 @@
                     "created_at": "April 22, 2018 09:15",
                     "updated_at": "April 22, 2018 09:15",
                     "status": "active",
-                    "exclude_students_ids": [
-
-                    ],
+                    "exclude_students_ids": [],
                     "files_controll_enabled": true,
                     "messanger_access_enabled": true,
                     "activity_settings": null
@@ -14873,9 +14719,7 @@
                     663
                   ],
                   "roles": null,
-                  "group_ids": [
-
-                  ],
+                  "group_ids": [],
                   "organization_settings": {
                     "id": 627,
                     "user_id": 696,
@@ -14884,9 +14728,7 @@
                     "created_at": "April 22, 2018 09:15",
                     "updated_at": "April 22, 2018 09:15",
                     "status": "active",
-                    "exclude_students_ids": [
-
-                    ],
+                    "exclude_students_ids": [],
                     "files_controll_enabled": true,
                     "messanger_access_enabled": true,
                     "activity_settings": null
@@ -15327,9 +15169,7 @@
                       "created_at": "April 22, 2018 09:15",
                       "updated_at": "April 22, 2018 09:15",
                       "task_user": null,
-                      "attachments": [
-
-                      ],
+                      "attachments": [],
                       "videos": [
                         {
                         }
@@ -15541,9 +15381,7 @@
                     "created_at": "April 22, 2018 09:16",
                     "updated_at": "April 22, 2018 09:16",
                     "task_user": null,
-                    "attachments": [
-
-                    ],
+                    "attachments": [],
                     "videos": [
                       {
                       },
@@ -15755,9 +15593,7 @@
                     "created_at": "April 22, 2018 09:16",
                     "updated_at": "April 22, 2018 09:16",
                     "task_user": null,
-                    "attachments": [
-
-                    ],
+                    "attachments": [],
                     "videos": [
                       {
                       },
@@ -15913,9 +15749,7 @@
                     "created_at": "April 22, 2018 09:16",
                     "updated_at": "April 22, 2018 09:16",
                     "task_user": null,
-                    "attachments": [
-
-                    ],
+                    "attachments": [],
                     "videos": [
                       {
                       }
@@ -15960,9 +15794,7 @@
                   }
                 }
               },
-              "required": [
-                "errors"
-              ]
+              "required": [ "errors" ]
             },
             "examples": {
               "application/json": {
@@ -15985,9 +15817,7 @@
                   }
                 }
               },
-              "required": [
-                "errors"
-              ]
+              "required": [ "errors" ]
             },
             "examples": {
               "application/json": {
