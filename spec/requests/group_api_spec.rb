@@ -57,19 +57,38 @@ RSpec.describe "Group", type: :request do
     end
 
     describe "search by term" do
-      let!(:groups) do
-        ['Open first', 'Closed second', 'Open third'].each do |title|
-          create :group, organization: organization, title: title
+      context "title" do
+        let!(:groups) do
+          ['Open first', 'Closed second', 'Open third'].each do |title|
+            create :group, organization: organization, title: title
+          end
+        end
+
+        it do
+          sleep 1
+          get "/api/v1/groups", params: { term: 'open', authorization: auth_token_for(current_user) }
+          expect(response.status).to eq(200)
+          expect(json_response["groups"].count).to eq(2)
+          expect(json_response["groups"][0]["title"]).to eq("Open first")
+          expect(json_response["groups"][1]["title"]).to eq("Open third")
         end
       end
 
-      it do
-        sleep 1
-        get "/api/v1/groups", params: { term: 'open', authorization: auth_token_for(current_user) }
-        expect(response.status).to eq(200)
-        expect(json_response["groups"].count).to eq(2)
-        expect(json_response["groups"][0]["title"]).to eq("Open first")
-        expect(json_response["groups"][1]["title"]).to eq("Open third")
+      context "description" do
+        let!(:groups) do
+          ['Open first', 'Closed second', 'Open third'].each do |description|
+            create :group, organization: organization, description: description
+          end
+        end
+
+        it do
+          sleep 1
+          get "/api/v1/groups", params: { term: 'open', authorization: auth_token_for(current_user) }
+          expect(response.status).to eq(200)
+          expect(json_response["groups"].count).to eq(2)
+          expect(json_response["groups"][0]["description"]).to eq("Open first")
+          expect(json_response["groups"][1]["description"]).to eq("Open third")
+        end
       end
     end
   end
