@@ -11,6 +11,7 @@ class GroupUser < ApplicationRecord
       role: role || '',
       status: status || '',
       user_id: user_id,
+      group_id: group_id,
       date_added: created_at,
       organization_id: organization_id
     }
