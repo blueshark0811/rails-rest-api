@@ -8,6 +8,7 @@ class GroupUser < ApplicationRecord
     {
       first_name: first_name || '',
       last_name: last_name || '',
+      email: email || '',
       role: role || '',
       status: status || '',
       user_id: user_id,
@@ -34,7 +35,7 @@ class GroupUser < ApplicationRecord
   after_create_commit { group.reindex }
   after_destroy_commit { group.reindex }
 
-  delegate :first_name, :last_name, to: :user, allow_nil: true
+  delegate :first_name, :last_name, :email, to: :user, allow_nil: true
 
   scope :order_by, ->(sort_field, sort_flag = SORT_FLAGS.first) do
     return unless SORT_FIELDS.include? sort_field
