@@ -9,8 +9,11 @@ class Api::V1::GroupUsersController < Api::V1::ApiController
               { first_name: sort_flag }
             end
 
-    @group_users = GroupUser.search '*',
-      where: policy_condition(GroupUser),
+    where = {}
+    where[:group_id] = @group.id if @group
+
+    @group_users = GroupUser.search params[:term] || '*',
+      where: where.merge(policy_condition(GroupUser)),
       order: order, load: false, page: current_page, per_page: current_count
 
     render_result @group_users
