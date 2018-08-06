@@ -40,90 +40,134 @@ RSpec.describe "Courses", type: :request do
 
 
   context "index" do
-    # it should work for student and teacher if they have access to the groups or courses
-    # for ex. if admin has created 5 groups:
-    #
-    # Group 1 - course 1, course 2, course 3
-    # Group 2 - course 1,
-    # Group 3 - course 1, course 2
-    # Group 4 - course 3
-    # Group 5 - course 2
-    #
-    # student 1 is assigned group 2
-    #
-    # so even if student searches for course 2, it should not work
-    #
-    # as student has no access to it
+    context "3 courses" do
+      # it should work for student and teacher if they have access to the groups or courses
+      # for ex. if admin has created 5 groups:
+      #
+      # Group 1 - course 1, course 2, course 3
+      # Group 2 - course 1,
+      # Group 3 - course 1, course 2
+      # Group 4 - course 3
+      # Group 5 - course 2
+      #
+      # student 1 is assigned group 2
+      #
+      # so even if student searches for course 2, it should not work
+      #
+      # as student has no access to it
 
-    let!(:algebra_course) {
-      create :course, organization_id: organization.id, with_organization: false, title: "Basic Algebra", description: <<STR
+      let!(:algebra_course) {
+        create :course, organization_id: organization.id, with_organization: false, title: "Basic Algebra", description: <<STR
 Algebra (from Arabic "al-jabr", literally meaning "reunion of broken parts"[1]) is one of the broad parts of mathematics, together with number theory, geometry and analysis.
 STR
-    }
+      }
 
-    let!(:chemistry_course) {
-      create :course, organization_id: organization.id, with_organization: false, title: "Basic Chemistry", description: <<STR
+      let!(:chemistry_course) {
+        create :course, organization_id: organization.id, with_organization: false, title: "Basic Chemistry", description: <<STR
 Chemistry is the scientific discipline involved with compounds composed of atoms, i.e. elements, and molecules, i.e. combinations of atoms: their composition, structure, properties, behavior and the changes they undergo during a reaction with other compounds.
 STR
-    }
+      }
 
-    let!(:history_course) {
-      create :course, organization_id: organization.id, with_organization: false, title: "Basic History", description: <<STR
+      let!(:history_course) {
+        create :course, organization_id: organization.id, with_organization: false, title: "Basic History", description: <<STR
 History (from Greek ἱστορία, historia, meaning "inquiry, knowledge acquired by investigation")[2] is the study of the past as it is described in written documents.[3][4] Events occurring before written record are considered prehistory.
 STR
-    }
+      }
 
-    let!(:groups) do
-      create_list :group, 5, organization: organization
-    end
+      let!(:groups) do
+        create_list :group, 5, organization: organization
+      end
 
-    before do
-      create :course_group, course: algebra_course, group: groups[0], precourse: nil
-      create :course_group, course: chemistry_course, group: groups[0], precourse: nil
-      create :course_group, course: history_course, group: groups[0], precourse: nil
-
-      create :course_group, course: algebra_course, group: groups[1], precourse: nil
-
-      create :course_group, course: algebra_course, group: groups[2], precourse: nil
-      create :course_group, course: chemistry_course, group: groups[2], precourse: nil
-
-      create :course_group, course: history_course, group: groups[3], precourse: nil
-      create :course_group, course: chemistry_course, group: groups[4], precourse: nil
-    end
-
-    context do
       before do
-        create :group_user, user: current_user, group: groups[1]
+        create :course_group, course: algebra_course, group: groups[0], precourse: nil
+        create :course_group, course: chemistry_course, group: groups[0], precourse: nil
+        create :course_group, course: history_course, group: groups[0], precourse: nil
+
+        create :course_group, course: algebra_course, group: groups[1], precourse: nil
+
+        create :course_group, course: algebra_course, group: groups[2], precourse: nil
+        create :course_group, course: chemistry_course, group: groups[2], precourse: nil
+
+        create :course_group, course: history_course, group: groups[3], precourse: nil
+        create :course_group, course: chemistry_course, group: groups[4], precourse: nil
       end
 
-      context "student" do
-        let(:current_user) { create :student, organization: organization }
+      context do
+        before do
+          create :group_user, user: current_user, group: groups[1]
+        end
 
-        it_behaves_like "user has correct authorization"
+        context "student" do
+          let(:current_user) { create :student, organization: organization }
+
+          it_behaves_like "user has correct authorization"
+        end
+
+        context "teacher" do
+          let(:current_user) { create :teacher, organization: organization }
+
+          it_behaves_like "user has correct authorization"
+        end
       end
 
-      context "teacher" do
-        let(:current_user) { create :teacher, organization: organization }
+      context "searching by term" do
+        before do
+          create :group_user, user: current_user, group: groups[2]
+        end
 
-        it_behaves_like "user has correct authorization"
+        context "student" do
+          let(:current_user) { create :student, organization: organization }
+
+          it_behaves_like "should not find History"
+        end
+
+        context "teacher" do
+          let(:current_user) { create :teacher, organization: organization }
+
+          it_behaves_like "should not find History"
+        end
       end
     end
 
-    context "searching by term" do
+    context '["AlphaCourse2", "First Course", "AlphaCourse1", "AttachCourse"] case' do
+      let!(:group) { create :group, organization: organization }
+      let!(:current_user) { create(:student, organization_ids: [organization.id], with_organization: false) }
+
+      let!(:alpha_course_2) do
+        create :course, title: "AlphaCourse2", organization_id: organization.id, with_organization: false, user: nil, description: ""
+      end
+      let!(:first_course) do
+        create :course, title: "First Course", organization_id: organization.id, with_organization: false, user: nil, description: ""
+      end
+      let!(:alpha_course_1) do
+        create :course, title: "AlphaCourse1", organization_id: organization.id, with_organization: false, user: nil, description: ""
+      end
+      let!(:attach_course) do
+        create :course, title: "AttachCourse", organization_id: organization.id, with_organization: false, user: nil, description: ""
+      end
+
       before do
-        create :group_user, user: current_user, group: groups[2]
+        create :course_group, course: alpha_course_2, group: group, precourse: nil
+        create :course_group, course: first_course, group: group, precourse: nil
+        create :course_group, course: alpha_course_1, group: group, precourse: nil
+        create :course_group, course: attach_course, group: group, precourse: nil
+
+        create :group_user, user: current_user, group: group
       end
 
-      context "student" do
-        let(:current_user) { create :student, organization: organization }
-
-        it_behaves_like "should not find History"
+      it do
+        sleep 1 # because of CourseUserJob performed async
+        get "/api/v1/groups/#{group.id}/courses", params: { organization_id: organization.id, authorization: auth_token_for(current_user) }
+        expect(response.status).to eq(200)
+        expect(json_response["courses"].count).to eq(4)
       end
 
-      context "teacher" do
-        let(:current_user) { create :teacher, organization: organization }
+      it do
+        sleep 2 # because of CourseUserJob performed async
+        get "/api/v1/groups/#{group.id}/courses", params: { term: 'Course', organization_id: organization.id, authorization: auth_token_for(current_user) }
 
-        it_behaves_like "should not find History"
+        expect(response.status).to eq(200)
+        expect(json_response["courses"].count).to eq(4)
       end
     end
   end
