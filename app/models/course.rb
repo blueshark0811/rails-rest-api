@@ -6,7 +6,7 @@ class Course < ApplicationRecord
   mount_base64_uploader :image, ImageUploader
   mount_base64_uploader :banner_image, ImageUploader
 
-  searchkick callbacks: :async, word_start: SEARCH_FIELDS, searchable: SEARCH_FIELDS
+  searchkick callbacks: :async, word_start: SEARCH_FIELDS, searchable: SEARCH_FIELDS, word_middle: [:title]
   def search_data
     attributes.merge(
       group_ids: group_ids,

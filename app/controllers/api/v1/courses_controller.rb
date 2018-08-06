@@ -25,14 +25,14 @@ class Api::V1::CoursesController < Api::V1::ApiController
 
     where[:group_ids] = @group.id if @group
 
-
     @courses = Course.search params[:term] || '*',
-      where: where.merge(policy_condition(Course)),
+      where: policy_condition(Course).merge(where),
       order: order,
       load: false,
       page: current_page,
       per_page: current_count,
-      match: :word_start
+      match: :word_middle,
+      fields: %w(title^10 description)
 
     render_result @courses
   end
