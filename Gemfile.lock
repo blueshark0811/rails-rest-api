@@ -220,7 +220,7 @@ GEM
     pry-nav (0.2.4)
       pry (>= 0.9.10, < 0.11.0)
     public_suffix (3.0.2)
-    puma (3.11.4)
+    puma (3.12.4)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
     rack (2.0.5)
@@ -427,7 +427,7 @@ DEPENDENCIES
   pghero
   pry (= 0.10)
   pry-nav (~> 0.2.4)
-  puma (~> 3.7)
+  puma (~> 3.12)
   pundit
   rack-cors
   rails (~> 5.1.4)
