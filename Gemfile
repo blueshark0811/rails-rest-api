@@ -35,7 +35,7 @@ gem "whenever"
 gem "daemons"
 
 gem 'active_model_serializers'#, path: './lib/active_model_serializers'
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 gem 'carrierwave-base64'
  gem 'mini_magick'
 gem 'rmagick'
